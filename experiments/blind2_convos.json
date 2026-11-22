@@ -1,0 +1,485 @@
+[
+ {
+  "id": 1,
+  "turns": [
+   "hey",
+   "not much, just got home from work",
+   "it was long. my boss kept piling stuff on me",
+   "yeah. do you ever get tired?",
+   "lol fair",
+   "anyway, I have a dog named Biscuit",
+   "he's a beagle",
+   "what's my dog called?"
+  ]
+ },
+ {
+  "id": 2,
+  "turns": [
+   "hi ovi",
+   "how are you today?",
+   "and you?",
+   "same old",
+   "I got a promotion today!!",
+   "thanks! I'm so excited",
+   "what should I do to celebrate?",
+   "why that?"
+  ]
+ },
+ {
+  "id": 3,
+  "turns": [
+   "yo",
+   "my name is Priya",
+   "I work as a nurse",
+   "what do you do for a living?",
+   "what's my job again?",
+   "ok cool"
+  ]
+ },
+ {
+  "id": 4,
+  "turns": [
+   "I'm so stressed about exams",
+   "like really",
+   "I haven't slept",
+   "any advice?",
+   "hmm ok",
+   "thanks ovi"
+  ]
+ },
+ {
+  "id": 5,
+  "turns": [
+   "hello",
+   "what's your name?",
+   "who made you?",
+   "are you a robot?",
+   "do you have feelings?",
+   "that's kinda sad",
+   "nah it's ok"
+  ]
+ },
+ {
+  "id": 6,
+  "turns": [
+   "my sister is so stressed lately",
+   "she just started a new job",
+   "I worry about her",
+   "what should I tell her?",
+   "ok I'll try",
+   "thx"
+  ]
+ },
+ {
+  "id": 7,
+  "turns": [
+   "hi",
+   "I live in Toronto",
+   "it's freezing here",
+   "what's the capital of canada?",
+   "and australia?",
+   "why?",
+   "what city do I live in?"
+  ]
+ },
+ {
+  "id": 8,
+  "turns": [
+   "the capital of spain is Madrid",
+   "what is the capital of spain?",
+   "and italy?",
+   "the capital of italy is Rome",
+   "what is the capital of italy?",
+   "ok good"
+  ]
+ },
+ {
+  "id": 9,
+  "turns": [
+   "sup",
+   "wanna hear a joke?",
+   "tell me one",
+   "haha ok",
+   "another",
+   "meh",
+   "lol bye"
+  ]
+ },
+ {
+  "id": 10,
+  "turns": [
+   "I love hiking",
+   "especially in the mountains",
+   "last weekend I went to Colorado",
+   "it was amazing",
+   "do you like the outdoors?",
+   "what do I love?",
+   "where did I go last weekend?"
+  ]
+ },
+ {
+  "id": 11,
+  "turns": [
+   "my favorite food is pizza",
+   "what's yours?",
+   "do you eat?",
+   "ok whatever",
+   "what's my favorite food?",
+   "good memory"
+  ]
+ },
+ {
+  "id": 12,
+  "turns": [
+   "ugh",
+   "I hate Mondays",
+   "my alarm didn't go off",
+   "and then my car wouldn't start",
+   "everything is going wrong",
+   "yeah",
+   "thanks for listening"
+  ]
+ },
+ {
+  "id": 13,
+  "turns": [
+   "hi, I'm Marcus",
+   "I play guitar",
+   "been playing for ten years",
+   "do you like music?",
+   "what instrument do I play?",
+   "how long have I played?",
+   "cool"
+  ]
+ },
+ {
+  "id": 14,
+  "turns": [
+   "what's up",
+   "nothing",
+   "k",
+   "hm",
+   "idk",
+   "bored",
+   "entertain me",
+   "ok that was lame"
+  ]
+ },
+ {
+  "id": 15,
+  "turns": [
+   "I just adopted a cat",
+   "her name is Luna",
+   "she's so tiny",
+   "she's black with white paws",
+   "what's my cat's name?",
+   "what color is she?",
+   "aww"
+  ]
+ },
+ {
+  "id": 16,
+  "turns": [
+   "do you think I should quit my job?",
+   "I hate it",
+   "the pay is bad",
+   "but I'm scared",
+   "what would you do?",
+   "hmm",
+   "ok thanks"
+  ]
+ },
+ {
+  "id": 17,
+  "turns": [
+   "hey ovi, teach you something",
+   "the tallest mountain in the world is Everest",
+   "what is the tallest mountain?",
+   "what about the second tallest?",
+   "ok I'll tell you later",
+   "bye"
+  ]
+ },
+ {
+  "id": 18,
+  "turns": [
+   "hi there",
+   "I've had a rough week to be honest, my grandmother is in the hospital and I've been going back and forth every day and also work has been crazy and I barely eat",
+   "she's 87 and she's tough but still",
+   "I just feel helpless",
+   "yeah",
+   "what do I do",
+   "thanks for being here"
+  ]
+ },
+ {
+  "id": 19,
+  "turns": [
+   "lol u there",
+   "wat r u doin",
+   "nm u",
+   "k",
+   "brb",
+   "back",
+   "did u miss me",
+   "aw"
+  ]
+ },
+ {
+  "id": 20,
+  "turns": [
+   "my brother just got engaged!",
+   "he's marrying his college girlfriend",
+   "I'm so happy for him",
+   "I have to give a toast lol",
+   "any tips?",
+   "what if I mess up?",
+   "ok"
+  ]
+ },
+ {
+  "id": 21,
+  "turns": [
+   "tell me about yourself",
+   "what can you do?",
+   "can you remember things?",
+   "I'm Dana, remember that",
+   "what's my name?",
+   "what do you remember about me?"
+  ]
+ },
+ {
+  "id": 22,
+  "turns": [
+   "i live in berlin",
+   "i work at a bakery",
+   "i love bread haha",
+   "my coworker is annoying",
+   "she talks so loud",
+   "what do you think I should do?",
+   "what's my job?",
+   "where do I live?"
+  ]
+ },
+ {
+  "id": 23,
+  "turns": [
+   "good morning",
+   "slept badly",
+   "had weird dreams",
+   "about flying",
+   "what do you think dreams mean?",
+   "interesting",
+   "what did I dream about?"
+  ]
+ },
+ {
+  "id": 24,
+  "turns": [
+   "hey I passed my driving test!",
+   "finally after three tries",
+   "I'm so relieved",
+   "I want to road trip somewhere",
+   "where should I go?",
+   "why there?",
+   "nice idea"
+  ]
+ },
+ {
+  "id": 25,
+  "turns": [
+   "what's the capital of germany?",
+   "and france?",
+   "and poland?",
+   "why do you know that?",
+   "what was the first one I asked?",
+   "ok"
+  ]
+ },
+ {
+  "id": 26,
+  "turns": [
+   "my dad is retiring next month",
+   "he's been a teacher for 35 years",
+   "I'm proud of him",
+   "but he'll be bored",
+   "what should he do?",
+   "good point",
+   "he likes fishing actually",
+   "oh right, so maybe that"
+  ]
+ },
+ {
+  "id": 27,
+  "turns": [
+   "hi",
+   "do you like pizza?",
+   "what about pineapple on it?",
+   "I think it's fine",
+   "you're weird",
+   "haha",
+   "okay bye"
+  ]
+ },
+ {
+  "id": 28,
+  "turns": [
+   "I'm Lena",
+   "I'm 25",
+   "I love painting",
+   "what do I love?",
+   "how old am I?",
+   "what's my name?"
+  ]
+ },
+ {
+  "id": 29,
+  "turns": [
+   "so tired",
+   "too many deadlines",
+   "my team doesn't help",
+   "I want to scream",
+   "is that normal?",
+   "ok",
+   "what should I eat tonight?",
+   "pasta maybe",
+   "ya"
+  ]
+ },
+ {
+  "id": 30,
+  "turns": [
+   "whats the weather like",
+   "do you know?",
+   "fine",
+   "I wish it was summer",
+   "my favorite season is summer",
+   "why do you think people like summer?",
+   "what's my favorite season?"
+  ]
+ },
+ {
+  "id": 31,
+  "turns": [
+   "I have a test tomorrow",
+   "math",
+   "I hate math",
+   "it's so hard",
+   "can you help me?",
+   "what's 12 times 12?",
+   "thanks",
+   "I'm still nervous"
+  ]
+ },
+ {
+  "id": 32,
+  "turns": [
+   "my friend Tom is sad because his dog died",
+   "I don't know what to say",
+   "he loved that dog so much",
+   "what do I say to him?",
+   "ok I'll call him",
+   "thank you"
+  ]
+ },
+ {
+  "id": 33,
+  "turns": [
+   "I'm going to Japan next year!",
+   "I'm so excited",
+   "I've wanted to go forever",
+   "what's the capital?",
+   "what should I see?",
+   "I like sushi",
+   "what do I like?",
+   "where am I going?"
+  ]
+ },
+ {
+  "id": 34,
+  "turns": [
+   "hello ovi",
+   "I want to learn something",
+   "what is a noun?",
+   "and a verb?",
+   "give me an example",
+   "ok",
+   "what was the first thing I asked?"
+  ]
+ },
+ {
+  "id": 35,
+  "turns": [
+   "i feel kinda lonely",
+   "moved to a new city",
+   "dont know anyone",
+   "how do I make friends?",
+   "yeah I guess",
+   "I like board games",
+   "maybe I'll join a club",
+   "thanks"
+  ]
+ },
+ {
+  "id": 36,
+  "turns": [
+   "hi",
+   "I run every morning",
+   "5k usually",
+   "my knees hurt tho",
+   "should I stop?",
+   "ok",
+   "what do I do every morning?"
+  ]
+ },
+ {
+  "id": 37,
+  "turns": [
+   "happy friday!",
+   "got plans?",
+   "I'm going to a concert",
+   "my favorite band is Radiohead",
+   "have you heard of them?",
+   "what's my favorite band?",
+   "nice",
+   "bye"
+  ]
+ },
+ {
+  "id": 38,
+  "turns": [
+   "I bombed my interview",
+   "like I froze",
+   "I couldn't answer anything",
+   "I feel stupid",
+   "I'm not stupid right?",
+   "thanks",
+   "what now?",
+   "ok I'll apply again"
+  ]
+ },
+ {
+  "id": 39,
+  "turns": [
+   "my mom makes the best lasagna",
+   "she's Italian",
+   "she lives in Naples",
+   "I miss her cooking",
+   "I should visit",
+   "what's the capital of italy?",
+   "where does my mom live?",
+   "what does she make?"
+  ]
+ },
+ {
+  "id": 40,
+  "turns": [
+   "omg you won't believe it, I won tickets to a basketball game",
+   "my uncle plays for a local team",
+   "he taught me to shoot hoops",
+   "what sport do you like?",
+   "what did I win?",
+   "who taught me basketball?"
+  ]
+ }
+]

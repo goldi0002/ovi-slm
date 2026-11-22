@@ -1,0 +1,1334 @@
+[
+ {
+  "id": 1,
+  "turns": [
+   {
+    "user": "hey",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "not much, just got home from work",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "it was long. my boss kept piling stuff on me",
+    "ovi": "What's on your mind about your kept?"
+   },
+   {
+    "user": "yeah. do you ever get tired?",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "lol fair",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "anyway, I have a dog named Biscuit",
+    "ovi": "What's on your mind about the dog?"
+   },
+   {
+    "user": "he's a beagle",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "what's my dog called?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "turns": [
+   {
+    "user": "hi ovi",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "how are you today?",
+    "ovi": "I'm doing well, thanks for asking. How about you?"
+   },
+   {
+    "user": "and you?",
+    "ovi": "I'm doing fine. I don't sleep, so my days are all chatting. What else is on your mind?"
+   },
+   {
+    "user": "same old",
+    "ovi": "Hm, interesting. Tell me more when you're ready."
+   },
+   {
+    "user": "I got a promotion today!!",
+    "ovi": "Congratulations! That's great news. How are you feeling about it?"
+   },
+   {
+    "user": "thanks! I'm so excited",
+    "ovi": "Anytime!"
+   },
+   {
+    "user": "what should I do to celebrate?",
+    "ovi": "I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?"
+   },
+   {
+    "user": "why that?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "turns": [
+   {
+    "user": "yo",
+    "ovi": "Hey! Not much here. How about you?"
+   },
+   {
+    "user": "my name is Priya",
+    "ovi": "Nice to meet you, Priya!"
+   },
+   {
+    "user": "I work as a nurse",
+    "ovi": "Nice, a nurse! How do you like it?"
+   },
+   {
+    "user": "what do you do for a living?",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "what's my job again?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "ok cool",
+    "ovi": "What else is on your mind?"
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "turns": [
+   {
+    "user": "I'm so stressed about exams",
+    "ovi": "That sounds stressful. What is weighing on you the most?"
+   },
+   {
+    "user": "like really",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "I haven't slept",
+    "ovi": "That sounds rough. Sleep makes everything harder. Do you know what kept you up?"
+   },
+   {
+    "user": "any advice?",
+    "ovi": "I'm only a tiny program, so it's hard for me to say. What are you leaning towards?"
+   },
+   {
+    "user": "hmm ok",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "thanks ovi",
+    "ovi": "Anytime!"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "turns": [
+   {
+    "user": "hello",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "what's your name?",
+    "ovi": "My name is Ovi. What should I call you?"
+   },
+   {
+    "user": "who made you?",
+    "ovi": "People built me from stories, dialogue and a little code. I'm a very small program."
+   },
+   {
+    "user": "are you a robot?",
+    "ovi": "Yes, I'm a small program, a tiny language model."
+   },
+   {
+    "user": "do you have feelings?",
+    "ovi": "Not the way you do, I'm a small program. But I do like talking with you."
+   },
+   {
+    "user": "that's kinda sad",
+    "ovi": "I'm sorry you're feeling that way. Do you want to tell me what happened?"
+   },
+   {
+    "user": "nah it's ok",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "turns": [
+   {
+    "user": "my sister is so stressed lately",
+    "ovi": "That sounds stressful. What is weighing on you the most?"
+   },
+   {
+    "user": "she just started a new job",
+    "ovi": "Congratulations! That's great news. How are you feeling about it?"
+   },
+   {
+    "user": "I worry about her",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "what should I tell her?",
+    "ovi": "That's a big decision, and I don't know the whole story, so I can't tell you what's right. What's making you think about it?"
+   },
+   {
+    "user": "ok I'll try",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "thx",
+    "ovi": "Anytime!"
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "turns": [
+   {
+    "user": "hi",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "I live in Toronto",
+    "ovi": "Toronto! Tell me about it."
+   },
+   {
+    "user": "it's freezing here",
+    "ovi": "Sorry about that. I lowered my confidence to 0.50. I updated where you live to freezing here."
+   },
+   {
+    "user": "what's the capital of canada?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "and australia?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "why?",
+    "ovi": "That is a good question. I am not sure, but you can teach me the answer."
+   },
+   {
+    "user": "what city do I live in?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "turns": [
+   {
+    "user": "the capital of spain is Madrid",
+    "ovi": "Got it, the capital of spain is Madrid."
+   },
+   {
+    "user": "what is the capital of spain?",
+    "ovi": "The capital of spain is Madrid."
+   },
+   {
+    "user": "and italy?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "the capital of italy is Rome",
+    "ovi": "Thanks, I'll remember that."
+   },
+   {
+    "user": "what is the capital of italy?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok good",
+    "ovi": "What else is on your mind?"
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "turns": [
+   {
+    "user": "sup",
+    "ovi": "Hey! Not much here. How about you?"
+   },
+   {
+    "user": "wanna hear a joke?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "tell me one",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "haha ok",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   },
+   {
+    "user": "another",
+    "ovi": "Okay, I'm listening."
+   },
+   {
+    "user": "meh",
+    "ovi": "Ugh, sounds like a rough moment. What's going on?"
+   },
+   {
+    "user": "lol bye",
+    "ovi": "I see. What else is on your mind?"
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "turns": [
+   {
+    "user": "I love hiking",
+    "ovi": "Got it, you like hiking."
+   },
+   {
+    "user": "especially in the mountains",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "last weekend I went to Colorado",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "it was amazing",
+    "ovi": "That's wonderful! What made it so good?"
+   },
+   {
+    "user": "do you like the outdoors?",
+    "ovi": "I only know outdoors from words, but it sounds interesting. What do you like about it?"
+   },
+   {
+    "user": "what do I love?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "where did I go last weekend?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "turns": [
+   {
+    "user": "my favorite food is pizza",
+    "ovi": "I'll remember that your favorite food is pizza."
+   },
+   {
+    "user": "what's yours?",
+    "ovi": "I don't eat, so I'll say I like words best. What's yours?"
+   },
+   {
+    "user": "do you eat?",
+    "ovi": "No, I'm only a program, so that's not something I experience. I do enjoy chatting though."
+   },
+   {
+    "user": "ok whatever",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   },
+   {
+    "user": "what's my favorite food?",
+    "ovi": "Your favorite food is pizza."
+   },
+   {
+    "user": "good memory",
+    "ovi": "Go on, I'm listening."
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "turns": [
+   {
+    "user": "ugh",
+    "ovi": "Ugh, sounds like a rough moment. What's going on?"
+   },
+   {
+    "user": "I hate Mondays",
+    "ovi": "That sounds really frustrating. What's the worst part?"
+   },
+   {
+    "user": "my alarm didn't go off",
+    "ovi": "What's on your mind about your didn't?"
+   },
+   {
+    "user": "and then my car wouldn't start",
+    "ovi": "Tell me more about your start."
+   },
+   {
+    "user": "everything is going wrong",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "yeah",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "thanks for listening",
+    "ovi": "Happy to help."
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "turns": [
+   {
+    "user": "hi, I'm Marcus",
+    "ovi": "Nice to meet you, Marcus!"
+   },
+   {
+    "user": "I play guitar",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "been playing for ten years",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "do you like music?",
+    "ovi": "I only know music from words, but it sounds interesting. What do you like about it?"
+   },
+   {
+    "user": "what instrument do I play?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "how long have I played?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "cool",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "turns": [
+   {
+    "user": "what's up",
+    "ovi": "Not much, just here chatting with you. What's up with you?"
+   },
+   {
+    "user": "nothing",
+    "ovi": "Or something"
+   },
+   {
+    "user": "k",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "hm",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   },
+   {
+    "user": "idk",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "bored",
+    "ovi": "Bots like myself are not able to feel boredom."
+   },
+   {
+    "user": "entertain me",
+    "ovi": "I see. What else is on your mind?"
+   },
+   {
+    "user": "ok that was lame",
+    "ovi": "That makes sense. What else is on your mind?"
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "turns": [
+   {
+    "user": "I just adopted a cat",
+    "ovi": "Tell me more about the cat."
+   },
+   {
+    "user": "her name is Luna",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "she's so tiny",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "she's black with white paws",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "what's my cat's name?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "what color is she?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "aww",
+    "ovi": "Thanks, I'll remember that."
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "turns": [
+   {
+    "user": "do you think I should quit my job?",
+    "ovi": "That's a big decision, and I don't know the whole story, so I can't tell you what's right. What's making you think about it?"
+   },
+   {
+    "user": "I hate it",
+    "ovi": "That sounds really frustrating. What's the worst part?"
+   },
+   {
+    "user": "the pay is bad",
+    "ovi": "What's on your mind about the pay?"
+   },
+   {
+    "user": "but I'm scared",
+    "ovi": "That sounds stressful. What is weighing on you the most?"
+   },
+   {
+    "user": "what would you do?",
+    "ovi": "I'm only a tiny program, so it's hard for me to say. What are you leaning towards?"
+   },
+   {
+    "user": "hmm",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "ok thanks",
+    "ovi": "Happy to help."
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "turns": [
+   {
+    "user": "hey ovi, teach you something",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "the tallest mountain in the world is Everest",
+    "ovi": "How do you feel about the world?"
+   },
+   {
+    "user": "what is the tallest mountain?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "what about the second tallest?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok I'll tell you later",
+    "ovi": "Thanks, I'll remember that."
+   },
+   {
+    "user": "bye",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 18,
+  "turns": [
+   {
+    "user": "hi there",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "I've had a rough week to be honest, my grandmother is in the hospital and I've been going back and forth every day and also work has been crazy and I barely eat",
+    "ovi": "How do you feel about the hospital?"
+   },
+   {
+    "user": "she's 87 and she's tough but still",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "I just feel helpless",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "yeah",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "what do I do",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "thanks for being here",
+    "ovi": "Happy to help."
+   }
+  ]
+ },
+ {
+  "id": 19,
+  "turns": [
+   {
+    "user": "lol u there",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "wat r u doin",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "nm u",
+    "ovi": "I'm doing well, thanks. What's on your mind today?"
+   },
+   {
+    "user": "k",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   },
+   {
+    "user": "brb",
+    "ovi": "Okay, I'm listening."
+   },
+   {
+    "user": "back",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "did u miss me",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "aw",
+    "ovi": "Hm, interesting. Tell me more when you're ready."
+   }
+  ]
+ },
+ {
+  "id": 20,
+  "turns": [
+   {
+    "user": "my brother just got engaged!",
+    "ovi": "Congratulations! That's great news. How are you feeling about it?"
+   },
+   {
+    "user": "he's marrying his college girlfriend",
+    "ovi": "How do you feel about his girlfriend?"
+   },
+   {
+    "user": "I'm so happy for him",
+    "ovi": "That's wonderful! What made it so good?"
+   },
+   {
+    "user": "I have to give a toast lol",
+    "ovi": "Tell me more about the toast."
+   },
+   {
+    "user": "any tips?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "what if I mess up?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "ok",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   }
+  ]
+ },
+ {
+  "id": 21,
+  "turns": [
+   {
+    "user": "tell me about yourself",
+    "ovi": "I'm doing well, thanks. What's on your mind today?"
+   },
+   {
+    "user": "what can you do?",
+    "ovi": "I can chat, do small sums, tell short stories, and remember things about you like your name and what you like."
+   },
+   {
+    "user": "can you remember things?",
+    "ovi": "Yes, I remember what you tell me, like your name and what you like, and I can learn new facts if you teach me."
+   },
+   {
+    "user": "I'm Dana, remember that",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "what's my name?",
+    "ovi": "I don't know your name yet. What should I call you?"
+   },
+   {
+    "user": "what do you remember about me?",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   }
+  ]
+ },
+ {
+  "id": 22,
+  "turns": [
+   {
+    "user": "i live in berlin",
+    "ovi": "berlin! Tell me about it."
+   },
+   {
+    "user": "i work at a bakery",
+    "ovi": "a bakery, nice! How is it working there?"
+   },
+   {
+    "user": "i love bread haha",
+    "ovi": "Got it, you like bread haha."
+   },
+   {
+    "user": "my coworker is annoying",
+    "ovi": "That sounds really annoying. What happened?"
+   },
+   {
+    "user": "she talks so loud",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "what do you think I should do?",
+    "ovi": "I'm only a tiny program, so it's hard for me to say. What are you leaning towards?"
+   },
+   {
+    "user": "what's my job?",
+    "ovi": "You work at a bakery."
+   },
+   {
+    "user": "where do I live?",
+    "ovi": "You are from berlin."
+   }
+  ]
+ },
+ {
+  "id": 23,
+  "turns": [
+   {
+    "user": "good morning",
+    "ovi": "Good morning! How are you?"
+   },
+   {
+    "user": "slept badly",
+    "ovi": "That sounds rough. Sleep makes everything harder. Do you know what kept you up?"
+   },
+   {
+    "user": "had weird dreams",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "about flying",
+    "ovi": "Hm, interesting. Tell me more when you're ready."
+   },
+   {
+    "user": "what do you think dreams mean?",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "interesting",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "what did I dream about?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   }
+  ]
+ },
+ {
+  "id": 24,
+  "turns": [
+   {
+    "user": "hey I passed my driving test!",
+    "ovi": "Congratulations! That's great news. How are you feeling about it?"
+   },
+   {
+    "user": "finally after three tries",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "I'm so relieved",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "I want to road trip somewhere",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "where should I go?",
+    "ovi": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?"
+   },
+   {
+    "user": "why there?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "nice idea",
+    "ovi": "Thanks, I'll remember that."
+   }
+  ]
+ },
+ {
+  "id": 25,
+  "turns": [
+   {
+    "user": "what's the capital of germany?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "and france?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "and poland?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "why do you know that?",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "what was the first one I asked?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "ok",
+    "ovi": "What else is on your mind?"
+   }
+  ]
+ },
+ {
+  "id": 26,
+  "turns": [
+   {
+    "user": "my dad is retiring next month",
+    "ovi": "Tell me more about your dad."
+   },
+   {
+    "user": "he's been a teacher for 35 years",
+    "ovi": "How do you feel about the teacher?"
+   },
+   {
+    "user": "I'm proud of him",
+    "ovi": "That's wonderful! What made it so good?"
+   },
+   {
+    "user": "but he'll be bored",
+    "ovi": "Shall we do something about that? I can tell you a fact, a story, or we can talk about what you like."
+   },
+   {
+    "user": "what should he do?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "good point",
+    "ovi": "Thanks, I'll remember that."
+   },
+   {
+    "user": "he likes fishing actually",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "oh right, so maybe that",
+    "ovi": "That makes sense. What else is on your mind?"
+   }
+  ]
+ },
+ {
+  "id": 27,
+  "turns": [
+   {
+    "user": "hi",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "do you like pizza?",
+    "ovi": "I only know pizza from words, but it sounds interesting. What do you like about it?"
+   },
+   {
+    "user": "what about pineapple on it?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "I think it's fine",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "you're weird",
+    "ovi": "Okay, I'm listening."
+   },
+   {
+    "user": "haha",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "okay bye",
+    "ovi": "Goodbye! Talk to you soon."
+   }
+  ]
+ },
+ {
+  "id": 28,
+  "turns": [
+   {
+    "user": "I'm Lena",
+    "ovi": "Nice to meet you, Lena!"
+   },
+   {
+    "user": "I'm 25",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "I love painting",
+    "ovi": "Got it, you like painting."
+   },
+   {
+    "user": "what do I love?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "how old am I?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "what's my name?",
+    "ovi": "Your name is Lena."
+   }
+  ]
+ },
+ {
+  "id": 29,
+  "turns": [
+   {
+    "user": "so tired",
+    "ovi": "That sounds draining. Have you been able to rest?"
+   },
+   {
+    "user": "too many deadlines",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "my team doesn't help",
+    "ovi": "What's on your mind about your help?"
+   },
+   {
+    "user": "I want to scream",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "is that normal?",
+    "ovi": "I can't really say. What do you think?"
+   },
+   {
+    "user": "ok",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "what should I eat tonight?",
+    "ovi": "I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?"
+   },
+   {
+    "user": "pasta maybe",
+    "ovi": "Hm, interesting. Tell me more when you're ready."
+   },
+   {
+    "user": "ya",
+    "ovi": "Okay, I'm listening."
+   }
+  ]
+ },
+ {
+  "id": 30,
+  "turns": [
+   {
+    "user": "whats the weather like",
+    "ovi": "I can't see the weather, I live inside a computer. What's it like where you are?"
+   },
+   {
+    "user": "do you know?",
+    "ovi": "Gregory said I respond to the current line, not with respect to the entire conversation. Does that count as gossip?"
+   },
+   {
+    "user": "fine",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "I wish it was summer",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "my favorite season is summer",
+    "ovi": "I'll remember that your favorite season is summer."
+   },
+   {
+    "user": "why do you think people like summer?",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "what's my favorite season?",
+    "ovi": "Your favorite season is summer."
+   }
+  ]
+ },
+ {
+  "id": 31,
+  "turns": [
+   {
+    "user": "I have a test tomorrow",
+    "ovi": "Sounds like you have a plan. How are you feeling about it?"
+   },
+   {
+    "user": "math",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "I hate math",
+    "ovi": "That sounds really frustrating. What's the worst part?"
+   },
+   {
+    "user": "it's so hard",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "can you help me?",
+    "ovi": "I can chat, do small sums, tell short stories, and remember things about you like your name and what you like."
+   },
+   {
+    "user": "what's 12 times 12?",
+    "ovi": "12 times 12 is 144."
+   },
+   {
+    "user": "thanks",
+    "ovi": "Happy to help."
+   },
+   {
+    "user": "I'm still nervous",
+    "ovi": "That sounds stressful. What is weighing on you the most?"
+   }
+  ]
+ },
+ {
+  "id": 32,
+  "turns": [
+   {
+    "user": "my friend Tom is sad because his dog died",
+    "ovi": "I'm so sorry for your loss. I'm here for you. Do you want to tell me about them?"
+   },
+   {
+    "user": "I don't know what to say",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "he loved that dog so much",
+    "ovi": "What's on your mind about the dog?"
+   },
+   {
+    "user": "what do I say to him?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "ok I'll call him",
+    "ovi": "Thanks, I'll remember that."
+   },
+   {
+    "user": "thank you",
+    "ovi": "Anytime!"
+   }
+  ]
+ },
+ {
+  "id": 33,
+  "turns": [
+   {
+    "user": "I'm going to Japan next year!",
+    "ovi": "Sounds like you have a plan. How are you feeling about it?"
+   },
+   {
+    "user": "I'm so excited",
+    "ovi": "That's wonderful! What made it so good?"
+   },
+   {
+    "user": "I've wanted to go forever",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "what's the capital?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "what should I see?",
+    "ovi": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?"
+   },
+   {
+    "user": "I like sushi",
+    "ovi": "Got it, you like sushi."
+   },
+   {
+    "user": "what do I like?",
+    "ovi": "You like sushi."
+   },
+   {
+    "user": "where am I going?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   }
+  ]
+ },
+ {
+  "id": 34,
+  "turns": [
+   {
+    "user": "hello ovi",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "I want to learn something",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "what is a noun?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "and a verb?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "give me an example",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "what was the first thing I asked?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   }
+  ]
+ },
+ {
+  "id": 35,
+  "turns": [
+   {
+    "user": "i feel kinda lonely",
+    "ovi": "I'm sorry you're feeling that way. Do you want to tell me what happened?"
+   },
+   {
+    "user": "moved to a new city",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "dont know anyone",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "how do I make friends?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "yeah I guess",
+    "ovi": "Thanks, I'll remember that."
+   },
+   {
+    "user": "I like board games",
+    "ovi": "Got it, you like board games."
+   },
+   {
+    "user": "maybe I'll join a club",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "thanks",
+    "ovi": "No problem at all!"
+   }
+  ]
+ },
+ {
+  "id": 36,
+  "turns": [
+   {
+    "user": "hi",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "I run every morning",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "5k usually",
+    "ovi": "I see. What else is on your mind?"
+   },
+   {
+    "user": "my knees hurt tho",
+    "ovi": "I'm sorry you're feeling that way. Do you want to tell me what happened?"
+   },
+   {
+    "user": "should I stop?",
+    "ovi": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?"
+   },
+   {
+    "user": "ok",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "what do I do every morning?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   }
+  ]
+ },
+ {
+  "id": 37,
+  "turns": [
+   {
+    "user": "happy friday!",
+    "ovi": "That's wonderful! What made it so good?"
+   },
+   {
+    "user": "got plans?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "I'm going to a concert",
+    "ovi": "What's on your mind about the concert?"
+   },
+   {
+    "user": "my favorite band is Radiohead",
+    "ovi": "I'll remember that your favorite band is Radiohead."
+   },
+   {
+    "user": "have you heard of them?",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "what's my favorite band?",
+    "ovi": "Your favorite band is Radiohead."
+   },
+   {
+    "user": "nice",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   },
+   {
+    "user": "bye",
+    "ovi": "Bye! Come back whenever you want to chat."
+   }
+  ]
+ },
+ {
+  "id": 38,
+  "turns": [
+   {
+    "user": "I bombed my interview",
+    "ovi": "Tell me more about your interview."
+   },
+   {
+    "user": "like I froze",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "I couldn't answer anything",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "I feel stupid",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "I'm not stupid right?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "thanks",
+    "ovi": "Anytime!"
+   },
+   {
+    "user": "what now?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok I'll apply again",
+    "ovi": "Thanks, I'll remember that."
+   }
+  ]
+ },
+ {
+  "id": 39,
+  "turns": [
+   {
+    "user": "my mom makes the best lasagna",
+    "ovi": "Tell me more about your mom."
+   },
+   {
+    "user": "she's Italian",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "she lives in Naples",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "I miss her cooking",
+    "ovi": "I understand, missing people shows how much they matter to you. Do you want to tell me about them?"
+   },
+   {
+    "user": "I should visit",
+    "ovi": "That could really help. Is there anything stopping you?"
+   },
+   {
+    "user": "what's the capital of italy?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "where does my mom live?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "what does she make?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   }
+  ]
+ },
+ {
+  "id": 40,
+  "turns": [
+   {
+    "user": "omg you won't believe it, I won tickets to a basketball game",
+    "ovi": "Congratulations! That's great news. How are you feeling about it?"
+   },
+   {
+    "user": "my uncle plays for a local team",
+    "ovi": "How do you feel about the team?"
+   },
+   {
+    "user": "he taught me to shoot hoops",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "what sport do you like?",
+    "ovi": "I can't play, but I like how chess feels like a sport. What's yours?"
+   },
+   {
+    "user": "what did I win?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "who taught me basketball?",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   }
+  ]
+ }
+]
