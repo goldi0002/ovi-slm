@@ -177,7 +177,8 @@ Commands (you are the parent):
             _out.WriteLine(r.Heard is null ? "  Baby: *stares around* (nothing in view)" : "  Baby: *listens* (no idea what that word means yet)");
 
         if (r.NewlyConsolidated) _out.WriteLine("  Baby: (this pattern keeps repeating - it sticks in long-term memory)");
-        if (r.Said is not null) _out.WriteLine($"  Baby: \"{r.Said}\"   (confidence {r.Confidence:0.00})");
+        if (r.Said is not null)
+            _out.WriteLine($"  Baby: \"{r.Said}\"   (confidence {r.Confidence:0.00}{(r.Basis is null ? "" : "; generalising: " + r.Basis)})");
         else if (r.Observation is not null) _out.WriteLine("  Baby: ...");
     }
 

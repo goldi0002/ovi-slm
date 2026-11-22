@@ -7,8 +7,9 @@ namespace BabyMind;
 /// <param name="Heard">Word that was spoken to it this tick, if any.</param>
 /// <param name="Evoked">When a word is heard with nothing in view: the concept it brings to mind.</param>
 /// <param name="NewlyConsolidated">True if a repeated pattern became lasting knowledge this tick.</param>
+/// <param name="Basis">When the baby said a word by generalising (not because this exact thing was named), why.</param>
 public sealed record Response(Observation? Observation, string? Said, double Confidence, string? Heard,
-                              (Concept Concept, double Weight)? Evoked, bool NewlyConsolidated);
+                              (Concept Concept, double Weight)? Evoked, bool NewlyConsolidated, string? Basis = null);
 
 /// <summary>What the baby did on its own during <see cref="Baby.Act"/>.</summary>
 public sealed record ActResult(BabyAction Action, string State, string? Said, Observation? Observation);
@@ -28,13 +29,16 @@ public sealed class Baby
     public Memory Memory { get; }
     public ActionSelector Selector { get; }
     public Phrases Phrases { get; }
+    public WordMeanings Meanings { get; }
     public long Tick { get; private set; }
 
     /// <summary>Concept most recently attended to and the word the baby last said — used for praise/correction.</summary>
     public int? LastConceptId { get; private set; }
     public string? LastSaid { get; private set; }
+    private string? _lastUtterance;       // everything said at the last look, incl. generalised words
+    private float[]? _lastFeatures;
 
-    public Baby(ConceptMap? map = null, Associations? assoc = null, Drives? drives = null, Memory? memory = null, long tick = 0, ActionSelector? selector = null, Phrases? phrases = null)
+    public Baby(ConceptMap? map = null, Associations? assoc = null, Drives? drives = null, Memory? memory = null, long tick = 0, ActionSelector? selector = null, Phrases? phrases = null, WordMeanings? meanings = null)
     {
         Map = map ?? new ConceptMap(World.Dim);
         Assoc = assoc ?? new Associations();
@@ -42,6 +46,7 @@ public sealed class Baby
         Memory = memory ?? new Memory();
         Selector = selector ?? new ActionSelector();
         Phrases = phrases ?? new Phrases();
+        Meanings = meanings ?? new WordMeanings(World.FeatureGroups);
         Tick = tick;
     }
 
@@ -70,6 +75,9 @@ public sealed class Baby
             Drives.Satisfy(DriveKind.Attention, 0.3);                 // the parent talking to me feels good
             for (int i = 0; i + 1 < words.Count; i++)
                 Phrases.Hear(words[i], words[i + 1]);                 // word order: "more" -> "milk"
+            if (sight is { } sg && obs is { } seenNow)
+                foreach (var w in words)                              // every word learns what it goes with
+                    Meanings.Hear(w, sg.Features, seenNow.Concept.Id);
             if (obs is { } ob)
             {
                 Assoc.Hear(ob.Concept.Id, label);
@@ -89,16 +97,60 @@ public sealed class Baby
             Memory.Record(Tick, ob2.Concept.Id, null);
         }
 
-        // 3. Speak: name what I see if the link is strong enough.
-        string? said = null; double conf = 0;
+        // 3. Speak: say what I see, using the concept's name and/or words generalised from other things.
+        string? said = null; double conf = 0; string? basis = null;
         if (obs is { } seen)
         {
             LastConceptId = seen.Concept.Id;
-            if (Assoc.Produce(seen.Concept.Id) is { } p && p.Weight >= SpeakThreshold)
-                (said, conf) = (p.Word, p.Weight);
-            LastSaid = said;
+            var feats = sight!.Value.Features;
+            (said, conf, basis, LastSaid) = Name(seen.Concept.Id, feats);
+            _lastUtterance = said;
+            _lastFeatures = feats;
         }
-        return new Response(obs, said, conf, heard, evoked, consolidated);
+        return new Response(obs, said, conf, heard, evoked, consolidated, basis);
+    }
+
+    /// <summary>
+    /// Decide what to call a thing. The concept's own name (if strong enough) comes first; then words whose learned
+    /// meaning fits the thing (e.g. "red" for any red object). If the baby knows the word order for two candidates
+    /// ("red" before "ball") it says them together. Returns (utterance, confidence, why-generalised, concept-name used).
+    /// </summary>
+    private (string? Utterance, double Confidence, string? Basis, string? Primary) Name(int concept, float[] f)
+    {
+        var cands = new List<(string Word, double Score, bool Primary)>();
+        string? primary = null;
+        if (Assoc.Produce(concept) is { } p && p.Weight >= SpeakThreshold)
+        {
+            primary = p.Word;
+            cands.Add((p.Word, p.Weight, true));
+        }
+        var pivots = Phrases.Pivots().ToHashSet();   // pivots ("more _", "red _") need extra evidence before they describe things
+        foreach (var m in Meanings.Matches(f, pivots))
+            if (m.Word != primary) cands.Add((m.Word, m.Score, false));
+        if (cands.Count == 0) return (null, 0, null, null);
+
+        string utter; double conf;
+        var pairs = from a in cands from b in cands
+                    where a.Word != b.Word
+                    let w = Phrases.Find(a.Word, b.Word)?.Weight ?? 0
+                    where w >= 0.4
+                    orderby w descending
+                    select (a, b);
+        if (pairs.Any())
+        {
+            var (a, b) = pairs.First();
+            utter = $"{a.Word} {b.Word}"; conf = Math.Min(a.Score, b.Score);
+        }
+        else
+        {
+            var best = cands.OrderByDescending(c => c.Primary).ThenByDescending(c => c.Score).First();
+            utter = best.Word; conf = best.Score;
+        }
+
+        var spoken = utter.Split(' ');
+        var why = spoken.Where(w => w != primary)
+                        .Select(w => $"\"{w}\" fits by {string.Join(" + ", Meanings.RelevantGroups(w))}").ToList();
+        return (utter, conf, why.Count == 0 ? null : string.Join("; ", why), spoken.Contains(primary) ? primary : null);
     }
 
     // One tick of time passing: needs grow, memories fade, unused links decay.
@@ -166,7 +218,7 @@ public sealed class Baby
                 break;
             case ActionKind.Say:
                 said = action.Word;
-                LastSaid = null;                  // a request is judged by the Selector, not as a concept name
+                LastSaid = null; _lastUtterance = null;   // a request is judged by the Selector, not as a concept name
                 break;
         }
         return new ActResult(action, state, said, obs);
@@ -192,6 +244,7 @@ public sealed class Baby
             Assoc.Reward(c, LastSaid, 0.3);
             acted = true;
         }
+        acted |= _lastUtterance is not null;
         if (acted) Drives.Satisfy(DriveKind.Attention, 0.2);
         return acted;
     }
@@ -203,16 +256,21 @@ public sealed class Baby
     public bool Correct(string? correctWord = null)
     {
         bool acted = Selector.Reward(-0.5);
-        if (LastConceptId is int c && LastSaid is not null)
+        if (LastConceptId is int c && _lastUtterance is not null)
         {
-            Assoc.Reward(c, LastSaid, -0.5);
+            foreach (var w in _lastUtterance.Split(' '))
+            {
+                if (w == LastSaid) Assoc.Reward(c, w, -0.5);                       // wrong name for this concept
+                else if (_lastFeatures is not null) Meanings.Reject(w, _lastFeatures);   // over-generalised word: remember the exception
+            }
             if (correctWord is not null)
             {
-                Assoc.Hear(c, correctWord);
-                if (Memory.Record(Tick, c, Associations.Normalize(correctWord)))
-                    Assoc.Consolidate(c, correctWord);
+                string right = Associations.Normalize(correctWord);
+                Assoc.Hear(c, right);
+                if (_lastFeatures is not null) Meanings.Hear(right, _lastFeatures, c);
+                if (Memory.Record(Tick, c, right)) Assoc.Consolidate(c, right);
             }
-            LastSaid = null;
+            LastSaid = null; _lastUtterance = null;
             acted = true;
         }
         return acted;
@@ -240,6 +298,15 @@ public sealed class Baby
         sb.AppendLine($"Word order (pivots: {(pivots.Count == 0 ? "none" : string.Join(", ", pivots.Select(p => p + " _")))}):");
         foreach (var l in Phrases.Pairs.OrderByDescending(l => l.Weight).Take(6))
             sb.AppendLine($"  \"{l.First} {l.Second}\"  weight {l.Weight:0.00}  hits {l.Hits}");
+        sb.AppendLine("What words mean (learned across objects):");
+        foreach (var m in Meanings.Models.OrderByDescending(m => m.Concepts.Count).ThenBy(m => m.Word))
+        {
+            var groups = Meanings.RelevantGroups(m.Word);
+            string meaning = m.Concepts.Count < Meanings.MinConcepts ? "specific to what it was heard with (1 thing so far)"
+                : groups.Count == 0 ? "no fixed look (function word)"
+                : string.Join(", ", groups.Select(g => $"{g}={World.DescribeGroup(g, m.Mean)}"));
+            sb.AppendLine($"  \"{m.Word}\"  heard with {m.Concepts.Count} thing(s): {meaning}{(m.Exceptions.Count > 0 ? $"  [{m.Exceptions.Count} exception(s)]" : "")}");
+        }
         sb.AppendLine("Strongest word links (* = consolidated):");
         foreach (var l in Assoc.AllLinks.OrderByDescending(l => l.Weight).Take(10))
             sb.AppendLine($"  \"{l.Word}\" <-> #{l.Concept}  weight {l.Weight:0.00}  hits {l.Hits}{(l.Consolidated ? " *" : "")}");
@@ -249,10 +316,11 @@ public sealed class Baby
     }
 
     // ---- persistence ----
-    public BabyState ToState() => new(BabyState.CurrentVersion, Tick, Map.ToState(), Assoc.ToState(), Memory.ToState(), Drives.ToState(), Selector.ToState(), Phrases.ToState());
+    public BabyState ToState() => new(BabyState.CurrentVersion, Tick, Map.ToState(), Assoc.ToState(), Memory.ToState(), Drives.ToState(), Selector.ToState(), Phrases.ToState(), Meanings.ToState());
 
     public static Baby FromState(BabyState s) =>
         new(ConceptMap.FromState(s.Map), Associations.FromState(s.Associations), Drives.FromState(s.Drives), Memory.FromState(s.Memory), s.Tick,
             s.Selector is null ? null : ActionSelector.FromState(s.Selector),
-            s.Phrases is null ? null : Phrases.FromState(s.Phrases));
+            s.Phrases is null ? null : Phrases.FromState(s.Phrases),
+            s.Meanings is null ? null : WordMeanings.FromState(s.Meanings, World.FeatureGroups));
 }

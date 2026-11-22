@@ -17,6 +17,9 @@ public sealed class World
     /// <summary>Length of every sensory feature vector.</summary>
     public const int Dim = 8;
 
+    /// <summary>Feature groups: colour (r,g,b), shape (one-hot) and size. Word meanings are learned per group.</summary>
+    public static readonly (string Name, int Start, int Len)[] FeatureGroups = { ("color", 0, 3), ("shape", 3, 4), ("size", 7, 1) };
+
     public static readonly string[] Shapes = { "round", "square", "triangle", "long" };
 
     public static readonly IReadOnlyDictionary<string, float[]> Colors = new Dictionary<string, float[]>
@@ -100,6 +103,13 @@ public sealed class World
         for (int i = 1; i < Shapes.Length; i++) if (f[3 + i] > f[3 + s]) s = i;
         string size = Sizes.OrderBy(kv => Math.Abs(kv.Value - f[7])).First().Key;
         return $"{color} {Shapes[s]} {size}";
+    }
+
+    /// <summary>Label one feature group of a (mean) vector, e.g. ("color", f) -> "red" — for debug output only.</summary>
+    public static string DescribeGroup(string group, float[] f)
+    {
+        var parts = Describe(f).Split(' ');
+        return group switch { "color" => parts[0], "shape" => parts[1], _ => parts[2] };
     }
 
     // Box–Muller transform: one standard-normal sample.

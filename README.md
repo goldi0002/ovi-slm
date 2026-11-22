@@ -15,6 +15,20 @@ dotnet run --project src/BabyMind -- --fresh # ignore the save file, start a new
 dotnet test                                  # unit tests
 ```
 
+### Generalisation demo: "red ball" -> other red things
+
+```
+parent> show red round small     parent> say red ball
+parent> show blue round small    parent> say blue ball     # "ball" now varies in colour, "red" is still one thing
+parent> show red square medium   parent> say red block
+parent> show red long small      parent> say red banana    # "red" has now been heard with 3 different things
+parent> show red triangle big    # never seen, never named -> Baby: "red"   (generalising: "red" fits by color)
+parent> show green round small   # -> Baby: "ball"  (generalising: "ball" fits by shape + size)
+parent> show red round small     # -> Baby: "red ball"   (concept name + learned word order)
+parent> show yellow round small  # -> "ball" ... it is a lemon:  no lemon   (it learns an exception and a new word)
+parent> debug                    # "red" -> color=red,  "ball" -> shape=round, size=small
+```
+
 ### Stage 3 demo: actions and two-word phrases
 
 ```
@@ -81,6 +95,7 @@ The baby never sees the prop names or colour words, only 8 noisy numbers. It lea
 | `Memory.cs` | Episodic log whose entries fade (×0.97/tick, bounded size). Repeated `(concept, word)` patterns (3 times within a window) are *consolidated*: the link is lifted and protected from decay. Single events fade, repeated ones stay. |
 | `Drives.cs` | Hunger, curiosity, attention-seeking levels that creep up; satisfying one lowers it, and the drop is the reward. Novelty satisfies curiosity, the parent speaking satisfies attention, feeding satisfies hunger. |
 | `ActionSelector.cs` | Tabular RL (epsilon-greedy contextual bandit). State = hunger bucket (sated/peckish/hungry) + object in view. Actions = look, reach, `say <word or two-word phrase>`, stay quiet. `Q += α(reward - Q)`; speaking costs 0.02 *per word* (a phrase must earn more than a single word), so talking must pay off. The last action stays pending until the parent reacts (feeding/praise/correction) or the next action starts. One table entry changes per action. |
+| `WordMeanings.cs` | **Generalisation.** Each word keeps an online mean/variance of the features of everything it was heard with. Features are grouped (colour / shape / size); a group is *relevant* to a word only if the word was consistent on it. "red" heard with a red ball and a red block keeps *colour* and drops shape and size, so any red thing fits; "ball" heard with red and blue balls keeps shape + size. A word needs ≥2 distinct concepts to generalise (≥3 for pivot words like `red _`/`more _`), and function-like words heard with everything end up meaning nothing. "No" stores a counter-example so a word stops matching that thing. |
 | `Phrases.cs` | First grammar. Hebbian word-order links (`more→milk`) learned from phrases you say. A word followed by several different words becomes a **pivot** (`more _`), which gives the baby candidate phrases it never heard (`more cup`). Candidates are only options; rewards decide use. |
 | `Baby.cs` | The agent. `Experience(sight, heardWord)` = reaction to the parent (perceive → hear/associate → remember → name). `Act(sight)` = spontaneous behaviour (look / reach / say / quiet) chosen by the ActionSelector. `Feed()`, `Praise()`, `Correct()`, `Debug()`. |
 | `BabyState.cs` | JSON save/load of everything learned (versioned, atomic write; older save files still load). |
@@ -93,10 +108,15 @@ Tunable constants live in the constructors/`AssociationParams` (vigilance 0.25, 
 - When *you* show something, the baby still names it by a fixed rule (link ≥ 0.4). Only its *spontaneous* speech (`wait`) is reinforcement-learned.
 - The request is not grounded in meaning: the baby learns "say *milk* when hungry gets food" by reward, without knowing milk is a thing.
 - Only hunger and curiosity are modelled; I dropped the planned *comfort* need (it would just repeat the hunger loop).
-- In a phrase only the last word is linked to the object; earlier words ("more") learn word order only, so modifiers like "red" are learned by saying them alone.
+- A word's meaning is only as good as its contrast: with 2 examples of "red" that are both small, *small* could be mistaken for part of its meaning until a big red thing is heard (this is the pivot rule's reason for asking for a third example).
+- Only three feature groups exist (colour, shape, size), and a word's meaning is a region in those groups: no negation, relations or abstract words.
+- Generalisation is used when *you show something* (and in `Experience` naming); spontaneous `wait` speech still draws only on concept names and phrases.
 - Grammar is limited to pivot frames (`X _`); there are no categories, three-word sentences or word-order generalisation beyond that.
+
+- Word-to-concept links ("ball" ↔ concept #1) and word-to-feature meanings ("red" ↔ colour) are learned in parallel; the concept link wins for the exact thing that was named, the feature meaning handles new things.
 
 ## Roadmap
 - **Stage 1 (done):** perception, concept formation, object↔word association.
 - **Stage 2 (done):** needs and requests: `ActionSelector` (look / say / stay quiet, learned by simple RL), hunger drive, saying "milk" when hungry gets fed.
+- **Generalisation (done):** property and object words learned across objects; "red ball" -> other red things.
 - **Stage 3 (done):** `reach` action, Hebbian word order, pivot words, productive two-word combinations.

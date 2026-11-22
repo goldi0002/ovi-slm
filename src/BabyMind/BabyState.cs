@@ -5,9 +5,9 @@ namespace BabyMind;
 /// <summary>Everything the baby has learned, as plain data (serialised to JSON).</summary>
 public sealed record BabyState(int Version, long Tick, ConceptMapState Map, AssociationsState Associations,
                                MemoryState Memory, DrivesState Drives,
-                               ActionSelectorState? Selector = null, PhrasesState? Phrases = null)
+                               ActionSelectorState? Selector = null, PhrasesState? Phrases = null, WordMeaningsState? Meanings = null)
 {
-    public const int CurrentVersion = 3;
+    public const int CurrentVersion = 4;
 
     private static readonly JsonSerializerOptions Options = new() { WriteIndented = true };
 
