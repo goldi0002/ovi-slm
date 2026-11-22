@@ -27,31 +27,35 @@ public sealed class Baby
     public Drives Drives { get; }
     public Memory Memory { get; }
     public ActionSelector Selector { get; }
+    public Phrases Phrases { get; }
     public long Tick { get; private set; }
 
     /// <summary>Concept most recently attended to and the word the baby last said — used for praise/correction.</summary>
     public int? LastConceptId { get; private set; }
     public string? LastSaid { get; private set; }
 
-    public Baby(ConceptMap? map = null, Associations? assoc = null, Drives? drives = null, Memory? memory = null, long tick = 0, ActionSelector? selector = null)
+    public Baby(ConceptMap? map = null, Associations? assoc = null, Drives? drives = null, Memory? memory = null, long tick = 0, ActionSelector? selector = null, Phrases? phrases = null)
     {
         Map = map ?? new ConceptMap(World.Dim);
         Assoc = assoc ?? new Associations();
         Drives = drives ?? new Drives();
         Memory = memory ?? new Memory();
         Selector = selector ?? new ActionSelector();
+        Phrases = phrases ?? new Phrases();
         Tick = tick;
     }
 
     /// <summary>
     /// One moment of life. <paramref name="sight"/> is what the eyes deliver (null = nothing in view),
-    /// <paramref name="heard"/> is a word spoken by the parent (null = silence).
+    /// <paramref name="heard"/> is what the parent said: one word or a two-word phrase (null = silence).
+    /// In a phrase the last word is the label for what is in view; earlier words only learn word order.
     /// </summary>
     public Response Experience(SensoryInput? sight, string? heard)
     {
         Selector.Settle();           // an unrewarded earlier action just cost its effort
         Advance();
-        if (heard is not null) heard = Associations.Normalize(heard);
+        var words = Tokenize(heard);
+        heard = words.Count == 0 ? null : string.Join(' ', words);
 
         // 1. Perceive: form or recognise a concept from raw numbers — no word needed.
         Observation? obs = null;
@@ -62,17 +66,20 @@ public sealed class Baby
         (Concept, double)? evoked = null;
         if (heard is not null)
         {
+            string label = words[^1];
             Drives.Satisfy(DriveKind.Attention, 0.3);                 // the parent talking to me feels good
+            for (int i = 0; i + 1 < words.Count; i++)
+                Phrases.Hear(words[i], words[i + 1]);                 // word order: "more" -> "milk"
             if (obs is { } ob)
             {
-                Assoc.Hear(ob.Concept.Id, heard);
-                if (Memory.Record(Tick, ob.Concept.Id, heard))
+                Assoc.Hear(ob.Concept.Id, label);
+                if (Memory.Record(Tick, ob.Concept.Id, label))
                 {
-                    Assoc.Consolidate(ob.Concept.Id, heard);          // repetition → lasting knowledge
+                    Assoc.Consolidate(ob.Concept.Id, label);          // repetition → lasting knowledge
                     consolidated = true;
                 }
             }
-            else if (Assoc.Comprehend(heard).FirstOrDefault() is { Weight: > 0 } top && Map.Get(top.Concept) is { } c)
+            else if (Assoc.Comprehend(label).FirstOrDefault() is { Weight: > 0 } top && Map.Get(top.Concept) is { } c)
             {
                 evoked = (c, top.Weight);                             // comprehension: word → concept
             }
@@ -101,6 +108,7 @@ public sealed class Baby
         Drives.Tick();
         Memory.Fade(Tick);
         Assoc.Decay();
+        Phrases.Decay();
     }
 
     // Form or recognise a concept. `reward` is the curiosity relief a novel thing gives.
@@ -113,6 +121,9 @@ public sealed class Baby
         return o;
     }
 
+    private static List<string> Tokenize(string? text) =>
+        text is null ? new() : text.Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries).Select(Associations.Normalize).ToList();
+
     /// <summary>Hunger as a coarse bucket (the RL state).</summary>
     public static string HungerBucket(double h) => h < 0.3 ? "sated" : h < 0.6 ? "peckish" : "hungry";
 
@@ -120,8 +131,15 @@ public sealed class Baby
     public IEnumerable<string> Vocabulary() =>
         Assoc.AllLinks.GroupBy(l => l.Word).OrderByDescending(g => g.Max(l => l.Weight)).Take(50).Select(g => g.Key);
 
+    /// <summary>Everything the baby could say right now: known words plus two-word phrases (heard or novel pivot combinations).</summary>
+    public IEnumerable<string> Utterances()
+    {
+        var vocab = Vocabulary().ToList();
+        return vocab.Concat(Phrases.Candidates(vocab).Select(c => c.Phrase));
+    }
+
     /// <summary>
-    /// The baby acts on its own for one tick: the ActionSelector chooses to look, say a known word, or stay quiet,
+    /// The baby acts on its own for one tick: the ActionSelector chooses to look, reach, say a word or phrase, or stay quiet,
     /// based on its needs. Rewards (feeding, praise) arrive later through <see cref="Feed"/> / <see cref="Praise"/>.
     /// </summary>
     public ActResult Act(SensoryInput? sight)
@@ -129,7 +147,7 @@ public sealed class Baby
         Selector.Settle();
         Advance();
         string state = $"{HungerBucket(Drives.Hunger)},{(sight is null ? "none" : "obj")}";
-        var action = Selector.Choose(state, Vocabulary(), canLook: sight is not null);
+        var action = Selector.Choose(state, Utterances(), canLook: sight is not null);
 
         Observation? obs = null; string? said = null;
         switch (action.Kind)
@@ -138,6 +156,13 @@ public sealed class Baby
                 obs = Perceive(sight!.Value, out double curiosityRelief);
                 Memory.Record(Tick, obs.Value.Concept.Id, null);
                 if (curiosityRelief > 0) Selector.Reward(curiosityRelief);
+                break;
+            case ActionKind.Reach:
+                // Touching something is intrinsically rewarding while curious; the parent may also respond (e.g. hand over the bottle).
+                obs = Perceive(sight!.Value, out _);
+                Memory.Record(Tick, obs.Value.Concept.Id, null);
+                double touch = Drives.Satisfy(DriveKind.Curiosity, 0.15);
+                if (touch > 0) Selector.Reward(touch);
                 break;
             case ActionKind.Say:
                 said = action.Word;
@@ -211,6 +236,10 @@ public sealed class Baby
         var policy = Selector.Table().Where(t => Math.Abs(t.Value) > 0.01).Take(8).ToList();
         foreach (var t in policy) sb.AppendLine($"  when [{t.State}] do {t.Action,-12} value {t.Value:+0.00;-0.00}");
         if (policy.Count == 0) sb.AppendLine("  (nothing learned yet)");
+        var pivots = Phrases.Pivots();
+        sb.AppendLine($"Word order (pivots: {(pivots.Count == 0 ? "none" : string.Join(", ", pivots.Select(p => p + " _")))}):");
+        foreach (var l in Phrases.Pairs.OrderByDescending(l => l.Weight).Take(6))
+            sb.AppendLine($"  \"{l.First} {l.Second}\"  weight {l.Weight:0.00}  hits {l.Hits}");
         sb.AppendLine("Strongest word links (* = consolidated):");
         foreach (var l in Assoc.AllLinks.OrderByDescending(l => l.Weight).Take(10))
             sb.AppendLine($"  \"{l.Word}\" <-> #{l.Concept}  weight {l.Weight:0.00}  hits {l.Hits}{(l.Consolidated ? " *" : "")}");
@@ -220,9 +249,10 @@ public sealed class Baby
     }
 
     // ---- persistence ----
-    public BabyState ToState() => new(BabyState.CurrentVersion, Tick, Map.ToState(), Assoc.ToState(), Memory.ToState(), Drives.ToState(), Selector.ToState());
+    public BabyState ToState() => new(BabyState.CurrentVersion, Tick, Map.ToState(), Assoc.ToState(), Memory.ToState(), Drives.ToState(), Selector.ToState(), Phrases.ToState());
 
     public static Baby FromState(BabyState s) =>
         new(ConceptMap.FromState(s.Map), Associations.FromState(s.Associations), Drives.FromState(s.Drives), Memory.FromState(s.Memory), s.Tick,
-            s.Selector is null ? null : ActionSelector.FromState(s.Selector));
+            s.Selector is null ? null : ActionSelector.FromState(s.Selector),
+            s.Phrases is null ? null : Phrases.FromState(s.Phrases));
 }

@@ -11,7 +11,7 @@ public sealed class Teacher
     private readonly string _savePath;
     private readonly TextReader _in;
     private readonly TextWriter _out;
-    private bool _autoFeed;
+    private int _feedMode;   // 0 off, 1 feed on any 'milk' request (or reaching for the bottle), 2 only on two-word requests
     private const string RequestWord = "milk";
 
     public Teacher(Baby baby, World world, string savePath, TextReader input, TextWriter output)
@@ -27,12 +27,14 @@ Commands (you are the parent):
   show <prop>                 put a prop in view, e.g. 'show ball'   (see 'props')
   show <color> <shape> [size] put a custom object in view, e.g. 'show red round small'
   say <word>                  speak a word while the object is in view  (this is how it learns names)
+  say <word> <word>           a two-word phrase, e.g. 'say more ball'. The last word names the object; word order is learned too
   ask                         look at the object again and see what the baby says
   good                        praise what the baby just said
   no [word]                   correct the baby; optionally give the right word, e.g. 'no cup'
-  feed [word]                 give the baby a bottle while saying a word (default 'milk'): hunger drops = big reward
+  feed [word [word]]          give the baby a bottle while saying a word or phrase (default 'milk', e.g. 'feed more milk')
   wait [n]                    let n ticks pass; the baby acts on its own (looks, speaks, or stays quiet)
-  autofeed on|off             when on, you automatically feed the baby if it says 'milk' while hungry
+  autofeed on|off|2           'on': you feed the baby if it says 'milk' (alone or in a phrase) or reaches for a bottle in view while
+                              hungry. '2': you only respond to two-word requests like 'more milk'. 'off': you decide yourself
   remove                      take the object away
   props                       list props and the colors/shapes/sizes you can use
   debug                       print what the baby knows
@@ -42,7 +44,7 @@ Commands (you are the parent):
 
     public void Run()
     {
-        _out.WriteLine("BabyMind - Stage 2: needs and requests.  Type 'help' for commands.");
+        _out.WriteLine("BabyMind - Stage 3: actions and two-word phrases.  Type 'help' for commands.");
         _out.WriteLine(_baby.Tick == 0 ? "A brand-new baby opens its eyes." : $"The baby is back (tick {_baby.Tick}, {_baby.Map.Concepts.Count} concepts).");
 
         while (true)
@@ -64,11 +66,11 @@ Commands (you are the parent):
                 case "load": Load(); break;
                 case "props": ListProps(); break;
                 case "show": Show(args); break;
-                case "feed": Feed(args.Length > 0 ? args[0] : RequestWord); break;
+                case "feed": Feed(args.Length > 0 ? string.Join(' ', args.Take(2)) : RequestWord); break;
                 case "wait": Wait(args); break;
                 case "autofeed":
-                    _autoFeed = args.Length > 0 && args[0].ToLowerInvariant() == "on";
-                    _out.WriteLine($"(autofeed {(_autoFeed ? "on" : "off")})");
+                    _feedMode = args.Length == 0 ? 0 : args[0].ToLowerInvariant() switch { "on" => 1, "2" => 2, _ => 0 };
+                    _out.WriteLine($"(autofeed {(_feedMode == 0 ? "off" : _feedMode == 1 ? "on" : "on, two-word requests only")})");
                     break;
                 case "remove": _world.Clear(); _out.WriteLine("(you take the object away)"); _baby.Experience(null, null); break;
                 case "say": Say(args); break;
@@ -118,24 +120,37 @@ Commands (you are the parent):
             string doing = r.Action.Kind switch
             {
                 ActionKind.Say => $"says \"{r.Said}\"",
+                ActionKind.Reach => _world.Current is null ? "reaches for nothing" : "reaches for the object",
                 ActionKind.Look => r.Observation!.Value.IsNew ? "looks - something new!" : "looks at the object",
                 _ => "stays quiet",
             };
             _out.WriteLine($"  [t{_baby.Tick}] hunger {h:0.00} ({Baby.HungerBucket(h)}): Baby {doing}");
 
-            if (_autoFeed && r.Said == RequestWord && h >= 0.3)
+            if (_feedMode > 0 && h >= 0.3 && ParentResponds(r, out string echo))
             {
-                _out.WriteLine($"    Parent hears the request and feeds the baby.");
-                Feed(RequestWord);
+                _out.WriteLine("    Parent understands the request and feeds the baby.");
+                Feed(echo);
             }
         }
+    }
+
+    // The parent's rule for autofeed. `echo` is what the parent says back while feeding (parents repeat what toddlers say).
+    private bool ParentResponds(ActResult r, out string echo)
+    {
+        echo = RequestWord;
+        if (r.Action.Kind == ActionKind.Reach)
+            return _feedMode == 1 && _world.Current == World.Props["bottle"];
+        if (r.Said is null) return false;
+        var words = r.Said.Split(' ');
+        echo = r.Said;
+        return words.Contains(RequestWord) && (_feedMode == 1 || words.Length == 2);
     }
 
     private void Say(string[] args)
     {
         if (args.Length == 0) { _out.WriteLine("usage: say <word>"); return; }
-        if (args.Length > 1) _out.WriteLine("(Stage 1 baby only understands single words - using the first one)");
-        string word = args[0];
+        if (args.Length > 2) _out.WriteLine("(the baby only follows two-word phrases - using the first two words)");
+        string word = string.Join(' ', args.Take(2));
         _out.WriteLine($"You: \"{word}\"");
         Respond(_baby.Experience(_world.Sense(), word));
     }

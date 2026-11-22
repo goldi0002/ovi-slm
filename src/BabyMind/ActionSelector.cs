@@ -1,8 +1,8 @@
 namespace BabyMind;
 
-public enum ActionKind { Look, Say, Quiet }
+public enum ActionKind { Look, Reach, Say, Quiet }
 
-/// <summary>One thing the baby can do. Saying a word is just another action, so it is learned by reward like any other.</summary>
+/// <summary>One thing the baby can do. Saying a word (or a two-word phrase, written "more milk") is just another action, so it is learned by reward like any other.</summary>
 public readonly record struct BabyAction(ActionKind Kind, string? Word = null)
 {
     /// <summary>Stable text key used in the Q-table and the save file.</summary>
@@ -12,7 +12,7 @@ public readonly record struct BabyAction(ActionKind Kind, string? Word = null)
 /// <summary>
 /// Simple tabular reinforcement learning (a contextual bandit with epsilon-greedy exploration).
 ///  - State: a short text key such as "hungry,obj" (hunger bucket + whether something is in view).
-///  - Actions: look, say(word) for each word the baby knows, stay quiet.
+///  - Actions: look, reach, say(word or phrase) for each utterance the baby could produce, stay quiet.
 ///  - Learning: after an action, Q(s,a) moves toward the reward it earned: Q += alpha * (reward - Q).
 ///    Speaking costs a little, so the baby only keeps talking if talking pays off.
 ///  - Credit: the last action stays "pending" until a reward arrives (the parent reacts) or the next
@@ -30,7 +30,7 @@ public sealed class ActionSelector
     public double Epsilon { get; private set; }
     public double MinEpsilon { get; }
     public double EpsilonDecay { get; }
-    /// <summary>Effort cost of speaking.</summary>
+    /// <summary>Effort cost per spoken word (a two-word phrase costs twice as much) and per reach.</summary>
     public double SayCost { get; }
 
     public ActionSelector(Random? rng = null, double alpha = 0.5, double epsilon = 0.3,
@@ -41,17 +41,28 @@ public sealed class ActionSelector
     }
 
     /// <summary>Optimistic starting value of an untried action: new things are worth trying once.</summary>
-    private static double Prior(BabyAction a) => a.Kind switch { ActionKind.Say => 0.1, ActionKind.Look => 0.05, _ => 0.0 };
-    private double Cost(BabyAction a) => a.Kind == ActionKind.Say ? SayCost : 0.0;
+    private static double Prior(BabyAction a) => a.Kind switch
+    {
+        ActionKind.Say => WordCount(a) > 1 ? 0.06 : 0.1,   // single words are tried before phrases
+        ActionKind.Look or ActionKind.Reach => 0.05,
+        _ => 0.0,
+    };
+    private static int WordCount(BabyAction a) => a.Word?.Count(c => c == ' ') + 1 ?? 0;
+    private double Cost(BabyAction a) => a.Kind switch
+    {
+        ActionKind.Say => SayCost * WordCount(a),
+        ActionKind.Reach => SayCost,
+        _ => 0.0,
+    };
 
     public double Value(string state, BabyAction a) => _q.TryGetValue(Slot(state, a), out var v) ? v : Prior(a);
 
     /// <summary>Pick an action for this state and remember it as pending, awaiting reward.</summary>
-    public BabyAction Choose(string state, IEnumerable<string> vocabulary, bool canLook)
+    public BabyAction Choose(string state, IEnumerable<string> utterances, bool canLook)
     {
         var options = new List<BabyAction> { new(ActionKind.Quiet) };
-        if (canLook) options.Add(new(ActionKind.Look));
-        options.AddRange(vocabulary.Select(w => new BabyAction(ActionKind.Say, w)));
+        if (canLook) { options.Add(new(ActionKind.Look)); options.Add(new(ActionKind.Reach)); }
+        options.AddRange(utterances.Select(w => new BabyAction(ActionKind.Say, w)));
 
         BabyAction pick;
         if (_rng.NextDouble() < Epsilon) pick = options[_rng.Next(options.Count)];

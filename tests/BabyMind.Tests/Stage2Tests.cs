@@ -139,7 +139,7 @@ public class Stage2Tests
         {
             string text = output.ToString();
             Assert.Contains("*drinks*", text);
-            Assert.Contains("Parent hears the request", text);
+            Assert.Contains("Parent understands the request", text);
             Assert.Contains("Learned behaviour", text);
         }
         finally { File.Delete(path); }

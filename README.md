@@ -15,6 +15,25 @@ dotnet run --project src/BabyMind -- --fresh # ignore the save file, start a new
 dotnet test                                  # unit tests
 ```
 
+### Stage 3 demo: actions and two-word phrases
+
+```
+parent> show ball
+parent> say more ball       # last word names the object; "more -> ball" word order is learned too
+parent> show cup
+parent> say cup
+parent> feed more milk      # a second "more X" phrase: "more" is now a pivot word ("more _")
+parent> feed more milk
+parent> autofeed 2          # you now respond ONLY to two-word requests containing "milk"
+parent> wait 120
+parent> debug               # "when [peckish] do say:more milk" beats "say:milk"; pivots: more _
+```
+
+The baby also tries phrases it never heard, such as **"more cup"** (pivot + a known word). Whether it keeps
+using a phrase is decided only by reward. Reaching is an action too: `show bottle`, `autofeed on`, `wait 30`
+and a hungry baby that reaches for the bottle gets it. Reaching for a familiar object while curious
+is mildly rewarding by itself.
+
 ### Stage 2 demo: needs and requests
 
 ```
@@ -43,7 +62,7 @@ parent> debug               # concepts, strongest word links, drive levels
 parent> quit                # saves; next run the baby is still there
 ```
 
-Commands: `show`, `say`, `ask`, `feed`, `wait`, `autofeed`, `good`, `no [word]`, `remove`, `props`, `debug`, `save`, `load`, `help`, `quit`.
+Commands: `show`, `say`, `ask`, `feed`, `wait`, `autofeed on|off|2`, `good`, `no [word]`, `remove`, `props`, `debug`, `save`, `load`, `help`, `quit`.
 The baby never sees the prop names or colour words, only 8 noisy numbers. It learns only what you say.
 
 ## Design
@@ -61,9 +80,10 @@ The baby never sees the prop names or colour words, only 8 noisy numbers. It lea
 | `Associations.cs` | Concept↔word weights. Hearing a word while a concept is attended applies a Hebbian step `w += η(1-w)` with η = 0.5, so one co-occurrence gives 0.5 and the baby will already say the word. Rival words for the same concept are mildly inhibited. Slow decay `rate/(1+hits/2)`; consolidated links decay 20x slower. The same weights give production (concept→word) and comprehension (word→concept). Praise/correction are multiplicative reward updates. |
 | `Memory.cs` | Episodic log whose entries fade (×0.97/tick, bounded size). Repeated `(concept, word)` patterns (3 times within a window) are *consolidated*: the link is lifted and protected from decay. Single events fade, repeated ones stay. |
 | `Drives.cs` | Hunger, curiosity, attention-seeking levels that creep up; satisfying one lowers it, and the drop is the reward. Novelty satisfies curiosity, the parent speaking satisfies attention, feeding satisfies hunger. |
-| `ActionSelector.cs` | Tabular RL (epsilon-greedy contextual bandit). State = hunger bucket (sated/peckish/hungry) + object in view. Actions = look, `say <word>` for each known word, stay quiet. `Q += α(reward - Q)`; speaking costs 0.02, so talking must pay off. The last action stays pending until the parent reacts (feeding/praise/correction) or the next action starts. One table entry changes per action. |
-| `Baby.cs` | The agent. `Experience(sight, heardWord)` = reaction to the parent (perceive → hear/associate → remember → name). `Act(sight)` = spontaneous behaviour chosen by the ActionSelector. `Feed()`, `Praise()`, `Correct()`, `Debug()`. |
-| `BabyState.cs` | JSON save/load of everything learned (versioned, atomic write; Stage 1 save files still load). |
+| `ActionSelector.cs` | Tabular RL (epsilon-greedy contextual bandit). State = hunger bucket (sated/peckish/hungry) + object in view. Actions = look, reach, `say <word or two-word phrase>`, stay quiet. `Q += α(reward - Q)`; speaking costs 0.02 *per word* (a phrase must earn more than a single word), so talking must pay off. The last action stays pending until the parent reacts (feeding/praise/correction) or the next action starts. One table entry changes per action. |
+| `Phrases.cs` | First grammar. Hebbian word-order links (`more→milk`) learned from phrases you say. A word followed by several different words becomes a **pivot** (`more _`), which gives the baby candidate phrases it never heard (`more cup`). Candidates are only options; rewards decide use. |
+| `Baby.cs` | The agent. `Experience(sight, heardWord)` = reaction to the parent (perceive → hear/associate → remember → name). `Act(sight)` = spontaneous behaviour (look / reach / say / quiet) chosen by the ActionSelector. `Feed()`, `Praise()`, `Correct()`, `Debug()`. |
+| `BabyState.cs` | JSON save/load of everything learned (versioned, atomic write; older save files still load). |
 | `Teacher.cs` | Console parent interface (injectable streams, so it is testable). |
 
 Tunable constants live in the constructors/`AssociationParams` (vigilance 0.25, learn rate 0.5, speak threshold 0.4, ...).
@@ -72,9 +92,11 @@ Tunable constants live in the constructors/`AssociationParams` (vigilance 0.25, 
 - Generalisation is strict: a red ball of a different size is a *new* concept until it is also named. (A natural later improvement: let words spread weakly to nearby concepts.)
 - When *you* show something, the baby still names it by a fixed rule (link ≥ 0.4). Only its *spontaneous* speech (`wait`) is reinforcement-learned.
 - The request is not grounded in meaning: the baby learns "say *milk* when hungry gets food" by reward, without knowing milk is a thing.
-- Stage 2 models hunger only; comfort and `reach` come with Stage 3.
+- Only hunger and curiosity are modelled; I dropped the planned *comfort* need (it would just repeat the hunger loop).
+- In a phrase only the last word is linked to the object; earlier words ("more") learn word order only, so modifiers like "red" are learned by saying them alone.
+- Grammar is limited to pivot frames (`X _`); there are no categories, three-word sentences or word-order generalisation beyond that.
 
 ## Roadmap
 - **Stage 1 (done):** perception, concept formation, object↔word association.
 - **Stage 2 (done):** needs and requests: `ActionSelector` (look / say / stay quiet, learned by simple RL), hunger drive, saying "milk" when hungry gets fed.
-- **Stage 3:** actions (`reach`, comfort) and simple two-word combinations.
+- **Stage 3 (done):** `reach` action, Hebbian word order, pivot words, productive two-word combinations.
