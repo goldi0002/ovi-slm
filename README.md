@@ -49,3 +49,11 @@ PyTorch CPU 4 threads) trained 11 min (7 epochs, 57k deduped DailyDialog+Empathe
 Verdict: at this size/budget the GRU is far below the ranker and adds only +0.2 pt in combination (within noise for n=2000, about +-0.8 pt).
 Free generation (greedy, ~3 ms/reply) is fluent but generic and often off-topic ("i am sorry to hear that" for good news), so it is not shipped.
 Caveat: distractors are train replies the GRU saw as targets while the gold reply is unseen. Nothing in `ovi/brain.py` or shipped models changed.
+
+## Free-conversation fixes after the blind test (chitchat.py, usermem.py)
+A blind tester scored free conversation at 0.75/2 mean with 51% wrong replies. Changes in `ovi/brain.py`, `ovi/chitchat.py`, `ovi/usermem.py`:
+filler templates now need a real claim with a determiner+noun topic (never stopwords/adjectives/verbs) and rotate without repeats, with a context-aware acknowledgement pool;
+chit-chat corpus lines need a much higher match score (and are dropped for questions addressed to Ovi); small-talk rules answer greetings, how-are-you, thanks, goodbye, "what about you" and
+questions about Ovi from a tiny profile; teach mode no longer swallows lol/idk/ok; fact extraction is stricter (no residence overwrite from "it's hot today", no invented names) and pets/job/relatives
+are remembered and recalled; follow-ups carry the last resolved question; plus an arithmetic calculator, empathy/event replies and non-committal advice replies.
+Tuned only on blind conversations 1-20 (hand-scored 0/1/2: 0.69 -> 1.61 mean); 21-40 were held out. `experiments/own_convos.json` holds extra conversations written while tuning.

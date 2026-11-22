@@ -15,13 +15,17 @@ from .seed_chat import PAIRS
 from . import dataset
 from . import replyrank
 from .fast import Ovi as _Base  # tokenizer + n-gram LM (for stories)
+from . import chitchat as cc
+from .usermem import UserMemory
 
 TRUST = {"dlg": 0.85, "fact": 0.95, "seed": 1.0, "taught": 1.0, "cb": 0.9, "learned": 0.8, "movie": 0.5}
 ANSWER, HEDGE = 0.65, 0.45
+DLG_Q, DLG_S, DLG_SCORE = 0.7, 0.9, 0.75    # chit-chat line thresholds (question / statement) and minimum match score
 QWORD = re.compile(r"^(what|who|whom|whose|where|when|why|how|which|is|are|was|were|do|does|did|can|could|will|would|should|tell|explain|define|translate|give|show|say|list|name)\b", re.I)
 STOPW = set("again today tonight yesterday tomorrow always never still already lately recently something anything nothing everything someone anyone people thing things time times this that with have what they them then than there about would could should really very just like your mine been were will from into some more".split())
 STORY = re.compile(r"\b(story|poem|write|continue|imagine)\b", re.I)
 LOG = "data/brain.jsonl"
+RELIABLE = ("taught", "learned", "seed", "fact")
 USER_SRC = ("taught", "learned")          # only what the user told Ovi can be superseded or forgotten
 NAME_QS = ("what is my name", "who am i", "do you know my name", "what's my name", "do you remember my name")
 NAME_ASK = {"what is my name", "what's my name", "whats my name", "who am i", "do you know my name", "do you remember my name",
@@ -114,7 +118,7 @@ class Answer:
     text: str; conf: float; src: str; why: str; entry: int = -1
 
 
-class Brain:
+class Brain(UserMemory):
     def __init__(self, log=LOG, builtin=True):
         self.log = log
         self._builtin, self._base = builtin, None      # tokenizer + story LM load lazily (only when needed)
@@ -128,6 +132,10 @@ class Brain:
         self.recent_fact = None      # questions touched by the last profile statement (target of 'forget that')
         self.ranker, self.rvecs, self.rrow, self.row_entry = None, None, {}, {}
         self.use_context = True      # rank chit-chat replies using the conversation so far
+        self.used = set()            # backchannel / small-talk replies already given (no repeats)
+        self.qctx = None             # (resolved factual question, turn) the next 'and italy?' refers to
+        self.last_calc = None        # result of the previous sum ('and times 3?')
+        self.focus = None            # (label, awaiting_name): the pet / person the user is talking about
         if builtin:
             nd = 0
             if os.path.exists("ovi_rank.npz"):
@@ -269,7 +277,8 @@ class Brain:
         msg = clean_text(msg).strip()
         # 1) learn from a pending abstention: the next plain statement is the answer
         if self.pending and not msg.endswith("?") and not QWORD.match(msg) and not msg.startswith("/") \
-                and not re.match(r"i('m| am| feel| think| want| went)\b", msg, re.I) and norm(msg) not in self.ACK:
+                and not re.match(r"i('m| am| feel| think| want| went)\b", msg, re.I) and norm(msg) not in self.ACK \
+                and not cc.is_nonanswer(norm(msg)):
             q, self.pending = self.pending, None
             mine = re.match(r"my (.+?) (is|are) (.+)$", msg.rstrip(".!"), re.I)
             if mine and re.match(r"(?:what|who|where|when|which)\b.*\bmy\b", q, re.I):      # "my best friend is Maria" -> "Your best friend is Maria."
@@ -292,25 +301,39 @@ class Brain:
             r = None
         if r and self.entries[r[0]].src in ("dlg", "cb", "movie") and not isq and self._feeling(msg):
             r = None
-        if r and self.entries[r[0]].src == "dlg" and (norm(msg) in self.ACK or self._feeling(msg)):
+        if r and self.entries[r[0]].src == "dlg" and (norm(msg) in self.ACK or cc.is_ack(norm(msg)) or self._feeling(msg)):
             r = None                          # acknowledgements / stated feelings: use the careful rules instead                          # statements: don't answer with a random movie line, use a conversational move
+        if r and isq and self.entries[r[0]].src == "dlg" and (
+                re.search(r"\b(?:you|your|yours|u|ur)\b", msg, re.I) or len(msg.split()) < 3 or (r[1] < 0.99 and len(msg.split()) <= 6 and self.PRON.search(msg))):
+            r = None                          # addressed to Ovi, or about an unresolved 'it': a corpus line would be a guess
         c = self.conf_of(*r) if r else 0.0
         unk = self._unknowable(msg, r)
         if unk:
             self.last = unk
             return unk
         ath, hth = ANSWER, HEDGE
-        if r and self.entries[r[0]].src == "dlg":     # chit-chat replies: answer plainly, no hedging
-            ath = hth = 0.5 if isq else 0.4
+        if r and self.entries[r[0]].src == "dlg":     # chit-chat replies: answer plainly, no hedging, but only when really close
+            ath = hth = DLG_Q if isq else DLG_S
+            if r[1] < DLG_SCORE:
+                hth = 9.0
+        elif r and self.entries[r[0]].src in ("cb", "movie"):
+            hth = ath = ANSWER                        # half-remembered lines are never hedged
         if r and c >= hth:
             e = self.entries[r[0]]; e.hits += 1
             text = e.a if c >= ath else f"I'm not fully sure, but: {e.a}"
+            if isq and e.src != "dlg":
+                self.qctx = (msg, len(self.history))
             self.last = Answer(text, c, e.src, f"matched '{e.q}' (score {r[1]:.2f}, src {e.src}, conf {e.conf:.2f})", r[0])
             return self.last
         if not (msg.endswith("?") or QWORD.match(msg)):
             self.last = Answer(self._backchannel(msg), c, "chat", "no memory matched; conversational move")
             return self.last
+        soft = self._soft_unknown(msg)
+        if soft:
+            self.last = Answer(soft, c, "chat", "question about Ovi/opinion/context: neutral reply, no teaching")
+            return self.last
         self.pending = msg
+        self.qctx = (msg, len(self.history))
         self.last = Answer("I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
                            c, "none", f"best match confidence {c:.2f} < {HEDGE}")
         return self.last
@@ -378,12 +401,12 @@ class Brain:
             return " ".join(pw[:-len(cw)] + cw) + "?"
         return None
 
-    LOSS = re.compile(r"\b(?:passed away|passed on|passes away|died|has died|is dead|funeral|lost (?:my|our|a close|her|his)|grieving|bereaved|(?:death|loss) of)\b", re.I)
+    LOSS = re.compile(r"\b(?:passed away|passed on|passes away|died|has died|is dead|funeral|lost (?:my|our|a close|her|his) (?:\w+ )?(?:mom|mother|dad|father|grand\w+|friend|dog|cat|pet|brother|sister|husband|wife|son|daughter|baby|uncle|aunt|parents?|cousin|partner|girlfriend|boyfriend|child|kid|loved one)|grieving|bereaved|(?:death|loss) of)\b", re.I)
     MISS = re.compile(r"^(?:i|we)(?:'m| am| do| still| really| just| so| truly| deeply|\s)*\bmiss(?:ed|ing)?\s+(?:my|our|him|her|them|you|home|everyone|everybody|the old|those|being|us|having)\b|\bhomesick", re.I)
     MOODS = {
         "loss": ("passed away", "I'm so sorry for your loss{n}. I'm here for you. Do you want to tell me about them?"),
         "miss": ("miss", "I understand{n}, missing people shows how much they matter to you. Do you want to tell me about them?"),
-        "sad": ("sad|down|depressed|unhappy|lonely|miserable|upset|crying|hurt", "I'm sorry you're feeling that way{n}. Do you want to tell me what happened?"),
+        "sad": ("sad|down|depressed|unhappy|lonely|alone|miserable|upset|crying|hurt|heartbroken|hopeless|empty", "I'm sorry you're feeling that way{n}. Do you want to tell me what happened?"),
         "tired": ("tired|exhausted|sleepy|worn out", "That sounds draining{n}. Have you been able to rest?"),
         "stress": ("stressed|anxious|worried|nervous|scared|afraid|overwhelmed", "That sounds stressful{n}. What is weighing on you the most?"),
         "angry": ("angry|mad|furious|annoyed|frustrated", "That sounds frustrating{n}. What happened?"),
@@ -411,11 +434,12 @@ class Brain:
         name = self.user.get("name") or ""
         nm = f", {name}" if name else ""
         # 1) acknowledgements: keep the conversation going using what we know about the user
-        if n in self.ACK:
+        if n in self.ACK or cc.is_ack(n):
             likes = self._likes()
-            if likes:
-                return f"Anything else on your mind? We could talk about {likes[len(self.history) % len(likes)]}."
-            return "Is there something you'd like to talk about or learn?"
+            if likes and len(self.history) % 2 == 0:
+                return f"Anything else on your mind? We could talk about {likes[len(self.history) // 2 % len(likes)]}."
+            return cc._pick(["Is there something you'd like to talk about or learn?", "I'm here if you want to chat about anything.", "What else is on your mind?"],
+                            self.used, "ackr", len(self.history))
         # 2) feelings
         for kind, (pat, reply) in self.MOODS.items():
             if kind == "miss":
@@ -426,6 +450,9 @@ class Brain:
                 hit = re.search(rf"\b({pat})\b", n)
             if hit:
                 return reply.format(n=nm)
+        ev = cc.event_reply(msg, n, name, self.used)
+        if ev:
+            return ev
         # 3) a known country/element mentioned: offer a relevant fact, then ask about it
         ent = self._find_entity(msg)
         if ent:
@@ -434,15 +461,14 @@ class Brain:
             fact = self.entries[r[0]].a if r and self.conf_of(*r) >= ANSWER else None
             ask = f"Have you been to {name_}?" if kind == "country" else f"Why are you interested in {name_}?"
             return f"{fact} {ask}" if fact else ask
-        # 4) things the user did
+        # 4) things the user did / plans
         if self.PAST.match(msg):
-            return ["How was it?", "How did that go?", "Did you enjoy it?"][len(self.history) % 3]
-        # 5) generic, using a topic word and rotating phrasing
-        ks = [w for w in re.findall(r"[a-z']+", n) if len(w) > 3 and w not in STOPW]
-        topic = ks[-1] if ks else None
-        opts = ([f"What made you think about {topic}?", f"Tell me more about {topic}.", "Why do you say that?"]
-                if topic else ["Go on, I'm listening.", "Tell me more.", "Interesting. Why do you say that?"])
-        return opts[len(self.history) % len(opts)]
+            return cc._pick(["How was it?", "How did that go?", "Did you enjoy it?"], self.used, "past", len(self.history))
+        pl = cc.plan_reply(n, self.used, len(self.history))
+        if pl:
+            return pl
+        # 5) generic: context-aware acknowledgement, never a filler about a stopword/adjective/verb
+        return cc.backchannel(msg, n, self.used, len(self.history))
 
     def _backchannel_old(self, msg):
         ks = [w for w in re.findall(r"[a-z']+", msg.lower()) if len(w) > 3 and w not in STOPW]
@@ -474,9 +500,10 @@ class Brain:
                 if old and old.group(1) != n:
                     return f"Got it, I'll call you {n} instead of {old.group(1)}."
                 return f"Nice to meet you, {n}!"
-        r = re.match(r"i (?:really )?(?:like|love|enjoy) (.+)$", m, re.I)
-        if r and " " not in r.group(1)[:0] and len(r.group(1).split()) <= 5:
-            thing = r.group(1).strip()
+        r = re.match(r"i (?:also |really |just )*(?:like|love|enjoy) (.+)$", m, re.I)
+        thing = re.sub(r"\s+(?:too|as well|a lot|so much|very much|the most)$", "", r.group(1).strip(), flags=re.I) if r else ""
+        if r and thing and len(thing.split()) <= 4 and not re.match(r"(?:how|that|it|when|what|to|being|the way|you|him|her|them|me|us|this|if|whenever|why|who|my (?:life|job)\b)", thing, re.I) \
+                and not re.search(r"\b(?:today|tonight|now|but|because|and then)\b", thing, re.I):
             old = re.match(r"You like (.*)\.", cur("what do i like"))
             items = [x for x in re.split(r", | and ", old.group(1)) if x] if old else []
             if thing.lower() not in [x.lower() for x in items]:
@@ -486,8 +513,11 @@ class Brain:
                 self.teach(q, ans, supersede=True)
             self.recent_fact = list(LIKE_QS)
             return f"Got it, you like {thing}."
+        mm = self._profile_more(m)
+        if mm:
+            return mm
         r = re.match(r"i (?:live in|am from|come from|'m from) (.+)$", m, re.I)
-        if r:
+        if r and len(r.group(1).split()) <= 4 and not re.search(r"\b(?:today|tonight|now|but|because|and)\b", r.group(1), re.I):
             place = r.group(1).strip()
             self._set_place(place)
             return f"{place}! Tell me about it."
@@ -526,6 +556,8 @@ class Brain:
             qs = list(PLACE_QS)
         elif t in ("what i like", "what i enjoy", "my interests", "my likes", "my hobbies"):
             qs = list(LIKE_QS)
+        elif self._slots_for(t):
+            qs = self._slots_for(t)
         elif (fav := re.match(r"my fav\w* (\w+)$", t)):
             qs = [f"what is my favorite {fav.group(1)}"]
         elif t in ("everything", "everything i told you", "everything about me", "all of it", "me"):
@@ -546,6 +578,7 @@ class Brain:
         msg = clean_text(msg).strip()
         if not msg:
             return Answer("I didn't catch anything. What's on your mind?", 1.0, "chat", "empty input")
+        msg = re.sub(r"^(?:(?:ok|okay|so|well|anyway|anyways|hmm|um|oh|alright|btw|but)\b[, ]+)+(?=(?:what|who|where|when|how|why|which|is|are|do|does|can|could|should|tell)\b)", "", msg, flags=re.I) or msg
         a = None
         recent, self.recent_fact = self.recent_fact, None
         if not self.pending and not msg.startswith("/"):
@@ -562,7 +595,11 @@ class Brain:
             i = max(self.exact.get(norm(self.recent_fact[0]), [-1]))
             if i >= 0 and not self.entries[i].dead:       # the next "no, it's X" corrects what was just stated
                 self.last = Answer(a.text, 1.0, "profile", "profile fact", i); self.last_q = self.recent_fact[0]
+        if a is None:
+            self._track_focus(msg)
         neg = self._correction(msg)
+        if neg is not None and self.last and not self._real_correction(msg, neg):
+            neg = None
         if a is None and self.last and self.last.entry >= 0 and not self.pending and not msg.startswith("/"):
             if neg is not None:           # plain-language correction: "no, it's Max"
                 fix = neg.strip().rstrip(".")
@@ -574,6 +611,8 @@ class Brain:
                 self._write({"e": "set", "q": e.q, "a": e.a, "conf": e.conf})
         if a is None:
             a = self._multi(msg) or self._converse(msg)
+        m_c = re.search(r" is (-?[\d.]+)\.$", a.text) if a.src == "calc" else None
+        self.last_calc = m_c.group(1) if m_c else None
         self.history.append((msg, a.text)); self.history = self.history[-8:]
         return a
 
@@ -592,6 +631,21 @@ class Brain:
                     continue
                 return fix
         return None
+
+    CORR_MARK = re.compile(r"^(?:actually|i meant|i mean|make that|should be|it should be|sorry|oops|wait|my bad)\b", re.I)
+    CORR_SOFT = set("today tonight so very really super too pretty quite just still always usually".split())
+
+    def _real_correction(self, msg, fix):
+        """A bare 'it's X' only corrects a reliable answer to a question, and only when X is short and not a description."""
+        if self.CORR_STRONG.match(msg.strip()):
+            return True
+        if self.last.src not in ("taught", "learned", "seed", "fact", "profile"):
+            return False
+        qlike = bool(self.last_q) and (self.last_q.endswith("?") or bool(QWORD.match(self.last_q)))
+        if not (self.CORR_MARK.match(msg.strip()) or qlike):
+            return False
+        words = norm(fix).split()
+        return 0 < len(words) <= 4 and not (set(words) & self.CORR_SOFT)
 
     def _multi(self, msg):
         """'who am I and where do I live?' -> answer each part Ovi knows. Needs at least one part with a reliable answer."""
@@ -631,26 +685,43 @@ class Brain:
             self.last = Answer(f"Your name is {name}." if name else "I don't know your name yet. What should I call you?",
                                1.0, "profile", "answered from what you told me about your name", max(i) if i and name else -1)
             return self.last
+        name = self._known_name()
+        if name and self._is_greet(n) and not self.pending:
+            self.last = Answer(f"Hi {name}! Good to see you. How are you?", 1.0, "profile", "greeted you by name")
+            return self.last
+        quick = self._quick(msg, n, name)
+        if quick:
+            self.pending = None
+            self.last_q = msg
+            self.last = quick
+            return quick
         # follow-up: resolve against the previous user question and keep whichever reading is more confident
-        if self.history and not self.pending and (self.FOLLOW.match(msg) or (len(n.split()) <= 3 and not self._is_greet(n) and n not in self.ACK)):
-            prev = next((u for u, _ in reversed(self.history[-3:]) if u.endswith("?") or QWORD.match(u)), None)
-            if re.match(r"(why\b|how so)", n) and self.last and self.last.entry >= 0:
+        if self.history and not self.pending and (self.FOLLOW.match(msg) or (len(n.split()) <= 3 and not self._is_greet(n) and n not in self.ACK
+                                                                           and not cc.is_ack(n) and n.split()[:1] != [] and n.split()[0] not in cc.ACK_WORDS)):
+            prev = self.qctx[0] if self.qctx and len(self.history) - self.qctx[1] <= 6 else \
+                next((u for u, _ in reversed(self.history[-3:]) if u.endswith("?") or QWORD.match(u)), None)
+            if re.match(r"(?:why|how so|why is that|why so|why not|why(?:'s| is) that|why do you say that|why did you say that)$", n) and self.last and self.last.entry >= 0:
                 e = self.entries[self.last.entry]
                 why = {"taught": "Because you told me so.", "learned": "Because you taught me that earlier.",
                        "seed": "That is how I was built to answer.", "cb": "I learned it from a conversation corpus.",
                        "movie": "I only half remember it from movie dialogue, so I might be wrong.",
                        "fact": "It comes from the facts table I was built with.",
-                       "dlg": "That is how people replied in the conversations I learned from."}[e.src]
+                       "dlg": "It seemed a natural thing to say in that moment, though I may have missed the point."}[e.src]
                 self.last_q = msg
                 return Answer(why, 0.9, "meta", "explaining the previous answer's source")
             swapped = self._swap_entity(prev, msg) if prev else None
             if swapped:
                 r = self.recall(swapped)
-                if r and self.conf_of(*r) >= HEDGE:
+                if r and self.conf_of(*r) >= HEDGE and self.entries[r[0]].src in RELIABLE:
                     e = self.entries[r[0]]; e.hits += 1; c = self.conf_of(*r)
-                    self.last_q = swapped
+                    self.last_q = swapped; self.qctx = (swapped, len(self.history))
                     self.last = Answer(e.a if c >= ANSWER else f"I'm not fully sure, but: {e.a}", c, e.src,
                                        f"follow-up: '{prev}' with the topic swapped -> '{swapped}'", r[0])
+                    return self.last
+                if self._find_entity(swapped) and not (r and self.entries[r[0]].src in ("dlg", "cb", "movie") and self.conf_of(*r) >= HEDGE):
+                    self.pending = swapped; self.last_q = swapped; self.qctx = (swapped, len(self.history))
+                    self.last = Answer("I'm not sure about that. What should I have said? (just tell me and I'll learn it)", 0.0, "none",
+                                       f"follow-up '{swapped}' has no stored answer")
                     return self.last
             if prev:
                 plain = self.recall(msg)
@@ -659,19 +730,45 @@ class Brain:
                 ce = self.conf_of(*expanded) if expanded else 0.0
                 if plain and self.entries[plain[0]].src == "dlg":
                     cp = 0.0                  # a chit-chat line for 'and japan?' is not a real answer
-                if ce >= HEDGE and ce > cp:
+                if ce >= HEDGE and ce > cp and self.entries[expanded[0]].src in RELIABLE:
                     e = self.entries[expanded[0]]; e.hits += 1
-                    self.last_q = f"{prev} {msg}"
+                    self.last_q = f"{prev} {msg}"; self.qctx = (self.last_q, len(self.history))
                     c = ce
                     self.last = Answer(e.a if c >= ANSWER else f"I'm not fully sure, but: {e.a}", c, e.src,
                                        f"follow-up of '{prev}' matched '{e.q}' (conf {c:.2f})", expanded[0])
                     return self.last
-        a = self.ask(msg)
-        name = self._known_name()
-        if name and self._is_greet(n):
-            a = Answer(f"Hi {name}! Good to see you. How are you?", 1.0, "profile", "greeted you by name")
-            self.last = a
-        return a
+        return self.ask(msg)
+
+    def _quick(self, msg, n, name):
+        """Rule-based skills tried before any retrieval: arithmetic, profile recall, small talk, advice."""
+        c = cc.calc(msg)
+        cont = re.sub(r"^(?:(?:and|then|now|ok|so|what about)\s+)+", "", msg.lower().strip())
+        if not c and self.last_calc is not None and re.match(r"(?:times|plus|minus|divided by|multiplied by|x|\+|-|\*|/)\s*\d", cont):
+            c = cc.calc(f"{self.last_calc} {cont}")
+        if c:
+            return Answer(c, 1.0, "calc", "arithmetic")
+        t = self._recall_profile(n)
+        if t:
+            return Answer(t, 1.0, "profile", "answered from what you told me")
+        turn = len(self.history)
+        prev = self.history[-1][0] if self.history else ""
+        t = cc.smalltalk(n, prev, self.used, turn, name or "")
+        if t is None and (msg.rstrip().endswith("?") or QWORD.match(msg)):
+            t = cc.advice(msg, n, self.used, turn)
+        if t:
+            return Answer(t, 1.0, "chat", "small talk rule")
+        return None
+
+    SOFT_CTX = re.compile(r"^(?:is|are|does|do|was|were|can|will|would|could|did|has|have) (?:it|that|this|they|there|he|she)\b|\b(?:better|best|worth|nice|good|bad)\b")
+
+    def _soft_unknown(self, msg):
+        """Questions about Ovi, opinions or 'it' with no referent: a neutral reply instead of asking to be taught."""
+        n = norm(msg)
+        if re.search(r"\b(?:you|your|yours|u|ur)\b", n):
+            return "I'm not sure about that, I'm only a tiny program. What made you ask?"
+        if self.SOFT_CTX.search(n):
+            return "I can't really say. What do you think?"
+        return None
 
     # ---------- feedback ----------
     def feedback(self, good, correction=None):
