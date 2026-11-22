@@ -12,6 +12,8 @@ from tokenizers import Tokenizer
 from .memory import Memory
 from .ngram import NGram
 from .seed_chat import PAIRS
+from .retrieval import Index
+from . import dataset
 
 TOK, NG = "data/tokenizer.json", "ovi_ngram.bin"
 
@@ -44,14 +46,23 @@ class Ovi:
         self.tok = Tokenizer.from_file(TOK)
         self.lm = load()
         self.mem = Memory()
-        for q, a in PAIRS:
+        self.cb, self.movie = Index(), Index()
+        if os.path.exists("ovi_pairs.bin"):
+            for kind, q, a in dataset.load():
+                (self.cb if kind == "c" else self.movie).add(q, a)
+                if kind == "c":
+                    self.mem.learn(q, a, persist=False)
+        for q, a in PAIRS:  # Ovi's own seed answers take priority over dataset answers
             self.mem.learn(q, a, persist=False)
-        self.mem2 = self.mem  # taught facts override seeds (later entries win on ties)
 
     def say(self, msg, n=40):
         r = self.mem.recall(msg)
         if r:
             return r
+        for ix, th in ((self.cb, 0.7), (self.movie, 0.55)):
+            hit = ix.best(msg, th)
+            if hit:
+                return hit[0]
         ctx = self.tok.encode(msg).ids[-2:]
         out = self.lm.sample(ctx, n, temp=0.7)
         text = self.tok.decode(out).strip().replace("\n", " ")
