@@ -134,7 +134,8 @@ Commands (you are the parent):
         }
     }
 
-    // The parent's rule for autofeed. `echo` is what the parent says back while feeding (parents repeat what toddlers say).
+    // The parent's rule for autofeed. `echo` is what the parent says while feeding: always the real word, never a parroted
+    // phrase (echoing a babbled "yellow milk" would teach the baby that "yellow" goes with a white bottle).
     private bool ParentResponds(ActResult r, out string echo)
     {
         echo = RequestWord;
@@ -142,7 +143,6 @@ Commands (you are the parent):
             return _feedMode == 1 && _world.Current == World.Props["bottle"];
         if (r.Said is null) return false;
         var words = r.Said.Split(' ');
-        echo = r.Said;
         return words.Contains(RequestWord) && (_feedMode == 1 || words.Length == 2);
     }
 

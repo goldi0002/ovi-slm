@@ -24,14 +24,14 @@ for (int s = 1; s <= seeds; s++)
 
 Console.WriteLine();
 Console.WriteLine("================ SUMMARY ACROSS SEEDS ================");
-Console.WriteLine($"{"seed",4} {"naming(seen)",13} {"naming(held-out)",17} {"color(held-out)",16} {"wrong",6} {"req%",6} {"stateKB",8} {"conc",5} {"ms/1k",6}");
+Console.WriteLine($"{"seed",4} {"naming(seen)",13} {"name(held)",11} {"color(held)",12} {"both(held)",11} {"frog",5} {"wrong",6} {"req%",6} {"stateKB",8} {"conc",5} {"ms/1k",6}");
 foreach (var r in results)
-    Console.WriteLine($"{r.Seed,4} {r.NameSeen,13:P0} {r.NameHeld,17:P0} {r.ColorHeld,16:P0} {r.Wrong,6:P0} {r.RequestShare,6:P0} {r.StateKb,8:0} {r.Concepts,5} {r.MsPer1k,6:0}");
+    Console.WriteLine($"{r.Seed,4} {r.NameSeen,13:P0} {r.NameHeld,11:P0} {r.ColorHeld,12:P0} {r.BothHeld,11:P0} {(r.Frog > 0 ? "yes" : "no"),5} {r.Wrong,6:P0} {r.RequestShare,6:P0} {r.StateKb,8:0} {r.Concepts,5} {r.MsPer1k,6:0}");
 
 // ------------------------------------------------------------------------------------------------
 
 record Cls(string Name, string Shape, string Size);
-record Summary(int Seed, double NameSeen, double NameHeld, double ColorHeld, double Wrong, double RequestShare, double StateKb, int Concepts, double MsPer1k);
+record Summary(int Seed, double NameSeen, double NameHeld, double ColorHeld, double BothHeld, double Frog, double Wrong, double RequestShare, double StateKb, int Concepts, double MsPer1k);
 
 sealed class Soak
 {
@@ -66,7 +66,7 @@ sealed class Soak
     public Summary Run()
     {
         Console.WriteLine($"\n=== seed {_seed}: {_ticks} ticks ===");
-        Console.WriteLine($"{"tick",6} | {"seen",5} {"held",5} {"hcol",5} {"wrong",5} {"frog",4} {"tree",4} | {"req/forced",10} {"chat%",5} | {"conc",4} {"links",5} {"pairs",5} {"mods",4} {"Q",4} {"epi",3} | {"KB",5} {"MB",4} {"ms/1k",5}");
+        Console.WriteLine($"{"tick",6} | {"seen",5} {"held",5} {"hcol",5} {"both",5} {"wrong",5} {"frog",4} {"tree",4} | {"req/forced",10} {"chat%",5} | {"conc",4} {"links",5} {"pairs",5} {"mods",4} {"Q",4} {"epi",3} | {"KB",5} {"MB",4} {"ms/1k",5}");
         var sw = Stopwatch.StartNew();
         long lastMs = 0; int nextReport = _window; bool frogTaught = false;
         Probe? last = null; double lastKb = 0, lastMsPer1k = 0;
@@ -94,7 +94,7 @@ sealed class Soak
         File.Delete(path);
         _misses = new();
         var a = MakeProbe(_baby); var b = MakeProbe(reborn);
-        Console.WriteLine($"final probe: items where the class name was NOT said ({_misses.Count / 2} of {Classes.Length * Colors.Length}):");
+        Console.WriteLine($"final probe: items where the name was missing (or, for held-out items, the colour too) ({_misses.Count / 2} of {Classes.Length * Colors.Length}):");
         foreach (var m in _misses.Take(_misses.Count / 2)) Console.WriteLine("   " + m);
         _misses = null;
         Console.WriteLine($"save/load round trip: probe before {a.NameSeen:P0}/{a.NameHeld:P0}, after reload {b.NameSeen:P0}/{b.NameHeld:P0}  {(Math.Abs(a.NameSeen - b.NameSeen) < 0.001 && Math.Abs(a.NameHeld - b.NameHeld) < 0.001 ? "OK" : "MISMATCH")}");
@@ -103,7 +103,7 @@ sealed class Soak
 
         var p = last!;
         double share = _totalRequest + _totalForced == 0 ? 0 : _totalRequest / (double)(_totalRequest + _totalForced);
-        return new Summary(_seed, p.NameSeen, p.NameHeld, p.ColorHeld, p.Wrong, share, lastKb, _baby.Map.Concepts.Count, lastMsPer1k);
+        return new Summary(_seed, p.NameSeen, p.NameHeld, p.ColorHeld, p.BothHeld, FrogAtEnd(p), p.Wrong, share, lastKb, _baby.Map.Concepts.Count, lastMsPer1k);
     }
 
     // ---------------- the scripted parent ----------------
@@ -142,7 +142,7 @@ sealed class Soak
             if (r.Said is { } said && said.Split(' ').Contains("milk") && h >= 0.3)
             {
                 _requestHunger.Add(h); _requestFeeds++; _totalRequest++;
-                Feed(said);                                                // parent understands the request
+                Feed("milk");                                               // parent understands the request and says "milk" (never parrots a babbled phrase)
             }
             else MaybeForceFeed();
         }
@@ -185,7 +185,7 @@ sealed class Soak
 
     // ---------------- probes ----------------
 
-    record Probe(double NameSeen, double NameHeld, double ColorHeld, double Wrong, bool Frog, double Tree);
+    record Probe(double NameSeen, double NameHeld, double ColorHeld, double BothHeld, double Wrong, bool Frog, double Tree);
 
     Probe MakeProbe() => MakeProbe(_baby);
     List<string>? _misses;
@@ -195,19 +195,21 @@ sealed class Soak
     {
         var baby = Baby.FromState(source.ToState());
         var w = new World(_seed + 1000);
-        int seenN = 0, seenName = 0, heldN = 0, heldName = 0, heldColor = 0, wrong = 0, total = 0;
+        int seenN = 0, seenName = 0, heldN = 0, heldName = 0, heldColor = 0, heldBoth = 0, wrong = 0, total = 0;
         foreach (var cls in Classes)
             foreach (var color in Colors)
             {
                 if (cls.Name == "tree" && false) continue;
                 w.TryPlace(color, cls.Shape, cls.Size, out _);
-                string? said = baby.Experience(w.Sense(), null).Said;
+                var sight = w.Sense()!.Value;
+                string? said = baby.Experience(sight, null).Said;
+                string fits = string.Join(",", baby.Meanings.Matches(sight.Features).Select(m => $"{m.Word}:{m.Score:0.00}"));
                 var words = said?.Split(' ') ?? Array.Empty<string>();
                 bool held = HeldOut.Contains((cls.Name, color));
                 bool nameOk = words.Contains(cls.Name), colorOk = words.Contains(color);
-                if (held) { heldN++; if (nameOk) heldName++; if (colorOk) heldColor++; }
+                if (held) { heldN++; if (nameOk) heldName++; if (colorOk) heldColor++; if (nameOk && colorOk) heldBoth++; }
                 else if (cls.Name != "tree") { seenN++; if (nameOk) seenName++; }
-                if (!nameOk && !(cls.Name == "tree" && false)) _misses?.Add($"{color} {cls.Name}{(held ? " (held-out)" : "")} -> {(said is null ? "(silent)" : "\"" + said + "\"")}");
+                if (!nameOk || (held && !colorOk)) _misses?.Add($"{color} {cls.Name}{(held ? " (held-out)" : "")} -> {(said is null ? "(silent)" : "\"" + said + "\"")}   [meanings fit: {fits}]");
                 total++;
                 if (words.Any(x => x != cls.Name && x != color)) wrong++;
             }
@@ -222,8 +224,10 @@ sealed class Soak
             else _misses?.Add($"[tree loop] {color} tree -> {(ts is null ? "(silent)" : "\"" + ts + "\"")}");
         }
         int treeN = Colors.Count(c => !HeldOut.Contains(("tree", c)));
-        return new Probe(Rate(seenName, seenN), Rate(heldName, heldN), Rate(heldColor, heldN), Rate(wrong, total), frog, Rate(treeOk, treeN));
+        return new Probe(Rate(seenName, seenN), Rate(heldName, heldN), Rate(heldColor, heldN), Rate(heldBoth, heldN), Rate(wrong, total), frog, Rate(treeOk, treeN));
     }
+
+    double FrogAtEnd(Probe p) => p.Frog ? 1 : 0;
 
     static double Rate(int a, int b) => b == 0 ? 0 : a / (double)b;
 
@@ -231,7 +235,7 @@ sealed class Soak
     {
         double chat = _satedTicks == 0 ? 0 : 100.0 * _satedSpeech / _satedTicks;
         long mb = GC.GetTotalMemory(true) / (1024 * 1024);
-        Console.WriteLine($"{tick,6} | {p.NameSeen,5:P0} {p.NameHeld,5:P0} {p.ColorHeld,5:P0} {p.Wrong,5:P0} {(p.Frog ? "yes" : "no"),4} {p.Tree,4:P0} | {_requestFeeds + "/" + _forcedFeeds,10} {chat,5:0} | {_baby.Map.Concepts.Count,4} {_baby.Assoc.LinkCount,5} {_baby.Phrases.Pairs.Count(),5} {_baby.Meanings.Models.Count(),4} {_baby.Selector.Table().Count(),4} {_baby.Memory.Episodes.Count,3} | {kb,5:0} {mb,4} {msPer1k,5:0}");
+        Console.WriteLine($"{tick,6} | {p.NameSeen,5:P0} {p.NameHeld,5:P0} {p.ColorHeld,5:P0} {p.BothHeld,5:P0} {p.Wrong,5:P0} {(p.Frog ? "yes" : "no"),4} {p.Tree,4:P0} | {_requestFeeds + "/" + _forcedFeeds,10} {chat,5:0} | {_baby.Map.Concepts.Count,4} {_baby.Assoc.LinkCount,5} {_baby.Phrases.Pairs.Count(),5} {_baby.Meanings.Models.Count(),4} {_baby.Selector.Table().Count(),4} {_baby.Memory.Episodes.Count,3} | {kb,5:0} {mb,4} {msPer1k,5:0}");
         _requestFeeds = _forcedFeeds = _satedTicks = _satedSpeech = 0;
     }
 }

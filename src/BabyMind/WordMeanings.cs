@@ -12,6 +12,8 @@ public sealed class WordModel
     public float[] Var { get; init; } = Array.Empty<float>();
     /// <summary>Distinct concepts the word was heard with: one concept alone can't tell a name from a property.</summary>
     public HashSet<int> Concepts { get; init; } = new();
+    /// <summary>Consecutive contradicting samples ignored so far (see <see cref="WordMeanings.OutlierPatience"/>).</summary>
+    public int Outliers { get; set; }
     /// <summary>Things the parent said this word does NOT apply to ("no").</summary>
     public List<float[]> Exceptions { get; init; } = new();
 }
@@ -44,6 +46,14 @@ public sealed class WordMeanings
     public int MinConcepts { get; set; } = 2;
     public float MinRate { get; set; } = 0.05f;
     public int MaxExceptions { get; set; } = 8;
+    /// <summary>
+    /// An established word (≥ <see cref="EstablishedAfter"/> hearings, ≥3 distinct things) ignores a sample that sharply contradicts
+    /// its meaning, e.g. a parent's slip, and only changes its mind if the contradiction repeats this many times in a row + 1.
+    /// </summary>
+    public int OutlierPatience { get; set; } = 2;
+    public int EstablishedAfter { get; set; } = 5;
+    /// <summary>Mean squared z-score (over relevant groups) beyond which a sample counts as contradicting the word.</summary>
+    public double OutlierZ2 { get; set; } = 9;
     /// <summary>A thing this close to a rejected example is never matched.</summary>
     public float ExceptionRadius { get; set; } = 0.15f;
 
@@ -62,6 +72,12 @@ public sealed class WordMeanings
             m.Concepts.Add(conceptId);
             return;
         }
+        if (m.N >= EstablishedAfter && m.Concepts.Count >= 3 && Contradicts(m, features) && m.Outliers < OutlierPatience)
+        {
+            m.Outliers++;                                          // probably a slip: don't let one example rewrite the meaning
+            return;
+        }
+        m.Outliers = 0;
         m.N++;
         m.Concepts.Add(conceptId);
         float rate = Math.Max(MinRate, 1f / m.N);                 // incremental (exponentially weighted) mean and variance
@@ -71,6 +87,26 @@ public sealed class WordMeanings
             m.Mean[i] += rate * delta;
             m.Var[i] = (1 - rate) * (m.Var[i] + rate * delta * delta);
         }
+    }
+
+    // Does this sample clash with what the word is consistent about? (only relevant groups count)
+    private bool Contradicts(WordModel m, float[] f)
+    {
+        var rel = Relevant(m);
+        if (rel.Count == 0) return false;
+        double total = 0;
+        foreach (int g in rel)
+        {
+            var (_, start, len) = _groups[g];
+            double z2 = 0;
+            for (int i = start; i < start + len; i++)
+            {
+                double z = (f[i] - m.Mean[i]) / Math.Max(MathF.Sqrt(m.Var[i]), Floor);
+                z2 += z * z;
+            }
+            total += z2 / len;
+        }
+        return total / rel.Count > OutlierZ2;
     }
 
     /// <summary>Names of the feature groups the word is consistent about (empty = it carries no perceptual meaning).</summary>
@@ -137,7 +173,7 @@ public sealed class WordMeanings
     // ---- persistence ----
     public WordMeaningsState ToState() => new(_models.Values.Select(m =>
         new WordModelState(m.Word, m.N, (float[])m.Mean.Clone(), (float[])m.Var.Clone(), m.Concepts.OrderBy(c => c).ToList(),
-                           m.Exceptions.Select(e => (float[])e.Clone()).ToList())).ToList());
+                           m.Exceptions.Select(e => (float[])e.Clone()).ToList(), m.Outliers)).ToList());
 
     public static WordMeanings FromState(WordMeaningsState s, (string Name, int Start, int Len)[] groups)
     {
@@ -146,11 +182,11 @@ public sealed class WordMeanings
             wm._models[m.Word] = new WordModel
             {
                 Word = m.Word, N = m.N, Mean = m.Mean, Var = m.Var,
-                Concepts = new HashSet<int>(m.Concepts), Exceptions = m.Exceptions,
+                Concepts = new HashSet<int>(m.Concepts), Exceptions = m.Exceptions, Outliers = m.Outliers,
             };
         return wm;
     }
 }
 
-public sealed record WordModelState(string Word, int N, float[] Mean, float[] Var, List<int> Concepts, List<float[]> Exceptions);
+public sealed record WordModelState(string Word, int N, float[] Mean, float[] Var, List<int> Concepts, List<float[]> Exceptions, int Outliers = 0);
 public sealed record WordMeaningsState(List<WordModelState> Models);

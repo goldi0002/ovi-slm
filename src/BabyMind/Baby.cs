@@ -132,7 +132,7 @@ public sealed class Baby
         string utter; double conf;
         var pairs = from a in cands from b in cands
                     where a.Word != b.Word
-                    let w = Phrases.Find(a.Word, b.Word)?.Weight ?? 0
+                    let w = Phrases.Order(a.Word, b.Word)
                     where w >= 0.4
                     orderby w descending
                     select (a, b);
@@ -143,7 +143,11 @@ public sealed class Baby
         }
         else
         {
-            var best = cands.OrderByDescending(c => c.Primary).ThenByDescending(c => c.Score).First();
+            // No known order for any pair: say the one word. The concept's own name wins; otherwise prefer the more
+            // informative word (a word that pins down more feature groups, "tree" = shape + size beats "red" = colour).
+            var best = cands.OrderByDescending(c => c.Primary)
+                            .ThenByDescending(c => Meanings.RelevantGroups(c.Word).Count)
+                            .ThenByDescending(c => c.Score).First();
             utter = best.Word; conf = best.Score;
         }
 

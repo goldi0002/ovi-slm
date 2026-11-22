@@ -71,7 +71,7 @@ public class AssociationsTests
         a.Hear(1, "ball");
         for (int i = 0; i < 50; i++) a.Decay();
         Assert.True(a.Find(1, "ball")!.Weight > 0.4, "decay must be slow");
-        for (int i = 0; i < 20000; i++) a.Decay();
+        for (int i = 0; i < 100000; i++) a.Decay();
         Assert.Null(a.Find(1, "ball"));
     }
 

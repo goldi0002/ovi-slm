@@ -89,20 +89,26 @@ A scripted parent (seeded) teaches 5 object classes in 7 colours for thousands o
 praises and corrects, and feeds when the baby requests "milk". Every 1,000 ticks it probes a *clone* of the baby. 6 colour×class combinations are never shown in teaching (held-out) to test generalisation,
 "tree" is taught early and then never again, and "frog" is taught exactly once.
 
-Results (3 seeds × 10,000 ticks, release build):
+Results (6 seeds × 20,000 ticks, release build):
 
 | What | Result |
 |---|---|
-| Resources | Saved state flat at ~25 KB, heap about 1 MB, 30 concepts, ~50 word links, 14 word meanings; Q-table creeps from ~140 to ~190 entries and flattens. 35-70 ms per 1,000 ticks. Nothing grew without bound. |
-| Needs | Requests replace waiting: 98-99% of feeds are the baby asking for milk (mean hunger at request 0.33). Speech while sated falls from ~55% to ~5% (the exploration floor). |
-| Naming (taught combos) | 96-100% throughout, no decay over 10,000 ticks. Wrong words: 0-3%. |
+| Resources | Saved state flat at ~28 KB, heap ~1 MB, 30 concepts, ~50 word links, 14 word meanings; the Q-table creeps from ~140 to ~250 entries and flattens. 30-35 ms per 1,000 ticks. Nothing grew without bound. |
+| Needs | Requests replace waiting: 99% of feeds are the baby asking for milk (mean hunger at request 0.33). Speech while sated falls from ~55% to ~5% (the exploration floor). |
+| Naming (taught combos) | 100% on every seed at every probe. Wrong words: 0%. |
+| Held-out combos (e.g. "green ball", never shown) | Name correct 100% on every seed. Name **and** colour ("green ball") 83-100%; the rare miss is a neglected combination whose word-order links have decayed (it says "tree" for a yellow tree instead of "yellow tree"). |
+| Neglected word ("tree", never taught again after tick 1,500) | Still named correctly 18,500 ticks later. |
+| One-shot word ("frog", 1 exposure) | Still spoken at 3,000 ticks, forgotten by ~5,000 (was ~500 before the decay change). |
 | Persistence | Save/load round trip reproduces probe results exactly. |
-| One-shot word ("frog", 1 exposure) | Forgotten after ~500 ticks (link 0.5 decays below the 0.4 speaking threshold). By design, but short. |
-| Held-out combos (e.g. "green ball") | 33-100% name correct depending on seed; the rest are **correct but incomplete**: it says only the colour ("green"), never a wrong word. |
-| Neglected word ("tree", never taught again after tick 1,500) | 100% -> 67-83%. Same failure: it says the colour instead of "tree". |
 
-**Finding:** when both a name and a colour fit a thing and the baby has never *heard* that exact word pair, it says one word, picked by score. It has learned order only per pair
-(`red→ball`), not that "colour words come before object words". Fixing this means generalising word order across pivot/follower classes.
+What the soak test found, and what was changed because of it:
+
+1. **Word order was memorised per pair.** For a never-heard pair ("green ball") the baby said only one word. Now `Phrases` learns word *classes* from order (modifiers such as "red"/"green"/"more" and heads such as "ball"/"milk") and accepts any modifier before any head.
+2. **Forgetting was too fast** (a single exposure lasted ~500 ticks). Base decay is now 5x slower; practised and consolidated links are still much slower again.
+3. **One bad example could destroy a word's meaning.** A parent echoing a babbled "yellow milk" with a white bottle in view made colour "inconsistent" for "yellow". Established words now ignore a sharply contradicting sample unless it repeats three times in a row. The `autofeed` parent (and the soak parent) now say "milk" while feeding instead of parroting the baby's phrase.
+4. **Name vs colour tie-break.** When both fit and no word order is known, the baby now prefers the more informative word ("tree" = shape + size beats "red" = colour).
+
+Known remaining limits: a word-order link that is never heard again eventually decays away (hence the occasional single word instead of two); a thing that looks exactly like another known thing is mistaken for it (a white banana *is* the milk bottle in this world); and a feature-poor world like this one tells us little about scaling to richer perception.
 
 ## Design
 

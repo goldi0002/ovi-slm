@@ -21,7 +21,7 @@ public sealed class AssociationParams
     /// <summary>When a word is strengthened for a concept, its rival words for that concept shrink by Inhibition*LearnRate.</summary>
     public double Inhibition { get; set; } = 0.1;
     /// <summary>Per-tick forgetting. Divided by (1 + Hits/2): well-practised links fade slower.</summary>
-    public double DecayRate { get; set; } = 0.0005;
+    public double DecayRate { get; set; } = 0.0001;
     /// <summary>Decay multiplier for consolidated links.</summary>
     public double ConsolidatedDecayFactor { get; set; } = 0.05;
     /// <summary>Links weaker than this are forgotten entirely.</summary>

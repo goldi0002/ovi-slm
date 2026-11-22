@@ -93,6 +93,42 @@ public class WordMeaningsTests
         Assert.Single(m.Matches(F("green", "round", "small")));   // other things unaffected
     }
 
+    private static WordMeanings Established()
+    {
+        var m = New();
+        string[] shapes = { "round", "square", "long", "triangle", "round" };
+        for (int i = 0; i < 5; i++) m.Hear("red", F("red", shapes[i], i % 2 == 0 ? "small" : "big"), i + 1);
+        return m;
+    }
+
+    [Fact]
+    public void EstablishedWord_IgnoresASingleSlip()
+    {
+        var m = Established();
+        Assert.Equal(new[] { "color" }, m.RelevantGroups("red"));
+        m.Hear("red", F("white", "long", "small"), 9);              // e.g. a parent's echo with the wrong thing in view
+        Assert.Equal(new[] { "color" }, m.RelevantGroups("red"));    // meaning survives
+        Assert.Contains(m.Matches(F("red", "triangle", "big")), x => x.Word == "red");
+        Assert.DoesNotContain(m.Matches(F("white", "long", "small")), x => x.Word == "red");
+    }
+
+    [Fact]
+    public void EstablishedWord_ChangesItsMind_IfTheContradictionRepeats()
+    {
+        var m = Established();
+        for (int i = 0; i < 6; i++) m.Hear("red", F("white", "long", "small"), 10 + i);
+        Assert.DoesNotContain("color", m.RelevantGroups("red"));    // colour is no longer a reliable part of "red"
+    }
+
+    [Fact]
+    public void NewWord_LearnsFromContrastImmediately_NoOutlierProtectionYet()
+    {
+        var m = New();
+        m.Hear("ball", F("red", "round", "small"), 1);
+        m.Hear("ball", F("blue", "round", "small"), 2);             // big colour change is real information here
+        Assert.Equal(new[] { "shape", "size" }, m.RelevantGroups("ball"));
+    }
+
     [Fact]
     public void State_RoundTrips()
     {
@@ -180,6 +216,34 @@ public class GeneralizationTests
         Assert.Equal("lemon", See(b, w, "yellow", "round", "small").Said);
         // other balls are still balls
         Assert.Equal("ball", See(b, w, "green", "round", "small").Said);
+    }
+
+    [Fact]
+    public void NeverHeardColourPlusName_IsSaidInTheRightOrder()
+    {
+        var w = new World(3); var b = new Baby();
+        See(b, w, "red", "round", "small", "red ball");
+        See(b, w, "blue", "round", "small", "blue ball");
+        See(b, w, "green", "square", "medium", "green block");
+        See(b, w, "green", "long", "small", "green banana");
+        See(b, w, "green", "triangle", "big", "green tree");
+        // "green ball" was never heard, nor was a green ball ever seen
+        var r = See(b, w, "green", "round", "small");
+        Assert.Equal("green ball", r.Said);
+    }
+
+    [Fact]
+    public void WithNoKnownWordOrder_TheMoreInformativeWordIsSaid()
+    {
+        var w = new World(3); var b = new Baby();
+        // single words only: no word-order information exists at all
+        See(b, w, "blue", "triangle", "big", "tree");
+        See(b, w, "green", "triangle", "big", "tree");
+        See(b, w, "red", "round", "small", "red");
+        See(b, w, "red", "square", "medium", "red");
+        See(b, w, "red", "long", "small", "red");
+        var r = See(b, w, "red", "triangle", "big");                // fits "red" (colour) and "tree" (shape + size)
+        Assert.Equal("tree", r.Said);
     }
 
     [Fact]

@@ -15,6 +15,9 @@ public sealed class PairLink
 ///  - Pivot words: a word that has been heard in front of several different words ("more milk", "more ball")
 ///    becomes a pivot with an open slot: "more _". This is what lets the baby try combinations it has never heard,
 ///    e.g. "more cup", as soon as it knows "cup".
+///  - Word classes from order: a pivot is a *modifier* ("red", "more"); a word heard as the second word of a phrase is a *head* ("ball", "milk").
+///    Any modifier may then precede any head, even for a pair never heard ("green ball" after "red ball", "green cup", ...):
+///    this is generalisation of word order, not memorisation of pairs.
 /// Candidates are only *options*: whether the baby actually says them is decided by the ActionSelector's rewards.
 /// </summary>
 public sealed class Phrases
@@ -22,7 +25,7 @@ public sealed class Phrases
     private readonly Dictionary<(string, string), PairLink> _pairs = new();
 
     public double LearnRate { get; set; } = 0.5;
-    public double DecayRate { get; set; } = 0.0005;
+    public double DecayRate { get; set; } = 0.0001;
     public double PruneBelow { get; set; } = 0.02;
     /// <summary>Different followers needed (each link at least <see cref="MinFollowerWeight"/>) for a word to count as a pivot.</summary>
     public int PivotMinFollowers { get; set; } = 2;
@@ -45,6 +48,28 @@ public sealed class Phrases
     /// <summary>Words heard right after <paramref name="first"/>, strongest first.</summary>
     public IReadOnlyList<PairLink> Followers(string first) =>
         _pairs.Values.Where(p => p.First == first).OrderByDescending(p => p.Weight).ToList();
+
+    /// <summary>True if the word has been heard in front of several different words ("red _", "more _").</summary>
+    public bool IsModifier(string word) => Pivots().Contains(word);
+
+    /// <summary>True if the word has been heard as the second word of a phrase ("ball" in "red ball").</summary>
+    public bool IsHead(string word) => _pairs.Values.Any(p => p.Second == word && p.Weight >= MinFollowerWeight);
+
+    /// <summary>
+    /// How acceptable "first second" is, 0 if not at all. A heard pair counts with its own weight; a never-heard pair
+    /// counts at <see cref="GeneralisedOrder"/> if a modifier is followed by a head (and the second word is not itself a modifier).
+    /// </summary>
+    public double Order(string first, string second)
+    {
+        double heard = Find(first, second)?.Weight ?? 0;
+        if (heard >= 0.4) return heard;
+        var pivots = Pivots();
+        bool modifier = pivots.Contains(first), head = !pivots.Contains(second) && IsHead(second);
+        return first != second && modifier && head ? GeneralisedOrder : 0;
+    }
+
+    /// <summary>Acceptability given to an order that was never heard but fits the modifier-before-head pattern.</summary>
+    public double GeneralisedOrder { get; set; } = 0.4;
 
     /// <summary>Pivot words (open-slot frames like "more _"), the most productive first.</summary>
     public IReadOnlyList<string> Pivots() =>
