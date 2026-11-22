@@ -37,4 +37,4 @@ class Index:
             v = (s / qn) / math.sqrt(max(len(self.q[i]), 1) / max(len(ws), 1)) ** 0.5
             if v > tv:
                 top, tv = i, v
-        return (self.a[top], tv) if tv >= min_score else None
+        return (self.a[top], tv, top) if tv >= min_score else None
