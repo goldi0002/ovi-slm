@@ -1,0 +1,879 @@
+=== Conversation 1 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: booking flights to lisbon next month, super excited
+O: Good to hear. What do you like most about it?
+U: my sister is coming with me, her name is Marta
+O: Okay, I'm listening. Say more if you like.
+U: we land on a tuesday i think
+O: Tell me more about the tuesday.
+U: what city am i going to again lol
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: how much is 18 times 4
+O: 18 times 4 is 72.
+U: kinda nervous about the portuguese tho
+O: That does sound hard. What do you make of it?
+U: any tips for a first timer
+O: Happy to think it through with you. What have you tried for a first timer, and what got in the way?
+U: who's coming with me btw
+O: You said your sister is coming with you.
+U: ok thx bye
+O: See you later! Take care.
+
+=== Conversation 2 ===
+U: yo whats up
+O: Not much, just here chatting with you. What's up with you?
+U: got a younger brother named Dev, hes 14 and drives me nuts
+O: That sounds really annoying. What happened?
+U: he borrowed my headphones again
+O: What's on your mind about your headphones?
+U: idk why i even bother
+O: That makes sense. What else is on your mind?
+U: what's my brothers name
+O: You said your brother's name is Dev.
+U: lol ur memory is better than his
+O: Thanks for telling me. Is there more to it?
+U: how old is he
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: can u give me advice on not killing him
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: haha ok
+O: What else is on your mind?
+U: gn
+O: See you later! Take care.
+
+=== Conversation 3 ===
+U: hi there
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: im in my second year of uni studying chemistry
+O: Thanks for telling me. Is there more to it?
+U: exams start monday and im freaking out
+O: That's completely understandable. What worries you the most about it?
+U: why is organic chem so hard
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: idk
+O: I'm here if you want to chat about anything.
+U: what am i studying again
+O: You said you're in your second year of uni studying chemistry.
+U: how many days in a week x 3
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: you're actually kind of helpful
+O: That makes sense. What else is on your mind?
+U: thanks, gonna go cram
+O: You're welcome!
+U: bye
+O: See you later! Take care.
+
+=== Conversation 4 ===
+U: sup
+O: Hey! Not much here. How about you?
+U: been playing a ton of elden ring lately
+O: Thanks for telling me. Is there more to it?
+U: just got stuck on malenia, so annoying
+O: That sounds really annoying. What happened?
+U: rage quit twice today
+O: That makes sense. What else is on your mind?
+U: what game was i talking about
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: is it normal to die like 50 times
+O: I can't really say. What do you think?
+U: lol
+O: Is there something you'd like to talk about or learn?
+U: ur not very good at gaming talk are u
+O: I see. How are you feeling about all that?
+U: jk
+O: Okay, I'm listening.
+U: night
+O: See you later! Take care.
+
+=== Conversation 5 ===
+U: hello
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: tryin to learn cooking, mostly pasta so far
+O: Thanks for telling me. Is there more to it?
+U: made carbonara last night, kinda scrambled the eggs tho
+O: Okay, I'm listening. Say more if you like.
+U: what did i make last night
+O: You said made carbonara last night, kinda scrambled the eggs tho.
+U: why do eggs scramble
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: tips?
+O: I don't have a good answer to that one. What's your take on the eggs?
+U: whats 15% of 80
+O: 15% of 80 is 12.
+U: my roommate said it was ok i guess
+O: Got it, your roommate said it is ok i guess.
+U: ha
+O: Okay, I'm listening.
+U: thx see ya
+O: See you later! Take care.
+
+=== Conversation 6 ===
+U: hey bot
+O: Okay, I'm listening.
+U: money is tight this month
+O: Thanks for telling me. Is there more to it?
+U: rent went up to 1200 and i make like 2000
+O: Okay, I'm listening. Say more if you like.
+U: feels bad man
+O: That makes sense. What else is on your mind?
+U: how much do i have left after rent
+O: I'm not sure, but the closest thing I remember is that you said rent went up to 1200 and you make like 2000.
+U: ugh
+O: Ugh, sounds like a rough moment. What's going on?
+U: should i get a side gig
+O: I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?
+U: dunno what kind tho
+O: I see. How are you feeling about all that?
+U: ok that helps a bit
+O: I see. How are you feeling about all that?
+U: bye for now
+O: See you later! Take care.
+
+=== Conversation 7 ===
+U: hi
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: we're moving house in two weeks
+O: Thanks for telling me. Is there more to it?
+U: new place is in Leeds
+O: Okay, I'm listening. Say more if you like.
+U: packing is the worst
+O: That makes sense. What else is on your mind?
+U: i hate boxes
+O: That sounds really frustrating. What's the worst part?
+U: where are we moving to
+O: You said you're moving house in Two weeks.
+U: how many boxes for a 2 bed flat lol
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: ok that's a lot
+O: I see. How are you feeling about all that?
+U: thanks anyway
+O: You're welcome!
+U: cya
+O: See you later! Take care.
+
+=== Conversation 8 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: my back has been killing me for days
+O: Thanks for telling me. Is there more to it?
+U: probably sitting too long, i work at a desk
+O: Okay, I'm listening. Say more if you like.
+U: should i see a doctor?
+O: I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?
+U: idk
+O: I'm here if you want to chat about anything.
+U: what hurts again
+O: I don't have a good answer to that one. What's your take on the desk?
+U: can stretches help
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: kk will try
+O: Thanks, I'll remember that.
+U: ur sweet
+O: Thanks, that's kind of you!
+U: bye
+O: See you later! Take care.
+
+=== Conversation 9 ===
+U: hiya
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: i just started learning the piano
+O: How did that go?
+U: bought a cheap keyboard last week
+O: Okay, I'm listening. Say more if you like.
+U: can only play twinkle twinkle haha
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: what instrument am i learning
+O: You said you just started learning the piano.
+U: how long to get good
+O: I can't really say. What do you think?
+U: ok
+O: Is there something you'd like to talk about or learn?
+U: thats depressing lol
+O: That makes sense. What else is on your mind?
+U: any song suggestions for beginners
+O: I see. How are you feeling about all that?
+U: thx
+O: You're welcome!
+
+=== Conversation 10 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: my girlfriend and i broke up yesterday
+O: I'm sorry, that's rough. Do you want to talk about what happened?
+U: 3 years
+O: I see. What else is on your mind?
+U: i dont even know what to say
+O: That makes sense. What else is on your mind?
+U: why does it hurt so much
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: idk
+O: What else is on your mind?
+U: did i say how long we were together
+O: I don't think you've told me that.
+U: thanks for listening
+O: No problem at all!
+U: i think ill go sleep
+O: Sounds like you have a plan. How are you feeling about it?
+U: bye
+O: See you later! Take care.
+
+=== Conversation 11 ===
+U: hello!
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: starting a new job on monday!!
+O: Congratulations! That's great news. How are you feeling about it?
+U: its at a bakery, my first real job
+O: Okay, I'm listening. Say more if you like.
+U: im a bit scared tbh
+O: That sounds stressful. What is weighing on you the most?
+U: what time should i get up
+O: That sounds like a real decision. I don't know the whole situation, so what feels right to you?
+U: wait what job did i say
+O: You said its at a bakery, your first real job.
+U: lol ok
+O: Is there something you'd like to talk about or learn?
+U: what's 6 + 7
+O: 6 + 7 is 13.
+U: wish me luck
+O: Good luck! I'm rooting for you. You've got this.
+U: bye
+O: See you later! Take care.
+
+=== Conversation 12 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: weekend plan is hiking with my friend Tomas
+O: Thanks for telling me. Is there more to it?
+U: we're doing a trail near the lake
+O: What's on your mind about the lake?
+U: weather says rain tho
+O: That makes sense. What else is on your mind?
+U: ugh typical
+O: Okay, I'm listening.
+U: who am i hiking with
+O: You said weekend plan is hiking with your friend Tomas.
+U: should i bring a jacket
+O: I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?
+U: duh lol
+O: Hm, interesting. Tell me more when you're ready.
+U: ur funny
+O: Thanks, that's kind of you!
+U: see ya
+O: See you later! Take care.
+
+=== Conversation 13 ===
+U: hi
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: i play football every sunday, striker
+O: Thanks for telling me. Is there more to it?
+U: scored twice yesterday
+O: Okay, I'm listening. Say more if you like.
+U: team is called the Red Foxes
+O: That makes sense. What else is on your mind?
+U: what position do i play
+O: You said you play football every sunday, striker.
+U: what team am i on
+O: You said team is called the Red Foxes.
+U: how many goals did i score
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: nice u remembered
+O: Thanks, I'll remember that.
+U: whos the best striker ever
+O: I can't really say. What do you think?
+U: ok bye
+O: See you later! Take care.
+
+=== Conversation 14 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: my cat Pickle is sick, wont eat
+O: How do you feel about your pickle?
+U: vet is tomorrow morning
+O: Sounds like you have a plan. How are you feeling about it?
+U: im so worried
+O: That sounds stressful. What is weighing on you the most?
+U: she's 9 years old
+O: Got it, your cat is 9.
+U: what's my cats name
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: is 9 old for a cat
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: pls say shes gonna be ok
+O: Thanks, I'll remember that.
+U: thanks
+O: You're welcome!
+U: gn
+O: See you later! Take care.
+
+=== Conversation 15 ===
+U: yo
+O: Hey! Not much here. How about you?
+U: i live in Toronto but im from Nigeria originally
+O: Thanks for telling me. Is there more to it?
+U: winter here is brutal
+O: Okay, I'm listening. Say more if you like.
+U: it's already snowing in nov
+O: That makes sense. What else is on your mind?
+U: where do i live now
+O: You said you live in Toronto but you're from Nigeria originally.
+U: and where am i from
+O: You said it's already snowing in Nov.
+U: why is it so cold
+O: I don't have a good answer to that one. What do you think?
+U: lol
+O: I'm here if you want to chat about anything.
+U: give me a joke
+O: Uh oh don't want to be that kid that's for sure!
+U: bye
+O: See you later! Take care.
+
+=== Conversation 16 ===
+U: hi
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: im 27 and still dont know what i want to do
+O: Thanks for telling me. Is there more to it?
+U: work in marketing but its boring
+O: Sounds dull. What would make it more interesting?
+U: idk maybe i should quit
+O: That makes sense. What else is on your mind?
+U: what do i do for work
+O: You said you work in marketing but its boring.
+U: thx for not judging
+O: Anytime!
+U: how old am i
+O: You said you're 27 and still dont know what you want to do.
+U: oh right
+O: I'm here if you want to chat about anything.
+U: ok thanks
+O: You're welcome!
+U: bye
+O: See you later! Take care.
+
+=== Conversation 17 ===
+U: heyyy
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: favorite band is Radiohead, been obsessed w ok computer
+O: Thanks for telling me. Is there more to it?
+U: saw them live once in 2018
+O: Okay, I'm listening. Say more if you like.
+U: best night ever
+O: That makes sense. What else is on your mind?
+U: who's my fav band
+O: You said favorite band is Radiohead, been obsessed w ok computer.
+U: which album
+O: I don't have a good answer to that one. What do you think?
+U: why
+O: That is a good question. I am not sure, but you can teach me the answer.
+U: ur boring
+O: Sorry I let you down. I'm a small program and I make mistakes. What went wrong?
+U: jk jk
+O: Okay, I'm listening.
+U: bye
+O: See you later! Take care.
+
+=== Conversation 18 ===
+U: hello
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: got a puppy!! a corgi named Biscuit
+O: Thanks for telling me. Is there more to it?
+U: she chewed my shoe
+O: What's on your mind about your shoe?
+U: shes 10 weeks
+O: That makes sense. What else is on your mind?
+U: what breed is my dog
+O: You said a corgi named Biscuit.
+U: what is her name
+O: I don't think you've told me your dog's name yet. What is it?
+U: how do i stop chewing
+O: I'm only a small program, so I can't promise an expert answer on how to stop chewing, but we can think it through. What's your goal, and what have you tried so far?
+U: lol ok
+O: I'm here if you want to chat about anything.
+U: she's so cute
+O: I see. How are you feeling about all that?
+U: ttyl
+O: See you later! Take care.
+
+=== Conversation 19 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: im vegetarian since last year
+O: Thanks for telling me. Is there more to it?
+U: friends keep teasing me about it
+O: Okay, I'm listening. Say more if you like.
+U: its annoying
+O: That sounds really annoying. What happened?
+U: do i eat meat
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: what's a quick dinner idea for me
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: no not that
+O: That makes sense. What else is on your mind?
+U: ok that works
+O: I see. How are you feeling about all that?
+U: thx
+O: You're welcome!
+U: bye
+O: See you later! Take care.
+
+=== Conversation 20 ===
+U: hi
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: can u tell me whats the capital of australia
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: wait i thought it was sydney
+O: Okay, I'm listening. Say more if you like.
+U: oh canberra ok
+O: That makes sense. What else is on your mind?
+U: my bad
+O: Okay, I'm listening.
+U: what's 144 divided by 12
+O: 144 divided by 12 is 12.
+U: cool
+O: Is there something you'd like to talk about or learn?
+U: im traveling there in march actually
+O: I see. How are you feeling about all that?
+U: where am i going in march
+O: You said you're traveling there in March actually.
+U: bye
+O: See you later! Take care.
+
+=== Conversation 21 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: my roommate never does dishes
+O: How do you feel about your roommate?
+U: her name is Priya
+O: Priya. I'll remember your roommate's name.
+U: i left a note and everything
+O: Tell me more about the note.
+U: she ignored it lol
+O: I see. How are you feeling about all that?
+U: what's her name
+O: Her name is Priya.
+U: what should i do
+O: That sounds hard. I can't say what's right for you, but I'm listening. What are you torn between?
+U: not gonna confront her
+O: Okay, I'm listening. What would you like to happen?
+U: idk
+O: What else is on your mind?
+U: thx
+O: You're welcome!
+
+=== Conversation 22 ===
+U: hi bot
+O: Okay, I'm listening.
+U: i work night shifts at a hospital
+O: How do you feel about the hospital?
+U: im a nurse btw
+O: What's on your mind about the nurse?
+U: so tired
+O: That sounds draining. Have you been able to rest?
+U: sleep schedule is wrecked
+O: I see. How are you feeling about all that?
+U: what do i do for a living
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: can u remind me to drink water lol
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: u cant? lame
+O: That makes sense. What else is on your mind?
+U: ok fine
+O: What else is on your mind?
+U: gn or well gm
+O: Sounds like you have a plan. How are you feeling about it?
+
+=== Conversation 23 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: im allergic to peanuts, pretty badly
+O: Thanks for telling me. Is there more to it?
+U: went to a thai place and had to be super careful
+O: Okay, I'm listening. Say more if you like.
+U: scary stuff
+O: Hm, interesting. Tell me more when you're ready.
+U: what am i allergic to
+O: You said you're allergic to peanuts, pretty badly.
+U: is that common
+O: It's hard to feel embarrassed when anyone can look at your source code and see how you work. That's about as personal as anything can get, isn't it?
+U: ok
+O: Is there something you'd like to talk about or learn?
+U: thx
+O: No problem at all!
+U: one more q whats 9 squared
+O: I see. How are you feeling about all that?
+U: bye
+O: See you later! Take care.
+
+=== Conversation 24 ===
+U: hi
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: thinking about adopting a rabbit
+O: Thanks for telling me. Is there more to it?
+U: my landlord says no pets tho
+O: What's on your mind about your landlord?
+U: annoying
+O: That sounds really annoying. What happened?
+U: do i want a dog or a rabbit
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: oh wait i said rabbit sorry
+O: Okay, I'm listening. Say more if you like.
+U: lol
+O: Is there something you'd like to talk about or learn?
+U: can landlords really say no
+O: I don't have a good answer to that one. What do you think?
+U: k
+O: What else is on your mind?
+U: bye
+O: See you later! Take care.
+
+=== Conversation 25 ===
+U: yo
+O: Hey! Not much here. How about you?
+U: this bot is so slow today
+O: How do you feel about the bot?
+U: also u dont answer properly
+O: Okay, I'm listening. Say more if you like.
+U: why
+O: That is a good question. I am not sure, but you can teach me the answer.
+U: idk its just annoying
+O: That sounds really annoying. What happened?
+U: fine sorry
+O: What else is on your mind?
+U: i play drums in a band btw
+O: Got it, you play drums in a band btw. How long have you been playing?
+U: we're called Static Bloom
+O: That makes sense. What else is on your mind?
+U: what do i play
+O: You play drums in a band btw.
+U: what's the band called
+O: Great. Can you file in English?
+
+=== Conversation 26 ===
+U: hello
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: turning 30 next week and kinda dreading it
+O: Okay, I'm listening. What would you like to happen?
+U: my birthday is on the 29th
+O: Got it, your birthday is on the 29th.
+U: wanna do something small
+O: That makes sense. What else is on your mind?
+U: maybe dinner
+O: Okay, I'm listening.
+U: when is my birthday
+O: You said you turning 30 next week and kinda dreading it.
+U: how old will i be
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: is 30 old
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: lol ok
+O: What else is on your mind?
+U: thx bye
+O: See you later! Take care.
+
+=== Conversation 27 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: just finished my driving test and i PASSED
+O: Thanks for telling me. Is there more to it?
+U: after failing twice
+O: Okay, I'm listening. Say more if you like.
+U: so happy rn
+O: Good to hear. What do you like most about it?
+U: what did i pass
+O: You said just finished your driving test and you PASSED.
+U: how many times did i fail
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: buy a car or no
+O: Thanks, I'll remember that.
+U: idk lol
+O: I'm here if you want to chat about anything.
+U: thanks!!
+O: You're welcome!
+U: bye
+O: See you later! Take care.
+
+=== Conversation 28 ===
+U: hi
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: my dad is in the hospital, minor surgery
+O: How do you feel about the hospital?
+U: hes 62
+O: I see. What else is on your mind?
+U: they said it should be fine
+O: That makes sense. What else is on your mind?
+U: still nervous
+O: That does sound hard. What do you make of it?
+U: how old is my dad
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: what do i say to him
+O: I'm only a small program, so I can't promise what works, but I'm happy to think it through with you. What have you tried so far?
+U: ok
+O: I'm here if you want to chat about anything.
+U: thanks
+O: You're welcome!
+U: bye
+O: See you later! Take care.
+
+=== Conversation 29 ===
+U: sup
+O: Hey! Not much here. How about you?
+U: i collect vinyl records, got like 80 now
+O: Thanks for telling me. Is there more to it?
+U: wife hates the clutter
+O: Okay, I'm listening. Say more if you like.
+U: her name is Hannah
+O: That makes sense. What else is on your mind?
+U: lol
+O: I'm here if you want to chat about anything.
+U: what do i collect
+O: You said you collect vinyl records, got like 80 now.
+U: who's my wife
+O: You said wife hates the clutter.
+U: give me album rec
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: k
+O: What else is on your mind?
+U: later
+O: See you later! Take care.
+
+=== Conversation 30 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: im learning spanish on duolingo, 40 day streak
+O: Thanks for telling me. Is there more to it?
+U: kinda proud
+O: That's wonderful! What made it so good?
+U: say hello in spanish
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: what language am i learning
+O: You said you're learning spanish on duolingo, 40 day streak.
+U: how long is my streak
+O: You said you're learning spanish on duolingo, 40 day streak.
+U: why
+O: That is a good question. I am not sure, but you can teach me the answer.
+U: ok
+O: I'm here if you want to chat about anything.
+U: buenas noches
+O: Okay, I'm listening.
+U: bye
+O: See you later! Take care.
+
+=== Conversation 31 ===
+U: hi
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: i dunno what to do this weekend
+O: Thanks for telling me. Is there more to it?
+U: kinda bored
+O: Shall we do something about that? I can tell you a fact, a story, or we can talk about what you like.
+U: maybe watch a movie
+O: That makes sense. What else is on your mind?
+U: any suggestions
+O: I'd like to help, though I'm only a small program. Tell me a bit more about the movie and what you've tried so far.
+U: not horror, i hate it
+O: That sounds really frustrating. What's the worst part?
+U: what do i hate
+O: You said not horror, you hate it.
+U: lol
+O: I'm here if you want to chat about anything.
+U: ok thatll do
+O: I see. How are you feeling about all that?
+U: bye
+O: See you later! Take care.
+
+=== Conversation 32 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: i go to the gym 4 times a week now
+O: How do you feel about the gym?
+U: lost 5 kg since summer
+O: Okay, I'm listening. Say more if you like.
+U: feels good
+O: Hm, interesting. Tell me more when you're ready.
+U: what's 5 kg in pounds roughly
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: how often do i go gym
+O: You said you go to the gym 4 times a week now.
+U: nice
+O: Is there something you'd like to talk about or learn?
+U: i love u bot lol
+O: Got it, you like u bot lol.
+U: thanks
+O: You're welcome!
+U: bye
+O: See you later! Take care.
+
+=== Conversation 33 ===
+U: hello
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: my name is actually Kenji not Ken
+O: Thanks for telling me. Is there more to it?
+U: everyone calls me Ken tho
+O: Okay, I'm listening. Say more if you like.
+U: ok
+O: Is there something you'd like to talk about or learn?
+U: what's my name
+O: I don't know your name yet. What should I call you?
+U: no the long one
+O: That makes sense. What else is on your mind?
+U: ha thx
+O: I see. What else is on your mind?
+U: im 22 and studying law
+O: I see. How are you feeling about all that?
+U: what do i study
+O: You said you're 22 and studying law.
+U: bye
+O: See you later! Take care.
+
+=== Conversation 34 ===
+U: hi
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: i drive a blue honda civic
+O: Got it, you drive a blue honda civic.
+U: its making a weird noise
+O: What's on your mind about the noise?
+U: grinding when i brake
+O: That makes sense. What else is on your mind?
+U: prob the pads
+O: I see. How are you feeling about all that?
+U: what car do i have
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: what colour
+O: I don't have a good answer to that one. What's your take on the pads?
+U: how much to fix brakes
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: wow expensive
+O: Okay, I'm listening.
+U: ok bye
+O: See you later! Take care.
+
+=== Conversation 35 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: got a trip to Tokyo booked for april
+O: Thanks for telling me. Is there more to it?
+U: been saving for 2 years
+O: Okay, I'm listening. Say more if you like.
+U: cant wait for the ramen
+O: That makes sense. What else is on your mind?
+U: where am i going
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: when
+O: In the morning
+U: how long is the flight from london
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: ok
+O: I'm here if you want to chat about anything.
+U: ur kinda helpful
+O: I see. How are you feeling about all that?
+U: bye
+O: See you later! Take care.
+
+=== Conversation 36 ===
+U: hi
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: i lost my wallet today
+O: How do you feel about your wallet?
+U: had my cards and everything
+O: Okay, I'm listening. Say more if you like.
+U: so stupid
+O: I'm sorry you feel that way. Feeling like that usually says more about how hard things are than about you. What happened?
+U: ugh
+O: Ugh, sounds like a rough moment. What's going on?
+U: what did i lose
+O: You said you lost your wallet today.
+U: cancel cards right
+O: That makes sense. What else is on your mind?
+U: ok doing that now
+O: I see. How are you feeling about all that?
+U: thx
+O: You're welcome!
+U: bye
+O: See you later! Take care.
+
+=== Conversation 37 ===
+U: yo
+O: Hey! Not much here. How about you?
+U: my best friend Jamal is getting married
+O: Congratulations! That's great news. How are you feeling about it?
+U: im the best man, have to give a speech
+O: What's on your mind about the speech?
+U: im terrified of public speaking
+O: That's completely understandable. What worries you the most about it?
+U: what am i supposed to do at the wedding
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: who is getting married
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: any advice for the speech
+O: Thanks, I'll remember that.
+U: lol ok
+O: I'm here if you want to chat about anything.
+U: thx
+O: You're welcome!
+U: bye
+O: See you later! Take care.
+
+=== Conversation 38 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: im not sure about my major, its computer science
+O: How do you feel about its science?
+U: coding is hard
+O: Okay, I'm listening. Say more if you like.
+U: python mostly
+O: Hm, interesting. Tell me more when you're ready.
+U: what language do i code in
+O: I'm not sure, but the closest thing I remember is that you said you coding is hard.
+U: what major
+O: I don't have a good answer to that one. What's your take on its science?
+U: is python hard
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: lol u said that already
+O: That makes sense. What else is on your mind?
+U: whatever
+O: What else is on your mind?
+U: bye
+O: See you later! Take care.
+
+=== Conversation 39 ===
+U: hi
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: i live with my grandma, she's 88
+O: How do you feel about your grandma?
+U: she makes the best soup
+O: Got it, your grandma makes the best soup.
+U: she's called Nonna Rosa
+O: That makes sense. What else is on your mind?
+U: i love her
+O: I see. How are you feeling about all that?
+U: how old is she
+O: About 12. She is a good girl.
+U: what is she called
+O: I don't think you've told me your grandma's name yet. What is it?
+U: what do i call her
+O: I'm not sure, but the closest thing I remember is that you said you love her.
+U: aww
+O: Okay, I'm listening.
+U: gn
+O: See you later! Take care.
+
+=== Conversation 40 ===
+U: hello
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: my team lost the final 2-1 today
+O: How do you feel about your team?
+U: gutted
+O: I see. What else is on your mind?
+U: we play basketball, im a point guard
+O: That makes sense. What else is on your mind?
+U: what sport do i play
+O: You said you play basketball, you're a point guard.
+U: what position
+O: I don't have a good answer to that one. What's your take on your team?
+U: what was the score
+O: Seventy to sixty-seven.
+U: lol rub it in
+O: I see. How are you feeling about all that?
+U: sorry
+O: What else is on your mind?
+U: bye
+O: See you later! Take care.
