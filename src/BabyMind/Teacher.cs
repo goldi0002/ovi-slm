@@ -11,6 +11,8 @@ public sealed class Teacher
     private readonly string _savePath;
     private readonly TextReader _in;
     private readonly TextWriter _out;
+    private bool _autoFeed;
+    private const string RequestWord = "milk";
 
     public Teacher(Baby baby, World world, string savePath, TextReader input, TextWriter output)
     {
@@ -28,6 +30,9 @@ Commands (you are the parent):
   ask                         look at the object again and see what the baby says
   good                        praise what the baby just said
   no [word]                   correct the baby; optionally give the right word, e.g. 'no cup'
+  feed [word]                 give the baby a bottle while saying a word (default 'milk'): hunger drops = big reward
+  wait [n]                    let n ticks pass; the baby acts on its own (looks, speaks, or stays quiet)
+  autofeed on|off             when on, you automatically feed the baby if it says 'milk' while hungry
   remove                      take the object away
   props                       list props and the colors/shapes/sizes you can use
   debug                       print what the baby knows
@@ -37,7 +42,7 @@ Commands (you are the parent):
 
     public void Run()
     {
-        _out.WriteLine("BabyMind - Stage 1: perception and first words.  Type 'help' for commands.");
+        _out.WriteLine("BabyMind - Stage 2: needs and requests.  Type 'help' for commands.");
         _out.WriteLine(_baby.Tick == 0 ? "A brand-new baby opens its eyes." : $"The baby is back (tick {_baby.Tick}, {_baby.Map.Concepts.Count} concepts).");
 
         while (true)
@@ -59,6 +64,12 @@ Commands (you are the parent):
                 case "load": Load(); break;
                 case "props": ListProps(); break;
                 case "show": Show(args); break;
+                case "feed": Feed(args.Length > 0 ? args[0] : RequestWord); break;
+                case "wait": Wait(args); break;
+                case "autofeed":
+                    _autoFeed = args.Length > 0 && args[0].ToLowerInvariant() == "on";
+                    _out.WriteLine($"(autofeed {(_autoFeed ? "on" : "off")})");
+                    break;
                 case "remove": _world.Clear(); _out.WriteLine("(you take the object away)"); _baby.Experience(null, null); break;
                 case "say": Say(args); break;
                 case "ask": Respond(_baby.Experience(_world.Sense(), null)); break;
@@ -83,6 +94,41 @@ Commands (you are the parent):
         var o = _world.Current!;
         _out.WriteLine($"(you show a {o.Color} {o.Shape} {o.Size} thing)");
         Respond(_baby.Experience(_world.Sense(), null));
+    }
+
+    private void Feed(string word)
+    {
+        var bottle = World.Props["bottle"];
+        _world.TryPlace(bottle.Color, bottle.Shape, bottle.Size, out _);
+        double before = _baby.Drives.Hunger;
+        _out.WriteLine($"(you hold up a bottle and say \"{word}\")");
+        var (r, relief) = _baby.Feed(_world.Sense(), word);
+        _world.Clear();
+        _out.WriteLine(relief > 0 ? $"  Baby: *drinks* hunger {before:0.00} -> {_baby.Drives.Hunger:0.00}" : "  Baby: *not hungry* (turns away)");
+        Respond(r);
+    }
+
+    private void Wait(string[] args)
+    {
+        int n = args.Length > 0 && int.TryParse(args[0], out var k) ? Math.Clamp(k, 1, 500) : 1;
+        for (int i = 0; i < n; i++)
+        {
+            var r = _baby.Act(_world.Sense());
+            double h = _baby.Drives.Hunger;
+            string doing = r.Action.Kind switch
+            {
+                ActionKind.Say => $"says \"{r.Said}\"",
+                ActionKind.Look => r.Observation!.Value.IsNew ? "looks - something new!" : "looks at the object",
+                _ => "stays quiet",
+            };
+            _out.WriteLine($"  [t{_baby.Tick}] hunger {h:0.00} ({Baby.HungerBucket(h)}): Baby {doing}");
+
+            if (_autoFeed && r.Said == RequestWord && h >= 0.3)
+            {
+                _out.WriteLine($"    Parent hears the request and feeds the baby.");
+                Feed(RequestWord);
+            }
+        }
     }
 
     private void Say(string[] args)

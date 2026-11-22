@@ -45,6 +45,7 @@ public sealed class World
         ["banana"] = new("yellow", "long", "small"),
         ["cup"] = new("white", "round", "medium"),
         ["tree"] = new("green", "triangle", "big"),
+        ["bottle"] = new("white", "long", "small"),
     };
 
     private readonly Random _rng;

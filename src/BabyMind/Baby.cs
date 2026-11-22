@@ -10,6 +10,9 @@ namespace BabyMind;
 public sealed record Response(Observation? Observation, string? Said, double Confidence, string? Heard,
                               (Concept Concept, double Weight)? Evoked, bool NewlyConsolidated);
 
+/// <summary>What the baby did on its own during <see cref="Baby.Act"/>.</summary>
+public sealed record ActResult(BabyAction Action, string State, string? Said, Observation? Observation);
+
 /// <summary>
 /// The learning agent. It owns the parts (ConceptMap, Associations, Drives, Memory) and runs one
 /// <see cref="Experience"/> step per interaction. Everything is learned online, one experience at a time.
@@ -23,18 +26,20 @@ public sealed class Baby
     public Associations Assoc { get; }
     public Drives Drives { get; }
     public Memory Memory { get; }
+    public ActionSelector Selector { get; }
     public long Tick { get; private set; }
 
     /// <summary>Concept most recently attended to and the word the baby last said — used for praise/correction.</summary>
     public int? LastConceptId { get; private set; }
     public string? LastSaid { get; private set; }
 
-    public Baby(ConceptMap? map = null, Associations? assoc = null, Drives? drives = null, Memory? memory = null, long tick = 0)
+    public Baby(ConceptMap? map = null, Associations? assoc = null, Drives? drives = null, Memory? memory = null, long tick = 0, ActionSelector? selector = null)
     {
         Map = map ?? new ConceptMap(World.Dim);
         Assoc = assoc ?? new Associations();
         Drives = drives ?? new Drives();
         Memory = memory ?? new Memory();
+        Selector = selector ?? new ActionSelector();
         Tick = tick;
     }
 
@@ -44,21 +49,13 @@ public sealed class Baby
     /// </summary>
     public Response Experience(SensoryInput? sight, string? heard)
     {
-        Tick++;
-        Drives.Tick();
-        Memory.Fade(Tick);
-        Assoc.Decay();
+        Selector.Settle();           // an unrewarded earlier action just cost its effort
+        Advance();
         if (heard is not null) heard = Associations.Normalize(heard);
 
         // 1. Perceive: form or recognise a concept from raw numbers — no word needed.
         Observation? obs = null;
-        if (sight is { } s)
-        {
-            var o = Map.Observe(s.Features, Tick);
-            obs = o;
-            if (o.EvictedId is int gone) { Assoc.ForgetConcept(gone); Memory.ForgetConcept(gone); }
-            if (o.IsNew) Drives.Satisfy(DriveKind.Curiosity, 0.3);   // novelty is rewarding
-        }
+        if (sight is { } s) obs = Perceive(s, out _);
 
         // 2. Hear: a word heard while a concept is in attention gets Hebbian-linked to it.
         bool consolidated = false;
@@ -97,31 +94,103 @@ public sealed class Baby
         return new Response(obs, said, conf, heard, evoked, consolidated);
     }
 
-    /// <summary>Parent praises the last thing the baby said: that link is reinforced.</summary>
-    public bool Praise()
+    // One tick of time passing: needs grow, memories fade, unused links decay.
+    private void Advance()
     {
-        if (LastConceptId is not int c || LastSaid is null) return false;
-        Assoc.Reward(c, LastSaid, 0.3);
-        Drives.Satisfy(DriveKind.Attention, 0.2);
-        return true;
+        Tick++;
+        Drives.Tick();
+        Memory.Fade(Tick);
+        Assoc.Decay();
+    }
+
+    // Form or recognise a concept. `reward` is the curiosity relief a novel thing gives.
+    private Observation Perceive(SensoryInput sight, out double reward)
+    {
+        var o = Map.Observe(sight.Features, Tick);
+        if (o.EvictedId is int gone) { Assoc.ForgetConcept(gone); Memory.ForgetConcept(gone); }
+        reward = o.IsNew ? Drives.Satisfy(DriveKind.Curiosity, 0.3) : 0;   // novelty is rewarding
+        LastConceptId = o.Concept.Id;
+        return o;
+    }
+
+    /// <summary>Hunger as a coarse bucket (the RL state).</summary>
+    public static string HungerBucket(double h) => h < 0.3 ? "sated" : h < 0.6 ? "peckish" : "hungry";
+
+    /// <summary>Words the baby knows (and so can say), strongest first, capped to stay small.</summary>
+    public IEnumerable<string> Vocabulary() =>
+        Assoc.AllLinks.GroupBy(l => l.Word).OrderByDescending(g => g.Max(l => l.Weight)).Take(50).Select(g => g.Key);
+
+    /// <summary>
+    /// The baby acts on its own for one tick: the ActionSelector chooses to look, say a known word, or stay quiet,
+    /// based on its needs. Rewards (feeding, praise) arrive later through <see cref="Feed"/> / <see cref="Praise"/>.
+    /// </summary>
+    public ActResult Act(SensoryInput? sight)
+    {
+        Selector.Settle();
+        Advance();
+        string state = $"{HungerBucket(Drives.Hunger)},{(sight is null ? "none" : "obj")}";
+        var action = Selector.Choose(state, Vocabulary(), canLook: sight is not null);
+
+        Observation? obs = null; string? said = null;
+        switch (action.Kind)
+        {
+            case ActionKind.Look:
+                obs = Perceive(sight!.Value, out double curiosityRelief);
+                Memory.Record(Tick, obs.Value.Concept.Id, null);
+                if (curiosityRelief > 0) Selector.Reward(curiosityRelief);
+                break;
+            case ActionKind.Say:
+                said = action.Word;
+                LastSaid = null;                  // a request is judged by the Selector, not as a concept name
+                break;
+        }
+        return new ActResult(action, state, said, obs);
     }
 
     /// <summary>
-    /// Parent says "no": the last spoken link is weakened. If <paramref name="correctWord"/> is given it is
+    /// The parent feeds the baby while saying <paramref name="word"/>. Hunger drops (that drop is the reward and is
+    /// credited to whatever the baby just did, e.g. saying "milk"), and the word is linked to what is in view.
+    /// </summary>
+    public (Response Response, double Relief) Feed(SensoryInput? sight, string word)
+    {
+        double relief = Drives.Satisfy(DriveKind.Hunger, 0.7);
+        Selector.Reward(relief);
+        return (Experience(sight, word), relief);
+    }
+
+    /// <summary>Parent praises the baby: the last spoken link and/or the last spontaneous action is reinforced.</summary>
+    public bool Praise()
+    {
+        bool acted = Selector.Reward(0.5);            // praise for a spontaneous action (e.g. a request)
+        if (LastConceptId is int c && LastSaid is not null)
+        {
+            Assoc.Reward(c, LastSaid, 0.3);
+            acted = true;
+        }
+        if (acted) Drives.Satisfy(DriveKind.Attention, 0.2);
+        return acted;
+    }
+
+    /// <summary>
+    /// Parent says "no": the last thing said is discouraged. If <paramref name="correctWord"/> is given it is
     /// learned for the concept right away (a correction is a strong, attended example).
     /// </summary>
     public bool Correct(string? correctWord = null)
     {
-        if (LastConceptId is not int c || LastSaid is null) return false;
-        Assoc.Reward(c, LastSaid, -0.5);
-        if (correctWord is not null)
+        bool acted = Selector.Reward(-0.5);
+        if (LastConceptId is int c && LastSaid is not null)
         {
-            Assoc.Hear(c, correctWord);
-            if (Memory.Record(Tick, c, Associations.Normalize(correctWord)))
-                Assoc.Consolidate(c, correctWord);
+            Assoc.Reward(c, LastSaid, -0.5);
+            if (correctWord is not null)
+            {
+                Assoc.Hear(c, correctWord);
+                if (Memory.Record(Tick, c, Associations.Normalize(correctWord)))
+                    Assoc.Consolidate(c, correctWord);
+            }
+            LastSaid = null;
+            acted = true;
         }
-        LastSaid = null;
-        return true;
+        return acted;
     }
 
     /// <summary>Multi-line report of what the baby currently knows.</summary>
@@ -138,6 +207,10 @@ public sealed class Baby
             string w = string.Join(", ", words);
             sb.AppendLine($"  #{c.Id,-3} looks like [{World.Describe(c.Prototype)}]  seen {c.Count}x  words: {(w.Length == 0 ? "(none yet)" : w)}");
         }
+        sb.AppendLine($"Learned behaviour (RL, exploring {Selector.Epsilon:0.00}):");
+        var policy = Selector.Table().Where(t => Math.Abs(t.Value) > 0.01).Take(8).ToList();
+        foreach (var t in policy) sb.AppendLine($"  when [{t.State}] do {t.Action,-12} value {t.Value:+0.00;-0.00}");
+        if (policy.Count == 0) sb.AppendLine("  (nothing learned yet)");
         sb.AppendLine("Strongest word links (* = consolidated):");
         foreach (var l in Assoc.AllLinks.OrderByDescending(l => l.Weight).Take(10))
             sb.AppendLine($"  \"{l.Word}\" <-> #{l.Concept}  weight {l.Weight:0.00}  hits {l.Hits}{(l.Consolidated ? " *" : "")}");
@@ -147,8 +220,9 @@ public sealed class Baby
     }
 
     // ---- persistence ----
-    public BabyState ToState() => new(BabyState.CurrentVersion, Tick, Map.ToState(), Assoc.ToState(), Memory.ToState(), Drives.ToState());
+    public BabyState ToState() => new(BabyState.CurrentVersion, Tick, Map.ToState(), Assoc.ToState(), Memory.ToState(), Drives.ToState(), Selector.ToState());
 
     public static Baby FromState(BabyState s) =>
-        new(ConceptMap.FromState(s.Map), Associations.FromState(s.Associations), Drives.FromState(s.Drives), Memory.FromState(s.Memory), s.Tick);
+        new(ConceptMap.FromState(s.Map), Associations.FromState(s.Associations), Drives.FromState(s.Drives), Memory.FromState(s.Memory), s.Tick,
+            s.Selector is null ? null : ActionSelector.FromState(s.Selector));
 }

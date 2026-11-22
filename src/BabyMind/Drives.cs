@@ -5,8 +5,7 @@ public enum DriveKind { Hunger, Curiosity, Attention }
 /// <summary>
 /// Internal needs, each a level in [0, 1] that creeps upward over time. Satisfying a drive lowers its
 /// level, and the drop *is* the reward signal (a hungry baby that gets fed is rewarded a lot).
-/// Stage 1 uses Curiosity (novel things satisfy it) and Attention (the parent speaking satisfies it);
-/// Hunger just rises until the feeding loop arrives in Stage 2.
+/// Curiosity is satisfied by novel things, Attention by the parent speaking, and Hunger by being fed (Stage 2).
 /// </summary>
 public sealed class Drives
 {
@@ -15,7 +14,7 @@ public sealed class Drives
     public double Attention { get; private set; } = 0.3;
 
     /// <summary>Per-tick increase of each drive.</summary>
-    public double HungerGrowth { get; set; } = 0.01;
+    public double HungerGrowth { get; set; } = 0.04;
     public double CuriosityGrowth { get; set; } = 0.02;
     public double AttentionGrowth { get; set; } = 0.015;
 

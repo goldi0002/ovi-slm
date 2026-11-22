@@ -4,9 +4,10 @@ namespace BabyMind;
 
 /// <summary>Everything the baby has learned, as plain data (serialised to JSON).</summary>
 public sealed record BabyState(int Version, long Tick, ConceptMapState Map, AssociationsState Associations,
-                               MemoryState Memory, DrivesState Drives)
+                               MemoryState Memory, DrivesState Drives,
+                               ActionSelectorState? Selector = null)
 {
-    public const int CurrentVersion = 1;
+    public const int CurrentVersion = 2;
 
     private static readonly JsonSerializerOptions Options = new() { WriteIndented = true };
 
@@ -23,7 +24,7 @@ public sealed record BabyState(int Version, long Tick, ConceptMapState Map, Asso
     {
         var state = JsonSerializer.Deserialize<BabyState>(File.ReadAllText(path), Options)
                     ?? throw new InvalidDataException("Empty state file.");
-        if (state.Version != CurrentVersion)
+        if (state.Version is < 1 or > CurrentVersion)   // v1 files (Stage 1) have no Selector and still load
             throw new InvalidDataException($"Unsupported state version {state.Version}.");
         return Baby.FromState(state);
     }

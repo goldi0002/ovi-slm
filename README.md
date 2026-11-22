@@ -15,6 +15,22 @@ dotnet run --project src/BabyMind -- --fresh # ignore the save file, start a new
 dotnet test                                  # unit tests
 ```
 
+### Stage 2 demo: needs and requests
+
+```
+parent> show ball
+parent> say ball            # (Stage 1) names an object
+parent> feed                # bottle + the word "milk": hunger drops (reward) and "milk" joins its vocabulary
+parent> feed
+parent> autofeed on         # you will now feed the baby whenever it says "milk" while hungry
+parent> wait 80             # time passes; the baby chooses look / say <word> / stay quiet by itself
+parent> debug               # shows the learned rule: when [peckish] do say:milk
+```
+
+At first the baby tries its known words at random. Only "milk" ever gets it fed, so its value for
+`say milk` when hungry rises, and it learns that talking while sated is just wasted effort. Without `autofeed`
+you play the parent by hand: `wait`, and when it says "milk" type `feed` (or `good` / `no`).
+
 ### Stage 1 demo
 
 ```
@@ -27,7 +43,7 @@ parent> debug               # concepts, strongest word links, drive levels
 parent> quit                # saves; next run the baby is still there
 ```
 
-Commands: `show`, `say`, `ask`, `good`, `no [word]`, `remove`, `props`, `debug`, `save`, `load`, `help`, `quit`.
+Commands: `show`, `say`, `ask`, `feed`, `wait`, `autofeed`, `good`, `no [word]`, `remove`, `props`, `debug`, `save`, `load`, `help`, `quit`.
 The baby never sees the prop names or colour words, only 8 noisy numbers. It learns only what you say.
 
 ## Design
@@ -44,18 +60,21 @@ The baby never sees the prop names or colour words, only 8 noisy numbers. It lea
 | `ConceptMap.cs` | Online clustering (leader / ART-style incremental k-means). Nearest prototype within `Vigilance` is refined with rate `max(1/n, 0.05)`; otherwise the input **immediately becomes a new concept**, which is what makes one-example learning possible. Capped at `MaxConcepts` (2000), evicting the least-used. |
 | `Associations.cs` | Concept↔word weights. Hearing a word while a concept is attended applies a Hebbian step `w += η(1-w)` with η = 0.5, so one co-occurrence gives 0.5 and the baby will already say the word. Rival words for the same concept are mildly inhibited. Slow decay `rate/(1+hits/2)`; consolidated links decay 20x slower. The same weights give production (concept→word) and comprehension (word→concept). Praise/correction are multiplicative reward updates. |
 | `Memory.cs` | Episodic log whose entries fade (×0.97/tick, bounded size). Repeated `(concept, word)` patterns (3 times within a window) are *consolidated*: the link is lifted and protected from decay. Single events fade, repeated ones stay. |
-| `Drives.cs` | Hunger, curiosity, attention-seeking levels that creep up; satisfying one lowers it, and the drop is the reward. Stage 1: novelty satisfies curiosity, the parent speaking satisfies attention; hunger is inert until Stage 2. |
-| `Baby.cs` | The agent. `Experience(sight, heardWord)` = perceive → hear/associate → remember → speak. Also `Praise()`, `Correct()`, `Debug()`. |
-| `BabyState.cs` | JSON save/load of everything learned (versioned, atomic write). |
+| `Drives.cs` | Hunger, curiosity, attention-seeking levels that creep up; satisfying one lowers it, and the drop is the reward. Novelty satisfies curiosity, the parent speaking satisfies attention, feeding satisfies hunger. |
+| `ActionSelector.cs` | Tabular RL (epsilon-greedy contextual bandit). State = hunger bucket (sated/peckish/hungry) + object in view. Actions = look, `say <word>` for each known word, stay quiet. `Q += α(reward - Q)`; speaking costs 0.02, so talking must pay off. The last action stays pending until the parent reacts (feeding/praise/correction) or the next action starts. One table entry changes per action. |
+| `Baby.cs` | The agent. `Experience(sight, heardWord)` = reaction to the parent (perceive → hear/associate → remember → name). `Act(sight)` = spontaneous behaviour chosen by the ActionSelector. `Feed()`, `Praise()`, `Correct()`, `Debug()`. |
+| `BabyState.cs` | JSON save/load of everything learned (versioned, atomic write; Stage 1 save files still load). |
 | `Teacher.cs` | Console parent interface (injectable streams, so it is testable). |
 
 Tunable constants live in the constructors/`AssociationParams` (vigilance 0.25, learn rate 0.5, speak threshold 0.4, ...).
 
 ### Known Stage 1 limitations (by design)
 - Generalisation is strict: a red ball of a different size is a *new* concept until it is also named. (A natural later improvement: let words spread weakly to nearby concepts.)
-- The baby speaks whenever a link is above a fixed threshold. Stage 2's `ActionSelector` replaces this with learned reinforcement: speaking becomes an action that gets rewarded.
+- When *you* show something, the baby still names it by a fixed rule (link ≥ 0.4). Only its *spontaneous* speech (`wait`) is reinforcement-learned.
+- The request is not grounded in meaning: the baby learns "say *milk* when hungry gets food" by reward, without knowing milk is a thing.
+- Stage 2 models hunger only; comfort and `reach` come with Stage 3.
 
 ## Roadmap
 - **Stage 1 (done):** perception, concept formation, object↔word association.
-- **Stage 2:** needs and requests: `ActionSelector` (look / reach / say / stay quiet, learned by simple RL), hunger in the World, saying "milk" gets fed.
-- **Stage 3:** actions and simple two-word combinations.
+- **Stage 2 (done):** needs and requests: `ActionSelector` (look / say / stay quiet, learned by simple RL), hunger drive, saying "milk" when hungry gets fed.
+- **Stage 3:** actions (`reach`, comfort) and simple two-word combinations.
