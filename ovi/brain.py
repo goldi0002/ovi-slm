@@ -45,7 +45,7 @@ class Brain:
         self.last_q = None
         self.pending = None         # question Ovi abstained on, waiting to be taught
         self.history, self.user, self.entities = [], {}, {}
-        self.ranker, self.rvecs, self.rrow = None, None, {}
+        self.ranker, self.rvecs, self.rrow, self.row_entry = None, None, {}, {}
         self.use_context = True      # rank chit-chat replies using the conversation so far
         if builtin:
             nd = 0
@@ -58,7 +58,7 @@ class Brain:
                     else:
                         i = self._add(q, a, {"c": "cb", "m": "movie", "f": "fact", "d": "dlg"}[kind])
                         if kind == "d":
-                            self.rrow.setdefault(i, nd); nd += 1
+                            self.rrow.setdefault(i, nd); self.row_entry[nd] = i; nd += 1
             for q, a in PAIRS:
                 self._add(q, a, "seed")
         self._replay()
@@ -110,7 +110,14 @@ class Brain:
         if not top:
             return r
         vmax = top[0][1]
-        cand = [(i, v) for i, v in top if self.entries[i].src == "dlg" and i in self.rrow and v >= 0.6 * vmax]
+        cand = [(i, v / vmax) for i, v in top if self.entries[i].src == "dlg" and i in self.rrow and v >= 0.6 * vmax][:15]
+        have = {i for i, _ in cand}
+        if True:               # widen the pool: replies CrossPMI finds relevant to the message
+            for j in np.argsort(-(self.rvecs @ self.ranker.cross.msg_vec(msg)))[:40]:
+                i = int(self.row_entry[j])
+                if len(cand) >= 29: break
+                if i not in have:
+                    cand.append((i, 0.0)); have.add(i)
         if len(cand) < 2:
             return r
         hist = []
@@ -120,7 +127,7 @@ class Brain:
         rv = self.rvecs[[self.rrow[i] for i, _ in cand]]
         info = self.ranker.prep_pool([self.entries[i].a for i, _ in cand])
         sc = self.ranker.score(self.ranker.feats(msg, rv, info, hist))
-        best = cand[int(np.argmax(sc + 1.0 * np.array([v / vmax for _, v in cand])))]
+        best = cand[int(np.argmax(sc + 1.0 * np.array([v for _, v in cand])))]
         return best[0], r[1]
 
     # ---------- confidence ----------

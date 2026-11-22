@@ -177,6 +177,16 @@ def load(path="ovi_rank.npz"):
     return rk, z["rv"].astype(np.float32)
 
 
+def mixed_pool(ix, cross, RM, reps, msg, skip=None, n=29, k_tfidf=15):
+    """Candidate replies: question-similar (TF-IDF) + reply-relevant (CrossPMI over ALL replies)."""
+    t = [i for i, _ in ix.topk(msg, 40) if reps[i] != skip]
+    out = t[:k_tfidf]
+    for i in np.argsort(-(RM @ cross.msg_vec(msg)))[:60]:
+        if len(out) >= n: break
+        if int(i) not in out and reps[i] != skip: out.append(int(i))
+    return out
+
+
 def build(path="ovi_rank.npz"):
     """Fit CrossPMI on train conversations -> train the ranker on validation conversations (never seen by CrossPMI)
     -> refit CrossPMI on ALL shipped pairs and store its reply vectors. ~30 s on a laptop CPU."""
@@ -198,7 +208,7 @@ def build(path="ovi_rank.npz"):
 
     groups = []
     for hist, gold in random.sample(va, min(len(va), 6000)):
-        top = [i for i, _ in ix.topk(hist[-1], 32) if reps[i] != gold][:29]
+        top = mixed_pool(ix, cross, RM, reps, hist[-1], gold)
         if len(top) < 20:
             continue
         rv = np.vstack([cross._embed(gold, cross.Wr)[None], RM[top]]); ri = rk.prep_pool([gold]) + [info[i] for i in top]
