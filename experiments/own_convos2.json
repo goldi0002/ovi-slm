@@ -1,0 +1,22 @@
+[
+ ["hey", "what is a quasar", "idk", "why not", "any tips?", "thanks"],
+ ["hi", "do you like pizza", "why not", "what kind", "i like pasta", "what do i like"],
+ ["hello", "who is ada lovelace", "she was the first programmer", "who is ada lovelace", "why", "ok"],
+ ["hi", "what is the tallest mountain", "Mount Everest", "what about k2", "i have a test tomorrow", "got any advice"],
+ ["hey", "how do planes fly", "no idea", "you're no fun", "what's the capital of spain", "what do you think"],
+ ["hi", "i went to the park this morning", "it was nice out", "i also bought some groceries", "what did i do today?", "what did i buy?"],
+ ["hello", "yesterday i watched a movie", "what did i watch", "i cooked pasta tonight", "what did i cook?", "what have i done today?"],
+ ["hey", "we went hiking today", "so tired now", "what did i do today", "thanks"],
+ ["hi", "what's your favorite color", "mine is green", "what's my favorite color?", "what is my favourite colour"],
+ ["hello", "my favorite food is ramen", "what's yours", "mine is sushi", "what is my favorite food?"],
+ ["hey", "do you have a favorite animal", "mine's the owl", "what is my favorite animal?"],
+ ["hi", "i love dogs", "i have a dog called Rex", "what is my dog called?", "what pets do i have"],
+ ["hello", "i like rabbits", "i have three, Bun, Fluff and Nibbles", "what are my rabbits called?", "how many rabbits do i have?"],
+ ["hey", "i like cats", "i have two", "Tom and Jerry", "what are my cats called?", "what was his name again?"],
+ ["hi", "that's kinda sad", "she gets upset easy", "he is so angry all the time", "i feel sad today", "my boss makes me stressed"],
+ ["hello", "my friend is really depressed", "i'm worried about him", "it is so unfair", "that movie was so boring", "i'm bored"],
+ ["hey", "the news is depressing", "they are exhausted", "im exhausted", "so tired", "ok"],
+ ["hi", "tell me about yourself", "who are you", "what can you do", "do you remember things", "thanks"],
+ ["hello", "can you tell me about yourself", "are you a robot", "am i your friend", "cool"],
+ ["hi", "my sister is getting married", "i don't know what to wear", "any suggestions?", "i need some advice", "do you have any tips", "thank you"]
+]

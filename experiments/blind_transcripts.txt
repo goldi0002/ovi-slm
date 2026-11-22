@@ -1,465 +1,465 @@
 === 1
 1. U: hey
-   O: Hey! Nice to meet you. I'm Ovi.
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: how's it going
-   O: I'm falling in love.
+   O: I'm doing well, thanks for asking. How about you?
 3. U: not bad, just got home from work
-   O: Why do you say that?
+   O: Okay, I'm listening. Say more if you like.
 4. U: it was long. my boss dumped a report on me at 4pm
-   O: What made you think about report?
+   O: Tell me more about the report.
 5. U: yeah right? so annoying
-   O: Tell me more about annoying.
+   O: That sounds really annoying. What happened?
 6. U: anyway what are you up to
-   O: Why do you say that?
+   O: Not much, just here chatting with you. What's up with you?
 7. U: lol ok
-   O: Go on, I'm listening.
+   O: Is there something you'd like to talk about or learn?
 8. U: thanks for listening
-   O: Woman lol
+   O: No problem at all!
 === 2
 1. U: hi there
-   O: How are you?
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: my name is Priya
    O: Nice to meet you, Priya!
 3. U: nice to meet you too
-   O: May I know your name, please?
+   O: Nice to meet you too!
 4. U: I live in Mumbai
    O: Mumbai! Tell me about it.
 5. U: it's hot and humid today
-   O: Sorry about that. I lowered my confidence to 0.50. I updated where you live to hot and humid today.
+   O: I see. How are you feeling about all that?
 6. U: what's the weather like where you are
-   O: It's fine today.
+   O: I live inside a computer, so I don't get any weather. How is it where you are?
 7. U: what is my name?
    O: Your name is Priya.
 8. U: where do I live?
-   O: You are from hot and humid today.
+   O: You are from Mumbai.
 === 3
 1. U: yo
-   O: im doing well
+   O: Hey! Not much here. How about you?
 2. U: i got the job!!
-   O: oh yea? does it pay well
+   O: Congratulations! That's great news. How are you feeling about it?
 3. U: the one at the design studio
-   O: Why do you say that?
+   O: What's on your mind about the studio?
 4. U: i start monday
-   O: Wow, that is messed up. Why did your boss change mind so suddenly?
+   O: Okay, I'm listening. What would you like to happen?
 5. U: im so nervous tho
    O: That sounds stressful. What is weighing on you the most?
 6. U: thanks that helps
-   O: what other kind of music do you listen to?
+   O: Anytime!
 7. U: what should i wear on the first day?
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?
 8. U: ok cool
-   O: Thanks, I'll remember that.
+   O: I'm here if you want to chat about anything.
 === 4
 1. U: hello
-   O: Hi there! What would you like to talk about?
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: I hate my math class
-   O: Tell me more about class.
+   O: That sounds really frustrating. What's the worst part?
 3. U: the teacher goes way too fast
-   O: Why do you say that?
+   O: What's on your mind about the teacher?
 4. U: i failed the last quiz
-   O: What made you think about quiz?
+   O: I'm sorry, that's rough. Do you want to talk about what happened?
 5. U: idk what to do
-   O: what exactly were you referring to
+   O: I see. How are you feeling about all that?
 6. U: why?
-   O: That is how people replied in the conversations I learned from.
+   O: That is a good question. I am not sure, but you can teach me the answer.
 7. U: yeah
    O: Is there something you'd like to talk about or learn?
 8. U: maybe i should ask for help
-   O: Tell me more about help.
+   O: That could really help. Is there anything stopping you?
 === 5
 1. U: good morning
-   O: Good morning! I hope your day is going well.
+   O: Good morning! How are you?
 2. U: slept terribly
-   O: Tell me more about terribly.
+   O: That sounds rough. Sleep makes everything harder. Do you know what kept you up?
 3. U: kids were up all night
-   O: THAT must have been a nightmare. How many do you have?
+   O: Okay, I'm listening. Say more if you like.
 4. U: i have two, 3 and 5
-   O: Go on, I'm listening.
+   O: That makes sense. What else is on your mind?
 5. U: they're a handful lol
-   O: Tell me more about handful.
+   O: I see. How are you feeling about all that?
 6. U: what about you, do you sleep?
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: No, I'm only a program, so that's not something I experience. I do enjoy chatting though.
 7. U: haha fair
-   O: Thanks, I'll remember that.
+   O: Is there something you'd like to talk about or learn?
 8. U: ok time for coffee
-   O: Tell me more about coffee.
+   O: Thanks for telling me. Is there more to it?
 === 6
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: who are you?
    O: I am Ovi, a tiny language model that lives in less than fifty megabytes.
 3. U: what can you do?
-   O: I can chat, tell short stories, and learn new things from you.
+   O: I can chat, do small sums, tell short stories, and remember things about you like your name and what you like.
 4. U: do you remember things?
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: Yes, I remember what you tell me, like your name and what you like, and I can learn new facts if you teach me.
 5. U: my favorite color is purple
-   O: Thanks, I'll remember that.
+   O: I'll remember that your favorite color is purple.
 6. U: what is my favorite color?
-   O: I like blue, like the sky.
+   O: Your favorite color is purple.
 7. U: are you a robot?
-   O: Yes I am.
+   O: Yes, I'm a small program, a tiny language model.
 8. U: cool
-   O: Is there something you'd like to talk about or learn?
+   O: I'm here if you want to chat about anything.
 === 7
 1. U: hey ovi
-   O: Go on, I'm listening.
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: what's your name
-   O: I'm number seven. What about you?
+   O: My name is Ovi. What should I call you?
 3. U: who made you
-   O: You did, together with a little code and a lot of words.
+   O: People built me from stories, dialogue and a little code. I'm a very small program.
 4. U: are you smart?
    O: Not very, but I am curious, and that is a good start.
 5. U: lol honest
-   O: Tell me more about honest.
+   O: I'm here if you want to chat about anything.
 6. U: do you get tired
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: No, I'm only a program, so that's not something I experience. I do enjoy chatting though.
 7. U: what do you like to do
-   O: I like to chat with people. I find it stimulating.
+   O: I like to chat with people and hear stories. What do you like to do?
 8. U: ok bye for now
-   O: Tell me more.
+   O: Bye! Come back whenever you want to chat.
 === 8
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: my dog died yesterday
    O: I'm so sorry for your loss. I'm here for you. Do you want to tell me about them?
 3. U: his name was Max
-   O: Why do you say that?
+   O: Max. I'll remember your dog's name.
 4. U: we had him 12 years
-   O: Is this recent. Do you know why?
+   O: How was it?
 5. U: i dont wanna talk about it
-   O: Tell me more about talk.
+   O: I see. How are you feeling about all that?
 6. U: yeah
-   O: Is there something you'd like to talk about or learn?
+   O: What else is on your mind?
 7. U: thanks
    O: Happy to help.
 8. U: what was his name again?
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: His name is Max.
 === 9
 1. U: hello
-   O: Hi there! What would you like to talk about?
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: what's the capital of france
    O: The capital of France is Paris.
 3. U: and japan?
    O: The capital of Japan is Tokyo.
 4. U: and italy?
-   O: That sounds really nice.
+   O: I don't have a good answer to that one. What do you think?
 5. U: why?
-   O: That is how people replied in the conversations I learned from.
+   O: That is a good question. I am not sure, but you can teach me the answer.
 6. U: ok what is the capital of germany
-   O: Why do you say that?
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
 7. U: thx
-   O: Go on, I'm listening.
+   O: Happy to help.
 8. U: bye
-   O: Goodbye! Come back soon.
+   O: Bye! Come back whenever you want to chat.
 === 10
 1. U: sup
-   O: Go on, I'm listening.
+   O: Hey! Not much here. How about you?
 2. U: bored af
-   O: Shall we do something about that? I can tell you a fact, a story, or we can talk about what you like.
+   O: Sounds dull. What would make it more interesting?
 3. U: nothing to do
-   O: Doesn't look like it to me.
+   O: Okay, I'm listening. Say more if you like.
 4. U: idk
-   O: Well we give in to our friends. Hopefully he pays you back and not ruin your friendship.
+   O: Is there something you'd like to talk about or learn?
 5. U: maybe a movie
-   O: That's for sure.
+   O: I see. How are you feeling about all that?
 6. U: what movie should i watch
-   O: I don't know that about you yet. Tell me, and I'll remember it.
+   O: I'm not the best judge of that, but it's worth taking your time. What matters most to you here?
 7. U: something funny
-   O: Thanks, I'll remember that.
+   O: I see. What else is on your mind?
 8. U: ok ill try that
-   O: Tell me more.
+   O: I'm here if you want to chat about anything.
 === 11
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: I like football
    O: Got it, you like football.
 3. U: I love chess too
-   O: Got it, you like chess too.
+   O: Got it, you like chess.
 4. U: what do I like?
-   O: You like football and chess too.
+   O: You like football and chess.
 5. U: do you like chess?
-   O: Yes, I do like him.
+   O: I only know chess from words, but it sounds interesting. What do you like about it?
 6. U: who's better at it, you or me
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: That depends on you! I'm only a small program, so I'd bet on you.
 7. U: lol
-   O: Anything else on your mind? We could talk about football.
+   O: Anything else on your mind? We could talk about chess.
 8. U: ok let's play later
-   O: Tell me more about later.
+   O: Okay, I'm listening. What would you like to happen?
 === 12
 1. U: hey
-   O: Hey! Nice to meet you. I'm Ovi.
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: my sister is driving me crazy
-   O: Tell me more about crazy.
+   O: That sounds really annoying. What happened?
 3. U: she borrowed my car without asking
-   O: Why do you say that?
+   O: What's on your mind about your car?
 4. U: and she scratched it
-   O: Ouch! That's the worst, are they pretty damaged?
+   O: That makes sense. What else is on your mind?
 5. U: i'm so mad
    O: That sounds frustrating. What happened?
 6. U: what would you do?
-   O: I'd call him and dump him now! You deserve better than him!
+   O: I'm only a tiny program, so it's hard for me to say. What are you leaning towards?
 7. U: yeah i guess
-   O: Well now you know
+   O: Okay, I'm listening. Say more if you like.
 8. U: maybe i'll talk to her tonight
-   O: Tell me more about talk.
+   O: Okay, I'm listening. What would you like to happen?
 === 13
 1. U: hello
-   O: Hi there! What would you like to talk about?
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: i live in Lisbon
    O: Lisbon! Tell me about it.
 3. U: do you know anything about it
-   O: Her acting is OK.
+   O: I'm not sure about that, I'm only a tiny program. What made you ask?
 4. U: its super hilly
-   O: Sorry about that. I lowered my confidence to 0.50. I learned the corrected answer.
+   O: That makes sense. What else is on your mind?
 5. U: where do I live?
    O: You are from Lisbon.
 6. U: is it a nice city?
-   O: Yes, sir.
+   O: I can't really say. What do you think?
 7. U: i think so
-   O: Let me check that for you right now.
+   O: Okay, I'm listening. Say more if you like.
 8. U: ok
-   O: Is there something you'd like to talk about or learn?
+   O: I'm here if you want to chat about anything.
 === 14
 1. U: hey whats up
-   O: What made you think about whats?
+   O: Not much, just here chatting with you. What's up with you?
 2. U: not much u
-   O: Tell me more about much.
+   O: I'm doing well, thanks. What's on your mind today?
 3. U: just chillin
-   O: By yourself?
+   O: I see. What else is on your mind?
 4. U: how was ur day
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: Pretty quiet, I mostly chat all day. How was yours?
 5. U: lol same
-   O: Thanks, I'll remember that.
+   O: I'm here if you want to chat about anything.
 6. U: nothing happened
-   O: I'm not fully sure, but: Did you get a refund?
+   O: Go on, I'm listening.
 7. U: ikr
-   O: So you'll make the Stars.com deadline, and have us up and running next week?
+   O: Is there something you'd like to talk about or learn?
 8. U: gtg ttyl
-   O: Tell me more about ttyl.
+   O: Bye! Come back whenever you want to chat.
 === 15
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: can you teach you something
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: Yes, please! Tell me something, like "the capital of Spain is Madrid", and I'll remember it.
 3. U: the capital of Australia is Canberra
-   O: Thanks, I'll remember that.
+   O: Got it, the capital of Australia is Canberra.
 4. U: what is the capital of australia?
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: The capital of Australia is Canberra.
 5. U: are you sure?
-   O: Yes, sir.
+   O: Fairly, but I can be wrong, I'm a small model. If I am, tell me and I'll fix it.
 6. U: good
-   O: I am doing well, how about you?
+   O: What else is on your mind?
 7. U: what about new zealand?
    O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
 8. U: idk either lol
-   O: Thanks, I'll remember that.
+   O: I'm here if you want to chat about anything.
 === 16
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: my favorite food is ramen
    O: I'll remember that your favorite food is ramen.
 3. U: what's yours
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: I don't eat, so I'll say I like words best. What's yours?
 4. U: do robots eat
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: No, I'm only a program, so that's not something I experience. I do enjoy chatting though.
 5. U: hahaha
-   O: Thanks, I'll remember that.
+   O: I'm here if you want to chat about anything.
 6. U: what is my favorite food?
    O: Your favorite food is ramen.
 7. U: I also like sushi
-   O: What made you think about sushi?
+   O: Got it, you like sushi.
 8. U: what do I like?
-   O: I like words, stories, and learning new things.
+   O: You like sushi.
 === 17
 1. U: hello
-   O: Hi there! What would you like to talk about?
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: i have an exam tomorrow
-   O: That's unfortunate. What type of exam do you have?
+   O: How do you feel about the exam?
 3. U: its chemistry
-   O: Sorry about that. I lowered my confidence to 0.50. I learned the corrected answer.
+   O: I see. What else is on your mind?
 4. U: im terrified
-   O: I think most people are really. Anything specific about it?
+   O: That's completely understandable. What worries you the most about it?
 5. U: can you help me study
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: I'll try! I'm small, so I can't do everything, but tell me what you need.
 6. U: what is h2o?
    O: h is to o as o is to v.
 7. U: thanks
    O: Happy to help.
 8. U: wish me luck
-   O: Thanks. And how are your parents?
+   O: Good luck! I'm rooting for you. You've got this.
 === 18
 1. U: hey
-   O: Hey! Nice to meet you. I'm Ovi.
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: guess what
-   O: Oh? What surprised you about today?
+   O: Go on, I'm listening.
 3. U: i'm getting married
-   O: What kind of doctor is she going to be?
+   O: Congratulations! That's great news. How are you feeling about it?
 4. U: next june
-   O: that's thoughtful of you.
+   O: Hm, interesting. Tell me more when you're ready.
 5. U: her name is Ana
-   O: Tell me more about name.
+   O: Ana. I'll remember your fiancé's name.
 6. U: we met in college
-   O: is this your first date?
+   O: Did you enjoy it?
 7. U: thank you!
-   O: You are welcome!
+   O: Happy to help.
 8. U: what is her name?
-   O: It's Snow.
+   O: Her name is Ana.
 === 19
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: what's 2 plus 2
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: 2 plus 2 is 4.
 3. U: and 3 times 3?
-   O: What about 3?
+   O: 3 times 3 is 9.
 4. U: ok you're good at math
-   O: What made you think about math?
+   O: Thanks, that's kind of you!
 5. U: what is the square root of 81
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: The square root of 81 is 9.
 6. U: lol nice
-   O: Thanks, I'll remember that.
+   O: What else is on your mind?
 7. U: what's the meaning of life
-   O: I'm not fully sure, but: It is a reference to The Illuminatus Trilogy. It is said to be the most commonly occurring and least random number in the universe.
+   O: People have argued about that forever. I'd guess it has to do with people, curiosity and good conversation. What do you think?
 8. U: deep
-   O: ah.. well i guess its not that bad yet
+   O: I'm here if you want to chat about anything.
 === 20
 1. U: ugh
-   O: What happened?
+   O: Ugh, sounds like a rough moment. What's going on?
 2. U: monday again
-   O: What is the starting salary for me?
+   O: Go on, I'm listening.
 3. U: i hate mondays
-   O: Why do you say that?
+   O: That sounds really frustrating. What's the worst part?
 4. U: my commute is an hour each way
-   O: What made you think about each?
+   O: Tell me more about your commute.
 5. U: the train was late
-   O: What?! Are you sick or your family member?
+   O: How do you feel about the train?
 6. U: again
-   O: What happened? Why did everyone get so quiet?
+   O: What else is on your mind?
 7. U: what do you think about mondays
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: I'm a tiny program, so I don't have strong opinions about mondays. What do you think?
 8. U: lol fair
-   O: Thanks, I'll remember that.
+   O: I'm here if you want to chat about anything.
 === 21
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: I'm learning guitar
-   O: Tell me more about guitar.
+   O: Thanks for telling me. Is there more to it?
 3. U: its hard on my fingers
-   O: Why do you say that?
+   O: What's on your mind about your fingers?
 4. U: i practice every night
-   O: What made you think about night?
+   O: That makes sense. What else is on your mind?
 5. U: my teacher says im improving
-   O: Tell me more about improving.
+   O: How do you feel about your teacher?
 6. U: what do I practice?
    O: I don't know that about you yet. Tell me, and I'll remember it.
 7. U: thanks for remembering
-   O: Thanks, I'll remember that.
+   O: Happy to help.
 8. U: ok
-   O: Is there something you'd like to talk about or learn?
+   O: I'm here if you want to chat about anything.
 === 22
 1. U: hello
-   O: Hi there! What would you like to talk about?
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: tell me a joke
-   O: Follow me.
+   O: Why was the math book sad? It had too many problems.
 3. U: another one
-   O: I'm not fully sure, but: I heard that some people in England are pleased with the fact that the climate is becoming warmer because it's making their towns a more pleasant place to live.
+   O: What do you call a fish with no eyes? A fsh.
 4. U: haha that was bad
-   O: how did you make up for it?
+   O: That makes sense. What else is on your mind?
 5. U: tell me something interesting
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: Sharks are older than trees.
 6. U: wow really
-   O: Thanks, I'll remember that.
+   O: Go on, I'm listening.
 7. U: hmm i didnt know that
-   O: What made you think about know?
+   O: Okay, I'm listening. Say more if you like.
 8. U: ok thanks
-   O: That's nothing.
+   O: No problem at all!
 === 23
 1. U: hey
-   O: Hey! Nice to meet you. I'm Ovi.
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: my name is Tom
    O: Nice to meet you, Tom!
 3. U: i work as a nurse
-   O: Why do you say that?
+   O: Nice, a nurse! How do you like it?
 4. U: long night shifts
-   O: What made you think about shifts?
+   O: That makes sense. What else is on your mind?
 5. U: its exhausting
-   O: Tell me more about exhausting.
+   O: Okay, I'm listening.
 6. U: what is my name?
    O: Your name is Tom.
 7. U: what do I do for work?
-   O: I don't know that about you yet. Tell me, and I'll remember it.
+   O: You are a nurse.
 8. U: thanks
-   O: Happy to help.
+   O: No problem at all!
 === 24
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: do you have feelings
-   O: I... sort of have feelings.
+   O: Not the way you do, I'm a small program. But I do like talking with you.
 3. U: do you get lonely
-   O: I have a lot of friends to chat with online.
+   O: Not the way you do, I'm a small program. But I do like talking with you.
 4. U: what do you want
-   O: Did your bid win?
+   O: I'm not sure about that, I'm only a tiny program. What made you ask?
 5. U: that's kinda sad
-   O: That's a switch.
+   O: That does sound hard. What do you make of it?
 6. U: are you happy
-   O: I'm not fully sure, but: I want to buy that candy.
+   O: Not very, but I am curious, and that is a good start.
 7. U: ok
    O: Is there something you'd like to talk about or learn?
 8. U: what about me, am I a good person?
    O: I don't know that about you yet. Tell me, and I'll remember it.
 === 25
 1. U: hey
-   O: Hey! Nice to meet you. I'm Ovi.
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: i went to the beach today
-   O: Wow, thats amazing! How did ya'll initially meet?
+   O: How did that go?
 3. U: it was amazing
-   O: Sorry about that. I lowered my confidence to 0.50. I learned the corrected answer.
+   O: That's nice to hear. What's behind it?
 4. U: the water was so warm
-   O: Did you? How is he these days?
+   O: Tell me more about the water.
 5. U: we ate ice cream
-   O: Tell me more about cream.
+   O: Did you enjoy it?
 6. U: you should come
-   O: How about at 6pm?
+   O: Thanks for telling me. Is there more to it?
 7. U: oh right lol
-   O: What made you think about right?
+   O: Is there something you'd like to talk about or learn?
 8. U: anyway what did I do today?
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: You went to the beach today and then ate ice cream.
 === 26
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: I think pineapple on pizza is great
-   O: That's wonderful! What made it so good?
+   O: Good to hear. What do you like most about it?
 3. U: do you agree?
-   O: It's beginning to spot.
+   O: I'm not sure about that, I'm only a tiny program. What made you ask?
 4. U: why not
-   O: That is how people replied in the conversations I learned from.
+   O: I don't have a good answer to that one. What do you think?
 5. U: you're no fun
-   O: Tell me more about you're.
+   O: Sorry I let you down. I'm a small program and I make mistakes. What went wrong?
 6. U: ok what's your favorite food then
-   O: Why do you say that?
+   O: I don't really have a favorite then, I'm a tiny program. What's yours?
 7. U: i see
-   O: I never trust those stupid doctors.
+   O: I see. What else is on your mind?
 8. U: lol
-   O: Is there something you'd like to talk about or learn?
+   O: I'm here if you want to chat about anything.
 === 27
 1. U: hello
-   O: Hi there! What would you like to talk about?
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: i'm so tired
    O: That sounds draining. Have you been able to rest?
 3. U: work was a nightmare
-   O: Why do you say that?
+   O: Okay, I'm listening. Say more if you like.
 4. U: my coworker took credit for my idea
-   O: What made you think about idea?
+   O: Tell me more about your credit.
 5. U: i wanna quit
-   O: Tell me more about quit.
+   O: I see. How are you feeling about all that?
 6. U: should i?
-   O: You just follow me.
+   O: I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?
 7. U: but i need the money
-   O: I'm not fully sure, but: The regulations state that the interest is paid at the rate of a Current Deposit, so unfortunately you will lose some interest.
+   O: Tell me more about the money.
 8. U: yeah you're right
-   O: How did you know?
+   O: That makes sense. What else is on your mind?
 === 28
 1. U: hey
-   O: Hey! Nice to meet you. I'm Ovi.
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: what is the gdp of norway?
    O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
 3. U: about five hundred billion dollars
@@ -469,212 +469,212 @@
 5. U: what about sweden?
    O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
 6. U: ok
-   O: Is there something you'd like to talk about or learn?
+   O: What else is on your mind?
 7. U: who is the king of norway
    O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
 8. U: idk
-   O: Thanks, I'll remember that.
+   O: I'm here if you want to chat about anything.
 === 29
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: so my mom called
-   O: Tell me more about called.
+   O: How do you feel about your mom?
 3. U: she wants me to visit this weekend
-   O: Why do you say that?
+   O: Okay, I'm listening. Say more if you like.
 4. U: but i have plans
-   O: What made you think about plans?
+   O: That makes sense. What else is on your mind?
 5. U: she gets upset easy
-   O: I'm sorry you're feeling that way. Do you want to tell me what happened?
+   O: That does sound hard. What do you make of it?
 6. U: idk what to say
-   O: Interesting. Why do you say that?
+   O: Thanks for telling me. Is there more to it?
 7. U: what should i tell her
-   O: tell who what?
+   O: I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?
 8. U: ok ill try that
-   O: Tell me more.
+   O: I'm here if you want to chat about anything.
 === 30
 1. U: good evening
-   O: Good evening, Mary.
+   O: Good evening! How are you?
 2. U: i cooked dinner for the first time
-   O: Well that's fun! Did he do a good job?
+   O: How did that go?
 3. U: pasta with tomato sauce
-   O: Why do you say that?
+   O: Okay, I'm listening. Say more if you like.
 4. U: it was ok
-   O: Was it a long move?
+   O: That makes sense. What else is on your mind?
 5. U: a bit salty lol
-   O: Tell me more about salty.
+   O: I see. How are you feeling about all that?
 6. U: any tips?
-   O: Oh, she can make her own decisions.
+   O: Happy to think it through with you. What's the situation, and what part is the hardest?
 7. U: ok noted
-   O: Oh! I've almost forgot the location was transferred to the A county in the east of the city.
+   O: Is there something you'd like to talk about or learn?
 8. U: what did i cook?
-   O: I don't know that about you yet. Tell me, and I'll remember it.
+   O: You cooked dinner for the first time.
 === 31
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: are you real
-   O: I am real software. I run on numbers, and I try to talk with them.
+   O: No, I'm a small program, not a person. But I'm happy to chat like one.
 3. U: prove it
-   O: Did they take anything else?
+   O: I see. What else is on your mind?
 4. U: hmm
    O: Is there something you'd like to talk about or learn?
 5. U: lol
-   O: Is there something you'd like to talk about or learn?
+   O: I'm here if you want to chat about anything.
 6. U: what's your favorite color
-   O: I like red.
+   O: My favorite color is blue, like the sky.
 7. U: mine is blue
-   O: What made you think about blue?
+   O: I'll remember that your favorite color is blue.
 8. U: what is my favorite color?
-   O: I like blue, like the sky.
+   O: Your favorite color is blue.
 === 32
 1. U: heyyy
-   O: What made you think about heyyy?
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: omg i passed my driving test
-   O: Tell me more about test.
+   O: Congratulations! That's great news. How are you feeling about it?
 3. U: finally
-   O: Yes, what about us having a tour?
+   O: I see. What else is on your mind?
 4. U: third try lol
-   O: What made you think about third?
+   O: That makes sense. What else is on your mind?
 5. U: my dad is so proud
-   O: That's wonderful! What made it so good?
+   O: That's nice to hear. What's behind it?
 6. U: im gonna drive to the lake
-   O: Why do you say that?
+   O: What's on your mind about the lake?
 7. U: wanna come
-   O: cause you ran out of candles?
+   O: Hm, interesting. Tell me more when you're ready.
 8. U: haha
-   O: Is there something you'd like to talk about or learn?
+   O: I'm here if you want to chat about anything.
 === 33
 1. U: hello
-   O: Hi there! What would you like to talk about?
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: tell me about yourself
-   O: I am Ovi. I am a small model that reads, talks, and learns.
+   O: I'm Ovi, a small companion that runs on a plain CPU. I remember things about you, like your name and what you like, and I learn facts when you teach me. What about you?
 3. U: where do you live
-   O: I live inside a small file on your computer.
+   O: I live inside a computer, in a very small file. Where are you?
 4. U: do you have friends
-   O: You are my friend, if you want to be.
+   O: No, I'm a program, so I don't have that like you do. But I like talking with you.
 5. U: am i your friend
-   O: Great. By the way, what does your friend do?
+   O: I'd like to think so. I enjoy talking with you.
 6. U: aw
-   O: im sure you will do great where ever you end up going
+   O: Go on, I'm listening.
 7. U: what's my name?
    O: I don't know your name yet. What should I call you?
 8. U: ok i'll tell you later
-   O: Tell me more about later.
+   O: Okay, I'm listening. What would you like to happen?
 === 34
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: i'm thinking about moving to Berlin
-   O: Tell me more about berlin.
+   O: Thanks for telling me. Is there more to it?
 3. U: for work
-   O: Should we just meet here?
+   O: I see. What else is on your mind?
 4. U: my girlfriend doesnt want to
-   O: What made you think about want?
+   O: Tell me more about your want.
 5. U: its a big decision
-   O: Tell me more about decision.
+   O: I see. How are you feeling about all that?
 6. U: what do you think
-   O: She's very nice.
+   O: I'm only a tiny program, so it's hard for me to say. What are you leaning towards?
 7. U: hmm
    O: Is there something you'd like to talk about or learn?
 8. U: where am i thinking of moving?
    O: I don't know that about you yet. Tell me, and I'll remember it.
 === 35
 1. U: yo
-   O: im doing well
+   O: Hey! Not much here. How about you?
 2. U: what's good
-   O: Not a lot. What about you?
+   O: your asking the wrong guy, however i always wanted to try a burger!
 3. U: just played some games
-   O: Why do you say that?
+   O: What's on your mind about the games?
 4. U: fortnite
-   O: I'm not fully sure, but: What do you do in that game?
+   O: Hm, interesting. Tell me more when you're ready.
 5. U: mostly lol
-   O: Don't worry, I'm sure she'll put a dent in it before the month is up.
+   O: Okay, I'm listening.
 6. U: do you play games
-   O: Type? I don't know, what do you have?
+   O: I only know games from words, but it sounds interesting. What do you like about it?
 7. U: why not
-   O: That is how people replied in the conversations I learned from.
+   O: I don't have a good answer to that one. What's your take on the games?
 8. U: fair
-   O: How much is a round-trip ticket to London?
+   O: I'm here if you want to chat about anything.
 === 36
 1. U: hello
-   O: Hi there! What would you like to talk about?
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: i have a presentation tomorrow
-   O: What kind of problems?
+   O: How do you feel about the presentation?
 3. U: im bad at public speaking
-   O: Why do you say that?
+   O: Okay, I'm listening. Say more if you like.
 4. U: my hands shake
-   O: Do you come from a country where they shake hands?
+   O: That makes sense. What else is on your mind?
 5. U: any advice
-   O: I hope it helps!
+   O: I'd like to help, though I'm only a small program. Tell me a bit more about your shake and what you've tried so far.
 6. U: thats helpful
-   O: Why do you say that?
+   O: Go on, I'm listening.
 7. U: i'll try
-   O: Do you want me to have him give you a call?
+   O: Is there something you'd like to talk about or learn?
 8. U: thanks ovi
-   O: Tell me more about thanks.
+   O: No problem at all!
 === 37
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: i like cats
    O: Got it, you like cats.
 3. U: i have two, Milo and Luna
-   O: Why do you say that?
+   O: Milo and Luna, lovely names! I'll remember your cats.
 4. U: Milo is orange
-   O: What made you think about orange?
+   O: Got it, Milo is orange.
 5. U: Luna is grey
-   O: Tell me more about grey.
+   O: Got it, Luna is grey.
 6. U: what are my cats called?
-   O: I don't know that about you yet. Tell me, and I'll remember it.
+   O: Your cats are called Milo and Luna.
 7. U: which one is orange?
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: Milo is orange.
 8. U: ok thx
-   O: Thanks, I'll remember that.
+   O: No problem at all!
 === 38
 1. U: hey
-   O: Hey! Nice to meet you. I'm Ovi.
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: random question
-   O: Tell me more about question.
+   O: Go on, I'm listening.
 3. U: do you like music
-   O: Well, it depends.
+   O: I only know music from words, but it sounds interesting. What do you like about it?
 4. U: what kind
-   O: I like classical music. Do you?
+   O: I don't have a good answer to that one. What do you think?
 5. U: i like jazz
    O: Got it, you like jazz.
 6. U: do you know any jazz
-   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+   O: I'm not sure about that, I'm only a tiny program. What made you ask?
 7. U: who is miles davis
    O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
 8. U: cool
-   O: Anything else on your mind? We could talk about jazz.
+   O: I'm here if you want to chat about anything.
 === 39
 1. U: hi
    O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: sorry im late replying
-   O: Tell me more about replying.
+   O: Thanks for telling me. Is there more to it?
 3. U: was at the dentist
-   O: Please pay the registration fee, 10 Yuan.
+   O: I don't have a good answer to that one. What do you think?
 4. U: got a filling
-   O: What made you think about filling?
+   O: That makes sense. What else is on your mind?
 5. U: my mouth is numb lol
-   O: Tell me more about numb.
+   O: How do you feel about your mouth?
 6. U: it hurts now
-   O: Why do you say that?
+   O: Okay, I'm listening. Say more if you like.
 7. U: yeah
    O: Is there something you'd like to talk about or learn?
 8. U: ugh ok bye
-   O: Tell me more.
+   O: I see. How are you feeling about all that?
 === 40
 1. U: hello
-   O: Hi there! What would you like to talk about?
+   O: Hello! I'm Ovi, a very small language model. How are you?
 2. U: i got a promotion today
-   O: Congrats! How long have you been with your company?
+   O: Congratulations! That's great news. How are you feeling about it?
 3. U: im now team lead
-   O: Why do you say that?
+   O: Okay, I'm listening. Say more if you like.
 4. U: my team is 5 people
-   O: What made you think about team?
+   O: Tell me more about your team.
 5. U: i'm excited but scared
    O: That sounds stressful. What is weighing on you the most?
 6. U: what do you think
-   O: It looks great.
+   O: I'm only a tiny program, so it's hard for me to say. What are you leaning towards?
 7. U: thank you
-   O: You are welcome!
+   O: Happy to help.
 8. U: what's my new role?
    O: I don't know that about you yet. Tell me, and I'll remember it.

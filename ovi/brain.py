@@ -136,6 +136,9 @@ class Brain(UserMemory):
         self.qctx = None             # (resolved factual question, turn) the next 'and italy?' refers to
         self.last_calc = None        # result of the previous sum ('and times 3?')
         self.focus = None            # (label, awaiting_name): the pet / person the user is talking about
+        self.acts = []               # things the user said they did ('went to the beach today'), newest last
+        self.fav_ctx = None          # (category, turn): the last 'favorite <category>' mentioned, so 'mine is blue' resolves
+        self.like_animal = None      # (animal, turn): 'i like cats' -> a following 'i have two, Milo and Luna' is about cats
         if builtin:
             nd = 0
             if os.path.exists("ovi_rank.npz"):
@@ -256,6 +259,7 @@ class Brain(UserMemory):
 
     def recall(self, msg):
         msg = IMPERATIVE.sub("", msg.strip()) or msg      # "tell me the capital of france" -> "the capital of france"
+        msg = re.sub(r"\bwhat(?:'s|s)\b", "what is", re.sub(r"\bfavou?rite\b", "favorite", re.sub(r"\bcolour\b", "color", msg, flags=re.I), flags=re.I), flags=re.I)
         n = norm(msg)
         if n in self.exact:                    # exact match: best-confidence entry wins
             i = max(self.exact[n], key=lambda j: (round(self.conf_of(j, 1.0), 3), j))
@@ -275,10 +279,8 @@ class Brain(UserMemory):
     # ---------- talking ----------
     def ask(self, msg):
         msg = clean_text(msg).strip()
-        # 1) learn from a pending abstention: the next plain statement is the answer
-        if self.pending and not msg.endswith("?") and not QWORD.match(msg) and not msg.startswith("/") \
-                and not re.match(r"i('m| am| feel| think| want| went)\b", msg, re.I) and norm(msg) not in self.ACK \
-                and not cc.is_nonanswer(norm(msg)):
+        # 1) learn from a pending abstention: the next plain statement is the answer, if it plausibly is one
+        if self.pending and not msg.startswith("/") and self._answers_pending(msg):
             q, self.pending = self.pending, None
             mine = re.match(r"my (.+?) (is|are) (.+)$", msg.rstrip(".!"), re.I)
             if mine and re.match(r"(?:what|who|where|when|which)\b.*\bmy\b", q, re.I):      # "my best friend is Maria" -> "Your best friend is Maria."
@@ -286,6 +288,7 @@ class Brain(UserMemory):
             i = self._add(q, msg, "learned", 0.75)
             self._write({"e": "add", "q": q, "a": msg, "src": "learned", "conf": 0.75})
             self.last_q = q
+            self.qctx = (q, len(self.history))
             self.last = Answer("Thanks, I'll remember that.", 1.0, "learned", "stored as unverified (conf 0.75)", i)
             return self.last
         self.pending = None
@@ -332,11 +335,94 @@ class Brain(UserMemory):
         if soft:
             self.last = Answer(soft, c, "chat", "question about Ovi/opinion/context: neutral reply, no teaching")
             return self.last
+        if not self._substantive(msg):
+            t = self._recent_topic()
+            self.last = Answer(f"I don't have a good answer to that one. What's your take on {t}?" if t else "I don't have a good answer to that one. What do you think?",
+                               c, "chat", "short/vague question: neutral follow-up, no teaching")
+            return self.last
         self.pending = msg
         self.qctx = (msg, len(self.history))
         self.last = Answer("I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
                            c, "none", f"best match confidence {c:.2f} < {HEDGE}")
         return self.last
+
+    FIRST_P = re.compile(r"(?:i|i'm|im|i've|ive|i'll|ill|i'd|id|we|we're|let's|lets)\b", re.I)
+    ABOUT_OVI = re.compile(r"(?:you|you're|youre|your|yours|u|ur|ya)\b", re.I)
+    DISCOURSE = re.compile(r"(?:but|so|and|anyway|anyways|well|oh|yeah|yes|no|nope|nah|why|haha|hmm|wow|please|thanks?|thank|bye|hi|hello|hey|ok|okay|lol)\b", re.I)
+
+    def _answers_pending(self, msg):
+        """Could this message be the answer to the question Ovi abstained on? Questions, acknowledgements, 'I...' statements about the
+        user (unless the pending question was about the user), remarks addressed to Ovi and discourse openers are not answers."""
+        n = norm(msg)
+        if msg.endswith("?") or QWORD.match(msg) or n in self.ACK or cc.is_nonanswer(n):
+            return False
+        if re.match(r"i('m| am| feel| think| want| went)\b", msg, re.I):
+            return False
+        personal = bool(re.match(r"(?:what|who|where|when|which)\b.*\bmy\b|(?:what|who|where|when|which|how)\b.*\b(?:do|did|am|have) i\b", self.pending, re.I))
+        if self.FIRST_P.match(msg) and not personal:
+            return False
+        if self.ABOUT_OVI.match(msg) or self.DISCOURSE.match(msg):
+            return False
+        return len(msg.split()) <= 25
+
+    QW = set("what who whom whose where when why how which tell explain define name list give show say is are was were do does did can could will would should".split())
+
+    def _substantive(self, msg):
+        """A factual question worth asking to be taught: a wh-/yes-no question with real content words ('what is a quasar',
+        'who is miles davis'), not a vague follow-up like 'why not', 'any tips?' or 'what about it'."""
+        w = re.findall(r"[a-z0-9']+", msg.lower())
+        content = [x for x in w if (len(x) > 2 or (len(x) == 2 and any(ch.isdigit() for ch in x))) and x not in cc._FUNC and x not in cc._STOPISH and x not in self.QW and x not in cc.ACK_WORDS
+                   and x not in ("any", "tips", "tip", "idea", "ideas", "more", "other", "another", "else", "think", "thought", "advice")]
+        if not w:
+            return False
+        if w[0] in ("any", "what", "how", "why") and len(w) > 1 and w[1] == "about":      # 'what about sweden?' after a factual question
+            return bool(self.qctx and len(self.history) - self.qctx[1] <= 4 and content)
+        if w[0] in ("what", "who", "where", "when", "which") and len(w) > 2 and w[1] in ("is", "are", "was", "were", "does", "did", "do", "s", "'s"):
+            return len(content) >= 1
+        if w[0] == "how" and len(w) > 2 and w[1] in ("many", "much", "old", "tall", "long", "far", "big", "fast", "high", "deep", "wide", "heavy"):
+            return len(content) >= 1
+        return len(content) >= 2
+
+    def _recent_topic(self):
+        """The latest clear topic ('the presentation') the user mentioned in their last few messages, or None."""
+        for u, o in reversed(self.history[-4:]):
+            if not (u.endswith("?") or QWORD.match(u)) and not cc.ADVICE_REQ.match(norm(u)) and not o.startswith(("Thanks, I'll remember", "Got it", "I'll remember")):
+                t = cc.topic_noun(u)
+                if t and t.split()[-1] not in cc.WRONGTOPIC:
+                    return t
+        return None
+
+    ACT = re.compile(r"^(?:and |then |so |also |today |yesterday )*(?:i|we) (?:(?:just|also|finally|then|really|actually) )*((?:went|ate|saw|watched|played|bought|visited|met|read|made|had|got|started|finished|tried|took|cooked|baked|walked|ran|drove|called|painted|cleaned|learned|studied|worked|fixed|wrote|built|swam|biked|hiked|helped|joined|booked|planted|passed|won|moved|did|heard|listened|cycled|danced|sang|shopped|travelled|traveled|flew|stayed|slept)\b.*)$", re.I)
+    DID_Q = re.compile(r"^(?:and |so |anyway |ok |okay )*(?:what did i (?:do|get up to)|what have i (?:done|been (?:up to|doing))|what was i doing|what did i just do)(?: (?:today|yesterday|earlier|just now|so far|this \w+|tonight|last \w+))?$|^(?:and |so |anyway |ok |okay )*what did i (cook|eat|buy|watch|play|read|make|see|have|get|bake|paint|learn|visit|drive|wear|build|fix|write|try|hear)(?: (?:today|yesterday|earlier|just now|so far|tonight))?$")
+    PASTV = {"ate": "eat", "bought": "buy", "saw": "see", "watched": "watch", "played": "play", "read": "read", "made": "make", "had": "have", "got": "get", "cooked": "cook",
+             "baked": "bake", "painted": "paint", "learned": "learn", "visited": "visit", "drove": "drive", "built": "build", "fixed": "fix", "wrote": "write", "tried": "try", "heard": "hear"}
+
+    def _note_context(self, msg):
+        """Remember what the user says they did, and which 'favorite <category>' the conversation is about."""
+        m = msg.strip().rstrip(".!")
+        if not (m.endswith("?") or QWORD.match(m)):
+            r = self.ACT.match(m)
+            if r and len(m.split()) <= 18:
+                self.acts = (self.acts + [(r.group(1).split()[0].lower(), m)])[-12:]
+        cat = cc._subject_from(norm(msg).replace("favourite", "favorite"))
+        if cat and cat not in ("is", "are", "was"):
+            self.fav_ctx = (cat, len(self.history))
+
+    def _recall_activity(self, n):
+        m = self.DID_Q.match(n)
+        if not m or not self.acts:
+            return None
+        verb = m.group(1)
+        pool = [(v, t) for v, t in self.acts if self.PASTV.get(v, v) == verb] if verb else self.acts[-3:]
+        if not pool:
+            return None
+        parts = []
+        for v, t in (pool[-1:] if verb else pool):
+            t = re.sub(r"^(?:and |then |so |also |today |yesterday )*", "", t, flags=re.I)
+            t = re.sub(r"^(?:i|we) ", "", t, flags=re.I)
+            t = re.sub(r"\bmy\b", "your", t, flags=re.I).replace(" me ", " you ").replace(" myself", " yourself")
+            parts.append(t)
+        return "You " + (parts[0] if len(parts) == 1 else ", ".join(parts[:-1]) + " and then " + parts[-1]) + "."
 
     def _unknowable(self, msg, r):
         """Questions no stored answer can honestly address: the future, live data, or the user's own life when they never
@@ -413,7 +499,7 @@ class Brain(UserMemory):
         "happy": ("happy|excited|great|awesome|wonderful|amazing|proud|glad|good news", "That's wonderful{n}! What made it so good?"),
         "bored": ("bored|boring", "Shall we do something about that{n}? I can tell you a fact, a story, or we can talk about what you like."),
     }
-    PAST = re.compile(r"^i (went|ate|saw|watched|played|bought|visited|met|read|made|had|got|started|finished|tried|took)\b", re.I)
+    PAST = re.compile(r"^(?:i|we) (?:just |also |finally )?(went|ate|saw|watched|played|bought|visited|met|read|made|had|got|started|finished|tried|took|cooked|baked|walked|ran|drove|cleaned|did|heard|listened|cycled|shopped|flew|stayed|worked|studied|painted|fixed|wrote|built|swam|biked|hiked|helped|joined|booked)\b", re.I)
     ACK = {"ok", "okay", "cool", "nice", "lol", "haha", "yes", "yeah", "yep", "no", "nope", "sure", "hmm", "wow", "thanks", "thank you", "great", "fine", "alright"}
 
     def _feeling(self, msg):
@@ -423,6 +509,25 @@ class Brain(UserMemory):
         if not re.match(r"(i|i'm|im|i am|i feel|i got|we)\b", n):
             return False
         return any(re.search(rf"\b({pat})\b", n) for k, (pat, _) in self.MOODS.items() if k not in ("loss", "miss"))
+
+    OWN = re.compile(r"^(?:(?:and|but|so|well|yeah|honestly|just|today|lately|now|ugh|oh|ok|okay|really|still)\s+)*(?:i|i'm|im|i've|ive|i'd|id|we|we're|we've|i feel|feeling)\b|\b(?:makes?|made|making|gets?|got|leaves?|left) me\b|^(?:(?:so|really|very|kinda|pretty|too|a bit|feeling|just)\s+){1,2}\w+$")
+    NEG_MOODS = ("sad", "tired", "stress", "angry", "bored")
+
+    def _third_person_mood(self, n):
+        """Reply pool when the message names a mood word but is not about the user's own feeling, else None."""
+        if self.MISS.search(n) or self.LOSS.search(n):
+            return None
+        hit = next((k for k, (pat, _) in self.MOODS.items() if k not in ("loss", "miss") and re.search(rf"\b({pat})\b", n)), None)
+        if hit is None:
+            return None
+        opinion = re.match(r"i (?:think|guess|believe|say|bet|suppose)\b", n) and not re.search(r"\bfeel", n)
+        if self.OWN.search(n) and not opinion:
+            return None
+        if hit == "bored":
+            return ["Sounds dull. What would make it more interesting?"]
+        if hit in ("happy",):
+            return ["That's nice to hear. What's behind it?", "Good to hear. What do you like most about it?"]
+        return ["That does sound hard. What do you make of it?", "I hear you. What do you think is behind it?"]
 
     def _likes(self):
         i = self.exact.get("what do i like")
@@ -440,7 +545,10 @@ class Brain(UserMemory):
                 return f"Anything else on your mind? We could talk about {likes[len(self.history) // 2 % len(likes)]}."
             return cc._pick(["Is there something you'd like to talk about or learn?", "I'm here if you want to chat about anything.", "What else is on your mind?"],
                             self.used, "ackr", len(self.history))
-        # 2) feelings
+        # 2) feelings: empathy only for the user's own feelings; observations about someone/something get an engaging reply
+        third = self._third_person_mood(n)
+        if third:
+            return cc._pick(third, self.used, "mood3", len(self.history))
         for kind, (pat, reply) in self.MOODS.items():
             if kind == "miss":
                 hit = self.MISS.search(n)
@@ -512,6 +620,9 @@ class Brain(UserMemory):
             for q in LIKE_QS:
                 self.teach(q, ans, supersede=True)
             self.recent_fact = list(LIKE_QS)
+            sg = cc.BREEDS.get(cc.singular(thing.lower()), cc.singular(thing.lower()))
+            if sg in cc.ANIMALS and sg != "pet":
+                self.like_animal = (sg, len(self.history))        # 'i like cats' ... 'i have two, Milo and Luna' is about cats
             return f"Got it, you like {thing}."
         mm = self._profile_more(m)
         if mm:
@@ -522,6 +633,10 @@ class Brain(UserMemory):
             self._set_place(place)
             return f"{place}! Tell me about it."
         r = re.match(r"my fav(?:ou?rite)? (\w+) is (.+)$", m, re.I)
+        if not r and self.fav_ctx and len(self.history) - self.fav_ctx[1] <= 6:     # 'mine is blue' -> the favorite we were just talking about
+            q = re.match(r"(?:mine(?: is|'s| would be)?|my fav(?:ou?rite)?(?: one)?(?: is|'s)?) (?:the |a |an )?((?!(?:not|so|very|really|just)\b)\w+(?: \w+){0,2}?)(?:,? too| as well| also| though)?$", m, re.I)
+            if q:
+                r = re.match(r"my favorite (\w+) is (.+)$", f"my favorite {self.fav_ctx[0]} is {q.group(1).strip()}")
         if r:
             k, v = r.group(1).lower(), r.group(2).strip()
             self.teach(f"what is my favorite {k}", f"Your favorite {k} is {v}.", supersede=True)
@@ -581,6 +696,9 @@ class Brain(UserMemory):
         msg = re.sub(r"^(?:(?:ok|okay|so|well|anyway|anyways|hmm|um|oh|alright|btw|but)\b[, ]+)+(?=(?:what|who|where|when|how|why|which|is|are|do|does|can|could|should|tell)\b)", "", msg, flags=re.I) or msg
         a = None
         recent, self.recent_fact = self.recent_fact, None
+        if self.pending and not msg.startswith("/") and not self._answers_pending(msg) and not (msg.endswith("?") or QWORD.match(msg)):
+            self.pending = None               # a statement that isn't an answer ends the teach prompt (it is not swallowed as one)
+        self._note_context(msg)
         if not self.pending and not msg.startswith("/"):
             self.recent_fact = recent             # visible to _forget for exactly one turn
             reply = self._forget(msg)
@@ -747,10 +865,13 @@ class Brain(UserMemory):
             c = cc.calc(f"{self.last_calc} {cont}")
         if c:
             return Answer(c, 1.0, "calc", "arithmetic")
-        t = self._recall_profile(n)
+        t = self._recall_profile(n) or self._recall_activity(n)
         if t:
             return Answer(t, 1.0, "profile", "answered from what you told me")
         turn = len(self.history)
+        t = cc.advice_request(n, self._recent_topic(), self.used, turn)
+        if t:
+            return Answer(t, 1.0, "chat", "advice request: ask for context")
         prev = self.history[-1][0] if self.history else ""
         t = cc.smalltalk(n, prev, self.used, turn, name or "")
         if t is None and (msg.rstrip().endswith("?") or QWORD.match(msg)):
