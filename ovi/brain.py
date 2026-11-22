@@ -9,7 +9,7 @@ Every memory is an Entry(question, answer, source, confidence, hits, misses).
 import json, os, re, time
 import numpy as np
 from dataclasses import dataclass, field
-from .memory import norm, keys, toks
+from .memory import norm, keys, toks, clean_text, append_line, read_lines, atomic_write, file_lock
 from .retrieval import Index
 from .seed_chat import PAIRS
 from . import dataset
@@ -22,12 +22,86 @@ QWORD = re.compile(r"^(what|who|whom|whose|where|when|why|how|which|is|are|was|w
 STOPW = set("again today tonight yesterday tomorrow always never still already lately recently something anything nothing everything someone anyone people thing things time times this that with have what they them then than there about would could should really very just like your mine been were will from into some more".split())
 STORY = re.compile(r"\b(story|poem|write|continue|imagine)\b", re.I)
 LOG = "data/brain.jsonl"
+USER_SRC = ("taught", "learned")          # only what the user told Ovi can be superseded or forgotten
+NAME_QS = ("what is my name", "who am i", "do you know my name", "what's my name", "do you remember my name")
+NAME_ASK = {"what is my name", "what's my name", "whats my name", "who am i", "do you know my name", "do you remember my name",
+            "can you remember my name", "remember my name", "tell me my name", "what do you call me", "what did i say my name was"}
+NAME_WORD = r"[^\W\d_]+(?:[-'][^\W\d_]+)?"          # one name token, any script (Zoe, Zoë, 李雷)
+# words that follow "I'm" / "I am" / "this is" but are states, not names
+NOT_NAMES = set("""tired happy sad fine good great ok okay alright well bad sick hungry thirsty bored busy late early sorry sure ready done back here there home new old young lost
+confused curious scared afraid nervous anxious worried stressed angry mad upset lonely excited glad proud awesome wonderful amazing exhausted sleepy cold hot warm cool
+free fun nice not so very just also still only really quite too going coming trying looking thinking feeling not in on at from with the a an it he she they you me
+fed full ill cranky grumpy depressed overwhelmed annoyed frustrated furious miserable unhappy hurt crying single married tall short serious joking kidding wrong right
+sleeping eating working studying leaving staying gone one two three yes no maybe nothing something someone anyone everything fan student teacher human robot person guy girl man woman boy kid
+bot ai that this what who where when why how wondering hoping afraid unsure positive negative interested""".split())
+
+PLACE_QS = ("where do i live", "where am i from", "where do i come from")
+LIKE_QS = ("what do i like", "what are my interests", "what do i enjoy")
+
+
+def parse_event(line):
+    """One log line -> validated event dict, or None if it is corrupted/truncated/foreign."""
+    try:
+        ev = json.loads(line)
+    except ValueError:
+        return None
+    if not isinstance(ev, dict) or not isinstance(ev.get("q"), str):
+        return None
+    kind = ev.get("e")
+    if kind == "add":
+        if not isinstance(ev.get("a"), str) or ev.get("src") not in TRUST:
+            return None
+        if not isinstance(ev.get("conf"), (int, float)) or isinstance(ev.get("conf"), bool):
+            return None
+    elif kind == "set":
+        if not isinstance(ev.get("a"), str) or not isinstance(ev.get("conf"), (int, float)):
+            return None
+    elif kind == "del":                     # tombstone: forget user entries for q (and answer a, if given)
+        if ev.get("a") is not None and not isinstance(ev.get("a"), str):
+            return None
+    else:
+        return None
+    return ev
+
+
+def compact_log(log=LOG, backup=True):
+    """Rewrite the event log to its current state (adds with final confidence, live 'set's for built-in entries,
+    no superseded/forgotten entries, no corrupt lines). Keeps log + '.bak'. Interrupt-safe: temp file + os.replace,
+    under the same lock writers use. Returns {'before': n_lines, 'after': n_lines, 'bad': n_skipped}."""
+    with file_lock(log):
+        lines = read_lines(log)
+        ents, sets, dead, bad = {}, {}, set(), 0         # ents: key -> event dict (insertion ordered)
+        for l in lines:
+            ev = parse_event(l)
+            if ev is None:
+                bad += 1; continue
+            k = (norm(ev["q"]), ev.get("a"))
+            if ev["e"] == "add":
+                dead.discard(k)
+                if k in ents:
+                    o = ents[k]; o["conf"] = min(1.0, o["conf"] + 0.1)
+                    if TRUST[ev["src"]] > TRUST[o["src"]]:
+                        o["src"] = ev["src"]
+                else:
+                    ents[k] = {"e": "add", "q": ev["q"], "a": ev["a"], "src": ev["src"], "conf": ev["conf"]}
+            elif ev["e"] == "set":
+                if k in ents:
+                    ents[k]["conf"] = ev["conf"]
+                elif k not in dead:
+                    sets[k] = {"e": "set", "q": ev["q"], "a": ev["a"], "conf": ev["conf"]}
+            else:
+                for kk in [kk for kk, o in ents.items() if kk[0] == k[0] and o["src"] in USER_SRC and (k[1] is None or kk[1] == k[1])]:
+                    del ents[kk]; dead.add(kk)
+        out = [json.dumps(o) for o in ents.values()] + [json.dumps(o) for o in sets.values()]
+        atomic_write(log, out, backup=backup)
+    return {"before": len(lines), "after": len(out), "bad": bad}
 
 
 @dataclass
 class Entry:
     q: str; a: str; src: str; conf: float = 1.0; hits: int = 0; miss: int = 0
     ts: float = field(default_factory=time.time)
+    dead: bool = False
 
 
 @dataclass
@@ -45,6 +119,8 @@ class Brain:
         self.last_q = None
         self.pending = None         # question Ovi abstained on, waiting to be taught
         self.history, self.user, self.entities = [], {}, {}
+        self.bad_lines = 0           # corrupted log lines skipped at startup
+        self.recent_fact = None      # questions touched by the last profile statement (target of 'forget that')
         self.ranker, self.rvecs, self.rrow, self.row_entry = None, None, {}, {}
         self.use_context = True      # rank chit-chat replies using the conversation so far
         if builtin:
@@ -86,21 +162,51 @@ class Brain:
         return i
 
     def _write(self, ev):
-        os.makedirs(os.path.dirname(self.log), exist_ok=True)
-        with open(self.log, "a") as f:
-            f.write(json.dumps(ev) + "\n")
+        append_line(self.log, json.dumps(ev))
+
+    def _kill(self, i):
+        """Retire entry i (superseded or forgotten): it can no longer be matched or answered."""
+        e = self.entries[i]
+        if e.dead:
+            return
+        e.dead = True; e.conf = 0.0
+        self.index.dead.add(i)
+        self.key.pop((norm(e.q), e.a), None)
+        lst = self.exact.get(norm(e.q), [])
+        if i in lst:
+            lst.remove(i)
+        if not lst:
+            self.exact.pop(norm(e.q), None)
+
+    def _forget_entries(self, q, a=None, persist=True):
+        """Tombstone user entries for question q (optionally only answer a). Returns how many were forgotten."""
+        n = 0
+        for i in list(self.exact.get(norm(q), [])):
+            e = self.entries[i]
+            if e.src in USER_SRC and (a is None or e.a == a):
+                self._kill(i); n += 1
+        if n and persist:
+            self._write({"e": "del", "q": q, "a": a, "ts": time.time()})
+        return n
 
     def _replay(self):
-        if not os.path.exists(self.log):
-            return
-        for l in open(self.log):
-            ev = json.loads(l)
+        self.bad_lines = 0
+        for l in read_lines(self.log):
+            ev = parse_event(l)
+            if ev is None:
+                self.bad_lines += 1; continue
             if ev["e"] == "add":
                 self._add(ev["q"], ev["a"], ev["src"], ev["conf"])
             elif ev["e"] == "set":
                 i = self.key.get((norm(ev["q"]), ev["a"]))
                 if i is not None:
                     self.entries[i].conf = ev["conf"]
+            else:
+                self._forget_entries(ev["q"], ev.get("a"), persist=False)
+
+    def compact(self, backup=True):
+        """Rewrite the log to current state, keeping data/brain.jsonl.bak. See compact_log."""
+        return compact_log(self.log, backup)
 
     def _rerank(self, msg, r):
         """Among the best question-matches, choose the reply that fits the CONVERSATION (not just the last message)."""
@@ -154,7 +260,7 @@ class Brain:
 
     # ---------- talking ----------
     def ask(self, msg):
-        msg = msg.strip()
+        msg = clean_text(msg).strip()
         # 1) learn from a pending abstention: the next plain statement is the answer
         if self.pending and not msg.endswith("?") and not QWORD.match(msg) and not msg.startswith("/") \
                 and not re.match(r"i('m| am| feel| think| want| went)\b", msg, re.I) and norm(msg) not in self.ACK:
@@ -207,6 +313,15 @@ class Brain:
 
     # ---------- conversation ----------
     GREET = {"hi", "hello", "hey", "good morning", "good evening"}
+    GREET_RE = re.compile(r"(?:hi|hello|hey|hiya|yo|good (?:morning|evening|afternoon))(?: again| there| ovi| everyone| friend)?$")
+
+    def _is_greet(self, n):
+        return n in self.GREET or bool(self.GREET_RE.match(n))
+
+    def _known_name(self):
+        i = self.exact.get("what is my name")
+        m = re.match(r"Your name is (.+)\.", self.entries[max(i)].a) if i else None
+        return m.group(1) if m else self.user.get("name")
     FOLLOW = re.compile(r"^(and |what about |how about |but |so |why\b|how so|really\b|then\b)", re.I)
     PRON = re.compile(r"\b(it|that|this|they|them|he|she|there|one)\b", re.I)
 
@@ -295,16 +410,24 @@ class Brain:
     def _profile(self, msg):
         """Learn facts about the user from plain statements. Returns Ovi's reply or None."""
         m = msg.strip().rstrip(".!")
+        m = re.sub(r"^(?:(?:no|nope|actually|sorry|wait|oh|well|hmm|hi|hello|hey)\b[,.! ]*)+(?=my |i |i'|call me|this is )", "", m, flags=re.I)   # 'actually my name is X'
+        self.recent_fact = None
         def cur(q):
             i = self.exact.get(norm(q))
             return self.entries[max(i)].a if i else ""
-        r = re.match(r"(?:hi,? |hello,? )?(?:my name is|i am called|call me) ([A-Za-z]+)$", m, re.I)
+        r = re.match(rf"(?:my name(?:'s| is)|i am called|call me|this is|i'?m|i am) ({NAME_WORD})$", m, re.I)
         if r:
-            n = r.group(1).capitalize()
-            for q in ("what is my name", "who am i", "do you know my name", "what's my name"):
-                self.teach(q, f"Your name is {n}.")
-            self.user["name"] = n
-            return f"Nice to meet you, {n}!"
+            raw, lead = r.group(1), m[:r.start(1)].lower()
+            weak = bool(re.search(r"(?:this is|i'?m|i am) $", lead))      # "I'm X" could be a feeling: filter
+            low = raw.lower()
+            ok = not weak or (low not in NOT_NAMES and not (raw[0].islower() and re.search(r"(?:ing|ed|ly)$", low)))
+            if ok and norm(m) not in self.ACK:
+                n = raw if (not raw.islower() and not raw.isupper()) else raw.capitalize()
+                old = re.match(r"Your name is (.+)\.", cur("what is my name"))
+                self._set_name(n)
+                if old and old.group(1) != n:
+                    return f"Got it, I'll call you {n} instead of {old.group(1)}."
+                return f"Nice to meet you, {n}!"
         r = re.match(r"i (?:really )?(?:like|love|enjoy) (.+)$", m, re.I)
         if r and " " not in r.group(1)[:0] and len(r.group(1).split()) <= 5:
             thing = r.group(1).strip()
@@ -313,27 +436,86 @@ class Brain:
             if thing.lower() not in [x.lower() for x in items]:
                 items.append(thing)
             ans = "You like " + (", ".join(items[:-1]) + " and " + items[-1] if len(items) > 1 else items[0]) + "."
-            for q in ("what do i like", "what are my interests", "what do i enjoy"):
-                self.teach(q, ans)
+            for q in LIKE_QS:
+                self.teach(q, ans, supersede=True)
+            self.recent_fact = list(LIKE_QS)
             return f"Got it, you like {thing}."
         r = re.match(r"i (?:live in|am from|come from|'m from) (.+)$", m, re.I)
         if r:
             place = r.group(1).strip()
-            for q in ("where do i live", "where am i from", "where do i come from"):
-                self.teach(q, f"You are from {place}.")
+            for q in PLACE_QS:
+                self.teach(q, f"You are from {place}.", supersede=True)
+            self.recent_fact = list(PLACE_QS)
             return f"{place}! Tell me about it."
         r = re.match(r"my fav(?:ou?rite)? (\w+) is (.+)$", m, re.I)
         if r:
             k, v = r.group(1).lower(), r.group(2).strip()
-            self.teach(f"what is my favorite {k}", f"Your favorite {k} is {v}.")
+            self.teach(f"what is my favorite {k}", f"Your favorite {k} is {v}.", supersede=True)
+            self.recent_fact = [f"what is my favorite {k}"]
             return f"I'll remember that your favorite {k} is {v}."
         return None
 
+    FORGET = re.compile(r"^(?:please |ovi,? )*(?:forget|erase|delete|unlearn)\b[,: ]*(?:about |everything about )?(.*)$", re.I)
+
+    def _forget(self, msg):
+        """'forget that' / 'forget my name': tombstone the user's own entries. Returns Ovi's reply or None."""
+        m = self.FORGET.match(msg.strip().rstrip(".!"))
+        if not m:
+            return None
+        t = norm(m.group(1))
+        t = re.sub(r"^(?:what i said about |that i |the fact that )", "", t)
+        qs = None
+        if t in ("that", "it", "this", "what i said", "what i just said", "what you just said", "the last thing", ""):
+            if self.recent_fact:
+                qs = list(self.recent_fact)
+            elif self.last and self.last.entry >= 0 and not self.entries[self.last.entry].dead \
+                    and self.entries[self.last.entry].src in USER_SRC:
+                e = self.entries[self.last.entry]
+                if self._forget_entries(e.q, e.a):
+                    self.last = None
+                    return "Okay, I've forgotten that."
+            if not qs:
+                return "I don't have anything recent of yours to forget." if t != "" else None
+        elif t in ("my name", "name", "who i am", "what my name is"):
+            qs = list(NAME_QS)
+        elif re.match(r"(?:where i (?:live|am from|come from)|my (?:home|city|location|hometown))$", t):
+            qs = list(PLACE_QS)
+        elif t in ("what i like", "what i enjoy", "my interests", "my likes", "my hobbies"):
+            qs = list(LIKE_QS)
+        elif (fav := re.match(r"my fav\w* (\w+)$", t)):
+            qs = [f"what is my favorite {fav.group(1)}"]
+        elif t in ("everything", "everything i told you", "everything about me", "all of it", "me"):
+            qs = [e.q for e in self.entries if e.src in USER_SRC and not e.dead]
+        if qs is None and t:        # free text: user entries mentioning it
+            qs = [e.q for e in self.entries if e.src in USER_SRC and not e.dead and (t in norm(e.q) or t in norm(e.a))]
+        n = 0
+        for q in dict.fromkeys(qs or []):
+            n += self._forget_entries(q)
+        if n:
+            if any(q in NAME_QS for q in qs):
+                self.user.pop("name", None)
+            self.last = None; self.recent_fact = None
+            return "Okay, I've forgotten that."
+        return f"I don't have anything about {t or 'that'} to forget."
+
     def converse(self, msg):
-        msg = msg.strip()
+        msg = clean_text(msg).strip()
+        if not msg:
+            return Answer("I didn't catch anything. What's on your mind?", 1.0, "chat", "empty input")
         a = None
+        recent, self.recent_fact = self.recent_fact, None
+        if not self.pending and not msg.startswith("/"):
+            self.recent_fact = recent             # visible to _forget for exactly one turn
+            reply = self._forget(msg)
+            self.recent_fact = None
+            if reply:
+                a = Answer(reply, 1.0, "forget", "tombstoned in the event log")
+            else:
+                reply = self._profile(msg)
+                if reply:
+                    a = Answer(reply, 1.0, "profile", "learned a fact about you")
         neg = re.match(r"(?:no|nope|wrong|that'?s wrong|incorrect)\b[,.! ]*(?:it'?s |it is |the answer is |actually )?(.*)$", msg, re.I)
-        if self.last and self.last.entry >= 0 and not self.pending and not msg.startswith("/"):
+        if a is None and self.last and self.last.entry >= 0 and not self.pending and not msg.startswith("/"):
             if neg:                       # plain-language correction: "no, it's Max"
                 fix = neg.group(1).strip().rstrip(".")
                 reply = self.feedback(False, (fix[0].upper() + fix[1:] + ".") if fix else None)
@@ -342,10 +524,6 @@ class Brain:
                 e = self.entries[self.last.entry]
                 e.conf = min(1.0, e.conf + 0.1)
                 self._write({"e": "set", "q": e.q, "a": e.a, "conf": e.conf})
-        if a is None and not self.pending:
-            reply = self._profile(msg)
-            if reply:
-                a = Answer(reply, 1.0, "profile", "learned a fact about you")
         if a is None:
             a = self._converse(msg)
         self.history.append((msg, a.text)); self.history = self.history[-8:]
@@ -353,8 +531,15 @@ class Brain:
 
     def _converse(self, msg):
         n = norm(msg)
+        if n in NAME_ASK and not self.pending:
+            name = self._known_name()
+            self.last_q = msg
+            i = self.exact.get("what is my name")
+            self.last = Answer(f"Your name is {name}." if name else "I don't know your name yet. What should I call you?",
+                               1.0, "profile", "answered from what you told me about your name", max(i) if i and name else -1)
+            return self.last
         # follow-up: resolve against the previous user question and keep whichever reading is more confident
-        if self.history and not self.pending and (self.FOLLOW.match(msg) or (len(n.split()) <= 3 and n not in self.GREET and n not in self.ACK)):
+        if self.history and not self.pending and (self.FOLLOW.match(msg) or (len(n.split()) <= 3 and not self._is_greet(n) and n not in self.ACK)):
             prev = next((u for u, _ in reversed(self.history[-3:]) if u.endswith("?") or QWORD.match(u)), None)
             if re.match(r"(why\b|how so)", n) and self.last and self.last.entry >= 0:
                 e = self.entries[self.last.entry]
@@ -389,9 +574,8 @@ class Brain:
                                        f"follow-up of '{prev}' matched '{e.q}' (conf {c:.2f})", expanded[0])
                     return self.last
         a = self.ask(msg)
-        name = self.user.get("name") or (re.match(r"Your name is (\w+)\.", self.entries[max(self.exact["what is my name"])].a).group(1)
-                                         if "what is my name" in self.exact else None)
-        if name and n in self.GREET:
+        name = self._known_name()
+        if name and self._is_greet(n):
             a = Answer(f"Hi {name}! Good to see you. How are you?", 1.0, "profile", "greeted you by name")
             self.last = a
         return a
@@ -408,30 +592,56 @@ class Brain:
             e.conf *= 0.5; e.miss += 1
             msg = f"Sorry about that. I lowered my confidence to {e.conf:.2f}."
             if correction:
+                correction = clean_text(correction).strip()
+                m = re.match(r"(Your [^.]*? (?:is|are)) .*\.$", e.a)
+                if norm(e.q) in NAME_QS and e.src in USER_SRC:      # 'no, it's Max' after 'what is my name' fixes every name question
+                    n = re.sub(r"^(?:my name is |it'?s |i am )", "", correction.rstrip("."), flags=re.I).strip().split(" ")[0].capitalize()
+                    if n:
+                        self._set_name(n)
+                        return msg + f" I updated your name to {n}."
+                if correction.rstrip(".") and m and len(correction.split()) <= 6:
+                    correction = f"{m.group(1)} {correction.rstrip('.')}."
+                if e.src in USER_SRC:                  # supersede: the wrong user-taught answer is retired, not kept beside the fix
+                    self._forget_entries(e.q, e.a)
                 self._add(self.last_q, correction, "taught", 1.0)
                 self._write({"e": "add", "q": self.last_q, "a": correction, "src": "taught", "conf": 1.0})
                 msg += " I learned the corrected answer."
-        self._write({"e": "set", "q": e.q, "a": e.a, "conf": e.conf})
+        if not e.dead:
+            self._write({"e": "set", "q": e.q, "a": e.a, "conf": e.conf})
         return msg
 
-    def teach(self, q, a):
+    def _set_name(self, n):
+        for q in NAME_QS:
+            self.teach(q, f"Your name is {n}.", supersede=True)
+        self.user["name"] = n
+        self.recent_fact = list(NAME_QS)
+
+    def teach(self, q, a, supersede=False):
+        """Store a taught fact. supersede=True retires the user's older answers to the same question (a correction)."""
+        q, a = clean_text(q).strip(), clean_text(a).strip()
+        if not norm(q) or not a:
+            return
+        if supersede:
+            for i in list(self.exact.get(norm(q), [])):
+                e = self.entries[i]
+                if e.src in USER_SRC and e.a != a:
+                    self._forget_entries(q, e.a)
         self._add(q, a, "taught", 1.0)
         self._write({"e": "add", "q": q, "a": a, "src": "taught", "conf": 1.0})
 
     def sleep(self):
         """Consolidate: bake user knowledge into the n-gram LM, compact the log, save."""
-        user = [e for e in self.entries if e.src in ("taught", "learned") and e.conf >= 0.3]
+        user = [e for e in self.entries if e.src in USER_SRC and e.conf >= 0.3 and not e.dead]
         if self._base is not None:               # only touch the story LM if it was loaded this session
             for e in user:
                 self._base.learn_text(f"{e.q} {e.a}")
             from .fast import save
             save(self._base.lm)
-        with open(self.log, "w") as f:
-            for e in user:
-                f.write(json.dumps({"e": "add", "q": e.q, "a": e.a, "src": e.src, "conf": e.conf}) + "\n")
-            for e in self.entries:
-                if e.src in ("seed", "cb", "movie") and e.conf != 1.0:
-                    f.write(json.dumps({"e": "set", "q": e.q, "a": e.a, "conf": e.conf}) + "\n")
+        lines = [json.dumps({"e": "add", "q": e.q, "a": e.a, "src": e.src, "conf": e.conf}) for e in user]
+        lines += [json.dumps({"e": "set", "q": e.q, "a": e.a, "conf": e.conf})
+                  for e in self.entries if e.src in ("seed", "cb", "movie") and e.conf != 1.0]
+        with file_lock(self.log):
+            atomic_write(self.log, lines)
         return f"Consolidated {len(user)} facts into long-term memory."
 
     def stats(self):

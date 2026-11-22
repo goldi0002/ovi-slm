@@ -9,6 +9,7 @@ class Index:
     def __init__(self):
         self.q, self.a = [], []
         self.inv = defaultdict(list)
+        self.dead = set()          # forgotten entries: never returned
 
     def add(self, q, a, ws=None):
         i = len(self.q)
@@ -36,6 +37,8 @@ class Index:
                 continue
             idf = math.log(n / (1 + len(post)))
             for i in post:
+                if i in self.dead:
+                    continue
                 score[i] += idf
         if not score:
             return []
@@ -51,6 +54,8 @@ class Index:
                 continue
             idf = math.log(n / (1 + len(post)))
             for i in post:
+                if i in self.dead:
+                    continue
                 score[i] += idf
         if not score:
             return None
