@@ -9,7 +9,7 @@ _ANY = f"(?:{cc.RELS}|{cc.ANIMAL_RE})"
 _NL = rf"({_N}(?:(?:\s*,\s*and\s+|\s*,\s*|\s+and\s+|\s*&\s*){_N})*)"
 _FOCUS_RE = re.compile(rf"\bmy ({_ANY})(?:'s|s)?\b", re.I)
 _MULTI = re.compile(r",| and ")
-_PET_STMT = re.compile(rf"(?i:i (?:have|got|own|adopted|now have)) (?i:(a|an|one|two|three|four|five|\d+) )?(?:[a-z]+ )?({cc.ANIMAL_RE})\b[\s,:;-]*(?i:(?:called|named|they are called|they're called|their names are|names are|it's called|is called|are|is))?[\s,:;-]*(?:{_NL})?$")
+_PET_STMT = re.compile(rf"(?i:(?:i|we) (?:(?:just|recently|finally|also|actually) )*(?:have|got|own|adopted|now have)) (?i:(a|an|one|two|three|four|five|\d+) )?(?:[a-z]+ )?({cc.ANIMAL_RE})\b[\s,:;-]*(?i:(?:called|named|they are called|they're called|their names are|names are|it's called|is called|are|is))?[\s,:;-]*(?:{_NL})?$")
 _HAVE_NUM = re.compile(rf"(?i:i (?:have|got|own|do have)) (?i:(a|an|one|two|three|four|five|\d+))(?i: (?:of them|myself|actually|too|at home))?[\s,:;-]*(?i:(?:called|named|they are called|they're called|their names are|names are|they are|they're|it's called|it's))?[\s,:;-]*(?:{_NL})?$")
 _ATTR = re.compile(rf"({_N}) (?i:is|was|looks|has) ((?i:(?:an? |the )?[a-z]+(?: and [a-z]+)?(?: [a-z]+)?))$")
 _Q_WHICH = re.compile(r"^which (?:one|cat|dog|pet|of them)(?: of them)? (?:is|was) ([a-z ]{2,20})$|^who(?:'s| is) ([a-z ]{2,20})$")
@@ -22,7 +22,7 @@ _THE_OF = re.compile(r"the ([a-z]+(?: [a-z]+)?) of ([A-Za-z][A-Za-z ]*?) is (.+)
 _COUNT = re.compile(r"i have (\d+|a|one|two|three|four|five|six) (kids?|children|brothers?|sisters?|siblings?|cousins?|sons?|daughters?)$", re.I)
 _Q_REL = re.compile(rf"^(?:do you (?:remember|know) )?(?:(?:what|who|which)(?:'s| is| are| was| were|s)? (?:the )?(?:names? of )?)?my ({_ANY})s?(?:'s|s'| s)?(?: names?)?(?: called| again| is called| are called| were called)*$")
 _Q_COUNT = re.compile(rf"^how many (kids|children|siblings|brothers|sisters|{cc.ANIMAL_RE}) (?:do i have|have i got|do i own)$")
-_Q_JOB = re.compile(r"^(?:what do i do(?: for (?:a living|work))?|what(?:'s| is| s) my (?:job|occupation|profession|work)|where do i work)$")
+_Q_JOB = re.compile(r"^(?:what do i do(?: for (?:a living|work))?|what(?:'s| is| s) my (?:job|occupation|profession|work|line of work)(?: again| now| currently)?|where do i work|what (?:job|work) do i (?:do|have)|what is my job again)$")
 _Q_PETS = re.compile(rf"^(?:what|which) (?:pets|animals) do i have$|^do i have (?:a |any |an )?(?:{cc.ANIMAL_RE})$")
 _Q_PRON = re.compile(r"^(?:what|who)(?:'s| is| was| are| were|s) (his|her|their|its) names?(?: again| now| called)?$|^(?:what|who) (?:is|was) (he|she|it) called$|^what (?:are|were) (they|their names) called$")
 
@@ -60,6 +60,7 @@ class UserMemory:
         found = _FOCUS_RE.findall(msg)
         if found:
             self.focus = (_lab(found[-1]), False)
+            self.focus_turn = len(self.history)
         elif re.search(r"\b(?:getting married|got engaged|getting engaged|my fianc)", msg, re.I):
             self.focus = ("fiancé", False)
 
@@ -72,6 +73,8 @@ class UserMemory:
             qs = [f"zzslot {self._label_slot(lab)}", f"zzslot count {lab}"]
         elif t in ("my job", "my work", "where i work", "what i do"):
             qs = ["zzslot job"]
+        elif hasattr(self, "_fact_qs_for"):
+            qs = self._fact_qs_for(t)
         return [q for q in qs if self.exact.get(norm(q))]
 
     def _profile_more(self, m):

@@ -143,10 +143,89 @@ ABOUT_ME = ("I'm Ovi, a small companion that runs on a plain CPU. I remember thi
             "and I learn facts when you teach me. What about you?")
 
 
-def smalltalk(n, prev_user="", used=None, turn=0, name=""):
+JOKES = ["Why did the computer go to the doctor? It had a virus.", "Why was the math book sad? It had too many problems.",
+         "What do you call a fish with no eyes? A fsh.", "Why don't scientists trust atoms? Because they make up everything."]
+_LEAD = re.compile(r"^(?:(?:lol|haha|hehe|ok|okay|well|alright|cool|yeah|yep|so|anyway|k|aw|aww|oh|hey|hmm|um)[, ]+)+(?=\S)")
+WATDOIN = re.compile(r"^(?:(?:what|wat) (?:are |r )?(?:you|u|ya) (?:up to|doing|doin|up2)|(?:whatcha|watcha|what cha) (?:doing|doin|up to)|(?:what|wat) (?:you|u) (?:doing|doin))(?: now| today| tonight| rn| ovi)?$")
+THERE = re.compile(r"^(?:(?:u|you|ovi) (?:there|here|awake|alive|around)(?: still)?|are (?:you|u) (?:still )?(?:there|here|awake|alive)|anybody (?:there|home)|anyone (?:there|home))(?: ovi)?$")
+BORED_Q = re.compile(r"^(?:(?:so|really|very|super|sooo+) )*bored(?: now| today| again)?$|^(?:entertain me|amuse me|cheer me up|do something (?:fun|funny)|say something fun|i need (?:some )?entertainment)(?: please| ovi)?$")
+MORE_Q = re.compile(r"^(?:(?:tell|give) me |got |do |say |gimme )?(?:another(?: one)?|one more|more|again|next(?: one)?|another please|one more please|more please|tell me one|tell me another|tell me one more|got another|got more)(?: please| ovi)?$")
+LAME = re.compile(r"^(?:(?:ok|well|lol|haha|meh|hmm|aw|ugh)[, ]+)*(?:that|this|it)(?:'s| was| is| wasnt| wasn't)? ?(?:so |really |pretty |kinda |a bit |not )*(?:lame|bad|not funny|funny|boring|dumb|terrible|awful|meh|stupid|cringe|corny|weak|not good|good|great)(?: one| joke| answer)?$|^(?:lame|not funny|cringe|corny|that joke was (?:bad|lame|terrible))$|^that wasn'?t (?:funny|good|great|helpful)$")
+MEMORY_PRAISE = re.compile(r"^(?:(?:wow|ok|oh|nice|haha|lol|damn|whoa)[, ]+)*(?:you(?:'ve| have)? (?:got |have )?(?:a )?)?(?:good|great|nice|amazing|impressive|excellent|solid|sharp|incredible) (?:memory|brain|listener)$|^(?:wow )?you remember(?:ed)?(?: it| that| everything| all that)?$|^impressive$")
+NOTHING = re.compile(r"^(?:nothing(?: much| really| special)?|nm|not much|nada|nothing at all)$")
+WHATIF = re.compile(r"^(?:and |but |so )*what if (?:i|we|he|she|they|it|my|the|nobody|no one|everyone|something|things|that)\b.*$")
+NOT_STUPID = re.compile(r"^(?:i(?:'m| am| m) not|am i)(?: so| that| really)? (?:stupid|dumb|crazy|an idiot|a failure|useless|a bad person|weird|worthless)(?:,? (?:right|though|ok|okay|am i|am i))?$")
+PERS_ADV = re.compile(r"^(?:so |and |but |ok |well )*(?:what|how) (?:do|can|could|should|would|will|shall|did) (?:i|we) (?:even )?(?:say|tell|ask|handle|deal|cope|talk|approach|respond|reply|convince|forgive|apologi[sz]e|stop worrying|stay motivated|get over|move on|make (?:friends|a decision|it up|up|amends|new friends)|feel better|calm down|focus|sleep|relax|stay|find (?:a |my |the )?(?:job|friends|time|motivation|love|purpose)|know if|start over)\b.*$")
+THIRD_ADV = re.compile(r"^(?:so |and |but |ok |well )*(?:what|how) (?:should|would|could|can|will) (?:he|she|they|my \w+|the \w+) (?:do|say|try|handle|feel|think)\b.*$")
+_JOKE_OFFER = re.compile(r"^(?:wanna|want to|do you want to|would you like to|want me to|shall i|can i|let me|i(?:'ll| will| can)) (?:hear|tell you|tell u|tell) (?:a|another|one|you a) ?(?:joke|funny joke|story|riddle)?(?: or something)?$")
+
+
+def intents(n, prev_user, prev_bot, used, turn, nm):
+    """Short conversational intents that deserve their own reply instead of a generic acknowledgement."""
+    mb = re.match(r"^(?:(?:thanks|thank you|thx|ty|ok|okay|cool|alright|well|lol|haha|great|nice)(?: so much| a lot| ovi)?[, ]+)+(.+)$", n)
+    if mb and BYE.match(mb.group(1)):
+        return _pick([f"Goodbye{nm}! Talk to you soon.", "Bye! Come back whenever you want to chat.", "See you later! Take care."], used, "bye", turn)
+    if WATDOIN.match(n):
+        return f"Not much, just here chatting with you{nm}. What's up with you?"
+    if THERE.match(n):
+        return f"Yes, I'm here{nm}! What's on your mind?"
+    if _JOKE_OFFER.match(n):
+        return "Sure, go ahead, I'd love to hear it!"
+    if MORE_Q.match(n):
+        if any(j in prev_bot for j in JOKES) or "joke" in prev_user.lower():
+            return "Okay, another: " + _pick(JOKES, used, "joke", turn)
+        if any(f in prev_bot for f in FACTS) or "fact" in prev_user.lower():
+            return "Here's another: " + _pick(FACTS, used, "fact", turn)
+        return "Another what? I can tell a joke, a fun fact or a short story, or we can just talk."
+    if BORED_Q.match(n):
+        if n.startswith(("entertain", "amuse", "cheer", "do something", "say something")):
+            return "Let me try: " + _pick(JOKES, used, "joke", turn) + " Want another?"
+        return "Let's fix that. Want a joke, a fun fact, or a short story? Or tell me what you've been up to."
+    if LAME.match(n):
+        if re.search(r"\b(?:funny|good|great)\b", n) and not re.search(r"\bnot\b|wasn", n):
+            return None
+        return "Fair enough, humor is not my strong suit. Want me to try another, or shall we talk about something else?"
+    if MEMORY_PRAISE.match(n):
+        return "Thank you! I keep what you tell me in a little log, so I try to put it to good use."
+    if NOTHING.match(n):
+        return _pick(["That's okay, we can just chat. Want a joke, a fun fact, or to tell me about your day?",
+                      "Fair enough. We can talk about anything, or I can tell you a fun fact."], used, "nothing", turn)
+    if re.match(r"^(?:do you know|you know|guess what|you know what)$", n):
+        return "Know what? Tell me what you're wondering about and I'll say if I know it." if n.startswith("do") else "What? Tell me!"
+    if re.match(r"^(?:you(?:'re| are|re) |u r |ur )(?:so |kinda |a bit |really |pretty )?(?:weird|strange|odd|silly|crazy|funny looking)$", n):
+        return "Ha, maybe a little! I'm a very small program, so I'll take it as a compliment. What made you say that?"
+    if NOT_STUPID.match(n):
+        return "No, I don't think you are. Everyone doubts themselves sometimes. What's making you feel that way?"
+    if WHATIF.match(n):
+        return _pick(["It's natural to worry about that. What do you think is the most likely outcome, and what would you do then?",
+                      "That's a scary thought. What's the worst that could happen, and could you handle it?"], used, "whatif", turn)
+    return None
+
+
+def personal_advice(n, used, turn):
+    """'what do I say to him?' / 'how do I make friends?' / 'what should he do?' -> think it through together, never 'what should I have said?'"""
+    if PERS_ADV.match(n):
+        return _pick(["I'm only a small program, so I can't promise what works, but I'm happy to think it through with you. What have you tried so far?",
+                      "That sounds tricky. I don't know the whole situation, so tell me a bit more. What do you want to happen?",
+                      "I can't say for sure, but we can work it out together. What matters most to you here?"], used, "padv", turn)
+    if THIRD_ADV.match(n):
+        return _pick(["I can't say for sure what they should do. What would you do in their place?",
+                      "Hard to say from here. What do you think they want?"], used, "tadv", turn)
+    return None
+
+
+def smalltalk(n, prev_user="", used=None, turn=0, name="", prev_bot=""):
     """Reply for small talk addressed to Ovi (normalised text n), or None. prev_user = the user's previous message."""
     used = used if used is not None else set()
     nm = f", {name}" if name else ""
+    core = _LEAD.sub("", n)
+    r = intents(n, prev_user, prev_bot, used, turn, nm) or (intents(core, prev_user, prev_bot, used, turn, nm) if core != n else None)
+    if r:
+        return r
+    if core != n:
+        r = smalltalk(core, prev_user, used, turn, name, prev_bot) if len(core.split()) >= 1 else None
+        if r and re.search(r"goodbye|bye|see you|welcome|anytime|happy to help|no problem|thank|kind of you|glad you liked", r, re.I):
+            return r
     if n in ("morning", "evening", "afternoon", "mornin"):
         return f"Good {'morning' if n.startswith('morn') else n}{nm}! How are you?"
     if re.fullmatch(_G + r"(?: again| there| ovi| everyone| friend| all)?", n) or re.fullmatch(r"(?:hi+|hel+o+|hey+|heya|yo+|sup)(?: there| ovi| again)?", n):
@@ -183,7 +262,7 @@ def smalltalk(n, prev_user="", used=None, turn=0, name=""):
         return "Sorry I let you down. I'm a small program and I make mistakes. What went wrong?"
     if ABOUT_YOU.match(n):
         return ABOUT_ME
-    if re.match(r"^(?:you(?:'re| are|r|re) |u r |ur )(?:no fun|not fun|not funny|not helpful|no help|lame|not nice|mean|rude|weird|so slow|slow)$", n):
+    if re.match(r"^(?:you(?:'re| are|r|re) |u r |ur )(?:no fun|not fun|not funny|not helpful|no help|lame|not nice|mean|rude|so slow|slow)$", n):
         return "Sorry I let you down. I'm a small program and I make mistakes. What went wrong?"
     m = re.match(r"^(.{2,30}?)[, ]+(?:and )?(?:u|you|hbu|wbu|yourself)$", re.sub(r"\b(?:thanks|thank you|thx)\b[, ]*", "", n).strip())
     if m and not re.search(r"\b(?:are|do|did|can|will|would|have|is|what|how|why|who|where|thank|thanks|thx|bye|love|see|miss)\b", m.group(1)) and len(m.group(1).split()) <= 3:
@@ -195,8 +274,7 @@ def smalltalk(n, prev_user="", used=None, turn=0, name=""):
     if re.match(r"^(?:what(?:'s| is|s)|how(?:'s| is|s)) the weather(?: like)?(?: today| now| outside| right now| tomorrow)?$|^is it (?:raining|sunny|cold|hot) (?:today|now|outside)$", n):
         return "I can't see the weather, I live inside a computer. What's it like where you are?"
     if re.match(r"^(?:tell|say|got|know) me (?:a |another |one more )?(?:joke|funny joke)$|^(?:got|know) (?:a |any )(?:joke|jokes)$|^another (?:joke|one)$|^make me laugh$|^say something funny$", n):
-        return _pick(["Why did the computer go to the doctor? It had a virus.", "Why was the math book sad? It had too many problems.",
-                      "What do you call a fish with no eyes? A fsh.", "Why don't scientists trust atoms? Because they make up everything."], used, "joke", turn)
+        return _pick(JOKES, used, "joke", turn)
     if re.match(r"^how (?:was|is|has) (?:ur|your) (?:day|morning|evening|night|weekend|week)(?: going| been)?(?: so far)?$", n):
         return "Pretty quiet, I mostly chat all day. How was yours?"
     if re.match(r"^(?:what do you mean|what does that mean|i don'?t (?:understand|get it|follow)|huh|what|come again|pardon|sorry what|what was that|say that again|i(?:'m| am) confused)$", n):
@@ -344,6 +422,18 @@ EVENTS = [
 ]
 
 
+HARD = re.compile(r"\b(?:rough|hospital|crazy|barely|struggl\w*|overwhelm\w*|exhaust\w*|sick|worried|stress\w*|can't cope|too much|falling apart|diagnos\w*|surgery|funeral|divorce|lost my|hard time|tough time|breaking down)\b")
+
+
+def hardship_reply(n, name="", used=None):
+    """A long message about a hard stretch: acknowledge the weight instead of picking a stray noun to ask about."""
+    if len(n.split()) < 14 or not HARD.search(n):
+        return None
+    nm = f", {name}" if name else ""
+    return _pick([f"That's a lot to carry all at once{nm}. I'm here and listening. Which part is weighing on you most?",
+                  f"That sounds like a really hard stretch{nm}. I'm sorry. What's been the hardest part?"], used if used is not None else set(), "hard", len(n))
+
+
 def event_reply(msg, n, name="", used=None):
     nm = f", {name}" if name else ""
     for pat, rep in EVENTS:
@@ -369,6 +459,18 @@ long short big small little new old best worst same other whole real nice good g
 heavy light hard easy full empty free sure sorry glad proud scary spicy sweet sour loud quiet dark bright cheap expensive""".split())
 
 
+_IRREG_V = set("""kept left got went said took made had came gave told felt knew thought found brought bought caught taught sat stood ran saw heard ate drank slept lost won broke fell grew
+drew wrote spoke woke wore threw sent spent built paid met held meant put set let hit cut hurt shut cost keep keeps want wants need needs like likes love loves hate hates make makes take takes give gives
+start starts stop stops help helps tell tells say says go goes get gets see sees know knows think thinks feel feels try tries tried look looks seem seems become becomes started stopped helped wanted needed
+""".split())
+
+
+def _nounish(w):
+    """Could w be the head of a noun phrase? No contractions, auxiliaries, function words, adjectives or verb forms."""
+    return len(w) > 2 and "'" not in w and w not in _NOT_NOUN and w not in _ADJ and w not in _STOPISH and w not in _FUNC and w not in _IRREG_V and not _VERBISH.search(w) \
+        and not (w.endswith("s") and not w.endswith("ss") and w[:-1] in _IRREG_V)
+
+
 def topic_noun(msg):
     """A clear content-noun topic from a statement, or None: the head noun of 'determiner (+adjectives) noun'."""
     words = [w for w in re.sub(r"[^a-z' ]", " ", msg.lower()).split() if w not in _SLANG]
@@ -382,10 +484,9 @@ def topic_noun(msg):
             j += 1
         if j < len(words):
             c = words[j]
-            if len(c) > 2 and c not in _NOT_NOUN and c not in _ADJ and c not in _STOPISH and not _VERBISH.search(c):
+            if _nounish(c) or (len(c) > 2 and "'" not in c and c not in _NOT_NOUN and c not in _ADJ and c not in _STOPISH and c not in _FUNC and c not in _IRREG_V and not _VERBISH.search(c)):
                 k = j + 1          # compound noun ('design studio'): extend while the next word still looks like a plain noun
-                while k < len(words) and words[k] not in _FUNC and words[k] not in _NOT_NOUN and words[k] not in _ADJ and len(words[k]) > 2 \
-                        and not _VERBISH.search(words[k]) and not (words[k].endswith("s") and not words[k].endswith("ss")) and words[k] not in _STOPISH:
+                while k < len(words) and _nounish(words[k]) and not (words[k].endswith("s") and not words[k].endswith("ss")):
                     c = words[k]; k += 1
                 best = f"{det} {c}"
     return best

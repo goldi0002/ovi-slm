@@ -59,3 +59,16 @@ are remembered and recalled; follow-ups carry the last resolved question; plus a
 Tuned only on blind conversations 1-20 (hand-scored 0/1/2: 0.69 -> 1.61 mean); 21-40 were held out. `experiments/own_convos.json` holds extra conversations written while tuning.
 
 Second pass (all 40 blind conversations now used for tuning; `experiments/own_convos2.json` has 20 more of our own, `tests/test_free_chat.py` regression tests): teach prompts only for substantive factual questions and a pending question is no longer swallowed by an unrelated statement; recall of what the user did ("what did I do today?"), "mine is blue" resolved against the last favorite category, pets from "I like cats / I have two, Milo and Luna"; empathy replies only for first-person feelings; "tell me about yourself" and advice requests get profile / ask-for-context replies.
+
+## General slot memory and free-chat rules (blind-scoring fixes)
+`ovi/slots.py` keeps a generic attribute/value store for what the user says in plain sentences ("my car is red", "I'm 25", "I play guitar",
+"I run every morning", "been playing for ten years", "I'm going to Japan", "my mom makes lasagna" / "she lives in Naples", "she's black with white paws",
+taught "the tallest mountain in the world is Everest"). Facts live in the normal event log as user entries under internal `zzfact <kind> ...`
+questions (never reachable by fuzzy retrieval), so they persist across restarts, are superseded by key and are tombstoned by "forget my age",
+"forget that I play guitar", "forget everything". Questions ("what instrument do I play", "how old am I", "what colour is my car", "where does my mom live",
+"what do you remember about me", "what was the first thing I asked") are answered by lemmatised-verb / head-noun matching on the slot, and
+"what's the capital?" is resolved from the country mentioned in the last few turns.
+Also in this change: intent rules (goodbye incl. "lol bye"/"thanks, bye", "another", "entertain me", "that was lame", compliments, "u there", "do you know?"),
+a noun-phrase filter so Ovi never asks about "your kept" / "your didn't", no "what should I have said?" on personal/advice questions (it thinks it through
+instead), supportive replies for "I feel stupid" / long hard messages, and adjective/deictic filters so "it's freezing here" is not read as a correction of the city.
+Internal bookkeeping ("I lowered my confidence to ...") is shown only for the `/wrong` command, never in chat. Tests: `PYTHONPATH=. python tests/test_recall_slots.py`.

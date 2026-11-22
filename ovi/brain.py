@@ -16,7 +16,7 @@ from . import dataset
 from . import replyrank
 from .fast import Ovi as _Base  # tokenizer + n-gram LM (for stories)
 from . import chitchat as cc
-from .usermem import UserMemory
+from .slots import SlotMemory
 
 TRUST = {"dlg": 0.85, "fact": 0.95, "seed": 1.0, "taught": 1.0, "cb": 0.9, "learned": 0.8, "movie": 0.5}
 ANSWER, HEDGE = 0.65, 0.45
@@ -118,7 +118,7 @@ class Answer:
     text: str; conf: float; src: str; why: str; entry: int = -1
 
 
-class Brain(UserMemory):
+class Brain(SlotMemory):
     def __init__(self, log=LOG, builtin=True):
         self.log = log
         self._builtin, self._base = builtin, None      # tokenizer + story LM load lazily (only when needed)
@@ -128,6 +128,10 @@ class Brain(UserMemory):
         self.last_q = None
         self.pending = None         # question Ovi abstained on, waiting to be taught
         self.history, self.user, self.entities = [], {}, {}
+        self.factq = set()           # normalised 'zzfact ...' questions (general attribute/value slots, see slots.py)
+        self.teach_mode = -99        # turn at which the user said they want to teach Ovi something
+        self.focus_turn = -99        # turn at which self.focus was last set
+        self.asked = []              # every question the user asked this session ('what was the first thing I asked?')
         self.bad_lines = 0           # corrupted log lines skipped at startup
         self.recent_fact = None      # questions touched by the last profile statement (target of 'forget that')
         self.ranker, self.rvecs, self.rrow, self.row_entry = None, None, {}, {}
@@ -175,6 +179,9 @@ class Brain(UserMemory):
         self.entries.append(Entry(q, a, src, conf)); self.key[k] = i
         self.index.add(q, a, tk)
         self.exact.setdefault(nq, []).append(i)
+        if nq.startswith("zzfact "):
+            self.factq.add(nq)
+            self.index.dead.add(i)        # internal slot rows are answered by the slot rules, never by fuzzy retrieval
         return i
 
     def _write(self, ev):
@@ -356,6 +363,8 @@ class Brain(UserMemory):
         n = norm(msg)
         if msg.endswith("?") or QWORD.match(msg) or n in self.ACK or cc.is_nonanswer(n):
             return False
+        if self.FORGET.match(msg.strip().rstrip(".!")):
+            return False                      # 'forget my car' is a command, not the answer to a pending question
         if re.match(r"i('m| am| feel| think| want| went)\b", msg, re.I):
             return False
         personal = bool(re.match(r"(?:what|who|where|when|which)\b.*\bmy\b|(?:what|who|where|when|which|how)\b.*\b(?:do|did|am|have) i\b", self.pending, re.I))
@@ -392,10 +401,10 @@ class Brain(UserMemory):
                     return t
         return None
 
-    ACT = re.compile(r"^(?:and |then |so |also |today |yesterday )*(?:i|we) (?:(?:just|also|finally|then|really|actually) )*((?:went|ate|saw|watched|played|bought|visited|met|read|made|had|got|started|finished|tried|took|cooked|baked|walked|ran|drove|called|painted|cleaned|learned|studied|worked|fixed|wrote|built|swam|biked|hiked|helped|joined|booked|planted|passed|won|moved|did|heard|listened|cycled|danced|sang|shopped|travelled|traveled|flew|stayed|slept)\b.*)$", re.I)
-    DID_Q = re.compile(r"^(?:and |so |anyway |ok |okay )*(?:what did i (?:do|get up to)|what have i (?:done|been (?:up to|doing))|what was i doing|what did i just do)(?: (?:today|yesterday|earlier|just now|so far|this \w+|tonight|last \w+))?$|^(?:and |so |anyway |ok |okay )*what did i (cook|eat|buy|watch|play|read|make|see|have|get|bake|paint|learn|visit|drive|wear|build|fix|write|try|hear)(?: (?:today|yesterday|earlier|just now|so far|tonight))?$")
+    ACT = re.compile(r"^(?:.{0,40}?,\s+)?(?:(?:and |then |so |also |today |yesterday |last \w+ |this \w+ )*)(?:i|we) (?:(?:just|also|finally|then|really|actually) )*((?:won|went|ate|saw|watched|played|bought|visited|met|read|made|had|got|started|finished|tried|took|cooked|baked|walked|ran|drove|called|painted|cleaned|learned|studied|worked|fixed|wrote|built|swam|biked|hiked|helped|joined|booked|planted|passed|won|moved|did|heard|listened|cycled|danced|sang|shopped|travelled|traveled|flew|stayed|slept)\b.*)$", re.I)
+    DID_Q = re.compile(r"^(?:and |so |anyway |ok |okay )*(?:what did i (?:do|get up to)|what have i (?:done|been (?:up to|doing))|what was i doing|what did i just do)(?: (?:today|yesterday|earlier|just now|so far|this \w+|tonight|last \w+))?$|^(?:and |so |anyway |ok |okay )*what did i (cook|eat|buy|watch|play|read|make|see|have|get|bake|paint|learn|visit|drive|wear|build|fix|write|try|hear|win)(?: (?:today|yesterday|earlier|just now|so far|tonight|last \w+))?$|^where did i (go|visit)(?: (?:today|yesterday|last \w+|this \w+))?$")
     PASTV = {"ate": "eat", "bought": "buy", "saw": "see", "watched": "watch", "played": "play", "read": "read", "made": "make", "had": "have", "got": "get", "cooked": "cook",
-             "baked": "bake", "painted": "paint", "learned": "learn", "visited": "visit", "drove": "drive", "built": "build", "fixed": "fix", "wrote": "write", "tried": "try", "heard": "hear"}
+             "baked": "bake", "won": "win", "went": "go", "painted": "paint", "learned": "learn", "visited": "visit", "drove": "drive", "built": "build", "fixed": "fix", "wrote": "write", "tried": "try", "heard": "hear"}
 
     def _note_context(self, msg):
         """Remember what the user says they did, and which 'favorite <category>' the conversation is about."""
@@ -412,17 +421,41 @@ class Brain(UserMemory):
         m = self.DID_Q.match(n)
         if not m or not self.acts:
             return None
-        verb = m.group(1)
+        verb = m.group(1) or m.group(2)
         pool = [(v, t) for v, t in self.acts if self.PASTV.get(v, v) == verb] if verb else self.acts[-3:]
         if not pool:
             return None
         parts = []
         for v, t in (pool[-1:] if verb else pool):
-            t = re.sub(r"^(?:and |then |so |also |today |yesterday )*", "", t, flags=re.I)
+            t = re.sub(r"^.{0,40}?,\s+(?=(?:and |then |so |also |last |this )*(?:i|we) )", "", t, flags=re.I)
+            tm = re.match(r"(?:(?:and|then|so|also) )*((?:last|this) \w+) ", t, flags=re.I)
+            t = re.sub(r"^(?:and |then |so |also |today |yesterday |last \w+ |this \w+ )*", "", t, flags=re.I)
             t = re.sub(r"^(?:i|we) ", "", t, flags=re.I)
+            if tm and tm.group(1).lower() not in t.lower():
+                t = f"{t} {tm.group(1).lower()}"
             t = re.sub(r"\bmy\b", "your", t, flags=re.I).replace(" me ", " you ").replace(" myself", " yourself")
             parts.append(t)
         return "You " + (parts[0] if len(parts) == 1 else ", ".join(parts[:-1]) + " and then " + parts[-1]) + "."
+
+    BARE_ATTR = re.compile(r"^(?:and |so |ok |okay )*what is the (capital|currency|population|language|flag|president|largest city|main language)(?: there| then| of it)?$")
+
+    def _recall_context(self, n):
+        """'what's the capital?' right after talking about japan -> the capital of japan (resolved from the recent conversation)."""
+        m = self.BARE_ATTR.match(n)
+        if not m:
+            return None
+        for u, _ in reversed(self.history[-6:]):
+            ws = norm(u).split()
+            for ln in (3, 2, 1):
+                for i in range(len(ws) - ln + 1):
+                    place = " ".join(ws[i:i + ln])
+                    if f"what is the capital of {place}" in self.exact:
+                        r = self.recall(f"what is the {m.group(1)} of {place}")
+                        if r and self.conf_of(*r) >= ANSWER and self.entries[r[0]].src in RELIABLE and place in norm(self.entries[r[0]].q):
+                            self.last_q = f"what is the {m.group(1)} of {place}"; self.qctx = (self.last_q, len(self.history))
+                            return self.entries[r[0]].a
+                        return f"I don't know the {m.group(1)} of {place.title()} yet. Tell me and I'll remember it."
+        return f"The {m.group(1)} of which country?"
 
     def _unknowable(self, msg, r):
         """Questions no stored answer can honestly address: the future, live data, or the user's own life when they never
@@ -492,6 +525,7 @@ class Brain(UserMemory):
     MOODS = {
         "loss": ("passed away", "I'm so sorry for your loss{n}. I'm here for you. Do you want to tell me about them?"),
         "miss": ("miss", "I understand{n}, missing people shows how much they matter to you. Do you want to tell me about them?"),
+        "low": ("stupid|dumb|worthless|useless|helpless|incompetent|a failure|like a failure|ashamed|inadequate|not good enough|like an idiot", "I'm sorry you feel that way{n}. Feeling like that usually says more about how hard things are than about you. What happened?"),
         "sad": ("sad|down|depressed|unhappy|lonely|alone|miserable|upset|crying|hurt|heartbroken|hopeless|empty", "I'm sorry you're feeling that way{n}. Do you want to tell me what happened?"),
         "tired": ("tired|exhausted|sleepy|worn out", "That sounds draining{n}. Have you been able to rest?"),
         "stress": ("stressed|anxious|worried|nervous|scared|afraid|overwhelmed", "That sounds stressful{n}. What is weighing on you the most?"),
@@ -558,6 +592,9 @@ class Brain(UserMemory):
                 hit = re.search(rf"\b({pat})\b", n)
             if hit:
                 return reply.format(n=nm)
+        hd = cc.hardship_reply(n, name, self.used)
+        if hd:
+            return hd
         ev = cc.event_reply(msg, n, name, self.used)
         if ev:
             return ev
@@ -591,6 +628,9 @@ class Brain(UserMemory):
         m = re.sub(r"^(?:(?:no|nope|actually|sorry|oops|wait|oh|well|hmm|hi|hello|hey)\b[,.! ]*)+(?=my |i |i'|call me|this is )", "", m, flags=re.I)   # 'actually my name is X'
         m = re.sub(r"^(?:(?:no|nope|sorry|oops|wait|my bad)\b[,.! ]*)*(?:i meant|i mean)\b[^.!]*[.!]\s*(?=my |i |i'|call me)", "", m, flags=re.I)   # 'sorry, I meant Tom. my name is Tom'
         m = re.sub(r"^((?:my name(?:'s| is)|i am called)) (?:actually|really|in fact) ", r"\1 ", m, flags=re.I)
+        m = re.sub(r"^(?:(?:anyway|anyways|so|oh|yeah|yes|btw|by the way|also|and|um|uh|just so you know|fyi|okay|ok|hey|hi|ovi|well|right|lol|haha)\b[,.! ]*)+(?=(?:my|i|i'|call me|this is|she|he|they|it|the) )", "", m, flags=re.I)
+        m = re.sub(r"^(?:please |ovi,? )*remember(?: that| this)?[:, ]+(?=\S)", "", m, flags=re.I)                 # 'remember that my name is Dana'
+        m = re.sub(r"[, ]+(?:please |ovi )*(?:remember|note|keep in mind|don't forget)(?: that| this| it| me)?(?: please)?$", "", m, flags=re.I)   # "I'm Dana, remember that"
         self.recent_fact = None
         def cur(q):
             i = self.exact.get(norm(q))
@@ -642,7 +682,7 @@ class Brain(UserMemory):
             self.teach(f"what is my favorite {k}", f"Your favorite {k} is {v}.", supersede=True)
             self.recent_fact = [f"what is my favorite {k}"]
             return f"I'll remember that your favorite {k} is {v}."
-        return None
+        return self._profile_slots(m)
 
     FORGET = re.compile(r"^(?:please |ovi,? )*(?:forget|erase|delete|unlearn)\b[,: ]*(?:about |everything about )?(.*)$", re.I)
 
@@ -721,7 +761,7 @@ class Brain(UserMemory):
         if a is None and self.last and self.last.entry >= 0 and not self.pending and not msg.startswith("/"):
             if neg is not None:           # plain-language correction: "no, it's Max"
                 fix = neg.strip().rstrip(".")
-                reply = self.feedback(False, fix or None)
+                reply = self.feedback(False, fix or None, chat=True)
                 a = Answer(reply, 1.0, "feedback", "correction from conversation")
             elif self.entries[self.last.entry].src == "learned":   # no objection = implicit confirmation
                 e = self.entries[self.last.entry]
@@ -729,6 +769,8 @@ class Brain(UserMemory):
                 self._write({"e": "set", "q": e.q, "a": e.a, "conf": e.conf})
         if a is None:
             a = self._multi(msg) or self._converse(msg)
+        if msg.endswith("?") or QWORD.match(msg):
+            self.asked.append(msg)
         m_c = re.search(r" is (-?[\d.]+)\.$", a.text) if a.src == "calc" else None
         self.last_calc = m_c.group(1) if m_c else None
         self.history.append((msg, a.text)); self.history = self.history[-8:]
@@ -763,7 +805,21 @@ class Brain(UserMemory):
         if not (self.CORR_MARK.match(msg.strip()) or qlike):
             return False
         words = norm(fix).split()
+        if self._not_a_value(fix):
+            return False
         return 0 < len(words) <= 4 and not (set(words) & self.CORR_SOFT)
+
+    DEICTIC = set("here there outside inside today tonight now again lately recently around nearby".split())
+    WEATHER = set("freezing boiling chilly rainy sunny snowy windy cloudy foggy stormy humid muggy warm cool cold hot nice lovely awful terrible gorgeous pouring snowing raining".split())
+
+    def _not_a_value(self, fix):
+        """A description ('freezing here', 'so tired', 'pretty good') is a remark, not a replacement value for a stored fact."""
+        words = norm(fix).split()
+        if not words:
+            return False
+        if set(words) & self.DEICTIC or words[0] in self.WEATHER or words[0] in cc._ADJ:
+            return True
+        return fix[:1].islower() and bool(re.search(r"(?:ing|ly)$", words[0])) and len(words[0]) > 4
 
     def _multi(self, msg):
         """'who am I and where do I live?' -> answer each part Ovi knows. Needs at least one part with a reliable answer."""
@@ -865,7 +921,8 @@ class Brain(UserMemory):
             c = cc.calc(f"{self.last_calc} {cont}")
         if c:
             return Answer(c, 1.0, "calc", "arithmetic")
-        t = self._recall_profile(n) or self._recall_activity(n)
+        n2 = self._tidy(n)
+        t = self._recall_profile(n2) or self._recall_slots(n2) or self._recall_activity(n2) or self._recall_context(n2)
         if t:
             return Answer(t, 1.0, "profile", "answered from what you told me")
         turn = len(self.history)
@@ -873,9 +930,9 @@ class Brain(UserMemory):
         if t:
             return Answer(t, 1.0, "chat", "advice request: ask for context")
         prev = self.history[-1][0] if self.history else ""
-        t = cc.smalltalk(n, prev, self.used, turn, name or "")
+        t = cc.smalltalk(n, prev, self.used, turn, name or "", next((o for _, o in reversed(self.history[-4:]) if any(j in o for j in cc.JOKES + cc.FACTS)), self.history[-1][1] if self.history else ""))
         if t is None and (msg.rstrip().endswith("?") or QWORD.match(msg)):
-            t = cc.advice(msg, n, self.used, turn)
+            t = cc.advice(msg, n, self.used, turn) or cc.personal_advice(n, self.used, turn)
         if t:
             return Answer(t, 1.0, "chat", "small talk rule")
         return None
@@ -892,7 +949,8 @@ class Brain(UserMemory):
         return None
 
     # ---------- feedback ----------
-    def feedback(self, good, correction=None):
+    def feedback(self, good, correction=None, chat=False):
+        """chat=True is the conversational path: internal bookkeeping ('I lowered my confidence to 0.50') is never shown."""
         if not self.last or self.last.entry < 0:
             return "Nothing to give feedback on."
         e = self.entries[self.last.entry]
@@ -901,7 +959,7 @@ class Brain(UserMemory):
             msg = f"Thanks! Confidence in that answer is now {e.conf:.2f}."
         else:
             e.conf *= 0.5; e.miss += 1
-            msg = f"Sorry about that. I lowered my confidence to {e.conf:.2f}."
+            msg = "Sorry about that." if chat else f"Sorry about that. I lowered my confidence to {e.conf:.2f}."
             if correction:
                 correction = clean_text(correction).strip()
                 m = re.match(r"(Your [^.]*? (?:is|are)) .*\.$", e.a)
