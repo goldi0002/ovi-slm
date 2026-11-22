@@ -1,0 +1,680 @@
+=== 1
+1. U: hey
+   O: Hey! Nice to meet you. I'm Ovi.
+2. U: how's it going
+   O: I'm falling in love.
+3. U: not bad, just got home from work
+   O: Why do you say that?
+4. U: it was long. my boss dumped a report on me at 4pm
+   O: What made you think about report?
+5. U: yeah right? so annoying
+   O: Tell me more about annoying.
+6. U: anyway what are you up to
+   O: Why do you say that?
+7. U: lol ok
+   O: Go on, I'm listening.
+8. U: thanks for listening
+   O: Woman lol
+=== 2
+1. U: hi there
+   O: How are you?
+2. U: my name is Priya
+   O: Nice to meet you, Priya!
+3. U: nice to meet you too
+   O: May I know your name, please?
+4. U: I live in Mumbai
+   O: Mumbai! Tell me about it.
+5. U: it's hot and humid today
+   O: Sorry about that. I lowered my confidence to 0.50. I updated where you live to hot and humid today.
+6. U: what's the weather like where you are
+   O: It's fine today.
+7. U: what is my name?
+   O: Your name is Priya.
+8. U: where do I live?
+   O: You are from hot and humid today.
+=== 3
+1. U: yo
+   O: im doing well
+2. U: i got the job!!
+   O: oh yea? does it pay well
+3. U: the one at the design studio
+   O: Why do you say that?
+4. U: i start monday
+   O: Wow, that is messed up. Why did your boss change mind so suddenly?
+5. U: im so nervous tho
+   O: That sounds stressful. What is weighing on you the most?
+6. U: thanks that helps
+   O: what other kind of music do you listen to?
+7. U: what should i wear on the first day?
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+8. U: ok cool
+   O: Thanks, I'll remember that.
+=== 4
+1. U: hello
+   O: Hi there! What would you like to talk about?
+2. U: I hate my math class
+   O: Tell me more about class.
+3. U: the teacher goes way too fast
+   O: Why do you say that?
+4. U: i failed the last quiz
+   O: What made you think about quiz?
+5. U: idk what to do
+   O: what exactly were you referring to
+6. U: why?
+   O: That is how people replied in the conversations I learned from.
+7. U: yeah
+   O: Is there something you'd like to talk about or learn?
+8. U: maybe i should ask for help
+   O: Tell me more about help.
+=== 5
+1. U: good morning
+   O: Good morning! I hope your day is going well.
+2. U: slept terribly
+   O: Tell me more about terribly.
+3. U: kids were up all night
+   O: THAT must have been a nightmare. How many do you have?
+4. U: i have two, 3 and 5
+   O: Go on, I'm listening.
+5. U: they're a handful lol
+   O: Tell me more about handful.
+6. U: what about you, do you sleep?
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+7. U: haha fair
+   O: Thanks, I'll remember that.
+8. U: ok time for coffee
+   O: Tell me more about coffee.
+=== 6
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: who are you?
+   O: I am Ovi, a tiny language model that lives in less than fifty megabytes.
+3. U: what can you do?
+   O: I can chat, tell short stories, and learn new things from you.
+4. U: do you remember things?
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+5. U: my favorite color is purple
+   O: Thanks, I'll remember that.
+6. U: what is my favorite color?
+   O: I like blue, like the sky.
+7. U: are you a robot?
+   O: Yes I am.
+8. U: cool
+   O: Is there something you'd like to talk about or learn?
+=== 7
+1. U: hey ovi
+   O: Go on, I'm listening.
+2. U: what's your name
+   O: I'm number seven. What about you?
+3. U: who made you
+   O: You did, together with a little code and a lot of words.
+4. U: are you smart?
+   O: Not very, but I am curious, and that is a good start.
+5. U: lol honest
+   O: Tell me more about honest.
+6. U: do you get tired
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+7. U: what do you like to do
+   O: I like to chat with people. I find it stimulating.
+8. U: ok bye for now
+   O: Tell me more.
+=== 8
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: my dog died yesterday
+   O: I'm so sorry for your loss. I'm here for you. Do you want to tell me about them?
+3. U: his name was Max
+   O: Why do you say that?
+4. U: we had him 12 years
+   O: Is this recent. Do you know why?
+5. U: i dont wanna talk about it
+   O: Tell me more about talk.
+6. U: yeah
+   O: Is there something you'd like to talk about or learn?
+7. U: thanks
+   O: Happy to help.
+8. U: what was his name again?
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+=== 9
+1. U: hello
+   O: Hi there! What would you like to talk about?
+2. U: what's the capital of france
+   O: The capital of France is Paris.
+3. U: and japan?
+   O: The capital of Japan is Tokyo.
+4. U: and italy?
+   O: That sounds really nice.
+5. U: why?
+   O: That is how people replied in the conversations I learned from.
+6. U: ok what is the capital of germany
+   O: Why do you say that?
+7. U: thx
+   O: Go on, I'm listening.
+8. U: bye
+   O: Goodbye! Come back soon.
+=== 10
+1. U: sup
+   O: Go on, I'm listening.
+2. U: bored af
+   O: Shall we do something about that? I can tell you a fact, a story, or we can talk about what you like.
+3. U: nothing to do
+   O: Doesn't look like it to me.
+4. U: idk
+   O: Well we give in to our friends. Hopefully he pays you back and not ruin your friendship.
+5. U: maybe a movie
+   O: That's for sure.
+6. U: what movie should i watch
+   O: I don't know that about you yet. Tell me, and I'll remember it.
+7. U: something funny
+   O: Thanks, I'll remember that.
+8. U: ok ill try that
+   O: Tell me more.
+=== 11
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: I like football
+   O: Got it, you like football.
+3. U: I love chess too
+   O: Got it, you like chess too.
+4. U: what do I like?
+   O: You like football and chess too.
+5. U: do you like chess?
+   O: Yes, I do like him.
+6. U: who's better at it, you or me
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+7. U: lol
+   O: Anything else on your mind? We could talk about football.
+8. U: ok let's play later
+   O: Tell me more about later.
+=== 12
+1. U: hey
+   O: Hey! Nice to meet you. I'm Ovi.
+2. U: my sister is driving me crazy
+   O: Tell me more about crazy.
+3. U: she borrowed my car without asking
+   O: Why do you say that?
+4. U: and she scratched it
+   O: Ouch! That's the worst, are they pretty damaged?
+5. U: i'm so mad
+   O: That sounds frustrating. What happened?
+6. U: what would you do?
+   O: I'd call him and dump him now! You deserve better than him!
+7. U: yeah i guess
+   O: Well now you know
+8. U: maybe i'll talk to her tonight
+   O: Tell me more about talk.
+=== 13
+1. U: hello
+   O: Hi there! What would you like to talk about?
+2. U: i live in Lisbon
+   O: Lisbon! Tell me about it.
+3. U: do you know anything about it
+   O: Her acting is OK.
+4. U: its super hilly
+   O: Sorry about that. I lowered my confidence to 0.50. I learned the corrected answer.
+5. U: where do I live?
+   O: You are from Lisbon.
+6. U: is it a nice city?
+   O: Yes, sir.
+7. U: i think so
+   O: Let me check that for you right now.
+8. U: ok
+   O: Is there something you'd like to talk about or learn?
+=== 14
+1. U: hey whats up
+   O: What made you think about whats?
+2. U: not much u
+   O: Tell me more about much.
+3. U: just chillin
+   O: By yourself?
+4. U: how was ur day
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+5. U: lol same
+   O: Thanks, I'll remember that.
+6. U: nothing happened
+   O: I'm not fully sure, but: Did you get a refund?
+7. U: ikr
+   O: So you'll make the Stars.com deadline, and have us up and running next week?
+8. U: gtg ttyl
+   O: Tell me more about ttyl.
+=== 15
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: can you teach you something
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+3. U: the capital of Australia is Canberra
+   O: Thanks, I'll remember that.
+4. U: what is the capital of australia?
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+5. U: are you sure?
+   O: Yes, sir.
+6. U: good
+   O: I am doing well, how about you?
+7. U: what about new zealand?
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+8. U: idk either lol
+   O: Thanks, I'll remember that.
+=== 16
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: my favorite food is ramen
+   O: I'll remember that your favorite food is ramen.
+3. U: what's yours
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+4. U: do robots eat
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+5. U: hahaha
+   O: Thanks, I'll remember that.
+6. U: what is my favorite food?
+   O: Your favorite food is ramen.
+7. U: I also like sushi
+   O: What made you think about sushi?
+8. U: what do I like?
+   O: I like words, stories, and learning new things.
+=== 17
+1. U: hello
+   O: Hi there! What would you like to talk about?
+2. U: i have an exam tomorrow
+   O: That's unfortunate. What type of exam do you have?
+3. U: its chemistry
+   O: Sorry about that. I lowered my confidence to 0.50. I learned the corrected answer.
+4. U: im terrified
+   O: I think most people are really. Anything specific about it?
+5. U: can you help me study
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+6. U: what is h2o?
+   O: h is to o as o is to v.
+7. U: thanks
+   O: Happy to help.
+8. U: wish me luck
+   O: Thanks. And how are your parents?
+=== 18
+1. U: hey
+   O: Hey! Nice to meet you. I'm Ovi.
+2. U: guess what
+   O: Oh? What surprised you about today?
+3. U: i'm getting married
+   O: What kind of doctor is she going to be?
+4. U: next june
+   O: that's thoughtful of you.
+5. U: her name is Ana
+   O: Tell me more about name.
+6. U: we met in college
+   O: is this your first date?
+7. U: thank you!
+   O: You are welcome!
+8. U: what is her name?
+   O: It's Snow.
+=== 19
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: what's 2 plus 2
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+3. U: and 3 times 3?
+   O: What about 3?
+4. U: ok you're good at math
+   O: What made you think about math?
+5. U: what is the square root of 81
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+6. U: lol nice
+   O: Thanks, I'll remember that.
+7. U: what's the meaning of life
+   O: I'm not fully sure, but: It is a reference to The Illuminatus Trilogy. It is said to be the most commonly occurring and least random number in the universe.
+8. U: deep
+   O: ah.. well i guess its not that bad yet
+=== 20
+1. U: ugh
+   O: What happened?
+2. U: monday again
+   O: What is the starting salary for me?
+3. U: i hate mondays
+   O: Why do you say that?
+4. U: my commute is an hour each way
+   O: What made you think about each?
+5. U: the train was late
+   O: What?! Are you sick or your family member?
+6. U: again
+   O: What happened? Why did everyone get so quiet?
+7. U: what do you think about mondays
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+8. U: lol fair
+   O: Thanks, I'll remember that.
+=== 21
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: I'm learning guitar
+   O: Tell me more about guitar.
+3. U: its hard on my fingers
+   O: Why do you say that?
+4. U: i practice every night
+   O: What made you think about night?
+5. U: my teacher says im improving
+   O: Tell me more about improving.
+6. U: what do I practice?
+   O: I don't know that about you yet. Tell me, and I'll remember it.
+7. U: thanks for remembering
+   O: Thanks, I'll remember that.
+8. U: ok
+   O: Is there something you'd like to talk about or learn?
+=== 22
+1. U: hello
+   O: Hi there! What would you like to talk about?
+2. U: tell me a joke
+   O: Follow me.
+3. U: another one
+   O: I'm not fully sure, but: I heard that some people in England are pleased with the fact that the climate is becoming warmer because it's making their towns a more pleasant place to live.
+4. U: haha that was bad
+   O: how did you make up for it?
+5. U: tell me something interesting
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+6. U: wow really
+   O: Thanks, I'll remember that.
+7. U: hmm i didnt know that
+   O: What made you think about know?
+8. U: ok thanks
+   O: That's nothing.
+=== 23
+1. U: hey
+   O: Hey! Nice to meet you. I'm Ovi.
+2. U: my name is Tom
+   O: Nice to meet you, Tom!
+3. U: i work as a nurse
+   O: Why do you say that?
+4. U: long night shifts
+   O: What made you think about shifts?
+5. U: its exhausting
+   O: Tell me more about exhausting.
+6. U: what is my name?
+   O: Your name is Tom.
+7. U: what do I do for work?
+   O: I don't know that about you yet. Tell me, and I'll remember it.
+8. U: thanks
+   O: Happy to help.
+=== 24
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: do you have feelings
+   O: I... sort of have feelings.
+3. U: do you get lonely
+   O: I have a lot of friends to chat with online.
+4. U: what do you want
+   O: Did your bid win?
+5. U: that's kinda sad
+   O: That's a switch.
+6. U: are you happy
+   O: I'm not fully sure, but: I want to buy that candy.
+7. U: ok
+   O: Is there something you'd like to talk about or learn?
+8. U: what about me, am I a good person?
+   O: I don't know that about you yet. Tell me, and I'll remember it.
+=== 25
+1. U: hey
+   O: Hey! Nice to meet you. I'm Ovi.
+2. U: i went to the beach today
+   O: Wow, thats amazing! How did ya'll initially meet?
+3. U: it was amazing
+   O: Sorry about that. I lowered my confidence to 0.50. I learned the corrected answer.
+4. U: the water was so warm
+   O: Did you? How is he these days?
+5. U: we ate ice cream
+   O: Tell me more about cream.
+6. U: you should come
+   O: How about at 6pm?
+7. U: oh right lol
+   O: What made you think about right?
+8. U: anyway what did I do today?
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+=== 26
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: I think pineapple on pizza is great
+   O: That's wonderful! What made it so good?
+3. U: do you agree?
+   O: It's beginning to spot.
+4. U: why not
+   O: That is how people replied in the conversations I learned from.
+5. U: you're no fun
+   O: Tell me more about you're.
+6. U: ok what's your favorite food then
+   O: Why do you say that?
+7. U: i see
+   O: I never trust those stupid doctors.
+8. U: lol
+   O: Is there something you'd like to talk about or learn?
+=== 27
+1. U: hello
+   O: Hi there! What would you like to talk about?
+2. U: i'm so tired
+   O: That sounds draining. Have you been able to rest?
+3. U: work was a nightmare
+   O: Why do you say that?
+4. U: my coworker took credit for my idea
+   O: What made you think about idea?
+5. U: i wanna quit
+   O: Tell me more about quit.
+6. U: should i?
+   O: You just follow me.
+7. U: but i need the money
+   O: I'm not fully sure, but: The regulations state that the interest is paid at the rate of a Current Deposit, so unfortunately you will lose some interest.
+8. U: yeah you're right
+   O: How did you know?
+=== 28
+1. U: hey
+   O: Hey! Nice to meet you. I'm Ovi.
+2. U: what is the gdp of norway?
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+3. U: about five hundred billion dollars
+   O: Thanks, I'll remember that.
+4. U: what is the gdp of norway?
+   O: about five hundred billion dollars
+5. U: what about sweden?
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+6. U: ok
+   O: Is there something you'd like to talk about or learn?
+7. U: who is the king of norway
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+8. U: idk
+   O: Thanks, I'll remember that.
+=== 29
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: so my mom called
+   O: Tell me more about called.
+3. U: she wants me to visit this weekend
+   O: Why do you say that?
+4. U: but i have plans
+   O: What made you think about plans?
+5. U: she gets upset easy
+   O: I'm sorry you're feeling that way. Do you want to tell me what happened?
+6. U: idk what to say
+   O: Interesting. Why do you say that?
+7. U: what should i tell her
+   O: tell who what?
+8. U: ok ill try that
+   O: Tell me more.
+=== 30
+1. U: good evening
+   O: Good evening, Mary.
+2. U: i cooked dinner for the first time
+   O: Well that's fun! Did he do a good job?
+3. U: pasta with tomato sauce
+   O: Why do you say that?
+4. U: it was ok
+   O: Was it a long move?
+5. U: a bit salty lol
+   O: Tell me more about salty.
+6. U: any tips?
+   O: Oh, she can make her own decisions.
+7. U: ok noted
+   O: Oh! I've almost forgot the location was transferred to the A county in the east of the city.
+8. U: what did i cook?
+   O: I don't know that about you yet. Tell me, and I'll remember it.
+=== 31
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: are you real
+   O: I am real software. I run on numbers, and I try to talk with them.
+3. U: prove it
+   O: Did they take anything else?
+4. U: hmm
+   O: Is there something you'd like to talk about or learn?
+5. U: lol
+   O: Is there something you'd like to talk about or learn?
+6. U: what's your favorite color
+   O: I like red.
+7. U: mine is blue
+   O: What made you think about blue?
+8. U: what is my favorite color?
+   O: I like blue, like the sky.
+=== 32
+1. U: heyyy
+   O: What made you think about heyyy?
+2. U: omg i passed my driving test
+   O: Tell me more about test.
+3. U: finally
+   O: Yes, what about us having a tour?
+4. U: third try lol
+   O: What made you think about third?
+5. U: my dad is so proud
+   O: That's wonderful! What made it so good?
+6. U: im gonna drive to the lake
+   O: Why do you say that?
+7. U: wanna come
+   O: cause you ran out of candles?
+8. U: haha
+   O: Is there something you'd like to talk about or learn?
+=== 33
+1. U: hello
+   O: Hi there! What would you like to talk about?
+2. U: tell me about yourself
+   O: I am Ovi. I am a small model that reads, talks, and learns.
+3. U: where do you live
+   O: I live inside a small file on your computer.
+4. U: do you have friends
+   O: You are my friend, if you want to be.
+5. U: am i your friend
+   O: Great. By the way, what does your friend do?
+6. U: aw
+   O: im sure you will do great where ever you end up going
+7. U: what's my name?
+   O: I don't know your name yet. What should I call you?
+8. U: ok i'll tell you later
+   O: Tell me more about later.
+=== 34
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: i'm thinking about moving to Berlin
+   O: Tell me more about berlin.
+3. U: for work
+   O: Should we just meet here?
+4. U: my girlfriend doesnt want to
+   O: What made you think about want?
+5. U: its a big decision
+   O: Tell me more about decision.
+6. U: what do you think
+   O: She's very nice.
+7. U: hmm
+   O: Is there something you'd like to talk about or learn?
+8. U: where am i thinking of moving?
+   O: I don't know that about you yet. Tell me, and I'll remember it.
+=== 35
+1. U: yo
+   O: im doing well
+2. U: what's good
+   O: Not a lot. What about you?
+3. U: just played some games
+   O: Why do you say that?
+4. U: fortnite
+   O: I'm not fully sure, but: What do you do in that game?
+5. U: mostly lol
+   O: Don't worry, I'm sure she'll put a dent in it before the month is up.
+6. U: do you play games
+   O: Type? I don't know, what do you have?
+7. U: why not
+   O: That is how people replied in the conversations I learned from.
+8. U: fair
+   O: How much is a round-trip ticket to London?
+=== 36
+1. U: hello
+   O: Hi there! What would you like to talk about?
+2. U: i have a presentation tomorrow
+   O: What kind of problems?
+3. U: im bad at public speaking
+   O: Why do you say that?
+4. U: my hands shake
+   O: Do you come from a country where they shake hands?
+5. U: any advice
+   O: I hope it helps!
+6. U: thats helpful
+   O: Why do you say that?
+7. U: i'll try
+   O: Do you want me to have him give you a call?
+8. U: thanks ovi
+   O: Tell me more about thanks.
+=== 37
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: i like cats
+   O: Got it, you like cats.
+3. U: i have two, Milo and Luna
+   O: Why do you say that?
+4. U: Milo is orange
+   O: What made you think about orange?
+5. U: Luna is grey
+   O: Tell me more about grey.
+6. U: what are my cats called?
+   O: I don't know that about you yet. Tell me, and I'll remember it.
+7. U: which one is orange?
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+8. U: ok thx
+   O: Thanks, I'll remember that.
+=== 38
+1. U: hey
+   O: Hey! Nice to meet you. I'm Ovi.
+2. U: random question
+   O: Tell me more about question.
+3. U: do you like music
+   O: Well, it depends.
+4. U: what kind
+   O: I like classical music. Do you?
+5. U: i like jazz
+   O: Got it, you like jazz.
+6. U: do you know any jazz
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+7. U: who is miles davis
+   O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+8. U: cool
+   O: Anything else on your mind? We could talk about jazz.
+=== 39
+1. U: hi
+   O: Hello! I'm Ovi, a very small language model. How are you?
+2. U: sorry im late replying
+   O: Tell me more about replying.
+3. U: was at the dentist
+   O: Please pay the registration fee, 10 Yuan.
+4. U: got a filling
+   O: What made you think about filling?
+5. U: my mouth is numb lol
+   O: Tell me more about numb.
+6. U: it hurts now
+   O: Why do you say that?
+7. U: yeah
+   O: Is there something you'd like to talk about or learn?
+8. U: ugh ok bye
+   O: Tell me more.
+=== 40
+1. U: hello
+   O: Hi there! What would you like to talk about?
+2. U: i got a promotion today
+   O: Congrats! How long have you been with your company?
+3. U: im now team lead
+   O: Why do you say that?
+4. U: my team is 5 people
+   O: What made you think about team?
+5. U: i'm excited but scared
+   O: That sounds stressful. What is weighing on you the most?
+6. U: what do you think
+   O: It looks great.
+7. U: thank you
+   O: You are welcome!
+8. U: what's my new role?
+   O: I don't know that about you yet. Tell me, and I'll remember it.
