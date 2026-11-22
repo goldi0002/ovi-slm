@@ -18,9 +18,19 @@ from . import dataset
 TOK, NG = "data/tokenizer.json", "ovi_ngram.bin"
 
 
-def build(order=3):
+def build(order=4):
+    """Count n-grams. TinyStories (data/ts/*.txt) if present -- far better text than books -- else books."""
+    import glob
     t = time.time()
-    b = np.load("data/books.npy").astype(int).tolist()
+    tok = Tokenizer.from_file(TOK)
+    files = glob.glob("data/ts/*.txt")
+    if files:
+        stories = [x.strip() for f in files for x in open(f, encoding="utf-8", errors="ignore").read().split("<|endoftext|>") if len(x.strip()) > 100]
+        b = [i for s_ in stories for i in tok.encode(s_ + "\n").ids]
+        print(f"TinyStories: {len(stories)} stories, {len(b)/1e6:.1f}M tokens")
+    else:
+        order = 3
+        b = np.load("data/books.npy").astype(int).tolist()
     m = NGram(order)
     m.add(b)
     save(m)
