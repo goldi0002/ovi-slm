@@ -55,11 +55,14 @@ def cornell_pairs(max_pairs=90000, max_words=22):
 
 
 def build(path="ovi_pairs.bin"):
+    from .facts import all_facts
     c, m = chatterbot_pairs(), cornell_pairs()
-    tsv = "\n".join("\t".join(p) for p in c + m)
+    fp, ents = all_facts()
+    f = [("f", q, a) for q, a in fp] + [("e", n, k) for n, k in ents]
+    tsv = "\n".join("\t".join(p) for p in c + m + f)
     open(path, "wb").write(zlib.compress(tsv.encode(), 9))
     import os
-    print(f"chatterbot pairs: {len(c)}, cornell pairs: {len(m)}, file: {os.path.getsize(path)/1e6:.2f} MB")
+    print(f"chatterbot pairs: {len(c)}, cornell pairs: {len(m)}, fact pairs: {len(fp)}, entities: {len(ents)}, file: {os.path.getsize(path)/1e6:.2f} MB")
 
 
 def load(path="ovi_pairs.bin"):

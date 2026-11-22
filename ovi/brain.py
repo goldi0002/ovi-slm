@@ -14,7 +14,7 @@ from .seed_chat import PAIRS
 from . import dataset
 from .fast import Ovi as _Base  # tokenizer + n-gram LM (for stories)
 
-TRUST = {"seed": 1.0, "taught": 1.0, "cb": 0.9, "learned": 0.8, "movie": 0.5}
+TRUST = {"fact": 0.95, "seed": 1.0, "taught": 1.0, "cb": 0.9, "learned": 0.8, "movie": 0.5}
 ANSWER, HEDGE = 0.65, 0.45
 QWORD = re.compile(r"^(what|who|whom|whose|where|when|why|how|which|is|are|was|were|do|does|did|can|could|will|would|should|tell|explain|define|translate|give|show|say|list|name)\b", re.I)
 STOPW = set("this that with have what they them then than there about would could should really very just like your mine been were will from into some more".split())
@@ -42,11 +42,14 @@ class Brain:
         self.last = None            # last Answer given
         self.last_q = None
         self.pending = None         # question Ovi abstained on, waiting to be taught
-        self.history, self.user = [], {}
+        self.history, self.user, self.entities = [], {}, {}
         if builtin:
             if os.path.exists("ovi_pairs.bin"):
                 for kind, q, a in dataset.load():
-                    self._add(q, a, "cb" if kind == "c" else "movie")
+                    if kind == "e":
+                        self.entities[q.lower()] = a
+                    else:
+                        self._add(q, a, {"c": "cb", "m": "movie", "f": "fact"}[kind])
             for q, a in PAIRS:
                 self._add(q, a, "seed")
         self._replay()
@@ -100,7 +103,7 @@ class Brain:
         qk, ek = keys(msg), keys(self.entries[i].q)
         if qk:
             cover = len(qk & ek) / len(qk)           # how much of what you asked did the memory actually match?
-            sc *= 0.5 + 0.5 * cover
+            sc *= cover ** 2                           # words you asked about that the memory lacks are strong evidence of a different question
             if any(w.isdigit() and w not in ek for w in qk):   # a number you mentioned is missing: likely a different question
                 sc *= 0.4
         return i, sc
@@ -109,7 +112,8 @@ class Brain:
     def ask(self, msg):
         msg = msg.strip()
         # 1) learn from a pending abstention: the next plain statement is the answer
-        if self.pending and not msg.endswith("?") and not QWORD.match(msg) and not msg.startswith("/"):
+        if self.pending and not msg.endswith("?") and not QWORD.match(msg) and not msg.startswith("/") \
+                and not re.match(r"i('m| am| feel| think| want| went)\b", msg, re.I) and norm(msg) not in self.ACK:
             q, self.pending = self.pending, None
             self._add(q, msg, "learned", 0.75)
             self._write({"e": "add", "q": q, "a": msg, "src": "learned", "conf": 0.75})
@@ -122,6 +126,9 @@ class Brain:
             self.last = Answer(self.base.say(msg + " "), 0.2, "ngram", "creative mode: generated, not recalled")
             return self.last
         r = self.recall(msg)
+        isq = msg.endswith("?") or bool(QWORD.match(msg))
+        if r and not isq and self.entries[r[0]].src == "movie":
+            r = None                          # statements: don't answer with a random movie line, use a conversational move
         c = self.conf_of(*r) if r else 0.0
         if r and c >= HEDGE:
             e = self.entries[r[0]]; e.hits += 1
@@ -141,7 +148,72 @@ class Brain:
     FOLLOW = re.compile(r"^(and |what about |how about |but |so |why\b|how so|really\b|then\b)", re.I)
     PRON = re.compile(r"\b(it|that|this|they|them|he|she|there|one)\b", re.I)
 
+    def _find_entity(self, text):
+        t = " " + norm(text) + " "
+        best = None
+        for name, kind in self.entities.items():
+            if f" {norm(name)} " in t and (best is None or len(name) > len(best[0])):
+                best = (name, kind)
+        return best
+
+    def _swap_entity(self, prev, msg):
+        """'and italy?' after a question about spain -> the same question about italy."""
+        core = re.sub(r"^(and|what about|how about|but|so)\s+", "", msg.strip().rstrip("?!. "), flags=re.I)
+        new = self._find_entity(core)
+        old = self._find_entity(prev)
+        if new and old and new[1] == old[1] and len(norm(core).split()) <= len(norm(new[0]).split()) + 1:
+            return re.sub(re.escape(old[0]), new[0], prev, flags=re.I)
+        return None
+
+    MOODS = {
+        "sad": ("sad|down|depressed|unhappy|lonely|miserable|upset|crying|hurt", "I'm sorry you're feeling that way{n}. Do you want to tell me what happened?"),
+        "tired": ("tired|exhausted|sleepy|worn out", "That sounds draining{n}. Have you been able to rest?"),
+        "stress": ("stressed|anxious|worried|nervous|scared|afraid|overwhelmed", "That sounds stressful{n}. What is weighing on you the most?"),
+        "angry": ("angry|mad|furious|annoyed|frustrated", "That sounds frustrating{n}. What happened?"),
+        "happy": ("happy|excited|great|awesome|wonderful|amazing|proud|glad|good news", "That's wonderful{n}! What made it so good?"),
+        "bored": ("bored|boring", "Shall we do something about that{n}? I can tell you a fact, a story, or we can talk about what you like."),
+    }
+    PAST = re.compile(r"^i (went|ate|saw|watched|played|bought|visited|met|read|made|had|got|started|finished|tried|took)\b", re.I)
+    ACK = {"ok", "okay", "cool", "nice", "lol", "haha", "yes", "yeah", "yep", "no", "nope", "sure", "hmm", "wow", "thanks", "thank you", "great", "fine", "alright"}
+
+    def _likes(self):
+        i = self.exact.get("what do i like")
+        m = re.match(r"You like (.*)\.", self.entries[max(i)].a) if i else None
+        return [x for x in re.split(r", | and ", m.group(1)) if x] if m else []
+
     def _backchannel(self, msg):
+        n = norm(msg)
+        name = self.user.get("name") or ""
+        nm = f", {name}" if name else ""
+        # 1) acknowledgements: keep the conversation going using what we know about the user
+        if n in self.ACK:
+            likes = self._likes()
+            if likes:
+                return f"Anything else on your mind? We could talk about {likes[len(self.history) % len(likes)]}."
+            return "Is there something you'd like to talk about or learn?"
+        # 2) feelings
+        for kind, (pat, reply) in self.MOODS.items():
+            if re.search(rf"\b({pat})\b", n):
+                return reply.format(n=nm)
+        # 3) a known country/element mentioned: offer a relevant fact, then ask about it
+        ent = self._find_entity(msg)
+        if ent:
+            name_, kind = ent
+            r = self.recall(f"what is the capital of {name_}" if kind == "country" else f"what is the atomic number of {name_}")
+            fact = self.entries[r[0]].a if r and self.conf_of(*r) >= ANSWER else None
+            ask = f"Have you been to {name_}?" if kind == "country" else f"Why are you interested in {name_}?"
+            return f"{fact} {ask}" if fact else ask
+        # 4) things the user did
+        if self.PAST.match(msg):
+            return ["How was it?", "How did that go?", "Did you enjoy it?"][len(self.history) % 3]
+        # 5) generic, using a topic word and rotating phrasing
+        ks = [w for w in re.findall(r"[a-z']+", n) if len(w) > 3 and w not in STOPW]
+        topic = ks[-1] if ks else None
+        opts = ([f"What made you think about {topic}?", f"Tell me more about {topic}.", "Why do you say that?"]
+                if topic else ["Go on, I'm listening.", "Tell me more.", "Interesting. Why do you say that?"])
+        return opts[len(self.history) % len(opts)]
+
+    def _backchannel_old(self, msg):
         ks = [w for w in re.findall(r"[a-z']+", msg.lower()) if len(w) > 3 and w not in STOPW]
         topic = ks[-1] if ks else None
         opts = ([f"Tell me more about {topic}.", f"What do you like about {topic}?", "Why do you say that?"]
@@ -210,15 +282,25 @@ class Brain:
     def _converse(self, msg):
         n = norm(msg)
         # follow-up: resolve against the previous user question and keep whichever reading is more confident
-        if self.history and not self.pending and (self.FOLLOW.match(msg) or (len(n.split()) <= 3 and n not in self.GREET)):
-            prev = next((u for u, _ in reversed(self.history) if u.endswith("?") or QWORD.match(u)), None)
+        if self.history and not self.pending and (self.FOLLOW.match(msg) or (len(n.split()) <= 3 and n not in self.GREET and n not in self.ACK)):
+            prev = next((u for u, _ in reversed(self.history[-3:]) if u.endswith("?") or QWORD.match(u)), None)
             if re.match(r"(why\b|how so)", n) and self.last and self.last.entry >= 0:
                 e = self.entries[self.last.entry]
                 why = {"taught": "Because you told me so.", "learned": "Because you taught me that earlier.",
                        "seed": "That is how I was built to answer.", "cb": "I learned it from a conversation corpus.",
-                       "movie": "I only half remember it from movie dialogue, so I might be wrong."}[e.src]
+                       "movie": "I only half remember it from movie dialogue, so I might be wrong.",
+                       "fact": "It comes from the facts table I was built with."}[e.src]
                 self.last_q = msg
                 return Answer(why, 0.9, "meta", "explaining the previous answer's source")
+            swapped = self._swap_entity(prev, msg) if prev else None
+            if swapped:
+                r = self.recall(swapped)
+                if r and self.conf_of(*r) >= HEDGE:
+                    e = self.entries[r[0]]; e.hits += 1; c = self.conf_of(*r)
+                    self.last_q = swapped
+                    self.last = Answer(e.a if c >= ANSWER else f"I'm not fully sure, but: {e.a}", c, e.src,
+                                       f"follow-up: '{prev}' with the topic swapped -> '{swapped}'", r[0])
+                    return self.last
             if prev:
                 plain = self.recall(msg)
                 expanded = self.recall(f"{prev} {msg}")

@@ -4,12 +4,16 @@ import json, os, re
 STOP = set("a an the is are was were be do does did of to in on at my your you i me it this that and or what who where when how why which".split())
 
 
+def toks(t):
+    return [w for w in (x.strip("'") for x in re.findall(r"[a-z0-9']+", t.lower())) if w]
+
+
 def norm(t):
-    return " ".join(re.findall(r"[a-z0-9']+", t.lower()))
+    return " ".join(toks(t))
 
 
 def keys(text):
-    ws = (re.sub(r"'s?$", "", w) for w in re.findall(r"[a-z0-9']+", text.lower()))
+    ws = (re.sub(r"'s?$", "", w) for w in toks(text))
     return frozenset(w for w in ws if w and w not in STOP)
 
 

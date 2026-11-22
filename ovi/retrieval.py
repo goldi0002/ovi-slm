@@ -2,7 +2,7 @@
 import math, re
 from collections import defaultdict
 
-W = re.compile(r"[a-z0-9']+")
+from .memory import toks
 
 
 class Index:
@@ -12,13 +12,13 @@ class Index:
 
     def add(self, q, a):
         i = len(self.q)
-        ws = set(W.findall(q.lower()))
+        ws = set(toks(q))
         self.q.append(ws); self.a.append(a)
         for w in ws:
             self.inv[w].append(i)
 
     def best(self, text, min_score=0.45):
-        ws = set(W.findall(text.lower()))
+        ws = set(toks(text))
         n = len(self.q) + 1
         score = defaultdict(float)
         for w in ws:
