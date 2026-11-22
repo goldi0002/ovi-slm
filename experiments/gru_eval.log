@@ -1,0 +1,69 @@
+train pairs 57215
+GRU params 0.95M = 3.79 MB fp32
+ep 1 step 300 t=54s train_nll 4.351 dev_nll 4.709
+ep 2 step 600 t=132s train_nll 3.291 dev_nll 4.404
+ep 3 step 900 t=323s train_nll 3.250 dev_nll 4.224
+ep 3 step 1200 t=369s train_nll 4.085 dev_nll 4.163
+ep 4 step 1500 t=416s train_nll 3.962 dev_nll 4.110
+ep 5 step 1800 t=461s train_nll 4.236 dev_nll 4.033
+ep 5 step 2100 t=505s train_nll 2.902 dev_nll 4.056
+ep 6 step 2400 t=553s train_nll 2.619 dev_nll 3.989
+ep 7 step 2700 t=601s train_nll 2.661 dev_nll 3.986
+ep 7 step 3000 t=647s train_nll 3.348 dev_nll 3.978
+trained 3069 steps, 7 epochs, 661s; final dev token NLL 3.968 (ppl 52.9)
+fp16 state_dict file MB: 1.9 (fp32 above)
+built 2575 val / 2000 test groups in 691s
+chance (1/30): 3.3%
+GRU alone, mixed pool:           R@1 6.4%
+crosspmi cos alone:              R@1 0.9%
+ranker baseline (mixed-trained): R@1 14.5%
+ranker + GRU feature:            R@1 14.7%
+ranker weight on GRU feature (standardised): 0.10
+
+15 freely generated replies (held-out test messages):
+  msg: What are you shopping for?
+    greedy: i want to go to the airport.
+    top-5 : i don't like the best.
+  msg: I want to American breakfast with fried eggs sunny side up.
+    greedy: what is the problem?
+    top-5 : what is it?
+  msg: When we have the final results, we will call you.
+    greedy: i am sure you will be fine.
+    top-5 : i am glad to hear that.
+  msg: Yeah. He always tickled my finny bone with his college stories.
+    greedy: i hope he is a great time!
+    top-5 : oh wow, he must have been a terrible time.
+  msg: Yes, smoking or non-smoking?
+    greedy: three, please.
+    top-5 : i want to take a reservation to the account, please.
+  msg: And it takes up all the news.
+    greedy: i am sure you will get it.
+    top-5 : i am so sorry, but you can always get a good job.
+  msg: I agree that yours are of the top.
+    greedy: i am sorry to hear that.
+    top-5 : how long do you have to pay to work?
+  msg: Yes. Think about it carefully.
+    greedy: how much is it?
+    top-5 : i think it is very nice of that.
+  msg: About how much will it cost?
+    greedy: it's for a month.
+    top-5 : i'll be fine.
+  msg: Hello. I would like to speak to your director of human resources, Ms.Jenkins, Please.
+    greedy: ok, sir.
+    top-5 : ok. here you are. how is your room number, please?
+  msg: Hopefully he will use the same exam, cause Im going to spend most of my time studying the civil war. It is a huge section and that is what he lectured the most on in class.
+    greedy: i hope you get it!
+    top-5 : that is a good idea.
+  msg: Yeah. But he soon feel regretted for it.
+    greedy: i hope you get it.
+    top-5 : that's great!
+  msg: He is really clear on what you need to learn to get a good grade. Are you willing to study hard?
+    greedy: i am not sure. i will be able to get a new one.
+    top-5 : i want to know what we do.
+  msg: Spring.
+    greedy: how much do you want to go?
+    top-5 : how do you feel about it?
+  msg: True, most of my friends worked there too so it wasn't too boring.
+    greedy: i am sorry to hear that.
+    top-5 : that sounds really fun
+mean greedy generation latency: 3.0 ms/reply

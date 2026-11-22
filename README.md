@@ -34,3 +34,18 @@ It prints per-category pass rates and the full transcript of every failure. Base
 | **total** | **113** | **151** | **74.8%** |
 
 Main failure patterns: "actually/no, my name is X" and "no, it's red" corrections are not recognised (old value kept); "I'm X", "I am X", "call me X"/"do you remember my name?"/"who am I?" name forms fail; "what is my name?" before being told answers "My name is Ovi."; non-ASCII names are not stored; a few unknown questions get random dialogue replies instead of "I'm not sure".
+
+### Tiny neural scorer (measured)
+`experiments/gru_eval.py` (log: `experiments/gru_eval.log`): a GRU seq2seq (0.95M params, 3.8 MB fp32 / 1.9 MB fp16, word vocab 5000,
+PyTorch CPU 4 threads) trained 11 min (7 epochs, 57k deduped DailyDialog+EmpatheticDialogues train pairs, dev ppl 52.9). Same clean protocol as
+`pool_eval.py` (mixed pool of 29 distractors + gold, 2000 test turns, ties/NaN lose), score = length-normalised log p(reply|message):
+
+| scorer | R@1 (chance 3.3%) |
+|---|---|
+| GRU alone | 6.4% |
+| numpy listwise ranker (mixed-trained) | 14.5% |
+| ranker + GRU score as extra feature (fit on validation) | 14.7% |
+
+Verdict: at this size/budget the GRU is far below the ranker and adds only +0.2 pt in combination (within noise for n=2000, about +-0.8 pt).
+Free generation (greedy, ~3 ms/reply) is fluent but generic and often off-topic ("i am sorry to hear that" for good news), so it is not shipped.
+Caveat: distractors are train replies the GRU saw as targets while the gold reply is unseen. Nothing in `ovi/brain.py` or shipped models changed.
