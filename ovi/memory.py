@@ -4,6 +4,10 @@ import json, os, re
 STOP = set("a an the is are was were be do does did of to in on at my your you i me it this that and or what who where when how why which".split())
 
 
+def norm(t):
+    return " ".join(re.findall(r"[a-z0-9']+", t.lower()))
+
+
 def keys(text):
     ws = (re.sub(r"'s?$", "", w) for w in re.findall(r"[a-z0-9']+", text.lower()))
     return frozenset(w for w in ws if w and w not in STOP)
@@ -11,20 +15,22 @@ def keys(text):
 
 class Memory:
     def __init__(self, path="data/memory.jsonl"):
-        self.path, self.items = path, []
+        self.path, self.items, self.exact = path, [], {}
         if os.path.exists(path):
             for l in open(path):
                 q, a = json.loads(l)
-                self.items.append((keys(q), q, a))
+                self.items.append((keys(q), q, a)); self.exact[norm(q)] = a
 
     def learn(self, q, a, persist=True):
-        self.items.append((keys(q), q, a))
+        self.items.append((keys(q), q, a)); self.exact[norm(q)] = a
         if persist:
             os.makedirs(os.path.dirname(self.path), exist_ok=True)
             with open(self.path, "a") as f:
                 f.write(json.dumps([q, a]) + "\n")
 
     def recall(self, q, thresh=0.55):
+        if norm(q) in self.exact:
+            return self.exact[norm(q)]
         k = keys(q)
         if not k:
             return None
