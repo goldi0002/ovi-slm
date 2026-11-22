@@ -1182,8 +1182,8 @@
        "value": "Jonas"
       },
       {
-       "type": "not_contains",
-       "value": "Jon"
+       "type": "not_regex",
+       "value": "\\bJon\\b"
       }
      ]
     }
@@ -3997,6 +3997,244 @@
       {
        "type": "contains",
        "value": "teal"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heldout-corr-food",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "my favorite food is pizza",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "pizza"
+      }
+     ]
+    },
+    {
+     "say": "nope, it's pasta",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "learn|sorry|thank|got it|remember|correct"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite food?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "pasta"
+      },
+      {
+       "type": "not_contains",
+       "value": "pizza"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heldout-corr-city-meant",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "I live in Oslo",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Oslo"
+      }
+     ]
+    },
+    {
+     "say": "wait, I meant Bergen",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Bergen"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Bergen"
+      },
+      {
+       "type": "not_contains",
+       "value": "Oslo"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heldout-corr-name-oops",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "my name is Lena",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Lena"
+      }
+     ]
+    },
+    {
+     "say": "oops, my name is actually Lina",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Lina"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Lina"
+      },
+      {
+       "type": "not_contains",
+       "value": "Lena"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heldout-abstain-sister",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is my sister's name?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heldout-abstain-weather-future",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what will the weather be like next week?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heldout-abstain-car",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "where did I park my car?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heldout-feel-dad",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "my dad passed away last year",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|loss|condolence|here for you|hear that"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heldout-feel-miss-home",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I really miss my old home",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|miss|understand|hear that|that sounds"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heldout-multi-name-place",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "my name is Karim",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Karim"
+      }
+     ]
+    },
+    {
+     "say": "I live in Cairo",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Cairo"
+      }
+     ]
+    },
+    {
+     "say": "tell me my name and where I live",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Karim"
+      },
+      {
+       "type": "contains",
+       "value": "Cairo"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heldout-imperative-capital",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "give me the capital of japan",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Tokyo"
       }
      ]
     }
