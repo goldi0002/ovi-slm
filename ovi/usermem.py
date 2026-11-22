@@ -10,6 +10,9 @@ _NL = rf"({_N}(?:(?:\s*,\s*and\s+|\s*,\s*|\s+and\s+|\s*&\s*){_N})*)"
 _FOCUS_RE = re.compile(rf"\bmy ({_ANY})(?:'s|s)?\b", re.I)
 _MULTI = re.compile(r",| and ")
 _PET_STMT = re.compile(rf"(?i:i (?:have|got|own|adopted|now have)) (?i:(a|an|one|two|three|four|five|\d+) )?(?:[a-z]+ )?({cc.ANIMAL_RE})\b[\s,:;-]*(?i:(?:called|named|they are called|they're called|their names are|names are|it's called|is called|are|is))?[\s,:;-]*(?:{_NL})?$")
+_HAVE_NUM = re.compile(rf"(?i:i (?:have|got|own|do have)) (?i:(a|an|one|two|three|four|five|\d+))(?i: (?:of them|myself|actually|too|at home))?[\s,:;-]*(?i:(?:called|named|they are called|they're called|their names are|names are|they are|they're|it's called|it's))?[\s,:;-]*(?:{_NL})?$")
+_ATTR = re.compile(rf"({_N}) (?i:is|was|looks|has) ((?i:(?:an? |the )?[a-z]+(?: and [a-z]+)?(?: [a-z]+)?))$")
+_Q_WHICH = re.compile(r"^which (?:one|cat|dog|pet|of them)(?: of them)? (?:is|was) ([a-z ]{2,20})$|^who(?:'s| is) ([a-z ]{2,20})$")
 _REL_STMT = re.compile(rf"(?i:my) (?i:({_ANY}))s?(?:'s)?(?i: name)?(?i: is| was)?(?i: called| named)? {_NL}$")
 _PRON_STMT = re.compile(rf"(?i:(?:his|her|its|their) names? (?:is|was|are|were)|(?:he|she|it) (?:is |was )?(?:called|named)|they(?:'re| are| were) (?:called|named)|(?:it's|they're|its name is|called|named)) {_NL}$")
 _BARE_NAMES = re.compile(rf"{_NL}$")
@@ -88,6 +91,25 @@ class UserMemory:
                 self._set_slot(f"count {animal}", str(k))
             self.focus = (animal, True)
             return f"Nice! What {'are they' if plural else 'is it'} called?"
+        r = _HAVE_NUM.match(m)
+        pet = self.like_animal if self.like_animal and len(self.history) - self.like_animal[1] <= 4 else (self.focus if self.focus and self.focus[0] in cc.ANIMALS else None)
+        if r and pet and not _COUNT.match(m):
+            animal, names = pet[0], cc.names_list(r.group(2) or "")
+            k = cc.NUMWORDS.get(r.group(1).lower()) or (int(r.group(1)) if r.group(1).isdigit() else None)
+            self.focus = (animal, False)
+            if names:
+                allnames = self._store_names(animal, names, merge=True)
+                self._set_slot(f"count {animal}", str(max(k or 0, len(allnames))))
+                return f"{cc.join_names(names)}, lovely {'names' if len(names) > 1 else 'name'}! I'll remember your {animal}{'s' if len(names) > 1 else ''}."
+            if k:
+                self._set_slot(f"count {animal}", str(k))
+            self.focus = (animal, True)
+            return f"Nice! What {'are they' if (k or 2) > 1 else 'is it'} called?"
+        r = _ATTR.match(m)
+        if r and self.focus and r.group(1) in cc.names_list(self._slot(self._label_slot(self.focus[0])) or ""):
+            nm, att = r.group(1), r.group(2).strip().lower()
+            self._set_slot(f"attr {nm.lower()}", att)
+            return f"Got it, {nm} is {att}."
         r = _REL_STMT.match(m)
         if r:
             label, names = _lab(r.group(1)), cc.names_list(r.group(2))
@@ -146,6 +168,13 @@ class UserMemory:
             if k and label in cc.ANIMALS:
                 self.focus = (label, True)
                 return f"You told me you have {k} {label}{'s' if k != '1' else ''}, but not their names. What are they called?"
+            return None
+        m = _Q_WHICH.match(n)
+        if m and self.focus:
+            want = (m.group(1) or m.group(2)).strip()
+            for nm in cc.names_list(self._slot(self._label_slot(self.focus[0])) or ""):
+                if self._slot(f"attr {nm.lower()}") == want:
+                    return f"{nm} is {want}."
             return None
         m = _Q_COUNT.match(n)
         if m:

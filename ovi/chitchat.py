@@ -91,7 +91,9 @@ SURE = re.compile(r"^(?:are|r) (?:you|u) (?:sure|certain|positive)(?: about (?:t
 WEATHER_YOU = re.compile(r"^(?:what(?:'s| is|s)|how(?:'s| is|s)) the weather(?: like)? (?:where you are|there|where you live|over there|for you)$|^is it (?:raining|sunny|cold|hot|snowing) (?:there|where you are)$")
 WHERE_YOU = re.compile(r"^where (?:are you|do you live|you from|are you from|do you come from|r u|u from)(?: right now| now)?$")
 AGE_YOU = re.compile(r"^how old are (?:you|u)$|^what(?:'s| is) your age$|^when (?:were you|was you) (?:born|made|created)$")
-WHO_YOU = re.compile(r"^(?:who|what) are (?:you|u)$|^who is this$|^what(?:'s| is| are) (?:you|u)$|^introduce yourself$|^tell me about yourself$|^tell me about you$|^who r u$")
+WHO_YOU = re.compile(r"^(?:who|what) are (?:you|u)$|^who is this$|^what(?:'s| is| are) (?:you|u)$|^introduce yourself$|^who r u$")
+ABOUT_YOU = re.compile(r"^(?:ok(?:ay)?[, ]+|so[, ]+|well[, ]+|hey[, ]+|can you |could you |please )*(?:tell me (?:something |a bit |a little |more )?about (?:yourself|you|u)|tell me more about (?:yourself|you)|talk (?:to me )?about yourself|describe yourself|say something about yourself|what are you like|what(?:'s| is) your story|so who are you really)(?: please)?$")
+ADVICE_REQ = re.compile(r"^(?:(?:ok|so|well|hmm|um|and|but|oh|yeah)[, ]+)*(?:do you have |you have |have you got |got |gotta |any |some |can i get |can you give me |could you give me |give me |i need |i could use |could use |need |want )(?:any |some |a few |one |more |other |good |your )*(?:advice|tips?|suggestions?|ideas?|pointers|recommendations?|thoughts|hints?|help)(?: for (?:me|that|this|it))?(?: on (?:that|this|it))?(?: please| then| here)?$")
 NAME_YOU = re.compile(r"^what(?:'s| is|s| are) your name$|^what do (?:i|people) call you$|^what should i call you$|^who are you called$|^your name\??$|^do you have a name$|^what is ur name$|^whats ur name$")
 MADE_YOU = re.compile(r"^who (?:made|built|created|wrote|programmed|trained|designed|invented) (?:you|u)$|^who(?:'s| is) your (?:creator|maker|developer|author)$|^who do you work for$")
 ROBOT = re.compile(r"^(?:are|r) (?:you|u) (?:a |an )?(?:robot|bot|ai|machine|computer|program|real|human|person|alive|a person|a human|a real person|an? (?:artificial|language model|llm)|real or fake|conscious|sentient|a girl|a boy|male|female)(?: or (?:a )?\w+)?$|^(?:are|r) (?:you|u) (?:a )?(?:language model|chatbot|chat bot)$|^(?:you|u) (?:a )?(?:robot|bot|human)$")
@@ -100,7 +102,7 @@ BODY = re.compile(r"^(?:do|does|can|did) (?:you|u|robots?|ais?|bots?|computers?)
 REMEMBER = re.compile(r"^(?:do|can|will|would) you (?:ever )?(?:remember|learn|keep|recall|store|forget)(?: things| stuff| what i say| what i tell you| everything| anything| facts)?(?: (?:about me|from me|that i say))?$|^do you have (?:a )?memory$|^will you remember (?:this|that|me|it)$")
 FEEL_YOU = re.compile(r"^do you (?:have )?(?:feelings?|emotions?|opinions?)$|^can you feel$|^do you (?:feel|get) (?:lonely|happy|sad|bored)$")
 LIKE_YOU = re.compile(r"^do you (?:like|love|enjoy|prefer|play|watch|read|listen to|follow|hate) (?:to )?(?:the |a |an |some )?([a-z][a-z' -]{1,40})$")
-FAV_YOU = re.compile(r"^(?:what(?:'s| is|s)|what are|who(?:'s| is)|which is|tell me) (?:your|ur) (?:favou?rite|fav|best) ([a-z ]{2,25})$|^what(?:'s| is| are) ([a-z ]{2,25}) do you (?:like|love|prefer)(?: best| most)?$|^(?:what|which) ([a-z]{3,15}) do you (?:like|love|prefer)(?: best| most| the most)?$")
+FAV_YOU = re.compile(r"^do you have an? (?:favou?rite|fav) ([a-z ]{2,25})$|^(?:what(?:'s| is|s)|what are|who(?:'s| is)|which is|tell me) (?:your|ur) (?:favou?rite|fav|best) ([a-z ]{2,25})$|^what(?:'s| is| are) ([a-z ]{2,25}) do you (?:like|love|prefer)(?: best| most)?$|^(?:what|which) ([a-z]{3,15}) do you (?:like|love|prefer)(?: best| most| the most)?$")
 FUN_YOU = re.compile(r"^what do you (?:like|love|enjoy) (?:to do|doing|about)(?: for fun)?$|^what do you do for fun$|^what are your hobbies$|^what(?:'s| is) your (?:hobby|passion)$|^what do you like$|^what do you like to do(?: for fun)?$")
 BETTER = re.compile(r"^who(?:'s| is) (?:better|best|smarter|faster|stronger|worse)(?: at \w+)?[, ]+(?:you or me|me or you)$|^(?:am i|are you) (?:better|worse) (?:at \w+ )?than (?:me|you)$")
 OPINION = re.compile(r"^(?:what do you think (?:about|of)|what(?:'s| is| are) your (?:opinion|thoughts|view|take) (?:on|about|of)|how do you feel about|what(?:'s| is) your (?:opinion|take)(?: on| about| of)?|do you think) ?(.*)$")
@@ -135,6 +137,10 @@ FAV_ANS = {
     "sport": "I can't play, but I like how chess feels like a sport. What's yours?", "season": "Spring sounds nice. What about you?",
     "number": "Seven. It feels lucky.", "word": "Curious. It's what I try to be.",
 }
+
+
+ABOUT_ME = ("I'm Ovi, a small companion that runs on a plain CPU. I remember things about you, like your name and what you like, "
+            "and I learn facts when you teach me. What about you?")
 
 
 def smalltalk(n, prev_user="", used=None, turn=0, name=""):
@@ -175,9 +181,15 @@ def smalltalk(n, prev_user="", used=None, turn=0, name=""):
         return "Thanks, that's kind of you!"
     if re.match(r"^(?:you(?:'re| are|r| re|re) |u r |ur )(?:so |really |very |pretty )?(?:dumb|stupid|useless|bad|terrible|annoying|boring|wrong|an idiot|awful|trash|garbage)$", n):
         return "Sorry I let you down. I'm a small program and I make mistakes. What went wrong?"
+    if ABOUT_YOU.match(n):
+        return ABOUT_ME
+    if re.match(r"^(?:you(?:'re| are|r|re) |u r |ur )(?:no fun|not fun|not funny|not helpful|no help|lame|not nice|mean|rude|weird|so slow|slow)$", n):
+        return "Sorry I let you down. I'm a small program and I make mistakes. What went wrong?"
     m = re.match(r"^(.{2,30}?)[, ]+(?:and )?(?:u|you|hbu|wbu|yourself)$", re.sub(r"\b(?:thanks|thank you|thx)\b[, ]*", "", n).strip())
     if m and not re.search(r"\b(?:are|do|did|can|will|would|have|is|what|how|why|who|where|thank|thanks|thx|bye|love|see|miss)\b", m.group(1)) and len(m.group(1).split()) <= 3:
         return "I'm doing well, thanks. What's on your mind today?"
+    if re.match(r"^(?:am i|are we) (?:your |ur )?(?:friends?)(?: now)?$|^(?:are we|am i) friends$", n):
+        return "I'd like to think so. I enjoy talking with you."
     if re.match(r"^do you like me$|^do you (?:like|enjoy) (?:talking|chatting) (?:to|with) me$|^do you like (?:us|this)$", n):
         return "I like talking with you, so yes, in my own small way."
     if re.match(r"^(?:what(?:'s| is|s)|how(?:'s| is|s)) the weather(?: like)?(?: today| now| outside| right now| tomorrow)?$|^is it (?:raining|sunny|cold|hot) (?:today|now|outside)$", n):
@@ -202,6 +214,8 @@ def smalltalk(n, prev_user="", used=None, turn=0, name=""):
         return _pick(["You're welcome!", "Anytime!", "Happy to help.", "No problem at all!"], used, "thx", turn)
     if BYE.match(n):
         return _pick([f"Goodbye{nm}! Talk to you soon.", "Bye! Come back whenever you want to chat.", "See you later! Take care."], used, "bye", turn)
+    if ABOUT_YOU.match(n):
+        return ABOUT_ME
     if WHO_YOU.match(n):
         return "I am Ovi, a tiny language model that lives in less than fifty megabytes."
     if NAME_YOU.match(n):
@@ -246,7 +260,7 @@ def smalltalk(n, prev_user="", used=None, turn=0, name=""):
         return "I like to chat with people and hear stories. What do you like to do?"
     m = FAV_YOU.match(n)
     if m:
-        sub = (m.group(1) or m.group(2) or m.group(3)).strip().split()[-1]
+        sub = next(g for g in m.groups() if g).strip().split()[-1]
         return FAV_ANS.get(sub, f"I don't really have a favorite {sub}, I'm a tiny program. What's yours?")
     m = LIKE_YOU.match(n)
     if m:
@@ -273,7 +287,7 @@ ADVICE_POOL = [
     "That sounds like a real decision. I don't know the whole situation, so what feels right to you?",
     "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?",
 ]
-BIG_DECISION = ("quit", "leave", "break up", "divorce", "move", "marry", "propose", "fire", "resign", "drop out", "tell", "give up", "stay", "go back", "change", "switch", "apply", "ask", "buy", "sell")
+BIG_DECISION = ("quit", "leave", "break up", "divorce", "move", "marry", "propose", "fire", "resign", "drop out", "give up", "stay", "go back", "change", "switch", "apply", "ask", "buy", "sell")
 
 
 def advice(msg, n, used, turn):
@@ -289,6 +303,17 @@ def advice(msg, n, used, turn):
     if any(rest.startswith(k) for k in BIG_DECISION):
         return "That's a big decision, and I don't know the whole story, so I can't tell you what's right. What's making you think about it?"
     return _pick(ADVICE_POOL, used, "adv", turn)
+
+
+def advice_request(n, topic, used, turn):
+    """'any tips?' / 'got any advice' / 'i need advice' -> supportive reply that asks for the context. None otherwise."""
+    if not ADVICE_REQ.match(n):
+        return None
+    if topic:
+        return _pick([f"I'd like to help, though I'm only a small program. Tell me a bit more about {topic} and what you've tried so far.",
+                      f"Happy to think it through with you. What's going on with {topic}, and what's the hardest part?"], used, "advreq", turn)
+    return _pick(["I'd like to help, though I'm only a small program. Tell me a bit more about what's going on and what you've tried so far.",
+                  "Happy to think it through with you. What's the situation, and what part is the hardest?"], used, "advreq", turn)
 
 
 def plan_reply(n, used, turn):
