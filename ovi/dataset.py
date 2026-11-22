@@ -55,14 +55,23 @@ def cornell_pairs(max_pairs=90000, max_words=22):
 
 
 def build(path="ovi_pairs.bin"):
-    from .facts import all_facts
-    c, m = chatterbot_pairs(), cornell_pairs()
-    fp, ents = all_facts()
+    """Default: ChatterBot + real dialogue data (DailyDialog / EmpatheticDialogues / PersonaChat).
+    Optional extras (off by default): OVI_CORNELL=1 movie lines, OVI_FACTS=1 country/element facts."""
+    import os
+    from . import dialogue
+    c = chatterbot_pairs()
+    tr, te = dialogue.splits()
+    d = [("d", q, a) for q, a, _ in dialogue.dedupe(tr + te)]
+    m = cornell_pairs() if os.environ.get("OVI_CORNELL") else []
+    fp, ents = ([], [])
+    if os.environ.get("OVI_FACTS"):
+        from .facts import all_facts
+        fp, ents = all_facts()
     f = [("f", q, a) for q, a in fp] + [("e", n, k) for n, k in ents]
-    tsv = "\n".join("\t".join(p) for p in c + m + f)
+    tsv = "\n".join("\t".join(p) for p in c + d + m + f)
     open(path, "wb").write(zlib.compress(tsv.encode(), 9))
     import os
-    print(f"chatterbot pairs: {len(c)}, cornell pairs: {len(m)}, fact pairs: {len(fp)}, entities: {len(ents)}, file: {os.path.getsize(path)/1e6:.2f} MB")
+    print(f"chatterbot pairs: {len(c)}, dialogue pairs: {len(d)}, cornell pairs: {len(m)}, fact pairs: {len(fp)}, entities: {len(ents)}, file: {os.path.getsize(path)/1e6:.2f} MB")
 
 
 def load(path="ovi_pairs.bin"):

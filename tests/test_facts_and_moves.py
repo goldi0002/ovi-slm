@@ -3,7 +3,11 @@ import os, tempfile
 from ovi.brain import Brain
 b = Brain(log=os.path.join(tempfile.mkdtemp(), "b.jsonl")); say = lambda m: b.converse(m).text
 fails = []; N = 0
+FACTS = bool(b.entities)
+NEEDS_FACTS = {'capital spain','follow-up swap italy','follow-up swap what about','currency','population','continent','reverse capital','element symbol','element follow-up','element number','discoverer','trivia','capital australia (was wrong before)','entity mention'}
 def check(name, got, cond):
+    if name in NEEDS_FACTS and not FACTS:
+        print('SKIP', name, '(facts not built: OVI_FACTS=1 python -m ovi.dataset)'); return
     global N; N += 1; ok = cond(got); print(("PASS" if ok else "FAIL"), name, "->", got[:100])
     if not ok: fails.append(name)
 check("capital spain", say("what is the capital of spain?"), lambda t: "Madrid" in t)

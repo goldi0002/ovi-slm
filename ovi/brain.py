@@ -8,13 +8,13 @@ Every memory is an Entry(question, answer, source, confidence, hits, misses).
 """
 import json, os, re, time
 from dataclasses import dataclass, field
-from .memory import norm, keys
+from .memory import norm, keys, toks
 from .retrieval import Index
 from .seed_chat import PAIRS
 from . import dataset
 from .fast import Ovi as _Base  # tokenizer + n-gram LM (for stories)
 
-TRUST = {"fact": 0.95, "seed": 1.0, "taught": 1.0, "cb": 0.9, "learned": 0.8, "movie": 0.5}
+TRUST = {"dlg": 0.85, "fact": 0.95, "seed": 1.0, "taught": 1.0, "cb": 0.9, "learned": 0.8, "movie": 0.5}
 ANSWER, HEDGE = 0.65, 0.45
 QWORD = re.compile(r"^(what|who|whom|whose|where|when|why|how|which|is|are|was|were|do|does|did|can|could|will|would|should|tell|explain|define|translate|give|show|say|list|name)\b", re.I)
 STOPW = set("this that with have what they them then than there about would could should really very just like your mine been were will from into some more".split())
@@ -36,7 +36,7 @@ class Answer:
 class Brain:
     def __init__(self, log=LOG, builtin=True):
         self.log = log
-        self.base = _Base() if builtin else None
+        self.base = _Base(light=True) if builtin else None
         self.entries, self.index, self.exact = [], Index(), {}
         self.key = {}
         self.last = None            # last Answer given
@@ -49,14 +49,15 @@ class Brain:
                     if kind == "e":
                         self.entities[q.lower()] = a
                     else:
-                        self._add(q, a, {"c": "cb", "m": "movie", "f": "fact"}[kind])
+                        self._add(q, a, {"c": "cb", "m": "movie", "f": "fact", "d": "dlg"}[kind])
             for q, a in PAIRS:
                 self._add(q, a, "seed")
         self._replay()
 
     # ---------- storage ----------
     def _add(self, q, a, src, conf=1.0):
-        k = (norm(q), a)
+        tk = toks(q); nq = " ".join(tk)
+        k = (nq, a)
         if k in self.key:                      # duplicate: strengthen instead of re-adding
             e = self.entries[self.key[k]]
             e.conf = min(1.0, e.conf + 0.1)
@@ -65,8 +66,8 @@ class Brain:
             return self.key[k]
         i = len(self.entries)
         self.entries.append(Entry(q, a, src, conf)); self.key[k] = i
-        self.index.add(q, a)
-        self.exact.setdefault(norm(q), []).append(i)
+        self.index.add(q, a, tk)
+        self.exact.setdefault(nq, []).append(i)
         return i
 
     def _write(self, ev):
@@ -123,16 +124,21 @@ class Brain:
         self.pending = None
         self.last_q = msg
         if STORY.search(msg) and self.base:
-            self.last = Answer(self.base.say(msg + " "), 0.2, "ngram", "creative mode: generated, not recalled")
+            self.last = Answer(self.base.gen(msg + " "), 0.2, "ngram", "creative mode: generated, not recalled")
             return self.last
         r = self.recall(msg)
         isq = msg.endswith("?") or bool(QWORD.match(msg))
         if r and not isq and self.entries[r[0]].src == "movie":
-            r = None                          # statements: don't answer with a random movie line, use a conversational move
+            r = None
+        if r and self.entries[r[0]].src == "dlg" and (norm(msg) in self.ACK or self._feeling(msg)):
+            r = None                          # acknowledgements / stated feelings: use the careful rules instead                          # statements: don't answer with a random movie line, use a conversational move
         c = self.conf_of(*r) if r else 0.0
-        if r and c >= HEDGE:
+        ath, hth = ANSWER, HEDGE
+        if r and self.entries[r[0]].src == "dlg":     # chit-chat replies: answer plainly, no hedging
+            ath = hth = 0.5 if isq else 0.4
+        if r and c >= hth:
             e = self.entries[r[0]]; e.hits += 1
-            text = e.a if c >= ANSWER else f"I'm not fully sure, but: {e.a}"
+            text = e.a if c >= ath else f"I'm not fully sure, but: {e.a}"
             self.last = Answer(text, c, e.src, f"matched '{e.q}' (score {r[1]:.2f}, src {e.src}, conf {e.conf:.2f})", r[0])
             return self.last
         if not (msg.endswith("?") or QWORD.match(msg)):
@@ -163,6 +169,10 @@ class Brain:
         old = self._find_entity(prev)
         if new and old and new[1] == old[1] and len(norm(core).split()) <= len(norm(new[0]).split()) + 1:
             return re.sub(re.escape(old[0]), new[0], prev, flags=re.I)
+        # generic: "what is the capital of france?" + "and japan?" -> replace the question's last words
+        cw, pw = core.split(), prev.rstrip("?!. ").split()
+        if 1 <= len(cw) <= 2 and len(pw) >= len(cw) + 2 and not QWORD.match(core):
+            return " ".join(pw[:-len(cw)] + cw) + "?"
         return None
 
     MOODS = {
@@ -175,6 +185,12 @@ class Brain:
     }
     PAST = re.compile(r"^i (went|ate|saw|watched|played|bought|visited|met|read|made|had|got|started|finished|tried|took)\b", re.I)
     ACK = {"ok", "okay", "cool", "nice", "lol", "haha", "yes", "yeah", "yep", "no", "nope", "sure", "hmm", "wow", "thanks", "thank you", "great", "fine", "alright"}
+
+    def _feeling(self, msg):
+        n = norm(msg)
+        if not re.match(r"(i|i'm|im|i am|i feel|i got|we)\b", n):
+            return False
+        return any(re.search(rf"\b({pat})\b", n) for pat, _ in self.MOODS.values())
 
     def _likes(self):
         i = self.exact.get("what do i like")
@@ -289,7 +305,8 @@ class Brain:
                 why = {"taught": "Because you told me so.", "learned": "Because you taught me that earlier.",
                        "seed": "That is how I was built to answer.", "cb": "I learned it from a conversation corpus.",
                        "movie": "I only half remember it from movie dialogue, so I might be wrong.",
-                       "fact": "It comes from the facts table I was built with."}[e.src]
+                       "fact": "It comes from the facts table I was built with.",
+                       "dlg": "That is how people replied in the conversations I learned from."}[e.src]
                 self.last_q = msg
                 return Answer(why, 0.9, "meta", "explaining the previous answer's source")
             swapped = self._swap_entity(prev, msg) if prev else None
@@ -306,6 +323,8 @@ class Brain:
                 expanded = self.recall(f"{prev} {msg}")
                 cp = self.conf_of(*plain) if plain else 0.0
                 ce = self.conf_of(*expanded) if expanded else 0.0
+                if plain and self.entries[plain[0]].src == "dlg":
+                    cp = 0.0                  # a chit-chat line for 'and japan?' is not a real answer
                 if ce >= HEDGE and ce > cp:
                     e = self.entries[expanded[0]]; e.hits += 1
                     self.last_q = f"{prev} {msg}"

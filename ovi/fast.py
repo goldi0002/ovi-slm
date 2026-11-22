@@ -42,9 +42,11 @@ def load():
 
 
 class Ovi:
-    def __init__(self):
+    def __init__(self, light=False):
         self.tok = Tokenizer.from_file(TOK)
         self.lm = load()
+        if light:                       # Brain only needs the tokenizer + n-gram LM
+            return
         self.mem = Memory()
         self.cb, self.movie = Index(), Index()
         if os.path.exists("ovi_pairs.bin"):
@@ -63,6 +65,10 @@ class Ovi:
             hit = ix.best(msg, th)
             if hit:
                 return hit[0]
+        return self.gen(msg, n)
+
+    def gen(self, msg, n=40):
+        """Free text from the n-gram LM seeded with the last two tokens of msg (no memory lookup)."""
         ctx = self.tok.encode(msg).ids[-2:]
         out = self.lm.sample(ctx, n, temp=0.7)
         text = self.tok.decode(out).strip().replace("\n", " ")

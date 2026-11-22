@@ -4,8 +4,11 @@ import json, os, re
 STOP = set("a an the is are was were be do does did of to in on at my your you i me it this that and or what who where when how why which".split())
 
 
+_TOK = re.compile(r"[a-z0-9]+(?:'[a-z0-9]+)*")
+
+
 def toks(t):
-    return [w for w in (x.strip("'") for x in re.findall(r"[a-z0-9']+", t.lower())) if w]
+    return _TOK.findall(t.lower())
 
 
 def norm(t):

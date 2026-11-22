@@ -10,9 +10,9 @@ class Index:
         self.q, self.a = [], []
         self.inv = defaultdict(list)
 
-    def add(self, q, a):
+    def add(self, q, a, ws=None):
         i = len(self.q)
-        ws = set(toks(q))
+        ws = set(toks(q)) if ws is None else set(ws)
         self.q.append(ws); self.a.append(a)
         for w in ws:
             self.inv[w].append(i)
