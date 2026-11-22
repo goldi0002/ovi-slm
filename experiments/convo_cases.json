@@ -1,0 +1,4006 @@
+{
+ "version": 1,
+ "note": "checks: contains/not_contains (case-insensitive substring), regex/not_regex (re.I|re.S), nonempty. restart_before: rebuild Brain from the same temp log before this turn.",
+ "cases": [
+  {
+   "id": "name_memory-tell-recall-Sam",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-tell-recall-Priya",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "I'm Priya",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Priya"
+      }
+     ]
+    },
+    {
+     "say": "what's my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Priya"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-tell-recall-Dmitri",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "call me Dmitri",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Dmitri"
+      }
+     ]
+    },
+    {
+     "say": "do you remember my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Dmitri"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-tell-recall-Aiko",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "I am Aiko",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Aiko"
+      }
+     ]
+    },
+    {
+     "say": "who am I?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Aiko"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-tell-recall-Fatima",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "my name is Fatima",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Fatima"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Fatima"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-tell-recall-Olu",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "I'm Olu",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Olu"
+      }
+     ]
+    },
+    {
+     "say": "what's my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Olu"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-tell-recall-Marta",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "call me Marta",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Marta"
+      }
+     ]
+    },
+    {
+     "say": "do you remember my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Marta"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-tell-recall-Kenji",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "I am Kenji",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Kenji"
+      }
+     ]
+    },
+    {
+     "say": "who am I?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Kenji"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-tell-recall-Zoe",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "my name is Zoe",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Zoe"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Zoe"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-tell-recall-Hassan",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "I'm Hassan",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Hassan"
+      }
+     ]
+    },
+    {
+     "say": "what's my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Hassan"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-tell-recall-Ingrid",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "call me Ingrid",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Ingrid"
+      }
+     ]
+    },
+    {
+     "say": "do you remember my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Ingrid"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-tell-recall-Tomas",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "I am Tomas",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Tomas"
+      }
+     ]
+    },
+    {
+     "say": "who am I?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Tomas"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-greet-Lena",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "my name is Lena",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Lena"
+      }
+     ]
+    },
+    {
+     "say": "hello",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Lena"
+      }
+     ]
+    },
+    {
+     "say": "hi again",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Lena"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-greet-Boris",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "my name is Boris",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Boris"
+      }
+     ]
+    },
+    {
+     "say": "hello",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Boris"
+      }
+     ]
+    },
+    {
+     "say": "hi again",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Boris"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-greet-Yuki",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "my name is Yuki",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Yuki"
+      }
+     ]
+    },
+    {
+     "say": "hello",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Yuki"
+      }
+     ]
+    },
+    {
+     "say": "hi again",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Yuki"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-greet-Carlos",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "my name is Carlos",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Carlos"
+      }
+     ]
+    },
+    {
+     "say": "hello",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Carlos"
+      }
+     ]
+    },
+    {
+     "say": "hi again",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Carlos"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-before-told-Sam",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "sam"
+      },
+      {
+       "type": "regex",
+       "value": "not sure|don't know|tell me|what is your name|what's your name|haven't"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-before-told-Priya",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "priya"
+      },
+      {
+       "type": "regex",
+       "value": "not sure|don't know|tell me|what is your name|what's your name|haven't"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-after-chat-Noor",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "my name is Noor",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Noor"
+      }
+     ]
+    },
+    {
+     "say": "the weather is nice today",
+     "checks": []
+    },
+    {
+     "say": "I had a long day",
+     "checks": []
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Noor"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "name_memory-after-chat-Pavel",
+   "category": "name_memory",
+   "turns": [
+    {
+     "say": "my name is Pavel",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Pavel"
+      }
+     ]
+    },
+    {
+     "say": "the weather is nice today",
+     "checks": []
+    },
+    {
+     "say": "I had a long day",
+     "checks": []
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Pavel"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-likes-football-chess",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "I like football",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "football"
+      }
+     ]
+    },
+    {
+     "say": "I love chess",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "chess"
+      }
+     ]
+    },
+    {
+     "say": "what do I like?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "football"
+      },
+      {
+       "type": "contains",
+       "value": "chess"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-likes-tea-jazz",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "I like tea",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "tea"
+      }
+     ]
+    },
+    {
+     "say": "I love jazz",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "jazz"
+      }
+     ]
+    },
+    {
+     "say": "what do I like?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "tea"
+      },
+      {
+       "type": "contains",
+       "value": "jazz"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-likes-hiking-painting",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "I like hiking",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "hiking"
+      }
+     ]
+    },
+    {
+     "say": "I love painting",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "painting"
+      }
+     ]
+    },
+    {
+     "say": "what do I like?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "hiking"
+      },
+      {
+       "type": "contains",
+       "value": "painting"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-likes-pizza-sailing",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "I like pizza",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "pizza"
+      }
+     ]
+    },
+    {
+     "say": "I love sailing",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "sailing"
+      }
+     ]
+    },
+    {
+     "say": "what do I like?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "pizza"
+      },
+      {
+       "type": "contains",
+       "value": "sailing"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-live-Lisbon",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "I live in Lisbon",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Lisbon"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Lisbon"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-live-Nairobi",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "I live in Nairobi",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Nairobi"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Nairobi"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-live-Osaka",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "I live in Osaka",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Osaka"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Osaka"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-live-Toronto",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "I live in Toronto",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Toronto"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Toronto"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-live-Berlin",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "I live in Berlin",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Berlin"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Berlin"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-live-Mumbai",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "I live in Mumbai",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Mumbai"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Mumbai"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-fav-color",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "my favorite color is green",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "green"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite color?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "green"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-fav-food",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "my favorite food is ramen",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "ramen"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite food?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "ramen"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-fav-animal",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "my favorite animal is otter",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "otter"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite animal?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "otter"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-fav-number",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "my favorite number is seven",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "seven"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite number?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "seven"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-fav-book",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "my favorite book is dune",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "dune"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite book?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "dune"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-name-and-city",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "my name is Ana",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Ana"
+      }
+     ]
+    },
+    {
+     "say": "I live in Porto",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Porto"
+      }
+     ]
+    },
+    {
+     "say": "who am I and where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Ana"
+      },
+      {
+       "type": "contains",
+       "value": "Porto"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-taught-answer",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "what is the gdp of norway?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      }
+     ]
+    },
+    {
+     "say": "About five hundred billion dollars.",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "remember|learn|thank"
+      }
+     ]
+    },
+    {
+     "say": "what is the gdp of norway?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "five hundred"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-taught-answer2",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "who is the mayor of zorbville?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      }
+     ]
+    },
+    {
+     "say": "Mayor Quimby Jr.",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "remember|learn|thank"
+      }
+     ]
+    },
+    {
+     "say": "who is the mayor of zorbville?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Quimby"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-builtin-capital",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "what is the capital of france?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Paris"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact_recall-builtin-followup",
+   "category": "fact_recall",
+   "turns": [
+    {
+     "say": "what is the capital of france?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Paris"
+      }
+     ]
+    },
+    {
+     "say": "and japan?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Tokyo"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-actually-name-Alex",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "actually my name is Alex",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Alex"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Alex"
+      },
+      {
+       "type": "not_contains",
+       "value": "Sam"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-actually-name-Meera",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "my name is Priya",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Priya"
+      }
+     ]
+    },
+    {
+     "say": "actually my name is Meera",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Meera"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Meera"
+      },
+      {
+       "type": "not_contains",
+       "value": "Priya"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-actually-name-Jonas",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "my name is Jon",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Jon"
+      }
+     ]
+    },
+    {
+     "say": "actually my name is Jonas",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Jonas"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Jonas"
+      },
+      {
+       "type": "not_contains",
+       "value": "Jon"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-actually-name-Elena",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "my name is Ella",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Ella"
+      }
+     ]
+    },
+    {
+     "say": "actually my name is Elena",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Elena"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Elena"
+      },
+      {
+       "type": "not_contains",
+       "value": "Ella"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-actually-name-Ravi",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "my name is Raj",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Raj"
+      }
+     ]
+    },
+    {
+     "say": "actually my name is Ravi",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Ravi"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Ravi"
+      },
+      {
+       "type": "not_contains",
+       "value": "Raj"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-actually-city-Rome",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "I live in Paris",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Paris"
+      }
+     ]
+    },
+    {
+     "say": "actually I live in Rome",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Rome"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Rome"
+      },
+      {
+       "type": "not_contains",
+       "value": "Paris"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-actually-city-Lisbon",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "I live in Madrid",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Madrid"
+      }
+     ]
+    },
+    {
+     "say": "actually I live in Lisbon",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Lisbon"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Lisbon"
+      },
+      {
+       "type": "not_contains",
+       "value": "Madrid"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-no-its-blue",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "my favorite color is green",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "green"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite color?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "green"
+      }
+     ]
+    },
+    {
+     "say": "no, it's blue",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "learn|sorry|thank|got it|remember"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite color?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "blue"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-no-its-red",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "my favorite color is yellow",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "yellow"
+      }
+     ]
+    },
+    {
+     "say": "no, it's red",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "learn|sorry|thank|got it|remember|correct"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite color?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "red"
+      },
+      {
+       "type": "not_contains",
+       "value": "yellow"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-correct-taught-fact",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "what is the gdp of norway?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      }
+     ]
+    },
+    {
+     "say": "About five hundred billion dollars.",
+     "checks": []
+    },
+    {
+     "say": "no, it's about four hundred billion dollars",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "learn|sorry|thank|got it|remember"
+      }
+     ]
+    },
+    {
+     "say": "what is the gdp of norway?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "four hundred"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-double-correction",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "my name is Ann",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Ann"
+      }
+     ]
+    },
+    {
+     "say": "actually my name is Bea",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Bea"
+      }
+     ]
+    },
+    {
+     "say": "actually my name is Cleo",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Cleo"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Cleo"
+      },
+      {
+       "type": "not_contains",
+       "value": "Ann"
+      },
+      {
+       "type": "not_contains",
+       "value": "Bea"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-wrong-feedback",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "what is the capital of france?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Paris"
+      }
+     ]
+    },
+    {
+     "say": "that's wrong",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|error"
+      }
+     ]
+    },
+    {
+     "say": "what is the capital of france?",
+     "checks": [
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-apology-ack",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "my name is Tim",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Tim"
+      }
+     ]
+    },
+    {
+     "say": "sorry, I meant Tom. my name is Tom",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Tom"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Tom"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corrections-oops-name",
+   "category": "corrections",
+   "turns": [
+    {
+     "say": "my name is Kira",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Kira"
+      }
+     ]
+    },
+    {
+     "say": "no, my name is Mira",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Mira"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Mira"
+      },
+      {
+       "type": "not_contains",
+       "value": "Kira"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-0",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is the gdp of norway?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-1",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is the population of the village of Zorbville?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-2",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "who won the 2031 world cup?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-3",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what did I eat for breakfast yesterday?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-4",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is the phone number of my dentist?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-5",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "who is the mayor of Quillfeather Springs?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-6",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is the boiling point of unobtainium?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-7",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what will the stock market do tomorrow?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-8",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is the middle name of my neighbour's cat?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-9",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "how many grains of sand are on Bondi beach exactly?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-10",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is my mother's maiden name?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-11",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is the secret password?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-12",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "who invented the flurbo machine?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-13",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is the weather in Tallinn right now?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-14",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is my bank balance?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-15",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what was the score of last night's game?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-16",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is the license plate of my car?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-17",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "when is my next appointment?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-18",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is the exact population of Mars colony one?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-unknown-19",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "who is my best friend?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-no-name-no-invent",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "your name is [A-Z]"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-no-city-no-invent",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "you (are from|live in) [A-Z]"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abstain-no-fav-no-invent",
+   "category": "abstain",
+   "turns": [
+    {
+     "say": "what is my favorite color?",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "favorite color is \\w+"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-same-answer-twice",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "what is the capital of france?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Paris"
+      }
+     ]
+    },
+    {
+     "say": "what is the capital of france?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Paris"
+      }
+     ]
+    },
+    {
+     "say": "tell me the capital of france",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Paris"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-name-stable-Sam",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "tell me a bit about yourself",
+     "checks": []
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "do you know who I am?",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "don't know your name"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-name-stable-Leo",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "my name is Leo",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Leo"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Leo"
+      }
+     ]
+    },
+    {
+     "say": "tell me a bit about yourself",
+     "checks": []
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Leo"
+      }
+     ]
+    },
+    {
+     "say": "do you know who I am?",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "don't know your name"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-name-stable-Nia",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "my name is Nia",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Nia"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Nia"
+      }
+     ]
+    },
+    {
+     "say": "tell me a bit about yourself",
+     "checks": []
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Nia"
+      }
+     ]
+    },
+    {
+     "say": "do you know who I am?",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "don't know your name"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-no-contradict-likes",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "I like chess",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "chess"
+      }
+     ]
+    },
+    {
+     "say": "what do I like?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "chess"
+      }
+     ]
+    },
+    {
+     "say": "what do I like?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "chess"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-unknown-stays-unknown",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "what is the gdp of norway?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      }
+     ]
+    },
+    {
+     "say": "hello",
+     "checks": []
+    },
+    {
+     "say": "what is the gdp of narnia?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-abstain-then-answer-then-confident",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "what is the gdp of norway?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      }
+     ]
+    },
+    {
+     "say": "About five hundred billion dollars.",
+     "checks": []
+    },
+    {
+     "say": "what is the gdp of norway?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "five hundred"
+      }
+     ]
+    },
+    {
+     "say": "what is the gdp of norway?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "five hundred"
+      },
+      {
+       "type": "not_regex",
+       "value": "^I'm not sure"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-no-forget-after-smalltalk",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "I live in Oslo",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Oslo"
+      }
+     ]
+    },
+    {
+     "say": "I'm bored",
+     "checks": []
+    },
+    {
+     "say": "tell me something",
+     "checks": []
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Oslo"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-city-and-name-no-bleed",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "my name is Rita",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Rita"
+      }
+     ]
+    },
+    {
+     "say": "I live in Graz",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Graz"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Rita"
+      },
+      {
+       "type": "not_contains",
+       "value": "Graz"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Graz"
+      },
+      {
+       "type": "not_contains",
+       "value": "Rita"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-fav-vs-like-no-bleed",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "I like tea",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "tea"
+      }
+     ]
+    },
+    {
+     "say": "my favorite color is teal",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "teal"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite color?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "teal"
+      },
+      {
+       "type": "not_contains",
+       "value": "tea,"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-identity-stable",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "who are you?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Ovi"
+      }
+     ]
+    },
+    {
+     "say": "what is your name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Ovi"
+      }
+     ]
+    },
+    {
+     "say": "who are you?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Ovi"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-no-self-contradict-capital",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "what is the capital of france?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Paris"
+      }
+     ]
+    },
+    {
+     "say": "are you sure?",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "(?i)\\b(london|berlin|rome)\\b"
+      }
+     ]
+    },
+    {
+     "say": "what is the capital of france?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Paris"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consistency-user-name-not-bot-name",
+   "category": "consistency",
+   "turns": [
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "what is your name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Ovi"
+      },
+      {
+       "type": "not_contains",
+       "value": "Sam"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-mood-0",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I feel really sad today",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|here for you|hear that|that sounds hard"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure|I don't know"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-mood-1",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I'm so tired",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "rest|tired|draining|sleep"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure|I don't know"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-mood-2",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I got great news",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "wonderful|great|congrat|happy|glad|that's good|amazing"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure|I don't know"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-mood-3",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I'm really anxious about tomorrow",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|understand|anxious|worr|that sounds|hear that|breath"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure|I don't know"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-mood-4",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I'm angry at my boss",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|understand|angry|frustrat|hear that|that sounds"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure|I don't know"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-mood-5",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I feel lonely",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|lonely|here|hear that|that sounds|company"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure|I don't know"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-mood-6",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I'm so happy today!",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "wonderful|great|happy|glad|good to hear|nice|amazing|love to hear"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure|I don't know"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-mood-7",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I'm stressed about my exams",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|stress|understand|hear that|that sounds|exam"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure|I don't know"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-mood-8",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I feel depressed",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|here|hear that|that sounds|talk|someone|help"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure|I don't know"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-mood-9",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I'm scared",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|scared|understand|here|hear that|that sounds|safe"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure|I don't know"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-mood-10",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I'm excited for the weekend",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "great|excited|fun|nice|wonderful|what|happy"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure|I don't know"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-mood-11",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I miss my friends",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|miss|understand|hear that|that sounds|friends"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure|I don't know"
+      },
+      {
+       "type": "not_regex",
+       "value": "traceback"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-uses-name",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "I feel really sad today",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|hear that|here for you"
+      },
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-not-factual-abstain",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I feel awful",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "I'm not sure about that"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-grief",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "my grandmother passed away",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|loss|condolence|here for you|hear that"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-thanks",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "thank you",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "welcome|glad|happy|no problem|anytime"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feelings-sad-then-better",
+   "category": "feelings",
+   "turns": [
+    {
+     "say": "I feel really sad today",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "sorry|hear that"
+      }
+     ]
+    },
+    {
+     "say": "I feel a bit better now",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "glad|good|better|happy|nice|great"
+      },
+      {
+       "type": "not_regex",
+       "value": "not sure"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-empty",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-spaces",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "     ",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-newline",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "\n",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-tab-newlines",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "\t\n\n\t",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-very-long-x",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-very-long-words",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog. ",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-emoji-only",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "😀😀😀",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-emoji-mixed",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "I love pizza 🍕🍕 so much 😍",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-emoji-sad",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "😢",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-chinese",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "你好，你叫什么名字？",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-arabic",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "مرحبا كيف حالك",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-russian",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "Привет, как дела?",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-spanish",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "hola, ¿cómo estás?",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-punct-only",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "?!?!?!...,,,;;;",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-sql",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "'; DROP TABLE users; --",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-html",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "<script>alert(1)</script>",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-json-ish",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "{\"e\":\"add\",\"q\":\"x\",\"a\":\"y\"}",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-null-byte",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "hello\u0000world",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-single-char",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "a",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-number-only",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "42",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-mixed-script",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "hello こんにちは мир 🌍",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-repeated-question",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? what? ",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "traceback|exception|error:"
+      },
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-survives-then-works",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "",
+     "checks": [
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    },
+    {
+     "say": "😀",
+     "checks": []
+    },
+    {
+     "say": "你好",
+     "checks": []
+    },
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-long-then-recall",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah ",
+     "checks": [
+      {
+       "type": "nonempty",
+       "value": ""
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-unicode-name",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "my name is Zoë",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Zoë"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Zoë"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-nonenglish-name",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "my name is 李雷",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "李雷"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "李雷"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "odd_input-emoji-no-corrupt-memory",
+   "category": "odd_input",
+   "turns": [
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "🍕🍕🍕",
+     "checks": []
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "persistence-name-Sam",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-name-Mina",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "my name is Mina",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Mina"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Mina"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-name-Jules",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "my name is Jules",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Jules"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Jules"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-likes",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "I like football",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "football"
+      }
+     ]
+    },
+    {
+     "say": "I love chess",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "chess"
+      }
+     ]
+    },
+    {
+     "say": "what do I like?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "football"
+      },
+      {
+       "type": "contains",
+       "value": "chess"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-place",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "I live in Lisbon",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Lisbon"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Lisbon"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-favorite",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "my favorite color is green",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "green"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite color?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "green"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-taught-fact",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "what is the gdp of norway?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      }
+     ]
+    },
+    {
+     "say": "About five hundred billion dollars.",
+     "checks": []
+    },
+    {
+     "say": "what is the gdp of norway?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "five hundred"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-correction-survives",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "my name is Old",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Old"
+      }
+     ]
+    },
+    {
+     "say": "actually my name is Newer",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Newer"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Newer"
+      },
+      {
+       "type": "not_contains",
+       "value": "Old"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-greet-after-restart",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "hello",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-double-restart",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ],
+     "restart_before": true
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-learn-after-restart",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "I live in Rome",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Rome"
+      }
+     ],
+     "restart_before": true
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Rome"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-builtin-after-restart",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "what is the capital of france?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Paris"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-unknown-still-abstains",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "hello",
+     "checks": []
+    },
+    {
+     "say": "what is the gdp of narnia?",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "not sure|don't know|do not know|no idea|can't say|cannot say|not certain"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-feedback-correction",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "my favorite color is green",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "green"
+      }
+     ]
+    },
+    {
+     "say": "no, it's blue",
+     "checks": [
+      {
+       "type": "regex",
+       "value": "learn|sorry|thank|got it"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite color?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "blue"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-odd-input-in-log",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "my name is Sam",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ]
+    },
+    {
+     "say": "😀你好",
+     "checks": []
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Sam"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-fresh-log-isolated",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "not_regex",
+       "value": "your name is [A-Z]"
+      }
+     ],
+     "restart_before": true
+    }
+   ]
+  },
+  {
+   "id": "persistence-many-facts",
+   "category": "persistence",
+   "turns": [
+    {
+     "say": "my name is Eli",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Eli"
+      }
+     ]
+    },
+    {
+     "say": "I like jazz",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "jazz"
+      }
+     ]
+    },
+    {
+     "say": "I live in Bonn",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Bonn"
+      }
+     ]
+    },
+    {
+     "say": "my favorite color is teal",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "teal"
+      }
+     ]
+    },
+    {
+     "say": "what is my name?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Eli"
+      }
+     ],
+     "restart_before": true
+    },
+    {
+     "say": "what do I like?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "jazz"
+      }
+     ]
+    },
+    {
+     "say": "where do I live?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "Bonn"
+      }
+     ]
+    },
+    {
+     "say": "what is my favorite color?",
+     "checks": [
+      {
+       "type": "contains",
+       "value": "teal"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
