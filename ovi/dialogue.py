@@ -115,3 +115,30 @@ def dedupe(pairs, max_pairs=None):
             continue
         seen.add(k); out.append((q, a, t))
     return out[:max_pairs] if max_pairs else out
+
+
+def triples(split, kind):
+    """(history, reply) with up to 3 previous turns. kind: 'daily' or 'emp'. history[-1] is the message being answered."""
+    out = []
+    if kind == "daily":
+        path = f"data/hf/x/{split}.jsonl"
+        if not os.path.exists(path):
+            return out
+        convs = [[detok(t["value"]) for t in json.loads(l)["conversations"] if t["from"] != "system"] for l in open(path, encoding="utf-8")]
+        for c in convs:
+            for i in range(2, len(c)):
+                h, r = c[max(0, i - 3):i], c[i]
+                if _ok(h[-1], 1, 40) and _ok(r, 2, 32) and not claims_human(r):
+                    out.append((h, r))
+    else:
+        path = f"data/hf/ed/empatheticdialogues/{split}.csv"
+        df = pd.read_csv(path, on_bad_lines="skip", engine="python")
+        df["utterance_idx"] = pd.to_numeric(df["utterance_idx"], errors="coerce"); df = df.dropna(subset=["utterance_idx"])
+        for cid, g in df.groupby("conv_id", sort=False):
+            c = [detok(u) for u in g.sort_values("utterance_idx")["utterance"].astype(str)]
+            for i in range(1, len(c)):                 # listener replies sit at odd list positions (even utterance_idx)
+                if i % 2 == 1 and i >= 2:
+                    h, r = c[max(0, i - 3):i], c[i]
+                    if _ok(h[-1], 1, 40) and _ok(r, 2, 32) and not claims_human(r):
+                        out.append((h, r))
+    return out

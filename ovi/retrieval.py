@@ -17,8 +17,32 @@ class Index:
         for w in ws:
             self.inv[w].append(i)
 
+    def topk(self, text, k=30, min_score=0.0):
+        """Top-k (answer_index, score) by question match."""
+        h = self._scores(text)
+        return sorted(((i, v) for i, v in h if v >= min_score), key=lambda x: -x[1])[:k]
+
     def best(self, text, min_score=0.45):
         ws = set(toks(text))
+        return self._best_from(ws, min_score, text)
+
+    def _scores(self, text):
+        ws = set(toks(text))
+        n = len(self.q) + 1
+        score = defaultdict(float)
+        for w in ws:
+            post = self.inv.get(w)
+            if not post:
+                continue
+            idf = math.log(n / (1 + len(post)))
+            for i in post:
+                score[i] += idf
+        if not score:
+            return []
+        qn = sum(math.log(n / (1 + len(self.inv[w]))) for w in ws if w in self.inv) or 1.0
+        return [(i, (s / qn) / math.sqrt(max(len(self.q[i]), 1) / max(len(ws), 1)) ** 0.5) for i, s in score.items()]
+
+    def _best_from(self, ws, min_score, text):
         n = len(self.q) + 1
         score = defaultdict(float)
         for w in ws:
