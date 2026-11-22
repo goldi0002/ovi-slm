@@ -72,3 +72,22 @@ Also in this change: intent rules (goodbye incl. "lol bye"/"thanks, bye", "anoth
 a noun-phrase filter so Ovi never asks about "your kept" / "your didn't", no "what should I have said?" on personal/advice questions (it thinks it through
 instead), supportive replies for "I feel stupid" / long hard messages, and adjective/deictic filters so "it's freezing here" is not read as a correction of the city.
 Internal bookkeeping ("I lowered my confidence to ...") is shown only for the `/wrong` command, never in chat. Tests: `PYTHONPATH=. python tests/test_recall_slots.py`.
+
+## Conversation memory, template safety and routing (blind-set 3 fixes)
+`ovi/convmem.py` (mixin `ConvMemory`, now behind the slot rules): every plain statement the user makes is kept as a sentence under an internal
+`zzsay <ms> <n> [|| <slot question it also filled>]` user entry in the normal event log, so it persists across restarts, is never reachable by fuzzy retrieval,
+and is tombstoned by `forget everything` / `forget my niece` (all content words match) / `forget that` (the last stored or last recalled sentence) / `forget my age`
+(a sentence dies with the slot it filled). "my name is X" is not copied (the name slot answers it).
+Recall-style questions ("what's my cat's name again?", "what city did I say I lived in?", "what does my dad do?", "what grade do I teach?",
+"how many siblings do I have?", "what did I tell you about my sister?", "do you remember my job?", "did I mention ...?") are only handled when the precise paths
+(taught entries, `slots.py`, `usermem.py`) have nothing. The matcher scores every stored sentence: lemma-ish stems + a few synonym groups (live/move/home, job/work, dad/father, fear/afraid ...),
+idf weighting, a bonus when the sentence holds the kind of thing the question word asks for (place for "what city", number for "how many", a name for "called", a job for "what do I do",
+instrument/sport/breed/subject ... for "what <noun> ..."), a strict head-noun check ("my brother" is not answered by a sentence about a sister), pronoun carry-over ("she is a vet" belongs
+to the cousin mentioned before), and a small recency bonus (a later correction wins). The relevant clause is turned into second person ("You said your cat's name is Biscuit.").
+Confident -> plain answer; related but weak -> "I'm not sure, but the closest thing I remember is that you said ..."; nothing related -> the old "I don't know that about you yet".
+Cost: a linear scan over the session's sentences, ~10-20 ms.
+Template safety (`chitchat.np_ok`): a topic fragment ("How do you feel about the X?") must be a determiner + a real noun head: no pronouns/reflexives ("the herself"), adjectives/colours/sizes
+("the tiny", "the grey"), verb forms or adverbs; otherwise the generic acknowledgement is used. Routing before the generic fallbacks: `whats/hows/whos...` count as questions, `whats 15 times 12` is
+arithmetic, an unknown "the capital of X" says so honestly and offers to be taught, recommendation / how-to requests ("any recs for ...", "whats the best way to learn spanish", "how do i ...", "tips on ...")
+get a think-it-through reply, and goodbyes cover adios, night night, gn, nn, ttyl, cya, later(s), peace (out), g2g, ciao, toodles, "off to bed" ...
+Tests: `PYTHONPATH=. python tests/test_conversation_memory.py` (invented phrasings, multi-turn, forget, restart persistence).

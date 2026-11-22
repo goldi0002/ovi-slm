@@ -17,11 +17,12 @@ from . import replyrank
 from .fast import Ovi as _Base  # tokenizer + n-gram LM (for stories)
 from . import chitchat as cc
 from .slots import SlotMemory
+from .convmem import ConvMemory
 
 TRUST = {"dlg": 0.85, "fact": 0.95, "seed": 1.0, "taught": 1.0, "cb": 0.9, "learned": 0.8, "movie": 0.5}
 ANSWER, HEDGE = 0.65, 0.45
 DLG_Q, DLG_S, DLG_SCORE = 0.7, 0.9, 0.75    # chit-chat line thresholds (question / statement) and minimum match score
-QWORD = re.compile(r"^(what|who|whom|whose|where|when|why|how|which|is|are|was|were|do|does|did|can|could|will|would|should|tell|explain|define|translate|give|show|say|list|name)\b", re.I)
+QWORD = re.compile(r"^(what|whats|whos|wheres|whens|hows|who|whom|whose|where|when|why|how|which|is|are|was|were|do|does|did|can|could|will|would|should|tell|explain|define|translate|give|show|say|list|name)\b", re.I)
 STOPW = set("again today tonight yesterday tomorrow always never still already lately recently something anything nothing everything someone anyone people thing things time times this that with have what they them then than there about would could should really very just like your mine been were will from into some more".split())
 STORY = re.compile(r"\b(story|poem|write|continue|imagine)\b", re.I)
 LOG = "data/brain.jsonl"
@@ -118,7 +119,7 @@ class Answer:
     text: str; conf: float; src: str; why: str; entry: int = -1
 
 
-class Brain(SlotMemory):
+class Brain(ConvMemory, SlotMemory):
     def __init__(self, log=LOG, builtin=True):
         self.log = log
         self._builtin, self._base = builtin, None      # tokenizer + story LM load lazily (only when needed)
@@ -182,6 +183,8 @@ class Brain(SlotMemory):
         if nq.startswith("zzfact "):
             self.factq.add(nq)
             self.index.dead.add(i)        # internal slot rows are answered by the slot rules, never by fuzzy retrieval
+        elif nq.startswith("zzsay "):
+            self.index.dead.add(i)        # remembered user sentences (convmem.py): recalled by the conversation-memory matcher only
         return i
 
     def _write(self, ev):
@@ -349,6 +352,10 @@ class Brain(SlotMemory):
             return self.last
         self.pending = msg
         self.qctx = (msg, len(self.history))
+        mo = re.match(r"(?:what is|what was) the ([a-z ]{3,25}?) of ([a-z][a-z .'-]{1,40})$", self._tidy(norm(msg)))
+        if mo:                                  # a lookup the facts table doesn't cover: say so plainly
+            self.last = Answer(f"I'm not sure, I don't have the {mo.group(1)} of {mo.group(2).title()} yet. If you tell me, I'll remember it.", c, "none", "factual lookup not in the data; waiting to be taught")
+            return self.last
         self.last = Answer("I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
                            c, "none", f"best match confidence {c:.2f} < {HEDGE}")
         return self.last
@@ -704,6 +711,9 @@ class Brain(SlotMemory):
                     self.last = None
                     return "Okay, I've forgotten that."
             if not qs:
+                if self._conv_forget(recent=True):
+                    self.last = None
+                    return "Okay, I've forgotten that."
                 return "I don't have anything recent of yours to forget." if t != "" else None
         elif t in ("my name", "name", "who i am", "what my name is"):
             qs = list(NAME_QS)
@@ -722,6 +732,8 @@ class Brain(SlotMemory):
         n = 0
         for q in dict.fromkeys(qs or []):
             n += self._forget_entries(q)
+        n += self._conv_forget(qs or [], t if t not in ("that", "it", "this", "what i said", "what i just said", "what you just said", "the last thing") else "",
+                               recent=t in ("that", "it", "this", "what i said", "what i just said"))
         if n:
             if any(q in NAME_QS for q in qs):
                 self.user.pop("name", None)
@@ -774,6 +786,7 @@ class Brain(SlotMemory):
         m_c = re.search(r" is (-?[\d.]+)\.$", a.text) if a.src == "calc" else None
         self.last_calc = m_c.group(1) if m_c else None
         self.history.append((msg, a.text)); self.history = self.history[-8:]
+        self._conv_note(msg, a)
         return a
 
     CORR_STRONG = re.compile(r"(?:no|nope|nah|wrong|incorrect|not quite|that'?s (?:wrong|not (?:right|correct|true|it|what i said))|that is (?:wrong|not (?:right|correct|true))|you'?re wrong)\b[,.! ]*(.*)$", re.I)
@@ -922,7 +935,7 @@ class Brain(SlotMemory):
         if c:
             return Answer(c, 1.0, "calc", "arithmetic")
         n2 = self._tidy(n)
-        t = self._recall_profile(n2) or self._recall_slots(n2) or self._recall_activity(n2) or self._recall_context(n2)
+        t = self._recall_profile(n2) or self._recall_slots(n2) or self._recall_activity(n2) or self._recall_context(n2) or self._recall_conv(msg, n2)
         if t:
             return Answer(t, 1.0, "profile", "answered from what you told me")
         turn = len(self.history)
@@ -933,6 +946,8 @@ class Brain(SlotMemory):
         t = cc.smalltalk(n, prev, self.used, turn, name or "", next((o for _, o in reversed(self.history[-4:]) if any(j in o for j in cc.JOKES + cc.FACTS)), self.history[-1][1] if self.history else ""))
         if t is None and (msg.rstrip().endswith("?") or QWORD.match(msg)):
             t = cc.advice(msg, n, self.used, turn) or cc.personal_advice(n, self.used, turn)
+        if t is None:
+            t = cc.howto_reply(n, self.used, turn)
         if t:
             return Answer(t, 1.0, "chat", "small talk rule")
         return None

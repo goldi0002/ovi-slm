@@ -9,7 +9,7 @@ NUMW.update({"thirty": 30, "forty": 40, "fifty": 50, "sixty": 60, "seventy": 70,
 OPW = [(r"\bsquare root of\b", " sqrt "), (r"\bto the power of\b|\bto the power\b|\braised to\b", " ** "), (r"\bmultiplied by\b|\btimes\b|\bx\b|×", " * "),
        (r"\bdivided by\b|\bover\b|÷", " / "), (r"\bplus\b", " + "), (r"\bminus\b|\bless\b|\btake away\b", " - "), (r"\bsquared\b", " ** 2 "), (r"\bcubed\b", " ** 3 ")]
 _OPS = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv, ast.Pow: operator.pow, ast.USub: operator.neg, ast.UAdd: operator.pos}
-CALC_LEAD = re.compile(r"^(?:(?:and|so|ok|okay|well|then|what about|how about)\s+)*(?:what(?:'s| is| are)?|whats|how much is|calculate|compute|solve|tell me|can you (?:calculate|compute|do)|(?:what(?:'s| is) )?the (?:answer|result) (?:of|to))?\s*", re.I)
+CALC_LEAD = re.compile(r"^(?:(?:and|so|ok|okay|well|then|what about|how about)\s+)*(?:whats|what(?:'s| is| are)?|how much is|calculate|compute|solve|tell me|can you (?:calculate|compute|do)|(?:what(?:'s| is) )?the (?:answer|result) (?:of|to))?\s*", re.I)
 
 
 def _ev(node):
@@ -82,7 +82,7 @@ HOWAREYOU = re.compile(r"^(?:" + _G + r"[, ]+)?(?:ovi[, ]+)?(?:how(?:'s| is| are
 WHATSUP = re.compile(r"^(?:" + _G + r"[, ]+)?(?:what(?:'s| is|s) up|wassup|whats going on|what(?:'s| is|s) new|what are you (?:up to|doing)|what you up to|wyd|what you doing|what are you doing (?:now|today|tonight)|what have you been (?:up to|doing))(?: ovi| today| now| tonight)?$")
 WHATABOUT_YOU = re.compile(r"^(?:and |so |what about |how about )?(?:you|u|yourself|ovi)$|^(?:and )?(?:what|how) about (?:you|u|yourself)$|^(?:and )?you\??$|^(?:how|and) about you$|^what about yours?$|^(?:and )?(?:what(?:'s| is)|whats) yours$|^and yours$")
 THANKS = re.compile(r"^(?:ok(?:ay)? )?(?:thanks|thank you|thank u|thx|thnx|ty|cheers|much appreciated|appreciate it|thanks a lot|thanks so much|thank you so much)(?: (?:so much|a lot|ovi|for (?:listening|that|your help|the help|chatting|talking|the chat)|that helps|again|man|very much))*$|^that helps(?: a lot)?$|^(?:thanks|thank you)[, ]+(?:that|this|it) (?:helps|helped|was helpful|is helpful)$")
-BYE = re.compile(r"^(?:ok(?:ay)?[, ]+|well[, ]+|alright[, ]+|so )?(?:bye|goodbye|good bye|bye bye|see you|see ya|cya|later|gtg|g2g|ttyl|good night|goodnight|night|gotta go|i(?:'m| am)? (?:gotta|have to|got to|need to) go|talk to you later|talk later|catch you later|take care|i have to go)(?: for now| now| then| later| soon| tomorrow| ovi| everyone|,? ?(?:ttyl|talk to you later|see you later))*$|^gtg\b|^(?:gotta|got to) go\b")
+BYE = re.compile(r"^(?:ok(?:ay)?[, ]+|well[, ]+|alright[, ]+|so )?(?:bye|goodbye|good bye|bye bye|see you|see ya|cya|later|gtg|g2g|ttyl|good night|goodnight|night|gotta go|i(?:'m| am)? (?:gotta|have to|got to|need to) go|talk to you later|talk later|catch you later|take care|i have to go|adios|adieu|ciao|sayonara|toodles|ta ?ta|farewell|so long|laters?|peace(?: out)?|gn|nn|nighty[- ]?night|night[- ]?night|nite(?: nite)?|g ?night|sweet dreams|sleep well|bbl|see you (?:later|soon|tomorrow|around)|catch (?:you|ya) later|hasta (?:la vista|luego|manana)|(?:i(?:'m| am) )?(?:off to bed|heading (?:out|off|to bed)|signing off|logging off|turning in|going to bed|calling it a night)|gotta (?:run|bounce|dip|jet)|(?:i )?(?:should|better) (?:get going|go)|i(?:'m| am) (?:off|out)|time for bed|cheers then)(?: for now| now| then| later| soon| tomorrow| ovi| everyone|,? ?(?:ttyl|talk to you later|see you later))*$|^gtg\b|^(?:gotta|got to) go\b")
 CAPAB = re.compile(r"^(?:what can you do|what do you do|what are you good at|what are your skills|how can you help(?: me)?|what are you for|can you help(?: me)?|can you do things|what are you able to do)$")
 HELPME = re.compile(r"^(?:can|could) you (?:please )?help me(?: with (.+?)| (?:to )?(.+?))?$")
 TEACHME = re.compile(r"^(?:can|could) (?:you|i) (?:please )?(?:teach|tell) (?:you|ovi)(?: something| a thing| things| a fact)?$|^(?:can|could) you learn(?: something| things| new things)?$|^i (?:want|wanna|would like) to teach you(?: something)?$|^let me teach you(?: something)?$")
@@ -394,6 +394,48 @@ def advice_request(n, topic, used, turn):
                   "Happy to think it through with you. What's the situation, and what part is the hardest?"], used, "advreq", turn)
 
 
+_Q_LEAD = r"(?:(?:and|so|ok|okay|hey|hmm|well|um|oh|but)[, ]+)*"
+HOWTO = re.compile(r"^" + _Q_LEAD + r"(?:(?:what(?:'s| is|s)|which is) the (?:best|easiest|fastest|quickest|right|proper|good|smartest|healthiest|cheapest|simplest) (?:way|method|approach|strategy)s? (?:to|of|for) (?P<a>.+)"
+                   r"|how (?:do|can|could|should|would|might|will) (?:i|we|one) (?:even |best |actually |properly |possibly |really )*(?P<b>.+)"
+                   r"|how to (?P<c>.+)"
+                   r"|(?:any |some |got any |have any |do you have any |what are some |what are the best |give me some |gimme some |need some |need )?(?:recs?|recos?|recommendations?|suggestions?|ideas?|tips|pointers) (?:for|on|about|to) (?P<d>.+)"
+                   r"|(?:any|some)(?: good| great| fun| cool)? (?:recs?|recommendations?|suggestions?)"
+                   r"|(?:what|which) (?:are |is )?(?:some |any |the best )?(?:good |fun |cool |best )?(?:things|stuff|activities|ideas|places|books|movies|shows|games|podcasts|songs|apps|hobbies) (?:to|for|should)\b(?P<e>.*)"
+                   r"|where should (?:i|we) (?:start|begin|go|eat|travel|visit)\b(?P<f>.*))$")
+
+
+def _second(t):
+    t = re.sub(r"\b(?:i|me)\b", "you", re.sub(r"\bmy\b", "your", re.sub(r"\b(?:i'm|im)\b", "you're", t)))
+    return re.sub(r"\byou am\b", "you are", re.sub(r"(?: again| please| ovi| though| then| for me| right now)+$", "", t.strip()))
+
+
+def howto_reply(n, used, turn):
+    """'whats the best way to learn spanish' / 'any recs for things to do' / 'how do i get better at chess' -> think it through together
+    (never an emotional check-in, never a made-up expert answer). None when n is not such a request."""
+    m = HOWTO.match(n)
+    if not m:
+        return None
+    if m.group("a") or m.group("b") or m.group("c"):
+        task = _second(m.group("a") or m.group("b") or m.group("c") or "")
+        if 1 <= len(task.split()) <= 8 and not re.search(r"\b(?:you|your)\b", task):
+            what = f"how to {task}" if not (m.group("b") and m.group("b").split()[0] in ("is", "are", "was")) else "that"
+            if m.group("a"):
+                what = f"the best way to {task}"
+            return _pick([f"I'm only a small program, so I can't promise an expert answer on {what}, but we can think it through. What's your goal, and what have you tried so far?",
+                          f"Good question. I don't have a reliable answer on {what}, but I'm happy to work it out with you. What would a good result look like for you?"],
+                         used, "howto", turn)
+        return _pick(["I'm only a small program, so I can't promise an expert answer, but we can think it through. What's your goal, and what have you tried so far?"], used, "howto", turn)
+    task = _second(m.group("d") or "")
+    if m.group("d") and re.search(r"\b(?:tips|pointers)\b", n[:m.start("d")]) and 1 <= len(task.split()) <= 6 and not re.search(r"\b(?:you|your)\b", task):
+        return _pick([f"I'm only a small program, so I can't promise expert tips on {task}, but we can think it through. What's the hardest part so far?",
+                      f"Happy to think it through with you. What have you tried for {task}, and what got in the way?"], used, "howto", turn)
+    if m.group("d") and 1 <= len(task.split()) <= 6 and not re.search(r"\b(?:you|your)\b", task):
+        return _pick([f"I'm no expert, but let's think it through. For {task}, what do you usually enjoy, and how much time or budget do you have?",
+                      f"Happy to brainstorm. What kind of thing are you in the mood for when it comes to {task}?"], used, "recs", turn)
+    return _pick(["I'm no expert, but let's think it through together. What do you usually enjoy, and how much time do you have?",
+                  "Happy to brainstorm with you. What are you in the mood for, and what have you liked before?"], used, "recs", turn)
+
+
 def plan_reply(n, used, turn):
     """'maybe i should ask for help' -> encouraging reply."""
     m = MAYBE_SHOULD.match(n)
@@ -452,7 +494,7 @@ DET = r"(?:my|the|a|an|our|his|her|their|this|that|these|those|some|your|its|ano
 _NOT_NOUN = set("""thing things stuff something anything nothing everything someone anyone people time times day days way ways lot bit kind sort while
 bad good great nice fine hard easy long short big small little new old best worst same other first last next whole real hot cold humid late early much many more most
 tonight today yesterday tomorrow morning evening night afternoon week weekend month year years months weeks hours hour minutes minute moment second
-idea problem point reason fact one ones part place""".split())
+idea problem point reason fact one ones part place person people guy girl""".split())
 _VERBISH = re.compile(r"(?:ing|ly|ed|ish|ful|less|ous|ive|able|ible|ier|est)$")
 _ADJ = set("""annoying boring tired sad happy angry mad hungry sleepy busy crazy hilly humid hot cold super really very so too pretty quite just still even
 long short big small little new old best worst same other whole real nice good great bad awful terrible horrible lovely amazing cute weird strange funny slow fast
@@ -471,9 +513,42 @@ def _nounish(w):
         and not (w.endswith("s") and not w.endswith("ss") and w[:-1] in _IRREG_V)
 
 
+_PRON = set("""i me my mine myself you your yours yourself yourselves he him his himself she her hers herself it its itself we us our ours ourselves they them their theirs themselves
+this that these those who whom whose which what where when why how there here one ones""".split())
+_DETW = set("my the a an our his her their this that these those some your its another any each every no".split())
+_COLOR_SIZE = set("""grey gray red blue green yellow orange purple pink brown black white golden silver beige tan teal navy tiny huge giant massive enormous little small large tall short thin thick wide narrow
+round flat deep shallow wet dry soft smooth rough sharp dull fresh stale ripe raw plain fancy rich poor clean dirty messy tidy quiet calm wild gentle fierce brave shy kind rude polite mean nasty lazy
+smart clever silly serious ugly pretty beautiful handsome lovely wonderful fantastic fabulous brilliant decent solid stable fair unfair strict loose tight lucky unlucky random special usual normal
+common rare double single multiple several various many few most more less least own same different similar certain particular main major minor total final entire extra additional previous following
+latter former recent current ancient modern young elderly pregnant married single sober drunk awake asleep alive dead ready afraid aware alone proud ashamed upset annoyed excited bored stressed
+local global national public private official legal medical royal""".split())
+_Y_NOUNS = set("party city baby family body story company country copy enemy lady library memory ministry money penny puppy sky spy study supply theory therapy trophy university victory way day boy toy guy key monkey donkey turkey".split())
+_VERBS = set("""be have do go get make take come see know think want need like love hate feel try use find give tell ask work call run walk talk eat drink sleep play watch read write buy sell pay meet leave
+keep let begin help show hear bring hold sit stand lose win fall speak stay move live turn wait learn change follow stop create open close start finish pick drop pull push cut break wear send build
+""".split())
+
+
+def np_ok(phrase):
+    """Is 'the tiny' / 'your kept' / 'the herself' a usable noun phrase? Needs a determiner (possessive/article) + a real noun head:
+    no pronouns or reflexives, no determiner-only phrases, no adjectives / colours / sizes, no verb forms or adverbs."""
+    w = phrase.lower().split()
+    if len(w) < 2 or w[0] not in _DETW and w[0] not in ("your",):
+        return False
+    head = w[-1]
+    if len(head) < 3 or head in _PRON or head in _DETW or head in _FUNC or head in _STOPISH or head in _NOT_NOUN or head in _ADJ or head in _COLOR_SIZE or head in _SLANG:
+        return False
+    if head in _IRREG_V or head in _VERBS or _VERBISH.search(head) and head not in ("morning", "evening", "building", "meeting", "feeling", "painting", "wedding", "ceiling", "king", "ring", "thing"):
+        return False
+    if head.endswith("y") and head not in _Y_NOUNS and len(head) <= 6 and not head.endswith(("ay", "ey", "oy", "uy")):
+        return False                  # tiny, rainy, funky ... (adjectival -y) unless a known noun
+    if head.endswith("ly") or head.endswith("'s"):
+        return False
+    return True
+
+
 def topic_noun(msg):
     """A clear content-noun topic from a statement, or None: the head noun of 'determiner (+adjectives) noun'."""
-    words = [w for w in re.sub(r"[^a-z' ]", " ", msg.lower()).split() if w not in _SLANG]
+    words = [w for w in re.findall(r"[a-z']+|[,;.!]", msg.lower()) if w not in _SLANG]
     best = None
     for i, w in enumerate(words):
         if not re.fullmatch(DET, w):
@@ -485,10 +560,14 @@ def topic_noun(msg):
         if j < len(words):
             c = words[j]
             if _nounish(c) or (len(c) > 2 and "'" not in c and c not in _NOT_NOUN and c not in _ADJ and c not in _STOPISH and c not in _FUNC and c not in _IRREG_V and not _VERBISH.search(c)):
+                chain = [c]
                 k = j + 1          # compound noun ('design studio'): extend while the next word still looks like a plain noun
                 while k < len(words) and _nounish(words[k]) and not (words[k].endswith("s") and not words[k].endswith("ss")):
-                    c = words[k]; k += 1
-                best = f"{det} {c}"
+                    chain.append(words[k]); k += 1
+                for c in reversed(chain):          # prefer the compound head, but never end on a pronoun / adjective / verb
+                    if np_ok(f"{det} {c}"):
+                        best = f"{det} {c}"
+                        break
     return best
 
 
