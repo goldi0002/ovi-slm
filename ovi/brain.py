@@ -35,6 +35,11 @@ fed full ill cranky grumpy depressed overwhelmed annoyed frustrated furious mise
 sleeping eating working studying leaving staying gone one two three yes no maybe nothing something someone anyone everything fan student teacher human robot person guy girl man woman boy kid
 bot ai that this what who where when why how wondering hoping afraid unsure positive negative interested""".split())
 
+IMPERATIVE = re.compile(r"^(?:please\s+)?(?:(?:can|could|would) you\s+(?:please\s+)?)?(?:tell|give|show)\s+me\s+(?!about\b)", re.I)
+PERSONAL_Q = re.compile(r"^(?:what|who|whom|where|when|which|whose|how (?:old|many|much|long|tall))\b(?!.*\byou(?:r)?\b).*\b(?:my|mine|i|me)\b", re.I)
+PERSONAL_NOT = re.compile(r"^(?:how do i|what (?:should|can|could|would) i\b|where (?:can|should) i\b|who (?:can|should) i\b)", re.I)
+FUTURE_Q = re.compile(r"\b(?:will|would|going to|gonna|be)\b.*\b(?:tomorrow|tonight|next (?:week|month|year|decade)|in the future|someday|later this \w+|in (?:20[3-9]\d|\d+ (?:days|weeks|months|years)))\b", re.I)
+LIVE_Q = re.compile(r"\b(?:stock|stocks|share price|bitcoin|crypto|exchange rate|weather|forecast|news|traffic|lottery|score)\b.*\b(?:today|now|tonight|tomorrow|current|currently|latest|right now|this (?:week|weekend|morning|evening))\b", re.I)
 PLACE_QS = ("where do i live", "where am i from", "where do i come from")
 LIKE_QS = ("what do i like", "what are my interests", "what do i enjoy")
 
@@ -242,6 +247,7 @@ class Brain:
         return min(1.0, score) * TRUST[e.src] * e.conf
 
     def recall(self, msg):
+        msg = IMPERATIVE.sub("", msg.strip()) or msg      # "tell me the capital of france" -> "the capital of france"
         n = norm(msg)
         if n in self.exact:                    # exact match: best-confidence entry wins
             i = max(self.exact[n], key=lambda j: (round(self.conf_of(j, 1.0), 3), j))
@@ -265,10 +271,13 @@ class Brain:
         if self.pending and not msg.endswith("?") and not QWORD.match(msg) and not msg.startswith("/") \
                 and not re.match(r"i('m| am| feel| think| want| went)\b", msg, re.I) and norm(msg) not in self.ACK:
             q, self.pending = self.pending, None
-            self._add(q, msg, "learned", 0.75)
+            mine = re.match(r"my (.+?) (is|are) (.+)$", msg.rstrip(".!"), re.I)
+            if mine and re.match(r"(?:what|who|where|when|which)\b.*\bmy\b", q, re.I):      # "my best friend is Maria" -> "Your best friend is Maria."
+                msg = f"Your {mine.group(1)} {mine.group(2)} {mine.group(3)}."
+            i = self._add(q, msg, "learned", 0.75)
             self._write({"e": "add", "q": q, "a": msg, "src": "learned", "conf": 0.75})
             self.last_q = q
-            self.last = Answer("Thanks, I'll remember that.", 1.0, "learned", "stored as unverified (conf 0.75)")
+            self.last = Answer("Thanks, I'll remember that.", 1.0, "learned", "stored as unverified (conf 0.75)", i)
             return self.last
         self.pending = None
         self.last_q = msg
@@ -281,9 +290,15 @@ class Brain:
         isq = msg.endswith("?") or bool(QWORD.match(msg))
         if r and not isq and self.entries[r[0]].src == "movie":
             r = None
+        if r and self.entries[r[0]].src in ("dlg", "cb", "movie") and not isq and self._feeling(msg):
+            r = None
         if r and self.entries[r[0]].src == "dlg" and (norm(msg) in self.ACK or self._feeling(msg)):
             r = None                          # acknowledgements / stated feelings: use the careful rules instead                          # statements: don't answer with a random movie line, use a conversational move
         c = self.conf_of(*r) if r else 0.0
+        unk = self._unknowable(msg, r)
+        if unk:
+            self.last = unk
+            return unk
         ath, hth = ANSWER, HEDGE
         if r and self.entries[r[0]].src == "dlg":     # chit-chat replies: answer plainly, no hedging
             ath = hth = 0.5 if isq else 0.4
@@ -299,6 +314,23 @@ class Brain:
         self.last = Answer("I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
                            c, "none", f"best match confidence {c:.2f} < {HEDGE}")
         return self.last
+
+    def _unknowable(self, msg, r):
+        """Questions no stored answer can honestly address: the future, live data, or the user's own life when they never
+        told Ovi. Only fires when nothing reliable (taught / learned / seed / fact) was matched; chit-chat lines don't count."""
+        if not (msg.endswith("?") or QWORD.match(msg)):
+            return None
+        if r and self.entries[r[0]].src in ("taught", "learned", "seed", "fact") and self.conf_of(*r) >= HEDGE:
+            return None
+        if FUTURE_Q.search(msg) and not re.search(r"\byou\b", msg, re.I):
+            return Answer("I don't know, I can't see the future.", 0.0, "none", "question about the future: nothing stored can answer it")
+        if LIVE_Q.search(msg):
+            return Answer("I don't know, I have no live information like prices, news or weather.", 0.0, "none", "needs live data")
+        if PERSONAL_Q.match(msg) and not PERSONAL_NOT.match(msg):
+            self.pending = msg
+            return Answer("I don't know that about you yet. Tell me, and I'll remember it.", 0.0, "none",
+                          "personal question with no stored answer; waiting to be told")
+        return None
 
     def story(self, msg, n=70):
         """Short story from the TinyStories n-gram, seeded with the topic ('a story about a dragon')."""
@@ -346,7 +378,11 @@ class Brain:
             return " ".join(pw[:-len(cw)] + cw) + "?"
         return None
 
+    LOSS = re.compile(r"\b(?:passed away|passed on|passes away|died|has died|is dead|funeral|lost (?:my|our|a close|her|his)|grieving|bereaved|(?:death|loss) of)\b", re.I)
+    MISS = re.compile(r"^(?:i|we)(?:'m| am| do| still| really| just| so| truly| deeply|\s)*\bmiss(?:ed|ing)?\s+(?:my|our|him|her|them|you|home|everyone|everybody|the old|those|being|us|having)\b|\bhomesick", re.I)
     MOODS = {
+        "loss": ("passed away", "I'm so sorry for your loss{n}. I'm here for you. Do you want to tell me about them?"),
+        "miss": ("miss", "I understand{n}, missing people shows how much they matter to you. Do you want to tell me about them?"),
         "sad": ("sad|down|depressed|unhappy|lonely|miserable|upset|crying|hurt", "I'm sorry you're feeling that way{n}. Do you want to tell me what happened?"),
         "tired": ("tired|exhausted|sleepy|worn out", "That sounds draining{n}. Have you been able to rest?"),
         "stress": ("stressed|anxious|worried|nervous|scared|afraid|overwhelmed", "That sounds stressful{n}. What is weighing on you the most?"),
@@ -359,9 +395,11 @@ class Brain:
 
     def _feeling(self, msg):
         n = norm(msg)
+        if self.MISS.search(n) or (self.LOSS.search(n) and re.match(r"(?:my|our|i|we|someone|a|his|her|their|she|he)\b", n)):
+            return True
         if not re.match(r"(i|i'm|im|i am|i feel|i got|we)\b", n):
             return False
-        return any(re.search(rf"\b({pat})\b", n) for pat, _ in self.MOODS.values())
+        return any(re.search(rf"\b({pat})\b", n) for k, (pat, _) in self.MOODS.items() if k not in ("loss", "miss"))
 
     def _likes(self):
         i = self.exact.get("what do i like")
@@ -380,7 +418,13 @@ class Brain:
             return "Is there something you'd like to talk about or learn?"
         # 2) feelings
         for kind, (pat, reply) in self.MOODS.items():
-            if re.search(rf"\b({pat})\b", n):
+            if kind == "miss":
+                hit = self.MISS.search(n)
+            elif kind == "loss":
+                hit = self.LOSS.search(n)
+            else:
+                hit = re.search(rf"\b({pat})\b", n)
+            if hit:
                 return reply.format(n=nm)
         # 3) a known country/element mentioned: offer a relevant fact, then ask about it
         ent = self._find_entity(msg)
@@ -410,7 +454,9 @@ class Brain:
     def _profile(self, msg):
         """Learn facts about the user from plain statements. Returns Ovi's reply or None."""
         m = msg.strip().rstrip(".!")
-        m = re.sub(r"^(?:(?:no|nope|actually|sorry|wait|oh|well|hmm|hi|hello|hey)\b[,.! ]*)+(?=my |i |i'|call me|this is )", "", m, flags=re.I)   # 'actually my name is X'
+        m = re.sub(r"^(?:(?:no|nope|actually|sorry|oops|wait|oh|well|hmm|hi|hello|hey)\b[,.! ]*)+(?=my |i |i'|call me|this is )", "", m, flags=re.I)   # 'actually my name is X'
+        m = re.sub(r"^(?:(?:no|nope|sorry|oops|wait|my bad)\b[,.! ]*)*(?:i meant|i mean)\b[^.!]*[.!]\s*(?=my |i |i'|call me)", "", m, flags=re.I)   # 'sorry, I meant Tom. my name is Tom'
+        m = re.sub(r"^((?:my name(?:'s| is)|i am called)) (?:actually|really|in fact) ", r"\1 ", m, flags=re.I)
         self.recent_fact = None
         def cur(q):
             i = self.exact.get(norm(q))
@@ -443,9 +489,7 @@ class Brain:
         r = re.match(r"i (?:live in|am from|come from|'m from) (.+)$", m, re.I)
         if r:
             place = r.group(1).strip()
-            for q in PLACE_QS:
-                self.teach(q, f"You are from {place}.", supersede=True)
-            self.recent_fact = list(PLACE_QS)
+            self._set_place(place)
             return f"{place}! Tell me about it."
         r = re.match(r"my fav(?:ou?rite)? (\w+) is (.+)$", m, re.I)
         if r:
@@ -514,20 +558,69 @@ class Brain:
                 reply = self._profile(msg)
                 if reply:
                     a = Answer(reply, 1.0, "profile", "learned a fact about you")
-        neg = re.match(r"(?:no|nope|wrong|that'?s wrong|incorrect)\b[,.! ]*(?:it'?s |it is |the answer is |actually )?(.*)$", msg, re.I)
+        if a is not None and a.src == "profile" and self.recent_fact:
+            i = max(self.exact.get(norm(self.recent_fact[0]), [-1]))
+            if i >= 0 and not self.entries[i].dead:       # the next "no, it's X" corrects what was just stated
+                self.last = Answer(a.text, 1.0, "profile", "profile fact", i); self.last_q = self.recent_fact[0]
+        neg = self._correction(msg)
         if a is None and self.last and self.last.entry >= 0 and not self.pending and not msg.startswith("/"):
-            if neg:                       # plain-language correction: "no, it's Max"
-                fix = neg.group(1).strip().rstrip(".")
-                reply = self.feedback(False, (fix[0].upper() + fix[1:] + ".") if fix else None)
+            if neg is not None:           # plain-language correction: "no, it's Max"
+                fix = neg.strip().rstrip(".")
+                reply = self.feedback(False, fix or None)
                 a = Answer(reply, 1.0, "feedback", "correction from conversation")
             elif self.entries[self.last.entry].src == "learned":   # no objection = implicit confirmation
                 e = self.entries[self.last.entry]
                 e.conf = min(1.0, e.conf + 0.1)
                 self._write({"e": "set", "q": e.q, "a": e.a, "conf": e.conf})
         if a is None:
-            a = self._converse(msg)
+            a = self._multi(msg) or self._converse(msg)
         self.history.append((msg, a.text)); self.history = self.history[-8:]
         return a
+
+    CORR_STRONG = re.compile(r"(?:no|nope|nah|wrong|incorrect|not quite|that'?s (?:wrong|not (?:right|correct|true|it|what i said))|that is (?:wrong|not (?:right|correct|true))|you'?re wrong)\b[,.! ]*(.*)$", re.I)
+    CORR_WEAK = re.compile(r"(?:(?:actually|sorry|oops|wait|hmm|well|no|nope)\b[,.! ]*)*(?:it'?s|it is|it was|i meant|i mean|make that|should be|it should be|rather)\s+(.*)$", re.I)
+    CORR_NOT = re.compile(r"(?:i|you|we|they|he|she|don'?t|do not|please|thanks?|thank|why|what|how|who|where|when|can|could|would|is|are|my|your)\b", re.I)
+
+    def _correction(self, msg):
+        """'no, it's red' / 'nope that is wrong' / 'wait, I meant Bergen' -> the corrected value ('' if none given), else None."""
+        m = msg.strip()
+        for rx in (self.CORR_STRONG, self.CORR_WEAK):
+            r = rx.match(m)
+            if r:
+                fix = re.sub(r"^(?:it'?s|it is|it was|the answer is|actually|i meant|i mean|make that|should be|it should be|rather)\s+", "", r.group(1).strip(), flags=re.I)
+                if fix and (self.CORR_NOT.match(fix) or "?" in fix):
+                    continue
+                return fix
+        return None
+
+    def _multi(self, msg):
+        """'who am I and where do I live?' -> answer each part Ovi knows. Needs at least one part with a reliable answer."""
+        if self.pending or not (msg.endswith("?") or QWORD.match(msg)):
+            return None
+        parts = re.split(r"\s*(?:,\s*)?\band\b\s+(?=(?:what|who|where|when|which|how|do|does|did|am|is|are)\b)", msg.rstrip("?. "), flags=re.I)
+        if len(parts) < 2:
+            return None
+        got, miss = [], []
+        for p in parts:
+            p = p.strip(" ,")
+            if norm(p) in NAME_ASK:
+                nm = self._known_name()
+                if nm:
+                    got.append(f"Your name is {nm}.")
+                else:
+                    miss.append(p)
+                continue
+            r = self.recall(p + "?")
+            if r and self.entries[r[0]].src in ("taught", "learned", "seed", "fact") and self.conf_of(*r) >= ANSWER:
+                got.append(self.entries[r[0]].a)
+            else:
+                miss.append(p)
+        if not got:
+            return None
+        text = " ".join(got) + (f" I'm not sure about the rest ({'; '.join(miss)})." if miss else "")
+        self.last_q = msg
+        self.last = Answer(text, 1.0, "profile", "answered a compound question part by part")
+        return self.last
 
     def _converse(self, msg):
         n = norm(msg)
@@ -599,8 +692,17 @@ class Brain:
                     if n:
                         self._set_name(n)
                         return msg + f" I updated your name to {n}."
+                pl = re.match(r"You are from ", e.a)
+                if pl and e.src in USER_SRC and correction.rstrip("."):
+                    place = re.sub(r"^(?:i (?:live in|am from|come from)|in|from)\s+", "", correction.rstrip("."), flags=re.I)
+                    self._set_place(place)
+                    return msg + f" I updated where you live to {place}."
                 if correction.rstrip(".") and m and len(correction.split()) <= 6:
                     correction = f"{m.group(1)} {correction.rstrip('.')}."
+                elif correction and correction[0].islower():
+                    correction = correction[0].upper() + correction[1:]
+                if correction and correction[-1] not in ".!?":
+                    correction += "."
                 if e.src in USER_SRC:                  # supersede: the wrong user-taught answer is retired, not kept beside the fix
                     self._forget_entries(e.q, e.a)
                 self._add(self.last_q, correction, "taught", 1.0)
@@ -609,6 +711,11 @@ class Brain:
         if not e.dead:
             self._write({"e": "set", "q": e.q, "a": e.a, "conf": e.conf})
         return msg
+
+    def _set_place(self, place):
+        for q in PLACE_QS:
+            self.teach(q, f"You are from {place}.", supersede=True)
+        self.recent_fact = list(PLACE_QS)
 
     def _set_name(self, n):
         for q in NAME_QS:
