@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DCAA12EC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabyMind.Tests", "tests\BabyMind.Tests\BabyMind.Tests.csproj", "{775E92CD-E7D0-406D-AB66-E955CAD43E6D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{D8C2061E-4D67-433E-B3F7-A4F34B1190C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabyMind.Soak", "tools\BabyMind.Soak\BabyMind.Soak.csproj", "{94128266-9B66-40FD-8D5D-8F9C590DC60A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,9 +32,14 @@ Global
 		{775E92CD-E7D0-406D-AB66-E955CAD43E6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{775E92CD-E7D0-406D-AB66-E955CAD43E6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{775E92CD-E7D0-406D-AB66-E955CAD43E6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94128266-9B66-40FD-8D5D-8F9C590DC60A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94128266-9B66-40FD-8D5D-8F9C590DC60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94128266-9B66-40FD-8D5D-8F9C590DC60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94128266-9B66-40FD-8D5D-8F9C590DC60A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FD8C0B79-A250-458F-BB38-CC772516742C} = {6F52B100-6210-4B4D-B321-FC7F6C8E43AB}
 		{775E92CD-E7D0-406D-AB66-E955CAD43E6D} = {DCAA12EC-C9EE-4207-9209-3CF3159CF4C2}
+		{94128266-9B66-40FD-8D5D-8F9C590DC60A} = {D8C2061E-4D67-433E-B3F7-A4F34B1190C7}
 	EndGlobalSection
 EndGlobal

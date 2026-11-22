@@ -79,6 +79,31 @@ parent> quit                # saves; next run the baby is still there
 Commands: `show`, `say`, `ask`, `feed`, `wait`, `autofeed on|off|2`, `good`, `no [word]`, `remove`, `props`, `debug`, `save`, `load`, `help`, `quit`.
 The baby never sees the prop names or colour words, only 8 noisy numbers. It learns only what you say.
 
+## Long-term soak test
+
+```bash
+dotnet run -c Release --project tools/BabyMind.Soak -- --ticks 10000 --seeds 3 --quiet
+```
+
+A scripted parent (seeded) teaches 5 object classes in 7 colours for thousands of ticks (teaching-heavy for the first 1,500, then mostly waiting and feeding),
+praises and corrects, and feeds when the baby requests "milk". Every 1,000 ticks it probes a *clone* of the baby. 6 colour×class combinations are never shown in teaching (held-out) to test generalisation,
+"tree" is taught early and then never again, and "frog" is taught exactly once.
+
+Results (3 seeds × 10,000 ticks, release build):
+
+| What | Result |
+|---|---|
+| Resources | Saved state flat at ~25 KB, heap about 1 MB, 30 concepts, ~50 word links, 14 word meanings; Q-table creeps from ~140 to ~190 entries and flattens. 35-70 ms per 1,000 ticks. Nothing grew without bound. |
+| Needs | Requests replace waiting: 98-99% of feeds are the baby asking for milk (mean hunger at request 0.33). Speech while sated falls from ~55% to ~5% (the exploration floor). |
+| Naming (taught combos) | 96-100% throughout, no decay over 10,000 ticks. Wrong words: 0-3%. |
+| Persistence | Save/load round trip reproduces probe results exactly. |
+| One-shot word ("frog", 1 exposure) | Forgotten after ~500 ticks (link 0.5 decays below the 0.4 speaking threshold). By design, but short. |
+| Held-out combos (e.g. "green ball") | 33-100% name correct depending on seed; the rest are **correct but incomplete**: it says only the colour ("green"), never a wrong word. |
+| Neglected word ("tree", never taught again after tick 1,500) | 100% -> 67-83%. Same failure: it says the colour instead of "tree". |
+
+**Finding:** when both a name and a colour fit a thing and the baby has never *heard* that exact word pair, it says one word, picked by score. It has learned order only per pair
+(`red→ball`), not that "colour words come before object words". Fixing this means generalising word order across pivot/follower classes.
+
 ## Design
 
 ```
