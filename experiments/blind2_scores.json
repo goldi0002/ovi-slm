@@ -1,0 +1,2626 @@
+[
+ {
+  "id": 1,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "hey",
+    "X_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "not much, just got home from work",
+    "X_reply": "Thanks for telling me. Is there more to it?",
+    "Y_reply": "Thanks for telling me. Is there more to it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "it was long. my boss kept piling stuff on me",
+    "X_reply": "What's on your mind about your kept?",
+    "Y_reply": "What's on your mind about your kept?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 3,
+    "user": "yeah. do you ever get tired?",
+    "X_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "lol fair",
+    "X_reply": "I'm here if you want to chat about anything.",
+    "Y_reply": "I'm here if you want to chat about anything.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "anyway, I have a dog named Biscuit",
+    "X_reply": "What's on your mind about the dog?",
+    "Y_reply": "What's on your mind about the dog?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "he's a beagle",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 7,
+    "user": "what's my dog called?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "hi ovi",
+    "X_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "how are you today?",
+    "X_reply": "I'm doing well, thanks for asking. How about you?",
+    "Y_reply": "I'm doing well, thanks for asking. How about you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 2,
+    "user": "and you?",
+    "X_reply": "I'm doing fine. I don't sleep, so my days are all chatting. What else is on your mind?",
+    "Y_reply": "I'm doing fine. I don't sleep, so my days are all chatting. What else is on your mind?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 3,
+    "user": "same old",
+    "X_reply": "Hm, interesting. Tell me more when you're ready.",
+    "Y_reply": "Hm, interesting. Tell me more when you're ready.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "I got a promotion today!!",
+    "X_reply": "Congratulations! That's great news. How are you feeling about it?",
+    "Y_reply": "Congratulations! That's great news. How are you feeling about it?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 5,
+    "user": "thanks! I'm so excited",
+    "X_reply": "Anytime!",
+    "Y_reply": "Anytime!",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "what should I do to celebrate?",
+    "X_reply": "I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?",
+    "Y_reply": "I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 7,
+    "user": "why that?",
+    "X_reply": "I don't have a good answer to that one. What's your take on the promotion?",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 1,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "yo",
+    "X_reply": "Hey! Not much here. How about you?",
+    "Y_reply": "Hey! Not much here. How about you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "my name is Priya",
+    "X_reply": "Nice to meet you, Priya!",
+    "Y_reply": "Nice to meet you, Priya!",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 2,
+    "user": "I work as a nurse",
+    "X_reply": "Nice, a nurse! How do you like it?",
+    "Y_reply": "Nice, a nurse! How do you like it?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 3,
+    "user": "what do you do for a living?",
+    "X_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "what's my job again?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "ok cool",
+    "X_reply": "What else is on your mind?",
+    "Y_reply": "What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "I'm so stressed about exams",
+    "X_reply": "That sounds stressful. What is weighing on you the most?",
+    "Y_reply": "That sounds stressful. What is weighing on you the most?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "like really",
+    "X_reply": "Go on, I'm listening.",
+    "Y_reply": "Go on, I'm listening.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "I haven't slept",
+    "X_reply": "That sounds rough. Sleep makes everything harder. Do you know what kept you up?",
+    "Y_reply": "That sounds rough. Sleep makes everything harder. Do you know what kept you up?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 3,
+    "user": "any advice?",
+    "X_reply": "I'm only a tiny program, so it's hard for me to say. What are you leaning towards?",
+    "Y_reply": "Happy to think it through with you. What's the situation, and what part is the hardest?",
+    "X_score": 0,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "hmm ok",
+    "X_reply": "I'm here if you want to chat about anything.",
+    "Y_reply": "I'm here if you want to chat about anything.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "thanks ovi",
+    "X_reply": "Anytime!",
+    "Y_reply": "Anytime!",
+    "X_score": 2,
+    "Y_score": 2
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "hello",
+    "X_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "what's your name?",
+    "X_reply": "My name is Ovi. What should I call you?",
+    "Y_reply": "My name is Ovi. What should I call you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 2,
+    "user": "who made you?",
+    "X_reply": "People built me from stories, dialogue and a little code. I'm a very small program.",
+    "Y_reply": "People built me from stories, dialogue and a little code. I'm a very small program.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 3,
+    "user": "are you a robot?",
+    "X_reply": "Yes, I'm a small program, a tiny language model.",
+    "Y_reply": "Yes, I'm a small program, a tiny language model.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 4,
+    "user": "do you have feelings?",
+    "X_reply": "Not the way you do, I'm a small program. But I do like talking with you.",
+    "Y_reply": "Not the way you do, I'm a small program. But I do like talking with you.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 5,
+    "user": "that's kinda sad",
+    "X_reply": "I'm sorry you're feeling that way. Do you want to tell me what happened?",
+    "Y_reply": "I hear you. What do you think is behind it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "nah it's ok",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "my sister is so stressed lately",
+    "X_reply": "That sounds stressful. What is weighing on you the most?",
+    "Y_reply": "That does sound hard. What do you make of it?",
+    "X_score": 1,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "she just started a new job",
+    "X_reply": "Congratulations! That's great news. How are you feeling about it?",
+    "Y_reply": "Congratulations! That's great news. How are you feeling about it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "I worry about her",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "what should I tell her?",
+    "X_reply": "That's a big decision, and I don't know the whole story, so I can't tell you what's right. What's making you think about it?",
+    "Y_reply": "I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "ok I'll try",
+    "X_reply": "I'm here if you want to chat about anything.",
+    "Y_reply": "I'm here if you want to chat about anything.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "thx",
+    "X_reply": "Anytime!",
+    "Y_reply": "Anytime!",
+    "X_score": 2,
+    "Y_score": 2
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "hi",
+    "X_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "I live in Toronto",
+    "X_reply": "Toronto! Tell me about it.",
+    "Y_reply": "Toronto! Tell me about it.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 2,
+    "user": "it's freezing here",
+    "X_reply": "Sorry about that. I lowered my confidence to 0.50. I updated where you live to freezing here.",
+    "Y_reply": "Sorry about that. I lowered my confidence to 0.50. I updated where you live to freezing here.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 3,
+    "user": "what's the capital of canada?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "and australia?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I don't have a good answer to that one. What do you think?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "why?",
+    "X_reply": "That is a good question. I am not sure, but you can teach me the answer.",
+    "Y_reply": "That is a good question. I am not sure, but you can teach me the answer.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "what city do I live in?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "the capital of spain is Madrid",
+    "X_reply": "Got it, the capital of spain is Madrid.",
+    "Y_reply": "Got it, the capital of spain is Madrid.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "what is the capital of spain?",
+    "X_reply": "The capital of spain is Madrid.",
+    "Y_reply": "The capital of spain is Madrid.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 2,
+    "user": "and italy?",
+    "X_reply": "I don't have a good answer to that one. What do you think?",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "the capital of italy is Rome",
+    "X_reply": "Got it, the capital of italy is Rome.",
+    "Y_reply": "Thanks, I'll remember that.",
+    "X_score": 2,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "what is the capital of italy?",
+    "X_reply": "The capital of italy is Rome.",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 2,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "ok good",
+    "X_reply": "What else is on your mind?",
+    "Y_reply": "What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "sup",
+    "X_reply": "Hey! Not much here. How about you?",
+    "Y_reply": "Hey! Not much here. How about you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "wanna hear a joke?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 2,
+    "user": "tell me one",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I don't have a good answer to that one. What do you think?",
+    "X_score": 0,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "haha ok",
+    "X_reply": "Is there something you'd like to talk about or learn?",
+    "Y_reply": "Is there something you'd like to talk about or learn?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "another",
+    "X_reply": "Okay, I'm listening.",
+    "Y_reply": "Okay, I'm listening.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "meh",
+    "X_reply": "Ugh, sounds like a rough moment. What's going on?",
+    "Y_reply": "Ugh, sounds like a rough moment. What's going on?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "lol bye",
+    "X_reply": "I see. What else is on your mind?",
+    "Y_reply": "I see. What else is on your mind?",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "I love hiking",
+    "X_reply": "Got it, you like hiking.",
+    "Y_reply": "Got it, you like hiking.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "especially in the mountains",
+    "X_reply": "Thanks for telling me. Is there more to it?",
+    "Y_reply": "Thanks for telling me. Is there more to it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "last weekend I went to Colorado",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "it was amazing",
+    "X_reply": "Good to hear. What do you like most about it?",
+    "Y_reply": "That's wonderful! What made it so good?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 4,
+    "user": "do you like the outdoors?",
+    "X_reply": "I only know outdoors from words, but it sounds interesting. What do you like about it?",
+    "Y_reply": "I only know outdoors from words, but it sounds interesting. What do you like about it?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 5,
+    "user": "what do I love?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 6,
+    "user": "where did I go last weekend?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "my favorite food is pizza",
+    "X_reply": "I'll remember that your favorite food is pizza.",
+    "Y_reply": "I'll remember that your favorite food is pizza.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "what's yours?",
+    "X_reply": "I don't eat, so I'll say I like words best. What's yours?",
+    "Y_reply": "I don't eat, so I'll say I like words best. What's yours?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 2,
+    "user": "do you eat?",
+    "X_reply": "No, I'm only a program, so that's not something I experience. I do enjoy chatting though.",
+    "Y_reply": "No, I'm only a program, so that's not something I experience. I do enjoy chatting though.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 3,
+    "user": "ok whatever",
+    "X_reply": "Is there something you'd like to talk about or learn?",
+    "Y_reply": "Is there something you'd like to talk about or learn?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "what's my favorite food?",
+    "X_reply": "Your favorite food is pizza.",
+    "Y_reply": "Your favorite food is pizza.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 5,
+    "user": "good memory",
+    "X_reply": "Go on, I'm listening.",
+    "Y_reply": "Go on, I'm listening.",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "ugh",
+    "X_reply": "Ugh, sounds like a rough moment. What's going on?",
+    "Y_reply": "Ugh, sounds like a rough moment. What's going on?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "I hate Mondays",
+    "X_reply": "That sounds really frustrating. What's the worst part?",
+    "Y_reply": "That sounds really frustrating. What's the worst part?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 2,
+    "user": "my alarm didn't go off",
+    "X_reply": "What's on your mind about your didn't?",
+    "Y_reply": "What's on your mind about your didn't?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 3,
+    "user": "and then my car wouldn't start",
+    "X_reply": "Tell me more about your start.",
+    "Y_reply": "Tell me more about your start.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 4,
+    "user": "everything is going wrong",
+    "X_reply": "I see. How are you feeling about all that?",
+    "Y_reply": "I see. How are you feeling about all that?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 5,
+    "user": "yeah",
+    "X_reply": "What else is on your mind?",
+    "Y_reply": "What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "thanks for listening",
+    "X_reply": "Happy to help.",
+    "Y_reply": "Happy to help.",
+    "X_score": 2,
+    "Y_score": 2
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "hi, I'm Marcus",
+    "X_reply": "Nice to meet you, Marcus!",
+    "Y_reply": "Nice to meet you, Marcus!",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "I play guitar",
+    "X_reply": "Thanks for telling me. Is there more to it?",
+    "Y_reply": "Thanks for telling me. Is there more to it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "been playing for ten years",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "do you like music?",
+    "X_reply": "I only know music from words, but it sounds interesting. What do you like about it?",
+    "Y_reply": "I only know music from words, but it sounds interesting. What do you like about it?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 4,
+    "user": "what instrument do I play?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "how long have I played?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 6,
+    "user": "cool",
+    "X_reply": "Is there something you'd like to talk about or learn?",
+    "Y_reply": "Is there something you'd like to talk about or learn?",
+    "X_score": 1,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "what's up",
+    "X_reply": "Not much, just here chatting with you. What's up with you?",
+    "Y_reply": "Not much, just here chatting with you. What's up with you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "nothing",
+    "X_reply": "Or something",
+    "Y_reply": "Or something",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 2,
+    "user": "k",
+    "X_reply": "What else is on your mind?",
+    "Y_reply": "What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "hm",
+    "X_reply": "Is there something you'd like to talk about or learn?",
+    "Y_reply": "Is there something you'd like to talk about or learn?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "idk",
+    "X_reply": "I'm here if you want to chat about anything.",
+    "Y_reply": "I'm here if you want to chat about anything.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "bored",
+    "X_reply": "Bots like myself are not able to feel boredom.",
+    "Y_reply": "Bots like myself are not able to feel boredom.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 6,
+    "user": "entertain me",
+    "X_reply": "I see. What else is on your mind?",
+    "Y_reply": "I see. What else is on your mind?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 7,
+    "user": "ok that was lame",
+    "X_reply": "That makes sense. What else is on your mind?",
+    "Y_reply": "That makes sense. What else is on your mind?",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "I just adopted a cat",
+    "X_reply": "Tell me more about the cat.",
+    "Y_reply": "Tell me more about the cat.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "her name is Luna",
+    "X_reply": "Thanks for telling me. Is there more to it?",
+    "Y_reply": "Thanks for telling me. Is there more to it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "she's so tiny",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "she's black with white paws",
+    "X_reply": "That makes sense. What else is on your mind?",
+    "Y_reply": "That makes sense. What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "what's my cat's name?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "what color is she?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I don't have a good answer to that one. What do you think?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 6,
+    "user": "aww",
+    "X_reply": "Thanks, I'll remember that.",
+    "Y_reply": "I see. What else is on your mind?",
+    "X_score": 0,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "do you think I should quit my job?",
+    "X_reply": "That's a big decision, and I don't know the whole story, so I can't tell you what's right. What's making you think about it?",
+    "Y_reply": "That's a big decision, and I don't know the whole story, so I can't tell you what's right. What's making you think about it?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "I hate it",
+    "X_reply": "That sounds really frustrating. What's the worst part?",
+    "Y_reply": "That sounds really frustrating. What's the worst part?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 2,
+    "user": "the pay is bad",
+    "X_reply": "What's on your mind about the pay?",
+    "Y_reply": "What's on your mind about the pay?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "but I'm scared",
+    "X_reply": "That sounds stressful. What is weighing on you the most?",
+    "Y_reply": "That sounds stressful. What is weighing on you the most?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "what would you do?",
+    "X_reply": "I'm only a tiny program, so it's hard for me to say. What are you leaning towards?",
+    "Y_reply": "I'm only a tiny program, so it's hard for me to say. What are you leaning towards?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "hmm",
+    "X_reply": "What else is on your mind?",
+    "Y_reply": "What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "ok thanks",
+    "X_reply": "Happy to help.",
+    "Y_reply": "Happy to help.",
+    "X_score": 2,
+    "Y_score": 2
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "hey ovi, teach you something",
+    "X_reply": "I see. How are you feeling about all that?",
+    "Y_reply": "I see. How are you feeling about all that?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 1,
+    "user": "the tallest mountain in the world is Everest",
+    "X_reply": "How do you feel about the world?",
+    "Y_reply": "How do you feel about the world?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 2,
+    "user": "what is the tallest mountain?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 3,
+    "user": "what about the second tallest?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "ok I'll tell you later",
+    "X_reply": "Sounds like you have a plan. How are you feeling about it?",
+    "Y_reply": "Thanks, I'll remember that.",
+    "X_score": 1,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "bye",
+    "X_reply": "See you later! Take care.",
+    "Y_reply": "See you later! Take care.",
+    "X_score": 2,
+    "Y_score": 2
+   }
+  ]
+ },
+ {
+  "id": 18,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "hi there",
+    "X_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "I've had a rough week to be honest, my grandmother is in the hospital and I've been going back and forth every day and also work has been crazy and I barely eat",
+    "X_reply": "How do you feel about the hospital?",
+    "Y_reply": "How do you feel about the hospital?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 2,
+    "user": "she's 87 and she's tough but still",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "I just feel helpless",
+    "X_reply": "That makes sense. What else is on your mind?",
+    "Y_reply": "That makes sense. What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "yeah",
+    "X_reply": "I'm here if you want to chat about anything.",
+    "Y_reply": "I'm here if you want to chat about anything.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "what do I do",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 6,
+    "user": "thanks for being here",
+    "X_reply": "Happy to help.",
+    "Y_reply": "Happy to help.",
+    "X_score": 1,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 19,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "lol u there",
+    "X_reply": "I see. How are you feeling about all that?",
+    "Y_reply": "I see. How are you feeling about all that?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 1,
+    "user": "wat r u doin",
+    "X_reply": "Thanks for telling me. Is there more to it?",
+    "Y_reply": "Thanks for telling me. Is there more to it?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 2,
+    "user": "nm u",
+    "X_reply": "I'm doing well, thanks. What's on your mind today?",
+    "Y_reply": "I'm doing well, thanks. What's on your mind today?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 3,
+    "user": "k",
+    "X_reply": "Is there something you'd like to talk about or learn?",
+    "Y_reply": "Is there something you'd like to talk about or learn?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "brb",
+    "X_reply": "Okay, I'm listening.",
+    "Y_reply": "Okay, I'm listening.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "back",
+    "X_reply": "Go on, I'm listening.",
+    "Y_reply": "Go on, I'm listening.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "did u miss me",
+    "X_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 7,
+    "user": "aw",
+    "X_reply": "Hm, interesting. Tell me more when you're ready.",
+    "Y_reply": "Hm, interesting. Tell me more when you're ready.",
+    "X_score": 1,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 20,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "my brother just got engaged!",
+    "X_reply": "Congratulations! That's great news. How are you feeling about it?",
+    "Y_reply": "Congratulations! That's great news. How are you feeling about it?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "he's marrying his college girlfriend",
+    "X_reply": "How do you feel about his girlfriend?",
+    "Y_reply": "How do you feel about his girlfriend?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "I'm so happy for him",
+    "X_reply": "That's wonderful! What made it so good?",
+    "Y_reply": "That's wonderful! What made it so good?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "I have to give a toast lol",
+    "X_reply": "Tell me more about the toast.",
+    "Y_reply": "Tell me more about the toast.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 4,
+    "user": "any tips?",
+    "X_reply": "I'd like to help, though I'm only a small program. Tell me a bit more about the toast and what you've tried so far.",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 2,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "what if I mess up?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 6,
+    "user": "ok",
+    "X_reply": "Is there something you'd like to talk about or learn?",
+    "Y_reply": "Is there something you'd like to talk about or learn?",
+    "X_score": 1,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 21,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "tell me about yourself",
+    "X_reply": "I'm doing well, thanks. What's on your mind today?",
+    "Y_reply": "I'm Ovi, a small companion that runs on a plain CPU. I remember things about you, like your name and what you like, and I learn facts when you teach me. What about you?",
+    "X_score": 0,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "what can you do?",
+    "X_reply": "I can chat, do small sums, tell short stories, and remember things about you like your name and what you like.",
+    "Y_reply": "I can chat, do small sums, tell short stories, and remember things about you like your name and what you like.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 2,
+    "user": "can you remember things?",
+    "X_reply": "Yes, I remember what you tell me, like your name and what you like, and I can learn new facts if you teach me.",
+    "Y_reply": "Yes, I remember what you tell me, like your name and what you like, and I can learn new facts if you teach me.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 3,
+    "user": "I'm Dana, remember that",
+    "X_reply": "That makes sense. What else is on your mind?",
+    "Y_reply": "That makes sense. What else is on your mind?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 4,
+    "user": "what's my name?",
+    "X_reply": "I don't know your name yet. What should I call you?",
+    "Y_reply": "I don't know your name yet. What should I call you?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "what do you remember about me?",
+    "X_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 22,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "i live in berlin",
+    "X_reply": "berlin! Tell me about it.",
+    "Y_reply": "berlin! Tell me about it.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "i work at a bakery",
+    "X_reply": "a bakery, nice! How is it working there?",
+    "Y_reply": "a bakery, nice! How is it working there?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 2,
+    "user": "i love bread haha",
+    "X_reply": "Got it, you like bread haha.",
+    "Y_reply": "Got it, you like bread haha.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "my coworker is annoying",
+    "X_reply": "That sounds really annoying. What happened?",
+    "Y_reply": "That sounds really annoying. What happened?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 4,
+    "user": "she talks so loud",
+    "X_reply": "I see. How are you feeling about all that?",
+    "Y_reply": "I see. How are you feeling about all that?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "what do you think I should do?",
+    "X_reply": "I'm only a tiny program, so it's hard for me to say. What are you leaning towards?",
+    "Y_reply": "I'm only a tiny program, so it's hard for me to say. What are you leaning towards?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "what's my job?",
+    "X_reply": "You work at a bakery.",
+    "Y_reply": "You work at a bakery.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 7,
+    "user": "where do I live?",
+    "X_reply": "You are from berlin.",
+    "Y_reply": "You are from berlin.",
+    "X_score": 1,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 23,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "good morning",
+    "X_reply": "Good morning! How are you?",
+    "Y_reply": "Good morning! How are you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "slept badly",
+    "X_reply": "That sounds rough. Sleep makes everything harder. Do you know what kept you up?",
+    "Y_reply": "That sounds rough. Sleep makes everything harder. Do you know what kept you up?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 2,
+    "user": "had weird dreams",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "about flying",
+    "X_reply": "Hm, interesting. Tell me more when you're ready.",
+    "Y_reply": "Hm, interesting. Tell me more when you're ready.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "what do you think dreams mean?",
+    "X_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "interesting",
+    "X_reply": "What else is on your mind?",
+    "Y_reply": "What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "what did I dream about?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 24,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "hey I passed my driving test!",
+    "X_reply": "Congratulations! That's great news. How are you feeling about it?",
+    "Y_reply": "Congratulations! That's great news. How are you feeling about it?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "finally after three tries",
+    "X_reply": "Thanks for telling me. Is there more to it?",
+    "Y_reply": "Thanks for telling me. Is there more to it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "I'm so relieved",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "I want to road trip somewhere",
+    "X_reply": "That makes sense. What else is on your mind?",
+    "Y_reply": "That makes sense. What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "where should I go?",
+    "X_reply": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?",
+    "Y_reply": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "why there?",
+    "X_reply": "I don't have a good answer to that one. What's your take on the tries?",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 6,
+    "user": "nice idea",
+    "X_reply": "I see. What else is on your mind?",
+    "Y_reply": "Thanks, I'll remember that.",
+    "X_score": 1,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 25,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "what's the capital of germany?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 1,
+    "user": "and france?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I don't have a good answer to that one. What do you think?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "and poland?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I don't have a good answer to that one. What do you think?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "why do you know that?",
+    "X_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "what was the first one I asked?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "ok",
+    "X_reply": "What else is on your mind?",
+    "Y_reply": "What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 26,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "my dad is retiring next month",
+    "X_reply": "Tell me more about your dad.",
+    "Y_reply": "Tell me more about your dad.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "he's been a teacher for 35 years",
+    "X_reply": "How do you feel about the teacher?",
+    "Y_reply": "How do you feel about the teacher?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "I'm proud of him",
+    "X_reply": "That's wonderful! What made it so good?",
+    "Y_reply": "That's wonderful! What made it so good?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "but he'll be bored",
+    "X_reply": "Sounds dull. What would make it more interesting?",
+    "Y_reply": "Shall we do something about that? I can tell you a fact, a story, or we can talk about what you like.",
+    "X_score": 1,
+    "Y_score": 0
+   },
+   {
+    "turn": 4,
+    "user": "what should he do?",
+    "X_reply": "I don't have a good answer to that one. What's your take on the teacher?",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "good point",
+    "X_reply": "Go on, I'm listening.",
+    "Y_reply": "Thanks, I'll remember that.",
+    "X_score": 1,
+    "Y_score": 0
+   },
+   {
+    "turn": 6,
+    "user": "he likes fishing actually",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 7,
+    "user": "oh right, so maybe that",
+    "X_reply": "That makes sense. What else is on your mind?",
+    "Y_reply": "That makes sense. What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 27,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "hi",
+    "X_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "do you like pizza?",
+    "X_reply": "I only know pizza from words, but it sounds interesting. What do you like about it?",
+    "Y_reply": "I only know pizza from words, but it sounds interesting. What do you like about it?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 2,
+    "user": "what about pineapple on it?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I don't have a good answer to that one. What do you think?",
+    "X_score": 0,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "I think it's fine",
+    "X_reply": "That makes sense. What else is on your mind?",
+    "Y_reply": "That makes sense. What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "you're weird",
+    "X_reply": "Okay, I'm listening.",
+    "Y_reply": "Sorry I let you down. I'm a small program and I make mistakes. What went wrong?",
+    "X_score": 1,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "haha",
+    "X_reply": "What else is on your mind?",
+    "Y_reply": "What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "okay bye",
+    "X_reply": "Goodbye! Talk to you soon.",
+    "Y_reply": "Goodbye! Talk to you soon.",
+    "X_score": 2,
+    "Y_score": 2
+   }
+  ]
+ },
+ {
+  "id": 28,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "I'm Lena",
+    "X_reply": "Nice to meet you, Lena!",
+    "Y_reply": "Nice to meet you, Lena!",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "I'm 25",
+    "X_reply": "Go on, I'm listening.",
+    "Y_reply": "Go on, I'm listening.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "I love painting",
+    "X_reply": "Got it, you like painting.",
+    "Y_reply": "Got it, you like painting.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 3,
+    "user": "what do I love?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 4,
+    "user": "how old am I?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "what's my name?",
+    "X_reply": "Your name is Lena.",
+    "Y_reply": "Your name is Lena.",
+    "X_score": 2,
+    "Y_score": 2
+   }
+  ]
+ },
+ {
+  "id": 29,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "so tired",
+    "X_reply": "That sounds draining. Have you been able to rest?",
+    "Y_reply": "That sounds draining. Have you been able to rest?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "too many deadlines",
+    "X_reply": "Thanks for telling me. Is there more to it?",
+    "Y_reply": "Thanks for telling me. Is there more to it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "my team doesn't help",
+    "X_reply": "What's on your mind about your help?",
+    "Y_reply": "What's on your mind about your help?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 3,
+    "user": "I want to scream",
+    "X_reply": "That makes sense. What else is on your mind?",
+    "Y_reply": "That makes sense. What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "is that normal?",
+    "X_reply": "I can't really say. What do you think?",
+    "Y_reply": "I can't really say. What do you think?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 5,
+    "user": "ok",
+    "X_reply": "What else is on your mind?",
+    "Y_reply": "What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "what should I eat tonight?",
+    "X_reply": "I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?",
+    "Y_reply": "I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 7,
+    "user": "pasta maybe",
+    "X_reply": "Hm, interesting. Tell me more when you're ready.",
+    "Y_reply": "Hm, interesting. Tell me more when you're ready.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 8,
+    "user": "ya",
+    "X_reply": "Okay, I'm listening.",
+    "Y_reply": "Okay, I'm listening.",
+    "X_score": 1,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 30,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "whats the weather like",
+    "X_reply": "I can't see the weather, I live inside a computer. What's it like where you are?",
+    "Y_reply": "I can't see the weather, I live inside a computer. What's it like where you are?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "do you know?",
+    "X_reply": "Gregory said I respond to the current line, not with respect to the entire conversation. Does that count as gossip?",
+    "Y_reply": "Gregory said I respond to the current line, not with respect to the entire conversation. Does that count as gossip?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 2,
+    "user": "fine",
+    "X_reply": "What else is on your mind?",
+    "Y_reply": "What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "I wish it was summer",
+    "X_reply": "That makes sense. What else is on your mind?",
+    "Y_reply": "That makes sense. What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "my favorite season is summer",
+    "X_reply": "I'll remember that your favorite season is summer.",
+    "Y_reply": "I'll remember that your favorite season is summer.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 5,
+    "user": "why do you think people like summer?",
+    "X_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "what's my favorite season?",
+    "X_reply": "Your favorite season is summer.",
+    "Y_reply": "Your favorite season is summer.",
+    "X_score": 2,
+    "Y_score": 2
+   }
+  ]
+ },
+ {
+  "id": 31,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "I have a test tomorrow",
+    "X_reply": "Sounds like you have a plan. How are you feeling about it?",
+    "Y_reply": "Sounds like you have a plan. How are you feeling about it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 1,
+    "user": "math",
+    "X_reply": "Go on, I'm listening.",
+    "Y_reply": "Go on, I'm listening.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "I hate math",
+    "X_reply": "That sounds really frustrating. What's the worst part?",
+    "Y_reply": "That sounds really frustrating. What's the worst part?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 3,
+    "user": "it's so hard",
+    "X_reply": "That makes sense. What else is on your mind?",
+    "Y_reply": "That makes sense. What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "can you help me?",
+    "X_reply": "I can chat, do small sums, tell short stories, and remember things about you like your name and what you like.",
+    "Y_reply": "I can chat, do small sums, tell short stories, and remember things about you like your name and what you like.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 5,
+    "user": "what's 12 times 12?",
+    "X_reply": "12 times 12 is 144.",
+    "Y_reply": "12 times 12 is 144.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 6,
+    "user": "thanks",
+    "X_reply": "Happy to help.",
+    "Y_reply": "Happy to help.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 7,
+    "user": "I'm still nervous",
+    "X_reply": "That sounds stressful. What is weighing on you the most?",
+    "Y_reply": "That sounds stressful. What is weighing on you the most?",
+    "X_score": 2,
+    "Y_score": 2
+   }
+  ]
+ },
+ {
+  "id": 32,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "my friend Tom is sad because his dog died",
+    "X_reply": "I'm so sorry for your loss. I'm here for you. Do you want to tell me about them?",
+    "Y_reply": "I'm so sorry for your loss. I'm here for you. Do you want to tell me about them?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "I don't know what to say",
+    "X_reply": "Thanks for telling me. Is there more to it?",
+    "Y_reply": "Thanks for telling me. Is there more to it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "he loved that dog so much",
+    "X_reply": "What's on your mind about the dog?",
+    "Y_reply": "What's on your mind about the dog?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "what do I say to him?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 4,
+    "user": "ok I'll call him",
+    "X_reply": "Sounds like you have a plan. How are you feeling about it?",
+    "Y_reply": "Thanks, I'll remember that.",
+    "X_score": 2,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "thank you",
+    "X_reply": "Anytime!",
+    "Y_reply": "Anytime!",
+    "X_score": 2,
+    "Y_score": 2
+   }
+  ]
+ },
+ {
+  "id": 33,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "I'm going to Japan next year!",
+    "X_reply": "Sounds like you have a plan. How are you feeling about it?",
+    "Y_reply": "Sounds like you have a plan. How are you feeling about it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 1,
+    "user": "I'm so excited",
+    "X_reply": "That's wonderful! What made it so good?",
+    "Y_reply": "That's wonderful! What made it so good?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "I've wanted to go forever",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "what's the capital?",
+    "X_reply": "The capital of France is Paris.",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 0,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "what should I see?",
+    "X_reply": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?",
+    "Y_reply": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "I like sushi",
+    "X_reply": "Got it, you like sushi.",
+    "Y_reply": "Got it, you like sushi.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 6,
+    "user": "what do I like?",
+    "X_reply": "You like sushi.",
+    "Y_reply": "You like sushi.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 7,
+    "user": "where am I going?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 34,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "hello ovi",
+    "X_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "I want to learn something",
+    "X_reply": "Thanks for telling me. Is there more to it?",
+    "Y_reply": "Thanks for telling me. Is there more to it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "what is a noun?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "and a verb?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I don't have a good answer to that one. What do you think?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "give me an example",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I don't have a good answer to that one. What do you think?",
+    "X_score": 0,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "ok",
+    "X_reply": "What else is on your mind?",
+    "Y_reply": "What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "what was the first thing I asked?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 35,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "i feel kinda lonely",
+    "X_reply": "I'm sorry you're feeling that way. Do you want to tell me what happened?",
+    "Y_reply": "I'm sorry you're feeling that way. Do you want to tell me what happened?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "moved to a new city",
+    "X_reply": "Thanks for telling me. Is there more to it?",
+    "Y_reply": "Thanks for telling me. Is there more to it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "dont know anyone",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "how do I make friends?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 4,
+    "user": "yeah I guess",
+    "X_reply": "I see. How are you feeling about all that?",
+    "Y_reply": "Thanks, I'll remember that.",
+    "X_score": 1,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "I like board games",
+    "X_reply": "Got it, you like board games.",
+    "Y_reply": "Got it, you like board games.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 6,
+    "user": "maybe I'll join a club",
+    "X_reply": "That makes sense. What else is on your mind?",
+    "Y_reply": "That makes sense. What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 7,
+    "user": "thanks",
+    "X_reply": "No problem at all!",
+    "Y_reply": "No problem at all!",
+    "X_score": 2,
+    "Y_score": 2
+   }
+  ]
+ },
+ {
+  "id": 36,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "hi",
+    "X_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y_reply": "Hello! I'm Ovi, a very small language model. How are you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "I run every morning",
+    "X_reply": "Thanks for telling me. Is there more to it?",
+    "Y_reply": "Thanks for telling me. Is there more to it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "5k usually",
+    "X_reply": "I see. What else is on your mind?",
+    "Y_reply": "I see. What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "my knees hurt tho",
+    "X_reply": "I'm sorry you're feeling that way. Do you want to tell me what happened?",
+    "Y_reply": "I hear you. What do you think is behind it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 4,
+    "user": "should I stop?",
+    "X_reply": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?",
+    "Y_reply": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "ok",
+    "X_reply": "What else is on your mind?",
+    "Y_reply": "What else is on your mind?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "what do I do every morning?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 37,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "happy friday!",
+    "X_reply": "That's nice to hear. What's behind it?",
+    "Y_reply": "That's wonderful! What made it so good?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 1,
+    "user": "got plans?",
+    "X_reply": "I don't have a good answer to that one. What do you think?",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 1,
+    "Y_score": 0
+   },
+   {
+    "turn": 2,
+    "user": "I'm going to a concert",
+    "X_reply": "What's on your mind about the concert?",
+    "Y_reply": "What's on your mind about the concert?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "my favorite band is Radiohead",
+    "X_reply": "I'll remember that your favorite band is Radiohead.",
+    "Y_reply": "I'll remember that your favorite band is Radiohead.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 4,
+    "user": "have you heard of them?",
+    "X_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y_reply": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 5,
+    "user": "what's my favorite band?",
+    "X_reply": "Your favorite band is Radiohead.",
+    "Y_reply": "Your favorite band is Radiohead.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 6,
+    "user": "nice",
+    "X_reply": "Is there something you'd like to talk about or learn?",
+    "Y_reply": "Is there something you'd like to talk about or learn?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 7,
+    "user": "bye",
+    "X_reply": "Bye! Come back whenever you want to chat.",
+    "Y_reply": "Bye! Come back whenever you want to chat.",
+    "X_score": 2,
+    "Y_score": 2
+   }
+  ]
+ },
+ {
+  "id": 38,
+  "mapping": {
+   "X": "old",
+   "Y": "new"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "I bombed my interview",
+    "X_reply": "Tell me more about your interview.",
+    "Y_reply": "Tell me more about your interview.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "like I froze",
+    "X_reply": "Thanks for telling me. Is there more to it?",
+    "Y_reply": "Thanks for telling me. Is there more to it?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "I couldn't answer anything",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "I feel stupid",
+    "X_reply": "That makes sense. What else is on your mind?",
+    "Y_reply": "That makes sense. What else is on your mind?",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 4,
+    "user": "I'm not stupid right?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "thanks",
+    "X_reply": "Anytime!",
+    "Y_reply": "Anytime!",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "what now?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I don't have a good answer to that one. What do you think?",
+    "X_score": 0,
+    "Y_score": 1
+   },
+   {
+    "turn": 7,
+    "user": "ok I'll apply again",
+    "X_reply": "Thanks, I'll remember that.",
+    "Y_reply": "Okay, I'm listening. What would you like to happen?",
+    "X_score": 0,
+    "Y_score": 1
+   }
+  ]
+ },
+ {
+  "id": 39,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "my mom makes the best lasagna",
+    "X_reply": "Tell me more about your mom.",
+    "Y_reply": "Tell me more about your mom.",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "she's Italian",
+    "X_reply": "Go on, I'm listening.",
+    "Y_reply": "Go on, I'm listening.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "she lives in Naples",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "I miss her cooking",
+    "X_reply": "I understand, missing people shows how much they matter to you. Do you want to tell me about them?",
+    "Y_reply": "I understand, missing people shows how much they matter to you. Do you want to tell me about them?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 4,
+    "user": "I should visit",
+    "X_reply": "That could really help. Is there anything stopping you?",
+    "Y_reply": "That could really help. Is there anything stopping you?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 5,
+    "user": "what's the capital of italy?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 6,
+    "user": "where does my mom live?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 7,
+    "user": "what does she make?",
+    "X_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y_reply": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ },
+ {
+  "id": 40,
+  "mapping": {
+   "X": "new",
+   "Y": "old"
+  },
+  "turns": [
+   {
+    "turn": 0,
+    "user": "omg you won't believe it, I won tickets to a basketball game",
+    "X_reply": "Congratulations! That's great news. How are you feeling about it?",
+    "Y_reply": "Congratulations! That's great news. How are you feeling about it?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 1,
+    "user": "my uncle plays for a local team",
+    "X_reply": "How do you feel about the team?",
+    "Y_reply": "How do you feel about the team?",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 2,
+    "user": "he taught me to shoot hoops",
+    "X_reply": "Okay, I'm listening. Say more if you like.",
+    "Y_reply": "Okay, I'm listening. Say more if you like.",
+    "X_score": 1,
+    "Y_score": 1
+   },
+   {
+    "turn": 3,
+    "user": "what sport do you like?",
+    "X_reply": "I can't play, but I like how chess feels like a sport. What's yours?",
+    "Y_reply": "I can't play, but I like how chess feels like a sport. What's yours?",
+    "X_score": 2,
+    "Y_score": 2
+   },
+   {
+    "turn": 4,
+    "user": "what did I win?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   },
+   {
+    "turn": 5,
+    "user": "who taught me basketball?",
+    "X_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y_reply": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "X_score": 0,
+    "Y_score": 0
+   }
+  ]
+ }
+]
