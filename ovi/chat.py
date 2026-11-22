@@ -1,7 +1,8 @@
 """Chat with Ovi. Ovi learns while you talk.
 
 Commands:
-  /teach <question> => <answer>   learn a Q/A pair (trains immediately)
+  /teach <question> => <answer>   learn a Q/A pair (instant, via memory)
+  /consolidate                    fine-tune the weights on everything taught
   /learn <text>                   learn from free text
   /learnfile <path>               learn from a text file
   /save   /quit
@@ -11,6 +12,7 @@ during later learning so it doesn't forget.
 import json, os, random, sys, numpy as np, torch
 from tokenizers import Tokenizer
 from .model import load_compact, save_compact
+from .memory import Memory
 from .seed_chat import PAIRS, USER, BOT, END, fmt
 
 torch.set_num_threads(4)
@@ -19,6 +21,7 @@ tok = Tokenizer.from_file("data/tokenizer.json")
 model, _ = load_compact(CK)
 UID, BID, EID = (tok.token_to_id(t) for t in (USER, BOT, END))
 history = []
+mem = Memory()
 
 
 def ids(s):
@@ -94,8 +97,8 @@ def main():
             break
         if msg.startswith("/teach ") and "=>" in msg:
             q, a = [p.strip() for p in msg[7:].split("=>", 1)]
-            l = train_on(teach_pair(q, a) * 3, steps=40)
-            print(f"ovi> Learned it! (loss {l:.2f})")
+            mem.learn(q, a)  # instant (microseconds)
+            print("ovi> Learned it!  (use /consolidate to also bake it into my weights)")
         elif msg.startswith("/learn "):
             text = msg[7:]
             l = train_on([text + "\n"] * 6, steps=30)
@@ -105,8 +108,12 @@ def main():
             chunks = [body[i:i + 800] for i in range(0, len(body), 800)][:300]
             l = train_on(chunks, steps=max(40, len(chunks)))
             print(f"ovi> Finished reading {len(chunks)} chunks. (loss {l:.2f})")
+        elif msg == "/consolidate":
+            facts = [t for k, q, a in mem.items for t in teach_pair(q, a)]
+            l = train_on(facts * 2, steps=40) if facts else 0
+            print(f"ovi> Baked {len(mem.items)} facts into my weights. (loss {l:.2f})")
         else:
-            r = reply(msg)
+            r = mem.recall(msg) or reply(msg)
             print("ovi>", r)
             history.append((msg, r))
 
