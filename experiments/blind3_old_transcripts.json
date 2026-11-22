@@ -1,0 +1,1914 @@
+[
+ {
+  "id": 1,
+  "turns": [
+   {
+    "user": "hey",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "just got home from work, so tired",
+    "ovi": "I hear you. What do you think is behind it?"
+   },
+   {
+    "user": "i do night shifts at a warehouse lol",
+    "ovi": "What's on your mind about the warehouse?"
+   },
+   {
+    "user": "got a cat too, her name is biscuit, she's orange and dumb",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "anyway what should i eat, i have eggs and rice",
+    "ovi": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?"
+   },
+   {
+    "user": "nah too boring",
+    "ovi": "Sounds dull. What would make it more interesting?"
+   },
+   {
+    "user": "ok fried rice it is. do u know how to make it not mushy",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "thx. what's my cats name again?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ur not bad for a bot",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "night",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "turns": [
+   {
+    "user": "yo whats up",
+    "ovi": "Not much, just here chatting with you. What's up with you?"
+   },
+   {
+    "user": "im 17 and my parents wont let me go to the concert",
+    "ovi": "How do you feel about the concert?"
+   },
+   {
+    "user": "its in denver and i live in boulder so its not even far",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "ugh",
+    "ovi": "Ugh, sounds like a rough moment. What's going on?"
+   },
+   {
+    "user": "do u think i should just sneak out",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "lol no im kidding. mostly",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "why do parents do this",
+    "ovi": "I don't have a good answer to that one. What do you think?"
+   },
+   {
+    "user": "ok what city did i say i lived in",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "k thanks bye",
+    "ovi": "Thanks, I'll remember that."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "turns": [
+   {
+    "user": "good morning!",
+    "ovi": "Good morning! How are you?"
+   },
+   {
+    "user": "couldnt sleep much. big presentation today",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "its about q3 sales numbers, boring stuff",
+    "ovi": "Sounds dull. What would make it more interesting?"
+   },
+   {
+    "user": "my boss is kinda scary tbh",
+    "ovi": "Tell me more about your boss."
+   },
+   {
+    "user": "any tips to not be nervous",
+    "ovi": "That does sound hard. What do you make of it?"
+   },
+   {
+    "user": "hmm ok. breathing thing, got it",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "do u get nervous",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "haha fair",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "wish me luck",
+    "ovi": "Good luck! I'm rooting for you. You've got this."
+   },
+   {
+    "user": "ill tell u how it went later",
+    "ovi": "Sounds like you have a plan. How are you feeling about it?"
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "turns": [
+   {
+    "user": "whats the capital of australia",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "wait really? not sydney?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "huh i always thought sydney",
+    "ovi": "Thanks, I'll remember that."
+   },
+   {
+    "user": "my sister lives in melbourne actually",
+    "ovi": "Tell me more about your sister."
+   },
+   {
+    "user": "shes a nurse there, moved 3 yrs ago",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "i miss her",
+    "ovi": "I understand, missing people shows how much they matter to you. Do you want to tell me about them?"
+   },
+   {
+    "user": "what did i say her job was",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "ok good memory",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "lol",
+    "ovi": "What else is on your mind?"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "turns": [
+   {
+    "user": "hi im bored",
+    "ovi": "Sounds dull. What would make it more interesting?"
+   },
+   {
+    "user": "idk",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "i like playing guitar but my fingers hurt",
+    "ovi": "I'm sorry you're feeling that way. Do you want to tell me what happened?"
+   },
+   {
+    "user": "been learning for like 2 months",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "mostly nirvana songs",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "do u know any good beginner songs",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "no i meant easier than nirvana",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "ok ill try wonderwall i guess lol",
+    "ovi": "Okay, I'm listening. What would you like to happen?"
+   },
+   {
+    "user": "what instrument am i learning",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "cool bye",
+    "ovi": "Thanks, I'll remember that."
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "turns": [
+   {
+    "user": "hello there",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "my name is dmitri btw",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "im from chicago, deep dish is overrated fight me",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "no seriously",
+    "ovi": "Hm, interesting. Tell me more when you're ready."
+   },
+   {
+    "user": "ok ok i like it sometimes",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "what do u think about pineapple on pizza",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "coward lol",
+    "ovi": "I see. What else is on your mind?"
+   },
+   {
+    "user": "whats my name",
+    "ovi": "I don't know your name yet. What should I call you?"
+   },
+   {
+    "user": "thats right",
+    "ovi": "Okay, I'm listening."
+   },
+   {
+    "user": "gtg",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "turns": [
+   {
+    "user": "ugh today sucked",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "failed my driving test again",
+    "ovi": "I'm sorry, that's rough. Do you want to talk about what happened?"
+   },
+   {
+    "user": "third time. im 24 and cant drive lol",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "the instructor was so rude",
+    "ovi": "That sounds really annoying. What happened?"
+   },
+   {
+    "user": "i parallel parked into a cone",
+    "ovi": "How do you feel about the cone?"
+   },
+   {
+    "user": "do u think i should give up",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "no way",
+    "ovi": "As far as I know, yes, but I'm a small program, so I can be wrong."
+   },
+   {
+    "user": "hmm ok maybe ur right",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "thanks, that helped a bit",
+    "ovi": "You're welcome!"
+   },
+   {
+    "user": "how many times have i failed",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "oh god lol",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "turns": [
+   {
+    "user": "can u help me pick a name for my fish",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "hes a betta, blue and red",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "hes kinda aggressive",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "maybe something tough",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "like rocky?",
+    "ovi": "I don't have a good answer to that one. What's your take on the blue?"
+   },
+   {
+    "user": "hm taken by my neighbor lol",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "what about tank",
+    "ovi": "I don't have a good answer to that one. What's your take on your neighbor?"
+   },
+   {
+    "user": "ok tank it is",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "what kind of fish do i have",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "good bot",
+    "ovi": "Thanks, that's kind of you!"
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "turns": [
+   {
+    "user": "hey so im thinking about quitting my job",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "i work in accounting at a small firm",
+    "ovi": "accounting at a small firm, nice! How is it working there?"
+   },
+   {
+    "user": "pay is fine but i hate it",
+    "ovi": "That sounds really frustrating. What's the worst part?"
+   },
+   {
+    "user": "wanna be a baker honestly",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "ive been baking sourdough since covid",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "is that dumb",
+    "ovi": "I can't really say. What do you think?"
+   },
+   {
+    "user": "but money tho",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "yeah i guess",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "what job do i have now",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "ok thx for listening",
+    "ovi": "You're welcome!"
+   },
+   {
+    "user": "bye",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "turns": [
+   {
+    "user": "how many legs does a spider have",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "lol thats what i thought",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "my daughter is scared of them",
+    "ovi": "That does sound hard. What do you make of it?"
+   },
+   {
+    "user": "shes 6, name's maya",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "she screamed at a tiny one yesterday",
+    "ovi": "How do you feel about the tiny?"
+   },
+   {
+    "user": "kids lol",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "how do i tell her theyre not scary",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok ill try that",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "whats my daughters name",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "aww ur sweet",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "turns": [
+   {
+    "user": "sup",
+    "ovi": "Hey! Not much here. How about you?"
+   },
+   {
+    "user": "im in tokyo rn for a trip",
+    "ovi": "How do you feel about the trip?"
+   },
+   {
+    "user": "its my first time in japan",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "food is insane",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "had ramen at 2am",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "any recs for things to do",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "not touristy stuff pls",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "idk",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "hm ok maybe",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "what country am i in",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "lol right",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "turns": [
+   {
+    "user": "ur kinda slow today",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "jk",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "whats 15 times 12",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "ok and 180 divided by 4",
+    "ovi": "180 divided by 4 is 45."
+   },
+   {
+    "user": "nice",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "random but im allergic to peanuts",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "its annoying at restaurants",
+    "ovi": "That sounds really annoying. What happened?"
+   },
+   {
+    "user": "what am i allergic to",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "good",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "ok bye bye",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "turns": [
+   {
+    "user": "hi",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "my grandma passed away last week",
+    "ovi": "I'm so sorry for your loss. I'm here for you. Do you want to tell me about them?"
+   },
+   {
+    "user": "sorry just needed to say it somewhere",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "she used to make pierogi every sunday",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "i dont know how to make them",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "the funeral is on saturday",
+    "ovi": "I'm so sorry for your loss. I'm here for you. Do you want to tell me about them?"
+   },
+   {
+    "user": "im not ok",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "thanks for being nice",
+    "ovi": "No problem at all!"
+   },
+   {
+    "user": "what did my grandma make",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "yeah",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "i should sleep",
+    "ovi": "It sounds like you've thought about it. What do you think would happen if you did?"
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "turns": [
+   {
+    "user": "lol u there",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "my roommate ate my leftovers AGAIN",
+    "ovi": "How do you feel about your leftovers?"
+   },
+   {
+    "user": "its the 4th time this month",
+    "ovi": "What's on your mind about its the?"
+   },
+   {
+    "user": "her name is priya, shes nice otherwise",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "what do i do",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "passive aggressive note?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "lmao ok",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   },
+   {
+    "user": "fine ill talk to her",
+    "ovi": "Okay, I'm listening. What would you like to happen?"
+   },
+   {
+    "user": "who ate my food",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "haha ok",
+    "ovi": "What else is on your mind?"
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "turns": [
+   {
+    "user": "tell me a joke",
+    "ovi": "Why did the computer go to the doctor? It had a virus."
+   },
+   {
+    "user": "meh",
+    "ovi": "Ugh, sounds like a rough moment. What's going on?"
+   },
+   {
+    "user": "another",
+    "ovi": "I see. What else is on your mind?"
+   },
+   {
+    "user": "ok that one was funny",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "i work as a teacher so i need new jokes for class",
+    "ovi": "How do you feel about the teacher?"
+   },
+   {
+    "user": "5th grade",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "they love dumb puns",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "what grade do i teach",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "nice",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "bye",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "turns": [
+   {
+    "user": "whats the best way to learn spanish",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "im moving to mexico city in march",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "for work, software engineer",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "remote job so i can live anywhere",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "im 31 and kinda scared",
+    "ovi": "That sounds stressful. What is weighing on you the most?"
+   },
+   {
+    "user": "nah i dont speak much yet. hola and cerveza",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "lol",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   },
+   {
+    "user": "duolingo is ok but",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "what city am i moving to",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "gracias",
+    "ovi": "Thanks, I'll remember that."
+   },
+   {
+    "user": "adios",
+    "ovi": "Okay, I'm listening."
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "turns": [
+   {
+    "user": "hey bot",
+    "ovi": "Okay, I'm listening."
+   },
+   {
+    "user": "i hate mondays",
+    "ovi": "That sounds really frustrating. What's the worst part?"
+   },
+   {
+    "user": "anyway got a puppy last week",
+    "ovi": "What's on your mind about the puppy?"
+   },
+   {
+    "user": "golden retriever named waffles",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "he chewed my shoe",
+    "ovi": "How do you feel about your shoe?"
+   },
+   {
+    "user": "how do i stop him",
+    "ovi": "I don't have a good answer to that one. What's your take on your shoe?"
+   },
+   {
+    "user": "hes 10 weeks",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "ok crate training. ive heard",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "what breed is my puppy",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "omg i love him so much",
+    "ovi": "Thanks, I'll remember that."
+   },
+   {
+    "user": "night night",
+    "ovi": "Go on, I'm listening."
+   }
+  ]
+ },
+ {
+  "id": 18,
+  "turns": [
+   {
+    "user": "do you ever get lonely",
+    "ovi": "I have a lot of friends to chat with online."
+   },
+   {
+    "user": "sorry thats weird",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "i live alone, 2 bedroom apartment in seattle",
+    "ovi": "I'm sorry you're feeling that way. Do you want to tell me what happened?"
+   },
+   {
+    "user": "its rainy af",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "my hobby is rock climbing tho so i go to the gym",
+    "ovi": "How do you feel about the gym?"
+   },
+   {
+    "user": "met some ppl there",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "ok thats good",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "are u real",
+    "ovi": "No, I'm a small program, not a person. But I'm happy to chat like one."
+   },
+   {
+    "user": "hmm interesting",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "what do i do for fun",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "k",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   }
+  ]
+ },
+ {
+  "id": 19,
+  "turns": [
+   {
+    "user": "i think my boyfriend is mad at me",
+    "ovi": "That does sound hard. What do you make of it?"
+   },
+   {
+    "user": "i forgot our anniversary",
+    "ovi": "How do you feel about our anniversary?"
+   },
+   {
+    "user": "its been 2 years",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "his name is tom",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "i bought flowers",
+    "ovi": "How did that go?"
+   },
+   {
+    "user": "what else",
+    "ovi": "I don't have a good answer to that one. What's your take on our anniversary?"
+   },
+   {
+    "user": "too cheesy?",
+    "ovi": "I don't have a good answer to that one. What do you think?"
+   },
+   {
+    "user": "ok dinner then, he loves thai food",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "wait no he loves korean. sorry thats wrong",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "what food does tom like",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "thanks",
+    "ovi": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 20,
+  "turns": [
+   {
+    "user": "why is the sky blue",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok but why",
+    "ovi": "That is a good question. I am not sure, but you can teach me the answer."
+   },
+   {
+    "user": "lol ur dodging",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "fine. how far is the moon",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "my dad is an astronomer so i should know this",
+    "ovi": "How do you feel about the astronomer?"
+   },
+   {
+    "user": "he works at a observatory in chile",
+    "ovi": "What's on your mind about the observatory?"
+   },
+   {
+    "user": "hes been there since i was 12",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "what does my dad do",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "cool",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "gotta go, bye",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 21,
+  "turns": [
+   {
+    "user": "morning",
+    "ovi": "Good morning! How are you?"
+   },
+   {
+    "user": "coffee or tea",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "im a tea person, earl grey",
+    "ovi": "What's on your mind about the grey?"
+   },
+   {
+    "user": "my husband drinks like 6 coffees a day",
+    "ovi": "Tell me more about your husband."
+   },
+   {
+    "user": "hes a firefighter so i guess he needs it",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "we got married in june",
+    "ovi": "Did you enjoy it?"
+   },
+   {
+    "user": "anyway whats a good recipe for banana bread",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "i have like 4 super ripe bananas",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "thx",
+    "ovi": "You're welcome!"
+   },
+   {
+    "user": "what does my husband do",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "aw nice",
+    "ovi": "Thanks, I'll remember that."
+   }
+  ]
+ },
+ {
+  "id": 22,
+  "turns": [
+   {
+    "user": "i cant decide what to major in",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "im a freshman",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "either biology or cs",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "my mom wants me to do premed",
+    "ovi": "Tell me more about your mom."
+   },
+   {
+    "user": "she's a doctor herself",
+    "ovi": "How do you feel about the herself?"
+   },
+   {
+    "user": "but i like coding more",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "what would u do",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "idk",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "ok biology minor maybe",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "what are the two majors i mentioned",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "bye",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 23,
+  "turns": [
+   {
+    "user": "hello",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "just finished a 10k run!",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "new pb 52 min",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "im 45 so im proud",
+    "ovi": "That's wonderful! What made it so good?"
+   },
+   {
+    "user": "my knees hurt tho",
+    "ovi": "That does sound hard. What do you make of it?"
+   },
+   {
+    "user": "do i need new shoes",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "brooks ghost?",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok ill look",
+    "ovi": "Okay, I'm listening. What would you like to happen?"
+   },
+   {
+    "user": "what was my time",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "lol thx",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "ttyl",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 24,
+  "turns": [
+   {
+    "user": "heyyy",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "guess what",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "i got the job!!",
+    "ovi": "Congratulations! That's great news. How are you feeling about it?"
+   },
+   {
+    "user": "at a hospital as a radiology tech",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "starts monday",
+    "ovi": "Okay, I'm listening."
+   },
+   {
+    "user": "im so nervous and excited",
+    "ovi": "That sounds stressful. What is weighing on you the most?"
+   },
+   {
+    "user": "i also have to move to austin",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "my cat isnt gonna like the car ride",
+    "ovi": "How do you feel about the ride?"
+   },
+   {
+    "user": "her name's pepper",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "what job did i get",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "yay thank u",
+    "ovi": "Thanks, I'll remember that."
+   }
+  ]
+ },
+ {
+  "id": 25,
+  "turns": [
+   {
+    "user": "can u recommend a movie",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "i like horror but not gory",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "saw hereditary, too intense",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "my sister loves scary movies, she made me watch it",
+    "ovi": "Tell me more about your sister."
+   },
+   {
+    "user": "ok what about the conjuring",
+    "ovi": "I don't have a good answer to that one. What's your take on your sister?"
+   },
+   {
+    "user": "hmm ok",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "or something funny instead",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "ok shaun of the dead",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "what genre do i like",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "k thx",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   }
+  ]
+ },
+ {
+  "id": 26,
+  "turns": [
+   {
+    "user": "i feel so anxious lately",
+    "ovi": "That sounds stressful. What is weighing on you the most?"
+   },
+   {
+    "user": "work is stressing me out",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "im a nurse at a busy er",
+    "ovi": "What's on your mind about the nurse?"
+   },
+   {
+    "user": "12 hour shifts",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "i barely see my kids, 2 boys",
+    "ovi": "How do you feel about your kids?"
+   },
+   {
+    "user": "theyre 4 and 7",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "guilt",
+    "ovi": "I see. What else is on your mind?"
+   },
+   {
+    "user": "thanks",
+    "ovi": "No problem at all!"
+   },
+   {
+    "user": "what do i do for work",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "ok",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "i should go make dinner",
+    "ovi": "It sounds like you've thought about it. What do you think would happen if you did?"
+   },
+   {
+    "user": "bye",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 27,
+  "turns": [
+   {
+    "user": "hi whats ur name",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "thats a weird name lol",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "mine is jordan",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "i live in a tiny town in ohio",
+    "ovi": "Tell me more about the town."
+   },
+   {
+    "user": "nothing to do here",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "except farming. my uncle has a corn farm",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "i help out in the summer",
+    "ovi": "Tell me more about the summer."
+   },
+   {
+    "user": "what state do i live in",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "ok good",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "you ok",
+    "ovi": "I'm doing well, thanks for asking. How about you?"
+   },
+   {
+    "user": "lol fine",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   }
+  ]
+ },
+ {
+  "id": 28,
+  "turns": [
+   {
+    "user": "what time is it",
+    "ovi": "I do not have a clock, so I cannot tell the time."
+   },
+   {
+    "user": "oh right u cant tell",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "anyway im planning a trip to italy in may",
+    "ovi": "What's on your mind about the trip?"
+   },
+   {
+    "user": "rome florence venice",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "my girlfriend wants to see the colosseum",
+    "ovi": "How do you feel about the colosseum?"
+   },
+   {
+    "user": "i just want pasta",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "how many days do we need",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok 10",
+    "ovi": "Hm, interesting. Tell me more when you're ready."
+   },
+   {
+    "user": "whats the plan again",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "where are we going",
+    "ovi": "To the cinema. What about coming with me?"
+   },
+   {
+    "user": "thx",
+    "ovi": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 29,
+  "turns": [
+   {
+    "user": "ur answers are too long",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "shorter pls",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "ok better",
+    "ovi": "I see. What else is on your mind?"
+   },
+   {
+    "user": "my favourite color is green",
+    "ovi": "I'll remember that your favorite color is green."
+   },
+   {
+    "user": "dont ask why",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "just is",
+    "ovi": "Hm, interesting. Tell me more when you're ready."
+   },
+   {
+    "user": "whats yours",
+    "ovi": "I'm doing fine, thanks. I like chatting with people, so this is a good day."
+   },
+   {
+    "user": "lol ok",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "what color do i like",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "good boy",
+    "ovi": "Thanks, that's kind of you!"
+   }
+  ]
+ },
+ {
+  "id": 30,
+  "turns": [
+   {
+    "user": "i dont know what to cook for a date",
+    "ovi": "Tell me more about the date."
+   },
+   {
+    "user": "she's vegetarian",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "we've been dating a month",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "her name is hannah",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "i can only make pasta lol",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "ok pesto then",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "wait is pesto vegetarian",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "parmesan has rennet",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "ok so skip it?",
+    "ovi": "I don't have a good answer to that one. What do you think?"
+   },
+   {
+    "user": "what is her name",
+    "ovi": "What kind of flowers would you like?"
+   },
+   {
+    "user": "great thanks",
+    "ovi": "What else is on your mind?"
+   }
+  ]
+ },
+ {
+  "id": 31,
+  "turns": [
+   {
+    "user": "hey",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "i have a dentist appt tomorrow and im terrified",
+    "ovi": "That's completely understandable. What worries you the most about it?"
+   },
+   {
+    "user": "last time they found 3 cavities",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "i brush twice a day i swear",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "its at 9am",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "do u think it'll hurt",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "ok",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   },
+   {
+    "user": "maybe i should floss more",
+    "ovi": "That could really help. Is there anything stopping you?"
+   },
+   {
+    "user": "lmao",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "when is my appt",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "thx bye",
+    "ovi": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 32,
+  "turns": [
+   {
+    "user": "so my brother is getting married",
+    "ovi": "Congratulations! That's great news. How are you feeling about it?"
+   },
+   {
+    "user": "hes 28 and im best man",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "i have to write a speech",
+    "ovi": "Once upon a time, there was a little girl named Amy went to the park with her mommy. One day, Mia. She was very proud of his toys. Tom saw a big tree. They all went back to playing, the dog saw a big, friendly dog came by."
+   },
+   {
+    "user": "hes a plumber and his fiancee is a vet",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "help",
+    "ovi": "Just talk to me. You can also teach me new things and I will learn them."
+   },
+   {
+    "user": "any good opening line",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "too corny",
+    "ovi": "I see. What else is on your mind?"
+   },
+   {
+    "user": "ok try again",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "better",
+    "ovi": "Okay, I'm listening."
+   },
+   {
+    "user": "who is getting married",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "cool",
+    "ovi": "What else is on your mind?"
+   }
+  ]
+ },
+ {
+  "id": 33,
+  "turns": [
+   {
+    "user": "tell me something interesting",
+    "ovi": "Octopuses have three hearts."
+   },
+   {
+    "user": "octopuses have 3 hearts?? no way",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "thats crazy",
+    "ovi": "I see. What else is on your mind?"
+   },
+   {
+    "user": "i went to the aquarium in monterey last year",
+    "ovi": "How was it?"
+   },
+   {
+    "user": "they have a giant one there",
+    "ovi": "How do you feel about the giant?"
+   },
+   {
+    "user": "i love the ocean",
+    "ovi": "Got it, you like the ocean."
+   },
+   {
+    "user": "i wanna be a marine biologist but im 38 lol",
+    "ovi": "Tell me more about the biologist."
+   },
+   {
+    "user": "is it too late",
+    "ovi": "I can't really say. What do you think?"
+   },
+   {
+    "user": "ok maybe i'll take a class",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "what do i want to be",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "thanks bot",
+    "ovi": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 34,
+  "turns": [
+   {
+    "user": "wassup",
+    "ovi": "Not much, just here chatting with you. What's up with you?"
+   },
+   {
+    "user": "im at the airport and my flight is delayed 3 hrs",
+    "ovi": "How do you feel about your flight?"
+   },
+   {
+    "user": "going to atlanta for my cousins wedding",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "hate flying",
+    "ovi": "That sounds really frustrating. What's the worst part?"
+   },
+   {
+    "user": "why are airports so expensive",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "i just paid 9 bucks for a water",
+    "ovi": "What's on your mind about the water?"
+   },
+   {
+    "user": "unreal",
+    "ovi": "I see. What else is on your mind?"
+   },
+   {
+    "user": "entertain me",
+    "ovi": "Hm, interesting. Tell me more when you're ready."
+   },
+   {
+    "user": "a riddle?",
+    "ovi": "I don't have a good answer to that one. What's your take on the water?"
+   },
+   {
+    "user": "idk the answer",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "ok tell me",
+    "ovi": "Someone said they're going to stop allowing machines in speedrun competitions. Search me why, they'd have to drop every tool-assisted speedrun out there."
+   },
+   {
+    "user": "lol dumb",
+    "ovi": "Okay, I'm listening."
+   },
+   {
+    "user": "where am i flying to",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   }
+  ]
+ },
+ {
+  "id": 35,
+  "turns": [
+   {
+    "user": "I've been feeling kinda down",
+    "ovi": "I'm sorry you're feeling that way. Do you want to tell me what happened?"
+   },
+   {
+    "user": "not sure why",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "maybe the weather. its november and dark at 5",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "i live in minneapolis",
+    "ovi": "minneapolis! Tell me about it."
+   },
+   {
+    "user": "winter is coming and i hate it",
+    "ovi": "That sounds really frustrating. What's the worst part?"
+   },
+   {
+    "user": "i do like skiing tho",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "do u ski",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "fair",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "ok i should go for a walk",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "what city am i in",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "thanks, bye",
+    "ovi": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 36,
+  "turns": [
+   {
+    "user": "whats 7 squared",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "and the square root of 81",
+    "ovi": "The square root of 81 is 9."
+   },
+   {
+    "user": "im helping my nephew with homework",
+    "ovi": "What's on your mind about your nephew?"
+   },
+   {
+    "user": "he's 10, named leo",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "he hates math",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "how do i make it fun",
+    "ovi": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "pizza fractions!",
+    "ovi": "Thanks, I'll remember that."
+   },
+   {
+    "user": "ok good one",
+    "ovi": "Glad you liked it!"
+   },
+   {
+    "user": "who am i helping",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "thank uuu",
+    "ovi": "Okay, I'm listening."
+   }
+  ]
+ },
+ {
+  "id": 37,
+  "turns": [
+   {
+    "user": "hey i just turned 30 today",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "feel old",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "lol thanks",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "my friends are taking me to a karaoke bar",
+    "ovi": "Tell me more about the bar."
+   },
+   {
+    "user": "i always sing the same song, bohemian rhapsody",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "its a disaster",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "do u have a fav song",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "hm",
+    "ovi": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "how old am i now",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "haha right",
+    "ovi": "Is there something you'd like to talk about or learn?"
+   },
+   {
+    "user": "gtg ppl are here",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 38,
+  "turns": [
+   {
+    "user": "can u give me advice on buying a car",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "budget is like 15k",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "i need something reliable for commuting, 40 miles a day",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "im a sales rep so i drive a lot",
+    "ovi": "Tell me more about the rep."
+   },
+   {
+    "user": "honda or toyota",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "ok civic then",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "used or new",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "yeah used",
+    "ovi": "Hm, interesting. Tell me more when you're ready."
+   },
+   {
+    "user": "what do i do for a living",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "nice thx",
+    "ovi": "What else is on your mind?"
+   }
+  ]
+ },
+ {
+  "id": 39,
+  "turns": [
+   {
+    "user": "no no no",
+    "ovi": "Should I be? Did something happen?"
+   },
+   {
+    "user": "i spilled coffee on my laptop",
+    "ovi": "How do you feel about your laptop?"
+   },
+   {
+    "user": "im a grad student, my thesis is on there",
+    "ovi": "What's on your mind about your thesis?"
+   },
+   {
+    "user": "backed up? maybe? idk",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "its in rice now",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "does that even work",
+    "ovi": "I can't really say. What do you think?"
+   },
+   {
+    "user": "ok ill unplug it",
+    "ovi": "Sounds like you have a plan. How are you feeling about it?"
+   },
+   {
+    "user": "this is the worst",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "my thesis is about soil bacteria btw",
+    "ovi": "Tell me more about your thesis."
+   },
+   {
+    "user": "what is my thesis about",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "ok i feel a little better",
+    "ovi": "I'm glad you're feeling better! Hold on to that."
+   },
+   {
+    "user": "bye",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 40,
+  "turns": [
+   {
+    "user": "hi",
+    "ovi": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "u remember me?",
+    "ovi": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "lol of course not",
+    "ovi": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "i'm the guy w/ the dog",
+    "ovi": "Tell me more about the dog."
+   },
+   {
+    "user": "ok his name is bruno, he's a pug",
+    "ovi": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "hes snoring next to me rn",
+    "ovi": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "best thing ever",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "i also play chess online, 1200 rating",
+    "ovi": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "u play",
+    "ovi": "Okay, I'm listening."
+   },
+   {
+    "user": "damn ok",
+    "ovi": "Go on, I'm listening."
+   },
+   {
+    "user": "what's my dogs name",
+    "ovi": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "good",
+    "ovi": "What else is on your mind?"
+   },
+   {
+    "user": "night",
+    "ovi": "See you later! Take care."
+   }
+  ]
+ }
+]

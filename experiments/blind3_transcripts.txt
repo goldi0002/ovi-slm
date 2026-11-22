@@ -1,0 +1,935 @@
+=== Conversation 1 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: just got home from work, so tired
+O: I hear you. What do you think is behind it?
+U: i do night shifts at a warehouse lol
+O: What's on your mind about the warehouse?
+U: got a cat too, her name is biscuit, she's orange and dumb
+O: That does sound hard. What do you make of it?
+U: anyway what should i eat, i have eggs and rice
+O: That sounds like a real decision. I don't know the whole situation, so what feels right to you?
+U: nah too boring
+O: Sounds dull. What would make it more interesting?
+U: ok fried rice it is. do u know how to make it not mushy
+O: Okay, I'm listening. Say more if you like.
+U: thx. what's my cats name again?
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: ur not bad for a bot
+O: I see. How are you feeling about all that?
+U: night
+O: See you later! Take care.
+
+=== Conversation 2 ===
+U: yo whats up
+O: Not much, just here chatting with you. What's up with you?
+U: im 17 and my parents wont let me go to the concert
+O: How do you feel about the concert?
+U: its in denver and i live in boulder so its not even far
+O: Okay, I'm listening. Say more if you like.
+U: ugh
+O: Ugh, sounds like a rough moment. What's going on?
+U: do u think i should just sneak out
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: lol no im kidding. mostly
+O: Thanks for telling me. Is there more to it?
+U: why do parents do this
+O: I don't have a good answer to that one. What do you think?
+U: ok what city did i say i lived in
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: k thanks bye
+O: See you later! Take care.
+
+=== Conversation 3 ===
+U: good morning!
+O: Good morning! How are you?
+U: couldnt sleep much. big presentation today
+O: Thanks for telling me. Is there more to it?
+U: its about q3 sales numbers, boring stuff
+O: Sounds dull. What would make it more interesting?
+U: my boss is kinda scary tbh
+O: Tell me more about your boss.
+U: any tips to not be nervous
+O: That does sound hard. What do you make of it?
+U: hmm ok. breathing thing, got it
+O: Okay, I'm listening. Say more if you like.
+U: do u get nervous
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: haha fair
+O: I'm here if you want to chat about anything.
+U: wish me luck
+O: Good luck! I'm rooting for you. You've got this.
+U: ill tell u how it went later
+O: Sounds like you have a plan. How are you feeling about it?
+
+=== Conversation 4 ===
+U: whats the capital of australia
+O: I see. How are you feeling about all that?
+U: wait really? not sydney?
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: huh i always thought sydney
+O: Thanks, I'll remember that.
+U: my sister lives in melbourne actually
+O: Tell me more about your sister.
+U: shes a nurse there, moved 3 yrs ago
+O: Thanks for telling me. Is there more to it?
+U: i miss her
+O: I understand, missing people shows how much they matter to you. Do you want to tell me about them?
+U: what did i say her job was
+O: I'm only a small program, so I can't promise what works, but I'm happy to think it through with you. What have you tried so far?
+U: ok good memory
+O: Thank you! I keep what you tell me in a little log, so I try to put it to good use.
+U: lol
+O: What else is on your mind?
+
+=== Conversation 5 ===
+U: hi im bored
+O: Sounds dull. What would make it more interesting?
+U: idk
+O: I'm here if you want to chat about anything.
+U: i like playing guitar but my fingers hurt
+O: I'm sorry you're feeling that way. Do you want to tell me what happened?
+U: been learning for like 2 months
+O: Like 2 months, that's a good while. Do you still enjoy it?
+U: mostly nirvana songs
+O: I see. How are you feeling about all that?
+U: do u know any good beginner songs
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: no i meant easier than nirvana
+O: Okay, I'm listening. Say more if you like.
+U: ok ill try wonderwall i guess lol
+O: Okay, I'm listening. What would you like to happen?
+U: what instrument am i learning
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: cool bye
+O: See you later! Take care.
+
+=== Conversation 6 ===
+U: hello there
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: my name is dmitri btw
+O: Thanks for telling me. Is there more to it?
+U: im from chicago, deep dish is overrated fight me
+O: Okay, I'm listening. Say more if you like.
+U: no seriously
+O: Hm, interesting. Tell me more when you're ready.
+U: ok ok i like it sometimes
+O: I see. How are you feeling about all that?
+U: what do u think about pineapple on pizza
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: coward lol
+O: I see. What else is on your mind?
+U: whats my name
+O: I don't know your name yet. What should I call you?
+U: thats right
+O: Okay, I'm listening.
+U: gtg
+O: See you later! Take care.
+
+=== Conversation 7 ===
+U: ugh today sucked
+O: I see. How are you feeling about all that?
+U: failed my driving test again
+O: I'm sorry, that's rough. Do you want to talk about what happened?
+U: third time. im 24 and cant drive lol
+O: Okay, I'm listening. Say more if you like.
+U: the instructor was so rude
+O: That sounds really annoying. What happened?
+U: i parallel parked into a cone
+O: How do you feel about the cone?
+U: do u think i should give up
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: no way
+O: As far as I know, yes, but I'm a small program, so I can be wrong.
+U: hmm ok maybe ur right
+O: That makes sense. What else is on your mind?
+U: thanks, that helped a bit
+O: You're welcome!
+U: how many times have i failed
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: oh god lol
+O: Thanks for telling me. Is there more to it?
+
+=== Conversation 8 ===
+U: can u help me pick a name for my fish
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: hes a betta, blue and red
+O: Thanks for telling me. Is there more to it?
+U: hes kinda aggressive
+O: Okay, I'm listening. Say more if you like.
+U: maybe something tough
+O: That makes sense. What else is on your mind?
+U: like rocky?
+O: I don't have a good answer to that one. What's your take on the blue?
+U: hm taken by my neighbor lol
+O: I see. How are you feeling about all that?
+U: what about tank
+O: I don't have a good answer to that one. What's your take on your neighbor?
+U: ok tank it is
+O: That makes sense. What else is on your mind?
+U: what kind of fish do i have
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: good bot
+O: Thanks, that's kind of you!
+
+=== Conversation 9 ===
+U: hey so im thinking about quitting my job
+O: I see. How are you feeling about all that?
+U: i work in accounting at a small firm
+O: accounting at a small firm, nice! How is it working there?
+U: pay is fine but i hate it
+O: That sounds really frustrating. What's the worst part?
+U: wanna be a baker honestly
+O: That makes sense. What else is on your mind?
+U: ive been baking sourdough since covid
+O: Thanks for telling me. Is there more to it?
+U: is that dumb
+O: I can't really say. What do you think?
+U: but money tho
+O: Okay, I'm listening. Say more if you like.
+U: yeah i guess
+O: That makes sense. What else is on your mind?
+U: what job do i have now
+O: You work at accounting at a small firm.
+U: ok thx for listening
+O: You're welcome!
+U: bye
+O: See you later! Take care.
+
+=== Conversation 10 ===
+U: how many legs does a spider have
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: lol thats what i thought
+O: Thanks for telling me. Is there more to it?
+U: my daughter is scared of them
+O: That does sound hard. What do you make of it?
+U: shes 6, name's maya
+O: That makes sense. What else is on your mind?
+U: she screamed at a tiny one yesterday
+O: How do you feel about the tiny?
+U: kids lol
+O: Go on, I'm listening.
+U: how do i tell her theyre not scary
+O: I'm only a small program, so I can't promise what works, but I'm happy to think it through with you. What have you tried so far?
+U: ok ill try that
+O: I'm here if you want to chat about anything.
+U: whats my daughters name
+O: I see. How are you feeling about all that?
+U: aww ur sweet
+O: Thanks, that's kind of you!
+
+=== Conversation 11 ===
+U: sup
+O: Hey! Not much here. How about you?
+U: im in tokyo rn for a trip
+O: How do you feel about the trip?
+U: its my first time in japan
+O: Okay, I'm listening. Say more if you like.
+U: food is insane
+O: That makes sense. What else is on your mind?
+U: had ramen at 2am
+O: I see. How are you feeling about all that?
+U: any recs for things to do
+O: Thanks for telling me. Is there more to it?
+U: not touristy stuff pls
+O: Okay, I'm listening. Say more if you like.
+U: idk
+O: I'm here if you want to chat about anything.
+U: hm ok maybe
+O: What else is on your mind?
+U: what country am i in
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: lol right
+O: Is there something you'd like to talk about or learn?
+
+=== Conversation 12 ===
+U: ur kinda slow today
+O: I see. How are you feeling about all that?
+U: jk
+O: Go on, I'm listening.
+U: whats 15 times 12
+O: Okay, I'm listening. Say more if you like.
+U: ok and 180 divided by 4
+O: 180 divided by 4 is 45.
+U: nice
+O: I'm here if you want to chat about anything.
+U: random but im allergic to peanuts
+O: Thanks for telling me. Is there more to it?
+U: its annoying at restaurants
+O: That sounds really annoying. What happened?
+U: what am i allergic to
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: good
+O: What else is on your mind?
+U: ok bye bye
+O: See you later! Take care.
+
+=== Conversation 13 ===
+U: hi
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: my grandma passed away last week
+O: I'm so sorry for your loss. I'm here for you. Do you want to tell me about them?
+U: sorry just needed to say it somewhere
+O: Okay, I'm listening. Say more if you like.
+U: she used to make pierogi every sunday
+O: That makes sense. What else is on your mind?
+U: i dont know how to make them
+O: I see. How are you feeling about all that?
+U: the funeral is on saturday
+O: I'm so sorry for your loss. I'm here for you. Do you want to tell me about them?
+U: im not ok
+O: Thanks for telling me. Is there more to it?
+U: thanks for being nice
+O: No problem at all!
+U: what did my grandma make
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: yeah
+O: What else is on your mind?
+U: i should sleep
+O: It sounds like you've thought about it. What do you think would happen if you did?
+
+=== Conversation 14 ===
+U: lol u there
+O: Yes, I'm here! What's on your mind?
+U: my roommate ate my leftovers AGAIN
+O: How do you feel about your leftovers?
+U: its the 4th time this month
+O: Okay, I'm listening. Say more if you like.
+U: her name is priya, shes nice otherwise
+O: That makes sense. What else is on your mind?
+U: what do i do
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: passive aggressive note?
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: lmao ok
+O: Is there something you'd like to talk about or learn?
+U: fine ill talk to her
+O: Okay, I'm listening. What would you like to happen?
+U: who ate my food
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: haha ok
+O: What else is on your mind?
+
+=== Conversation 15 ===
+U: tell me a joke
+O: Why did the computer go to the doctor? It had a virus.
+U: meh
+O: Ugh, sounds like a rough moment. What's going on?
+U: another
+O: Okay, another: What do you call a fish with no eyes? A fsh.
+U: ok that one was funny
+O: That makes sense. What else is on your mind?
+U: i work as a teacher so i need new jokes for class
+O: How do you feel about the teacher?
+U: 5th grade
+O: Go on, I'm listening.
+U: they love dumb puns
+O: That does sound hard. What do you make of it?
+U: what grade do i teach
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: nice
+O: What else is on your mind?
+U: bye
+O: See you later! Take care.
+
+=== Conversation 16 ===
+U: whats the best way to learn spanish
+O: I see. How are you feeling about all that?
+U: im moving to mexico city in march
+O: Thanks for telling me. Is there more to it?
+U: for work, software engineer
+O: Okay, I'm listening. Say more if you like.
+U: remote job so i can live anywhere
+O: That makes sense. What else is on your mind?
+U: im 31 and kinda scared
+O: That sounds stressful. What is weighing on you the most?
+U: nah i dont speak much yet. hola and cerveza
+O: Thanks for telling me. Is there more to it?
+U: lol
+O: Is there something you'd like to talk about or learn?
+U: duolingo is ok but
+O: That makes sense. What else is on your mind?
+U: what city am i moving to
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: gracias
+O: Thanks, I'll remember that.
+U: adios
+O: Okay, I'm listening.
+
+=== Conversation 17 ===
+U: hey bot
+O: Okay, I'm listening.
+U: i hate mondays
+O: That sounds really frustrating. What's the worst part?
+U: anyway got a puppy last week
+O: What's on your mind about the puppy?
+U: golden retriever named waffles
+O: That makes sense. What else is on your mind?
+U: he chewed my shoe
+O: How do you feel about your shoe?
+U: how do i stop him
+O: I don't have a good answer to that one. What's your take on your shoe?
+U: hes 10 weeks
+O: Okay, I'm listening. Say more if you like.
+U: ok crate training. ive heard
+O: I see. How are you feeling about all that?
+U: what breed is my puppy
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: omg i love him so much
+O: Thanks, I'll remember that.
+U: night night
+O: Go on, I'm listening.
+
+=== Conversation 18 ===
+U: do you ever get lonely
+O: I have a lot of friends to chat with online.
+U: sorry thats weird
+O: Thanks for telling me. Is there more to it?
+U: i live alone, 2 bedroom apartment in seattle
+O: I'm sorry you're feeling that way. Do you want to tell me what happened?
+U: its rainy af
+O: That makes sense. What else is on your mind?
+U: my hobby is rock climbing tho so i go to the gym
+O: How do you feel about the gym?
+U: met some ppl there
+O: Okay, I'm listening. Say more if you like.
+U: ok thats good
+O: I see. How are you feeling about all that?
+U: are u real
+O: No, I'm a small program, not a person. But I'm happy to chat like one.
+U: hmm interesting
+O: What else is on your mind?
+U: what do i do for fun
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: k
+O: Is there something you'd like to talk about or learn?
+
+=== Conversation 19 ===
+U: i think my boyfriend is mad at me
+O: That does sound hard. What do you make of it?
+U: i forgot our anniversary
+O: How do you feel about our anniversary?
+U: its been 2 years
+O: Okay, I'm listening. Say more if you like.
+U: his name is tom
+O: That makes sense. What else is on your mind?
+U: i bought flowers
+O: How did that go?
+U: what else
+O: I don't have a good answer to that one. What's your take on our anniversary?
+U: too cheesy?
+O: I don't have a good answer to that one. What do you think?
+U: ok dinner then, he loves thai food
+O: I see. How are you feeling about all that?
+U: wait no he loves korean. sorry thats wrong
+O: Thanks for telling me. Is there more to it?
+U: what food does tom like
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: thanks
+O: You're welcome!
+
+=== Conversation 20 ===
+U: why is the sky blue
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: ok but why
+O: That is a good question. I am not sure, but you can teach me the answer.
+U: lol ur dodging
+O: Okay, I'm listening. Say more if you like.
+U: fine. how far is the moon
+O: That makes sense. What else is on your mind?
+U: my dad is an astronomer so i should know this
+O: How do you feel about the astronomer?
+U: he works at a observatory in chile
+O: Got it, your dad works at a observatory in chile.
+U: hes been there since i was 12
+O: I see. How are you feeling about all that?
+U: what does my dad do
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: cool
+O: What else is on your mind?
+U: gotta go, bye
+O: See you later! Take care.
+
+=== Conversation 21 ===
+U: morning
+O: Good morning! How are you?
+U: coffee or tea
+O: Thanks for telling me. Is there more to it?
+U: im a tea person, earl grey
+O: What's on your mind about the grey?
+U: my husband drinks like 6 coffees a day
+O: Tell me more about your husband.
+U: hes a firefighter so i guess he needs it
+O: I see. How are you feeling about all that?
+U: we got married in june
+O: Did you enjoy it?
+U: anyway whats a good recipe for banana bread
+O: Okay, I'm listening. Say more if you like.
+U: i have like 4 super ripe bananas
+O: That makes sense. What else is on your mind?
+U: thx
+O: You're welcome!
+U: what does my husband do
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: aw nice
+O: Thanks, I'll remember that.
+
+=== Conversation 22 ===
+U: i cant decide what to major in
+O: I see. How are you feeling about all that?
+U: im a freshman
+O: Thanks for telling me. Is there more to it?
+U: either biology or cs
+O: Okay, I'm listening. Say more if you like.
+U: my mom wants me to do premed
+O: Tell me more about your mom.
+U: she's a doctor herself
+O: How do you feel about the herself?
+U: but i like coding more
+O: That makes sense. What else is on your mind?
+U: what would u do
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: idk
+O: I'm here if you want to chat about anything.
+U: ok biology minor maybe
+O: I see. How are you feeling about all that?
+U: what are the two majors i mentioned
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: bye
+O: See you later! Take care.
+
+=== Conversation 23 ===
+U: hello
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: just finished a 10k run!
+O: Thanks for telling me. Is there more to it?
+U: new pb 52 min
+O: Okay, I'm listening. Say more if you like.
+U: im 45 so im proud
+O: That's wonderful! What made it so good?
+U: my knees hurt tho
+O: That does sound hard. What do you make of it?
+U: do i need new shoes
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: brooks ghost?
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: ok ill look
+O: Okay, I'm listening. What would you like to happen?
+U: what was my time
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: lol thx
+O: You're welcome!
+U: ttyl
+O: See you later! Take care.
+
+=== Conversation 24 ===
+U: heyyy
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: guess what
+O: What? Tell me!
+U: i got the job!!
+O: Congratulations! That's great news. How are you feeling about it?
+U: at a hospital as a radiology tech
+O: That makes sense. What else is on your mind?
+U: starts monday
+O: Okay, I'm listening.
+U: im so nervous and excited
+O: That sounds stressful. What is weighing on you the most?
+U: i also have to move to austin
+O: Okay, I'm listening. Say more if you like.
+U: my cat isnt gonna like the car ride
+O: How do you feel about the ride?
+U: her name's pepper
+O: I see. How are you feeling about all that?
+U: what job did i get
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: yay thank u
+O: Thanks, I'll remember that.
+
+=== Conversation 25 ===
+U: can u recommend a movie
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: i like horror but not gory
+O: Thanks for telling me. Is there more to it?
+U: saw hereditary, too intense
+O: Okay, I'm listening. Say more if you like.
+U: my sister loves scary movies, she made me watch it
+O: Tell me more about your sister.
+U: ok what about the conjuring
+O: I don't have a good answer to that one. What's your take on your sister?
+U: hmm ok
+O: What else is on your mind?
+U: or something funny instead
+O: That makes sense. What else is on your mind?
+U: ok shaun of the dead
+O: I see. How are you feeling about all that?
+U: what genre do i like
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: k thx
+O: You're welcome!
+
+=== Conversation 26 ===
+U: i feel so anxious lately
+O: That sounds stressful. What is weighing on you the most?
+U: work is stressing me out
+O: Thanks for telling me. Is there more to it?
+U: im a nurse at a busy er
+O: What's on your mind about the nurse?
+U: 12 hour shifts
+O: That makes sense. What else is on your mind?
+U: i barely see my kids, 2 boys
+O: How do you feel about your kids?
+U: theyre 4 and 7
+O: Okay, I'm listening. Say more if you like.
+U: guilt
+O: I see. What else is on your mind?
+U: thanks
+O: No problem at all!
+U: what do i do for work
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: ok
+O: What else is on your mind?
+U: i should go make dinner
+O: It sounds like you've thought about it. What do you think would happen if you did?
+U: bye
+O: See you later! Take care.
+
+=== Conversation 27 ===
+U: hi whats ur name
+O: I see. How are you feeling about all that?
+U: thats a weird name lol
+O: Thanks for telling me. Is there more to it?
+U: mine is jordan
+O: Okay, I'm listening. Say more if you like.
+U: i live in a tiny town in ohio
+O: Tell me more about the town.
+U: nothing to do here
+O: That makes sense. What else is on your mind?
+U: except farming. my uncle has a corn farm
+O: Thanks for telling me. Is there more to it?
+U: i help out in the summer
+O: Tell me more about the summer.
+U: what state do i live in
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: ok good
+O: What else is on your mind?
+U: you ok
+O: I'm doing well, thanks for asking. How about you?
+U: lol fine
+O: Is there something you'd like to talk about or learn?
+
+=== Conversation 28 ===
+U: what time is it
+O: I do not have a clock, so I cannot tell the time.
+U: oh right u cant tell
+O: Thanks for telling me. Is there more to it?
+U: anyway im planning a trip to italy in may
+O: What's on your mind about the trip?
+U: rome florence venice
+O: That makes sense. What else is on your mind?
+U: my girlfriend wants to see the colosseum
+O: How do you feel about the colosseum?
+U: i just want pasta
+O: Okay, I'm listening. Say more if you like.
+U: how many days do we need
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: ok 10
+O: Hm, interesting. Tell me more when you're ready.
+U: whats the plan again
+O: I see. How are you feeling about all that?
+U: where are we going
+O: To the cinema. What about coming with me?
+U: thx
+O: You're welcome!
+
+=== Conversation 29 ===
+U: ur answers are too long
+O: I see. How are you feeling about all that?
+U: shorter pls
+O: Go on, I'm listening.
+U: ok better
+O: I see. What else is on your mind?
+U: my favourite color is green
+O: I'll remember that your favorite color is green.
+U: dont ask why
+O: Thanks for telling me. Is there more to it?
+U: just is
+O: Hm, interesting. Tell me more when you're ready.
+U: whats yours
+O: I'm doing fine, thanks. I like chatting with people, so this is a good day.
+U: lol ok
+O: I'm here if you want to chat about anything.
+U: what color do i like
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: good boy
+O: Thanks, that's kind of you!
+
+=== Conversation 30 ===
+U: i dont know what to cook for a date
+O: Tell me more about the date.
+U: she's vegetarian
+O: Go on, I'm listening.
+U: we've been dating a month
+O: Okay, I'm listening. Say more if you like.
+U: her name is hannah
+O: That makes sense. What else is on your mind?
+U: i can only make pasta lol
+O: I see. How are you feeling about all that?
+U: ok pesto then
+O: Thanks for telling me. Is there more to it?
+U: wait is pesto vegetarian
+O: Okay, I'm listening. Say more if you like.
+U: parmesan has rennet
+O: That makes sense. What else is on your mind?
+U: ok so skip it?
+O: I don't have a good answer to that one. What do you think?
+U: what is her name
+O: What kind of flowers would you like?
+U: great thanks
+O: What else is on your mind?
+
+=== Conversation 31 ===
+U: hey
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: i have a dentist appt tomorrow and im terrified
+O: That's completely understandable. What worries you the most about it?
+U: last time they found 3 cavities
+O: Okay, I'm listening. Say more if you like.
+U: i brush twice a day i swear
+O: That makes sense. What else is on your mind?
+U: its at 9am
+O: I see. How are you feeling about all that?
+U: do u think it'll hurt
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: ok
+O: Is there something you'd like to talk about or learn?
+U: maybe i should floss more
+O: That could really help. Is there anything stopping you?
+U: lmao
+O: What else is on your mind?
+U: when is my appt
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: thx bye
+O: See you later! Take care.
+
+=== Conversation 32 ===
+U: so my brother is getting married
+O: Congratulations! That's great news. How are you feeling about it?
+U: hes 28 and im best man
+O: Thanks for telling me. Is there more to it?
+U: i have to write a speech
+O: Once upon a time, there was a little girl named Lily. She said, "Yes, please. I will help you, Tim, you need to be clean and safe. Once upon a time, in a small house, there was a little boy named Tim went to the kitchen and found a big cookie on the table.
+U: hes a plumber and his fiancee is a vet
+O: That makes sense. What else is on your mind?
+U: help
+O: Just talk to me. You can also teach me new things and I will learn them.
+U: any good opening line
+O: Okay, I'm listening. Say more if you like.
+U: too corny
+O: I see. What else is on your mind?
+U: ok try again
+O: I'm here if you want to chat about anything.
+U: better
+O: Okay, I'm listening.
+U: who is getting married
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: cool
+O: What else is on your mind?
+
+=== Conversation 33 ===
+U: tell me something interesting
+O: Octopuses have three hearts.
+U: octopuses have 3 hearts?? no way
+O: Thanks for telling me. Is there more to it?
+U: thats crazy
+O: I see. What else is on your mind?
+U: i went to the aquarium in monterey last year
+O: How was it?
+U: they have a giant one there
+O: How do you feel about the giant?
+U: i love the ocean
+O: Got it, you like the ocean.
+U: i wanna be a marine biologist but im 38 lol
+O: Tell me more about the biologist.
+U: is it too late
+O: I can't really say. What do you think?
+U: ok maybe i'll take a class
+O: I see. How are you feeling about all that?
+U: what do i want to be
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: thanks bot
+O: You're welcome!
+
+=== Conversation 34 ===
+U: wassup
+O: Not much, just here chatting with you. What's up with you?
+U: im at the airport and my flight is delayed 3 hrs
+O: How do you feel about your flight?
+U: going to atlanta for my cousins wedding
+O: Okay, I'm listening. Say more if you like.
+U: hate flying
+O: That sounds really frustrating. What's the worst part?
+U: why are airports so expensive
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: i just paid 9 bucks for a water
+O: What's on your mind about the water?
+U: unreal
+O: I see. What else is on your mind?
+U: entertain me
+O: Let me try: Why don't scientists trust atoms? Because they make up everything. Want another?
+U: a riddle?
+O: I don't have a good answer to that one. What's your take on the water?
+U: idk the answer
+O: I see. How are you feeling about all that?
+U: ok tell me
+O: Someone said they're going to stop allowing machines in speedrun competitions. Search me why, they'd have to drop every tool-assisted speedrun out there.
+U: lol dumb
+O: That does sound hard. What do you make of it?
+U: where am i flying to
+O: I don't know that about you yet. Tell me, and I'll remember it.
+
+=== Conversation 35 ===
+U: I've been feeling kinda down
+O: I'm sorry you're feeling that way. Do you want to tell me what happened?
+U: not sure why
+O: Thanks for telling me. Is there more to it?
+U: maybe the weather. its november and dark at 5
+O: Okay, I'm listening. Say more if you like.
+U: i live in minneapolis
+O: minneapolis! Tell me about it.
+U: winter is coming and i hate it
+O: That sounds really frustrating. What's the worst part?
+U: i do like skiing tho
+O: That makes sense. What else is on your mind?
+U: do u ski
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: fair
+O: I'm here if you want to chat about anything.
+U: ok i should go for a walk
+O: I see. How are you feeling about all that?
+U: what city am i in
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: thanks, bye
+O: See you later! Take care.
+
+=== Conversation 36 ===
+U: whats 7 squared
+O: I see. How are you feeling about all that?
+U: and the square root of 81
+O: The square root of 81 is 9.
+U: im helping my nephew with homework
+O: What's on your mind about your nephew?
+U: he's 10, named leo
+O: That makes sense. What else is on your mind?
+U: he hates math
+O: Thanks for telling me. Is there more to it?
+U: how do i make it fun
+O: I'm not sure about that. What should I have said? (just tell me and I'll learn it)
+U: pizza fractions!
+O: Thanks, I'll remember that.
+U: ok good one
+O: Glad you liked it!
+U: who am i helping
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: thank uuu
+O: Okay, I'm listening.
+
+=== Conversation 37 ===
+U: hey i just turned 30 today
+O: I see. How are you feeling about all that?
+U: feel old
+O: Go on, I'm listening.
+U: lol thanks
+O: Happy to help.
+U: my friends are taking me to a karaoke bar
+O: Tell me more about the bar.
+U: i always sing the same song, bohemian rhapsody
+O: Thanks for telling me. Is there more to it?
+U: its a disaster
+O: Okay, I'm listening. Say more if you like.
+U: do u have a fav song
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: hm
+O: I'm here if you want to chat about anything.
+U: how old am i now
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: haha right
+O: What else is on your mind?
+U: gtg ppl are here
+O: See you later! Take care.
+
+=== Conversation 38 ===
+U: can u give me advice on buying a car
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: budget is like 15k
+O: Thanks for telling me. Is there more to it?
+U: i need something reliable for commuting, 40 miles a day
+O: Okay, I'm listening. Say more if you like.
+U: im a sales rep so i drive a lot
+O: Tell me more about the rep.
+U: honda or toyota
+O: I see. How are you feeling about all that?
+U: ok civic then
+O: That makes sense. What else is on your mind?
+U: used or new
+O: Okay, I'm listening. Say more if you like.
+U: yeah used
+O: Hm, interesting. Tell me more when you're ready.
+U: what do i do for a living
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: nice thx
+O: What else is on your mind?
+
+=== Conversation 39 ===
+U: no no no
+O: Should I be? Did something happen?
+U: i spilled coffee on my laptop
+O: How do you feel about your laptop?
+U: im a grad student, my thesis is on there
+O: What's on your mind about your thesis?
+U: backed up? maybe? idk
+O: That makes sense. What else is on your mind?
+U: its in rice now
+O: I see. How are you feeling about all that?
+U: does that even work
+O: I can't really say. What do you think?
+U: ok ill unplug it
+O: Sounds like you have a plan. How are you feeling about it?
+U: this is the worst
+O: Thanks for telling me. Is there more to it?
+U: my thesis is about soil bacteria btw
+O: Tell me more about your thesis.
+U: what is my thesis about
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: ok i feel a little better
+O: I'm glad you're feeling better! Hold on to that.
+U: bye
+O: See you later! Take care.
+
+=== Conversation 40 ===
+U: hi
+O: Hello! I'm Ovi, a very small language model. How are you?
+U: u remember me?
+O: I'm not sure about that, I'm only a tiny program. What made you ask?
+U: lol of course not
+O: Okay, I'm listening. Say more if you like.
+U: i'm the guy w/ the dog
+O: Tell me more about the dog.
+U: ok his name is bruno, he's a pug
+O: I see. How are you feeling about all that?
+U: hes snoring next to me rn
+O: Thanks for telling me. Is there more to it?
+U: best thing ever
+O: That makes sense. What else is on your mind?
+U: i also play chess online, 1200 rating
+O: That makes sense. What else is on your mind?
+U: u play
+O: Okay, I'm listening.
+U: damn ok
+O: Go on, I'm listening.
+U: what's my dogs name
+O: I don't know that about you yet. Tell me, and I'll remember it.
+U: good
+O: What else is on your mind?
+U: night
+O: See you later! Take care.
