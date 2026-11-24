@@ -16,7 +16,20 @@ for _n, _l in [("names", NAMES), ("cities", CITIES), ("jobs", JOBS), ("foods", F
     l = _l[:]; _rs.shuffle(l); k = max(2, len(l) // 5); _pools[_n] = (l[k:], l[:k])      # (train, heldout)
 
 
+_ON = ["b", "br", "d", "dr", "f", "g", "gl", "h", "k", "kr", "l", "m", "n", "p", "pr", "r", "s", "st", "t", "tr", "v", "z", "sh", "ch"]
+_VO = ["a", "e", "i", "o", "u", "ia", "o", "a", "e"]
+_CO = ["", "", "n", "r", "l", "m", "s", "x", "k", "nd", "rt"]
+
+
+def invented(rnd, capital):
+    w = "".join(rnd.choice(_ON) + rnd.choice(_VO) + rnd.choice(_CO) for _ in range(rnd.choice([2, 2, 3])))
+    return w.capitalize() if capital else w
+
+
 def pick(rnd, pool, held):
+    """Half of all values are invented words (so guessing from a short list can't beat copying the memory line)."""
+    if rnd.random() < (0.7 if held else 0.5):
+        return invented(rnd, pool in ("names", "cities", "people"))
     return rnd.choice(_pools[pool][1 if held else 0])
 
 
@@ -61,9 +74,9 @@ USES = {   # (fact kind) -> [(user statement, reply with {v})]
              ("I'm bored", ["Is there something fun to do in {v}?", "Maybe a walk around {v} would help?"]),
              ("the traffic was terrible", ["Traffic in {v} can be rough. I'm sorry.", "Ugh, that sounds stressful. Is it always like that in {v}?"]),
              ("what should I do this weekend?", ["Maybe explore a part of {v} you haven't seen yet?", "How about visiting a park in {v}?"])],
-    "job": [("work was awful today", ["I'm sorry. Being {v} can be draining. Do you want to talk about it?", "That sounds rough. Was it a hard day as {v}?"]),
-            ("I'm so tired", ["Long days as {v} will do that. Try to rest tonight.", "Being {v} is tiring. Get some sleep if you can."]),
-            ("I got a raise", ["Congratulations! You deserve it as {v}.", "That's wonderful news! Hard work as {v} paid off."])],
+    "job": [("work was awful today", ["I'm sorry. Being {a} can be draining. Do you want to talk about it?", "That sounds rough. Was it a hard day as {a}?"]),
+            ("I'm so tired", ["Long days as {a} will do that. Try to rest tonight.", "Being {a} is tiring. Get some sleep if you can."]),
+            ("I got a raise", ["Congratulations! You deserve it as {a}.", "That's wonderful news! Hard work as {a} paid off."])],
     "food": [("I'm hungry", ["How about some {v}? It's your favorite.", "Maybe {v}? You love it."]),
              ("what should I cook tonight?", ["Since you love {v}, how about that?", "You could make {v}. It's your favorite."])],
     "hobby": [("I have free time today", ["It sounds like a good day for {v}.", "Why not do some {v}? You enjoy it."]),
@@ -92,7 +105,7 @@ def synth(n, seed, held=False):
             if kk is None:
                 u, a = rnd.choice(OTHER_USER); out.append(([("u", u)], a, mem, None)); continue
             u, tpls = rnd.choice(USES[kk]); val = ks[kk][3]
-            out.append(([("u", u)], rnd.choice(tpls).format(v=val), mem, val))
+            out.append(([("u", u)], rnd.choice(tpls).format(v=val, a=an(val)), mem, val))
     return out
 
 

@@ -1,0 +1,6 @@
+train 50877 real + 16000 synth; val 1500 real, 600 synth(unseen values)
+tokens 4320382
+params 5.85M
+step 774 12% lr 0.00096 train 5.165 val_ppl real 118.1 synth 12.71 copy 0.00
+step 1528 25% lr 0.00086 train 4.827 val_ppl real 86.0 synth 6.51 copy 0.00
+step 2312 38% lr 0.00071 train 4.588 val_ppl real 67.7 synth 6.04 copy 0.00
