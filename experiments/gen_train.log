@@ -1,0 +1,10 @@
+train 50877 real + 30000 synth; val 1500 real, 600 synth(unseen values)
+tokens 4977210
+warm start /tmp/ovi_gen_run1.pt
+params 5.85M
+step 822 17% lr 0.00066 train 4.401 val_ppl real 61.1 synth 4.61 copy 0.00
+step 1628 33% lr 0.00053 train 4.561 val_ppl real 53.9 synth 3.90 copy 0.00
+step 2404 50% lr 0.00037 train 4.045 val_ppl real 48.0 synth 3.26 copy 0.00
+step 3181 67% lr 0.00020 train 1.459 val_ppl real 44.0 synth 2.85 copy 0.00
+step 3954 83% lr 0.00008 train 3.454 val_ppl real 41.3 synth 2.54 copy 0.06
+DONE step 4733 val_ppl real 40.4 synth 2.42 copy 0.09
