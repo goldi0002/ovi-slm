@@ -1,0 +1,2367 @@
+[
+ {
+  "id": 1,
+  "turns": [
+   {
+    "user": "hey there",
+    "X": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "my name is Priya btw",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "That's cool! I'm sorry to hear that!"
+   },
+   {
+    "user": "i live in Pune and work as a dental hygienist",
+    "X": "What's on your mind about the hygienist?",
+    "Y": "I'm not!"
+   },
+   {
+    "user": "long day today, three patients cancelled lol",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "Oh, and they are not sure."
+   },
+   {
+    "user": "idk what to eat tonight, any ideas?",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "hmm i had biryani yesterday",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "Well, you like."
+   },
+   {
+    "user": "ok pasta it is. what's 18% tip on 45 dollars",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "You need."
+   },
+   {
+    "user": "thanks! also what do i do for work again? my brain is mush",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "I'm afraid it."
+   },
+   {
+    "user": "haha right. ok going to cook now, bye!",
+    "X": "Sounds like you have a plan. How are you feeling about it?",
+    "Y": "Oh, you are."
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "turns": [
+   {
+    "user": "ugh",
+    "X": "Ugh, sounds like a rough moment. What's going on?",
+    "Y": "sui will."
+   },
+   {
+    "user": "worst day ever",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "yeeep the life, you must be able to your lol"
+   },
+   {
+    "user": "my boss yelled at me in front of everyone about a spreadsheet",
+    "X": "What's on your mind about the spreadsheet?",
+    "Y": "I guess."
+   },
+   {
+    "user": "i'm a junior accountant at a small firm in Leeds",
+    "X": "Nice, a junior accountant! How do you like it?",
+    "Y": "Nice, a junior accountant! How do you like it?"
+   },
+   {
+    "user": "it wasn't even my mistake",
+    "X": "How do you feel about your mistake?",
+    "Y": "I'm sorry to hear that?"
+   },
+   {
+    "user": "idk why i stay",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "That's it?"
+   },
+   {
+    "user": "really? you think i should talk to him?",
+    "X": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y": "I'm not sure, you haven't mentioned it?"
+   },
+   {
+    "user": "maybe tomorrow. i just feel so small right now",
+    "X": "Okay, I'm listening. What would you like to happen?",
+    "Y": "Oh, you can't make up soon."
+   },
+   {
+    "user": "thanks for listening. what city did i say i work in, i'm blanking haha",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "That's the problem?"
+   },
+   {
+    "user": "ok night",
+    "X": "See you later! Take care.",
+    "Y": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "turns": [
+   {
+    "user": "guess what!!! i got the job!!",
+    "X": "Congratulations! That's great news. How are you feeling about it?",
+    "Y": "h good"
+   },
+   {
+    "user": "at a marine biology lab in San Diego",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "i have to hear that!"
+   },
+   {
+    "user": "i start in january omg",
+    "X": "Sounds like you have a plan. How are you feeling about it?",
+    "Y": "thats a big suck."
+   },
+   {
+    "user": "i'm so nervous and excited at the same time",
+    "X": "That sounds stressful. What is weighing on you the most?",
+    "Y": "that's so awesome!"
+   },
+   {
+    "user": "my mom cried when i told her. her name is Lucia",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "i think it's a lot"
+   },
+   {
+    "user": "we should celebrate. suggest something fun?",
+    "X": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?",
+    "Y": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?"
+   },
+   {
+    "user": "a beach bonfire sounds good but its winter",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "Oh, but he was a lot of the most important"
+   },
+   {
+    "user": "lol fair. what was my mom's name again",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "That's her?"
+   },
+   {
+    "user": "aww ok. gotta go call my dad. bye!",
+    "X": "See you later! Take care.",
+    "Y": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "turns": [
+   {
+    "user": "whats up",
+    "X": "Not much, just here chatting with you. What's up with you?",
+    "Y": "Not much, just here chatting with you. What's up with you?"
+   },
+   {
+    "user": "not much here. just got a puppy",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "ites, we can do it."
+   },
+   {
+    "user": "a beagle named Waffles",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "ityes are."
+   },
+   {
+    "user": "he chewed my slipper already",
+    "X": "Tell me more about your slipper.",
+    "Y": "Yes, you need to have."
+   },
+   {
+    "user": "lol yeah",
+    "X": "I'm here if you want to chat about anything.",
+    "Y": "How much?"
+   },
+   {
+    "user": "how many cups is 500 ml",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok and how many ounces is that",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "Active and I can be so much."
+   },
+   {
+    "user": "cool. btw what's my dog's name, asking for the vet form",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "Maybe it's"
+   },
+   {
+    "user": "right waffles. haha i'm tired",
+    "X": "That does sound hard. What do you make of it?",
+    "Y": "That's still so I hope you guys aren't like that!"
+   },
+   {
+    "user": "good night",
+    "X": "See you later! Take care.",
+    "Y": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "turns": [
+   {
+    "user": "can you recommend a movie for tonight",
+    "X": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y": "fully they do that"
+   },
+   {
+    "user": "something funny not too long",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "thats awesome"
+   },
+   {
+    "user": "i've already seen the grand budapest hotel",
+    "X": "What's on your mind about the grand?",
+    "Y": "i am sure"
+   },
+   {
+    "user": "same",
+    "X": "Is there something you'd like to talk about or learn?",
+    "Y": "i think"
+   },
+   {
+    "user": "ok i'll try something else. im Tomasz by the way",
+    "X": "Sounds like you have a plan. How are you feeling about it?",
+    "Y": "Sounds like you have a plan. How are you feeling about it?"
+   },
+   {
+    "user": "i live in Gdansk, poland. its freezing",
+    "X": "Gdansk, poland. its freezing! Tell me about it.",
+    "Y": "Gdansk, poland. its freezing! Tell me about it."
+   },
+   {
+    "user": "i work night shifts at a warehouse so my sleep is weird",
+    "X": "Tell me more about the warehouse.",
+    "Y": "That's the moment, I hope you."
+   },
+   {
+    "user": "why do you ask?",
+    "X": "I have not yet been programmed to express anger toward anyone.",
+    "Y": "I'm not want to you."
+   },
+   {
+    "user": "oh ok. what city do i live in again lol",
+    "X": "You said you live in Gdansk, poland.",
+    "Y": "You said you live in Gdansk, poland."
+   },
+   {
+    "user": "thanks bye",
+    "X": "See you later! Take care.",
+    "Y": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "turns": [
+   {
+    "user": "hi",
+    "X": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "i'm kinda anxious about tomorrow",
+    "X": "That sounds stressful. What is weighing on you the most?",
+    "Y": "I see. But I don't know what you want to get a car."
+   },
+   {
+    "user": "i have a thesis defense at 10am",
+    "X": "What's on your mind about the defense?",
+    "Y": "That's really much."
+   },
+   {
+    "user": "its about soil microbiomes",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "That's right."
+   },
+   {
+    "user": "what if i blank out",
+    "X": "It's natural to worry about that. What do you think is the most likely outcome, and what would you do then?",
+    "Y": "It's natural to worry about that. What do you think is the most likely outcome, and what would you do then?"
+   },
+   {
+    "user": "yeah i guess i know the material",
+    "X": "What's on your mind about the material?",
+    "Y": "Oh, you think."
+   },
+   {
+    "user": "can you tell me a joke to relax",
+    "X": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y": "The pick me."
+   },
+   {
+    "user": "lol that was bad",
+    "X": "Fair enough, humor is not my strong suit. Want me to try another, or shall we talk about something else?",
+    "Y": "Fair enough, humor is not my strong suit. Want me to try another, or shall we talk about something else?"
+   },
+   {
+    "user": "ok another",
+    "X": "Another what? I can tell a joke, a fun fact or a short story, or we can just talk.",
+    "Y": "Another what? I can tell a joke, a fun fact or a short story, or we can just talk."
+   },
+   {
+    "user": "haha ok. thanks. wish me luck",
+    "X": "You're welcome!",
+    "Y": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "turns": [
+   {
+    "user": "hello! my sister Aiko is visiting this weekend",
+    "X": "i love gr",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "she lives in Osaka so we dont see each other much",
+    "X": "thats a long time. I don't think it was so fun.",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "any ideas for what to do in Denver in november",
+    "X": "I'm no expert, but let's think it through together. What do you usually enjoy, and how much time do you have?",
+    "Y": "I'm no expert, but let's think it through together. What do you usually enjoy, and how much time do you have?"
+   },
+   {
+    "user": "i'm not into skiing",
+    "X": "I think.",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "idk maybe museums",
+    "X": "I can be the best?",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "she loves ramen tho",
+    "X": "What's it?",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "ok thats a good one",
+    "X": "The lid you can't get up.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "btw whats my sisters name, i want to text her a thing",
+    "X": "I would be in the best.",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "yes!! Aiko. ok going to plan stuff. bye",
+    "X": "You can get back.",
+    "Y": "Sounds like you have a plan. How are you feeling about it?"
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "turns": [
+   {
+    "user": "i just ran 10k for the first time",
+    "X": "i pos fun",
+    "Y": "How was it?"
+   },
+   {
+    "user": "took me like 62 minutes",
+    "X": "oh i hope it goes well",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "is that good?",
+    "X": "ope you find it out for time",
+    "Y": "Yes it is."
+   },
+   {
+    "user": "really?",
+    "X": "As far as I know, yes, but I'm a small program, so I can be wrong.",
+    "Y": "As far as I know, yes, but I'm a small program, so I can be wrong."
+   },
+   {
+    "user": "how many miles is that roughly",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "6.2 ok. i'm a nurse so my feet are used to being tired lol",
+    "X": "Thanks, I'll remember that.",
+    "Y": "Thanks, I'll remember that."
+   },
+   {
+    "user": "i work at a hospital in Cork",
+    "X": "a hospital in Cork, nice! How is it working there?",
+    "Y": "a hospital in Cork, nice! How is it working there?"
+   },
+   {
+    "user": "my knees hurt tho",
+    "X": "That's very soon.",
+    "Y": "I hear you. What do you think is behind it?"
+   },
+   {
+    "user": "ok i'll ice them. thanks buddy",
+    "X": "That's it?",
+    "Y": "Sounds like you have a plan. How are you feeling about it?"
+   },
+   {
+    "user": "remind me what i do for work, i wanna put it on a race form",
+    "X": "I'm sorry.",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "perfect",
+    "X": "That's it?",
+    "Y": "Okay, I'm listening."
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "turns": [
+   {
+    "user": "yo",
+    "X": "Hey! Not much here. How about you?",
+    "Y": "Hey! Not much here. How about you?"
+   },
+   {
+    "user": "bored",
+    "X": "Let's fix that. Want a joke, a fun fact, or a short story? Or tell me what you've been up to.",
+    "Y": "Let's fix that. Want a joke, a fun fact, or a short story? Or tell me what you've been up to."
+   },
+   {
+    "user": "tell me something interesting",
+    "X": "Bananas are berries, but strawberries are not.",
+    "Y": "Bananas are berries, but strawberries are not."
+   },
+   {
+    "user": "wait is that actually true",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "That's my first."
+   },
+   {
+    "user": "lol ok",
+    "X": "I'm here if you want to chat about anything.",
+    "Y": "Oh, I have to do you guys."
+   },
+   {
+    "user": "what's 17 times 23",
+    "X": "17 times 23 is 391.",
+    "Y": "17 times 23 is 391."
+   },
+   {
+    "user": "nice. i'm a high school physics teacher btw, Mr. Okafor",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "Well, but it's the best."
+   },
+   {
+    "user": "teaching in Lagos",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "How about it?"
+   },
+   {
+    "user": "the kids are wild today",
+    "X": "What's on your mind about the kids?",
+    "Y": "Well, you can do that?"
+   },
+   {
+    "user": "yeah haha",
+    "X": "What else is on your mind?",
+    "Y": "Sorry and gifts the huh?"
+   },
+   {
+    "user": "what did i say my job was? testing you",
+    "X": "I can't say for sure, but we can work it out together. What matters most to you here?",
+    "Y": "I can't say for sure, but we can work it out together. What matters most to you here?"
+   },
+   {
+    "user": "ha good. later",
+    "X": "Sounds like you have a plan. How are you feeling about it?",
+    "Y": "I know if I'm afraid they'll be back to lose."
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "turns": [
+   {
+    "user": "i feel really sad today",
+    "X": "I'm sorry you're feeling that way. Do you want to tell me what happened?",
+    "Y": "You did"
+   },
+   {
+    "user": "my grandpa passed away last week",
+    "X": "I'm so sorry for your loss. I'm here for you. Do you want to tell me about them?",
+    "Y": "That is so good. I hope you gets well"
+   },
+   {
+    "user": "his name was Henrik. he taught me how to fish",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "I'm glad that."
+   },
+   {
+    "user": "i don't really want to talk about the funeral",
+    "X": "I'm so sorry for your loss. I'm here for you. Do you want to tell me about them?",
+    "Y": "That's more of the best"
+   },
+   {
+    "user": "just sit with me for a bit",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "Maybe she will get a tonight."
+   },
+   {
+    "user": "thank you",
+    "X": "Anytime!",
+    "Y": "Anytime!"
+   },
+   {
+    "user": "i think i want to go fishing this weekend in his memory",
+    "X": "Tell me more about his memory.",
+    "Y": "What's avir."
+   },
+   {
+    "user": "there's a lake near my town, Duluth",
+    "X": "How do you feel about your town?",
+    "Y": "Well, but he's the 170."
+   },
+   {
+    "user": "do you think that's a good idea",
+    "X": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y": "You know, she's not a great time."
+   },
+   {
+    "user": "ok. what was his name again, i want to write it on the card",
+    "X": "Once upon a time, there was a little girl named Sam. The cat was very happy. He put the stick under the ancient spirit and said, \"Yes, you can have some cookies. They are happy. One day, the mouse became good friends. They like to play with. Tim had a toy.",
+    "Y": "Once upon a time, there was a little boy named Tim. Tim thought it was a beautiful butterfly became known as the wind blew and the ball. Tom was very happy. One day, the cat and the dog. The dog was so happy to have a new friend that day."
+   },
+   {
+    "user": "thanks. goodnight",
+    "X": "See you later! Take care.",
+    "Y": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "turns": [
+   {
+    "user": "hey, quick q, what's 15% of 240",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "Here do people that"
+   },
+   {
+    "user": "ok",
+    "X": "I'm here if you want to chat about anything.",
+    "Y": "You are more about the ways you can go."
+   },
+   {
+    "user": "and 240 divided by 7",
+    "X": "240 divided by 7 is 34.2857.",
+    "Y": "240 divided by 7 is 34.2857."
+   },
+   {
+    "user": "lol so not even",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "Yes, I have to see."
+   },
+   {
+    "user": "thanks. i'm splitting rent with my roommates",
+    "X": "You're welcome!",
+    "Y": "You're welcome!"
+   },
+   {
+    "user": "there's 4 of us in a flat in Berlin",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "That's a good"
+   },
+   {
+    "user": "my rent is 650 euros",
+    "X": "Got it, your rent is 650 euros.",
+    "Y": "Got it, your rent is 650 euros."
+   },
+   {
+    "user": "i'm a freelance illustrator",
+    "X": "How do you feel about the illustrator?",
+    "Y": "I'm sorry."
+   },
+   {
+    "user": "kinda stressful when clients pay late",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "That's youraining."
+   },
+   {
+    "user": "anyway what city am i in? i keep forgetting what i told you lol",
+    "X": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y": "You can be prepared for you."
+   },
+   {
+    "user": "haha ok",
+    "X": "What else is on your mind?",
+    "Y": "You can do it?"
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "turns": [
+   {
+    "user": "morning!",
+    "X": "Good morning! How are you?",
+    "Y": "Good morning! How are you?"
+   },
+   {
+    "user": "did you sleep well",
+    "X": "you're going to be a lot of things.",
+    "Y": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "lol you dont sleep",
+    "X": "oh, but I hope you were able to have a lot of work.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "anyway i made pancakes",
+    "X": "what was your new pickets from the same",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "blueberry ones",
+    "X": "o and lol",
+    "Y": "Okay, I'm listening."
+   },
+   {
+    "user": "my husband Dmitri burned his",
+    "X": "that's good, I'm glad you are very much",
+    "Y": "What's on your mind about your dmitri?"
+   },
+   {
+    "user": "hahaha he always does",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "what should we do today, its sunny",
+    "X": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?",
+    "Y": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?"
+   },
+   {
+    "user": "idk maybe a hike",
+    "X": "I was your borry.",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "ok we'll do that. whats my husbands name by the way, i like checking you remember",
+    "X": "That's too",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "aw good. byeee",
+    "X": "That's not too.",
+    "Y": "Thanks for telling me. Is there more to it?"
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "turns": [
+   {
+    "user": "i can't decide if i should quit my job",
+    "X": "where ih that you do the",
+    "Y": "Tell me more about your job."
+   },
+   {
+    "user": "i'm a software tester at a bank in Toronto",
+    "X": "that's great!",
+    "Y": "How do you feel about the bank?"
+   },
+   {
+    "user": "its boring and pays ok",
+    "X": "that's amazing!",
+    "Y": "Sounds dull. What would make it more interesting?"
+   },
+   {
+    "user": "but my cat Mochi needs vet money lol",
+    "X": "that is an older.",
+    "Y": "Tell me more about your mochi."
+   },
+   {
+    "user": "really though",
+    "X": "opefully the best",
+    "Y": "Okay, I'm listening."
+   },
+   {
+    "user": "what would you do",
+    "X": "I'm only a tiny program, so it's hard for me to say. What are you leaning towards?",
+    "Y": "I'm only a tiny program, so it's hard for me to say. What are you leaning towards?"
+   },
+   {
+    "user": "hmm",
+    "X": "I'm afraid it?",
+    "Y": "Is there something you'd like to talk about or learn?"
+   },
+   {
+    "user": "i guess i could look around first",
+    "X": "Well, it",
+    "Y": "That could really help. Is there anything stopping you?"
+   },
+   {
+    "user": "ok. ugh i feel stuck",
+    "X": "Maybe we can be a long time.",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "thanks. remind me what my cat's name is, i'm putting it on a form",
+    "X": "That's more expensive.",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "right. night",
+    "X": "Maybe she's not a tonight.",
+    "Y": "Go on, I'm listening."
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "turns": [
+   {
+    "user": "hi, i'm Rohan",
+    "X": "Nice to meet you, Rohan!",
+    "Y": "Nice to meet you, Rohan!"
+   },
+   {
+    "user": "i like cricket and cooking",
+    "X": "Got it, you like cricket and cooking.",
+    "Y": "Got it, you like cricket and cooking."
+   },
+   {
+    "user": "lately i've been making dosa from scratch",
+    "X": "I'm sorry.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "it's hard to get the batter right",
+    "X": "Oh, you.",
+    "Y": "Tell me more about the right."
+   },
+   {
+    "user": "why does it need to ferment?",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "interesting",
+    "X": "That's it?",
+    "Y": "What else is on your mind?"
+   },
+   {
+    "user": "what's a good side for dosa",
+    "X": "You haven't seen something about that?",
+    "Y": "I can't really say. What do you think?"
+   },
+   {
+    "user": "coconut chutney yeah",
+    "X": "You haven't seen fun to hear that.",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "i live in Bangalore so it's easy to get ingredients",
+    "X": "I'm sorry?",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "what do i like doing again",
+    "X": "You like cricket and cooking.",
+    "Y": "You like cricket and cooking."
+   },
+   {
+    "user": "lol ok thanks",
+    "X": "You're welcome!",
+    "Y": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "turns": [
+   {
+    "user": "omg i found a spider in my shoe",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "anything are so cool"
+   },
+   {
+    "user": "i live in Brisbane so they are huge",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "thats a fun"
+   },
+   {
+    "user": "i screamed so loud",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "i love your party"
+   },
+   {
+    "user": "my flatmate Jess laughed at me",
+    "X": "Tell me more about your jess.",
+    "Y": "Tell me more about your jess."
+   },
+   {
+    "user": "rude",
+    "X": "Okay, I'm listening.",
+    "Y": "Oh, I see."
+   },
+   {
+    "user": "anyway what should i do for dinner",
+    "X": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?",
+    "Y": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?"
+   },
+   {
+    "user": "i have eggs and rice",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "You mean."
+   },
+   {
+    "user": "fried rice, genius",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "The next week."
+   },
+   {
+    "user": "how many grams in 2 cups of rice roughly",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok. who laughed at me again? i want to get her back",
+    "X": "I'm not sure, but the closest thing I remember is that you said your flatmate Jess laughed at you.",
+    "Y": "I'm not sure, but the closest thing I remember is that you said your flatmate Jess laughed at you."
+   },
+   {
+    "user": "hehe jess. night",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "That's the ok"
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "turns": [
+   {
+    "user": "so i've been learning guitar",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "three weeks in and my fingers hurt",
+    "X": "I hear you. What do you think is behind it?",
+    "Y": "I hope you enjoy it!"
+   },
+   {
+    "user": "i know like four chords",
+    "X": "What's on your mind about the chords?",
+    "Y": "That's what I'm not sure."
+   },
+   {
+    "user": "is that normal",
+    "X": "I can't really say. What do you think?",
+    "Y": "That's right?"
+   },
+   {
+    "user": "ok",
+    "X": "I'm here if you want to chat about anything.",
+    "Y": "Oh, I was a little bit in the movie."
+   },
+   {
+    "user": "what song should i learn first",
+    "X": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?",
+    "Y": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?"
+   },
+   {
+    "user": "i like old stuff, johnny cash",
+    "X": "Got it, you like old stuff, johnny cash.",
+    "Y": "Got it, you like old stuff, johnny cash."
+   },
+   {
+    "user": "ring of fire is easy? really?",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "cool. i'm a plumber in Cardiff btw so i dont have much time to practice",
+    "X": "Thanks, I'll remember that.",
+    "Y": "Thanks, I'll remember that."
+   },
+   {
+    "user": "what did i say my job was again lol",
+    "X": "I can't say for sure, but we can work it out together. What matters most to you here?",
+    "Y": "I can't say for sure, but we can work it out together. What matters most to you here?"
+   },
+   {
+    "user": "nice",
+    "X": "Anything else on your mind? We could talk about old stuff.",
+    "Y": "That's the doctor."
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "turns": [
+   {
+    "user": "hey",
+    "X": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "got dumped today",
+    "X": "I'd like to be there.",
+    "Y": "I'm sorry, that's rough. Do you want to talk about what happened?"
+   },
+   {
+    "user": "her name was Marisol",
+    "X": "Oh, I think I'll have to be able to cash.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "we were together 2 years",
+    "X": "Oh, I can't.",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "don't say it gets better lol",
+    "X": "That's a little bit.",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "ok say it",
+    "X": "That's a lot of course.",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "i just feel numb",
+    "X": "You should have a good time.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "maybe i'll go to my brother Kenji's place this weekend",
+    "X": "You should do the luck.",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "he lives in Sacramento, i'm in Reno",
+    "X": "I hope you aren't have to do something",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "its a short drive",
+    "X": "That's fine.",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "do you think i'm overreacting",
+    "X": "That's it will be able today.",
+    "Y": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "ok thanks. what's my brother's name, i'm blanking",
+    "X": "That's good lucky!",
+    "Y": "I see. How are you feeling about all that?"
+   }
+  ]
+ },
+ {
+  "id": 18,
+  "turns": [
+   {
+    "user": "hello friend",
+    "X": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "tell me, do you like pineapple on pizza",
+    "X": "What's your favoriteests?",
+    "Y": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "come on pick a side",
+    "X": "The piepch of pet.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "haha cowardly",
+    "X": "The phota is a luhone.",
+    "Y": "Hm, interesting. Tell me more when you're ready."
+   },
+   {
+    "user": "i love it. my family thinks im crazy",
+    "X": "Oh, I don't like it.",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "i'm Beatriz, from Lisbon",
+    "X": "I was bor.",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "my dad is a fisherman and my mom runs a bakery",
+    "X": "That's a lot of good enough",
+    "Y": "Tell me more about your mom."
+   },
+   {
+    "user": "so food is a big deal at home",
+    "X": "I can't know.",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "what should i bake for his birthday",
+    "X": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?",
+    "Y": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?"
+   },
+   {
+    "user": "something with almonds probably",
+    "X": "That's better and I think you've been doing it.",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "ok thanks! where am i from again?",
+    "X": "I don't want to get it!",
+    "Y": "I don't have a good answer to that one. What's your take on your mom?"
+   },
+   {
+    "user": "right. bye",
+    "X": "Maybe the over there's go.",
+    "Y": "Okay, I'm listening."
+   }
+  ]
+ },
+ {
+  "id": 19,
+  "turns": [
+   {
+    "user": "can u help me pick a weekend plan",
+    "X": "I am will always be so they will do",
+    "Y": "I'm not sure about that, I'm only a tiny program. What made you ask?"
+   },
+   {
+    "user": "i live in Chicago, its gonna be 30 degrees",
+    "X": "i bet. i can't help you!",
+    "Y": "How do you feel about its gonna?"
+   },
+   {
+    "user": "i like board games and coffee",
+    "X": "Got it, you like board games and coffee.",
+    "Y": "Got it, you like board games and coffee."
+   },
+   {
+    "user": "hmm a board game cafe could be fun",
+    "X": "I'mount of the tonight.",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "i'm a librarian so i'm basically a nerd anyway",
+    "X": "Have you talked to do well?",
+    "Y": "How do you feel about the nerd?"
+   },
+   {
+    "user": "lol",
+    "X": "Yes, you can't do that?",
+    "Y": "What else is on your mind?"
+   },
+   {
+    "user": "what's 4 hours times 3 days",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "12 ok. i wanna clear my schedule",
+    "X": "Thanks, I'll remember that.",
+    "Y": "Thanks, I'll remember that."
+   },
+   {
+    "user": "thanks. oh whats my job, i want to see if you remember",
+    "X": "I'm sorry?",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "good bot",
+    "X": "Thanks, that's kind of you!",
+    "Y": "Thanks, that's kind of you!"
+   }
+  ]
+ },
+ {
+  "id": 20,
+  "turns": [
+   {
+    "user": "i can't sleep",
+    "X": "That sounds rough. Sleep makes everything harder. Do you know what kept you up?",
+    "Y": "did they makes like where they do whats are, lol"
+   },
+   {
+    "user": "its 3am",
+    "X": "Go on, I'm listening.",
+    "Y": "ohh! I am so bad."
+   },
+   {
+    "user": "thinking about everything",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "thats awesome!"
+   },
+   {
+    "user": "my little brother Mateo is starting college and i miss him",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "i know."
+   },
+   {
+    "user": "he went to Madrid, we're from Valencia",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "that's sad."
+   },
+   {
+    "user": "i work as a baker so i get up at 4 anyway",
+    "X": "What's on your mind about the baker?",
+    "Y": "i think"
+   },
+   {
+    "user": "lol i should just stay up",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "that's time"
+   },
+   {
+    "user": "do you ever get lonely",
+    "X": "I have a lot of friends to chat with online.",
+    "Y": "i'm sure you are doing"
+   },
+   {
+    "user": "really?",
+    "X": "As far as I know, yes, but I'm a small program, so I can be wrong.",
+    "Y": "As far as I know, yes, but I'm a small program, so I can be wrong."
+   },
+   {
+    "user": "ok. what city am i from again",
+    "X": "You said he went to Madrid, you're from Valencia.",
+    "Y": "You said he went to Madrid, you're from Valencia."
+   },
+   {
+    "user": "haha right. ok i'll try to sleep. night",
+    "X": "Sounds like you have a plan. How are you feeling about it?",
+    "Y": "That's today."
+   }
+  ]
+ },
+ {
+  "id": 21,
+  "turns": [
+   {
+    "user": "hi!!",
+    "X": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "i just adopted two rabbits",
+    "X": "Nice! What are they called?",
+    "Y": "Nice! What are they called?"
+   },
+   {
+    "user": "named them Pepper and Salt",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "The Winy!"
+   },
+   {
+    "user": "pepper is shy",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "Yes, but he isn't even aviry!"
+   },
+   {
+    "user": "salt is a menace",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "Oh, but you're a good!"
+   },
+   {
+    "user": "they live in my apartment in Oslo",
+    "X": "What's on your mind about your apartment?",
+    "Y": "Oh, you."
+   },
+   {
+    "user": "any tips on keeping them from chewing cables",
+    "X": "I'm only a small program, so I can't promise expert tips on keeping them from chewing cables, but we can think it through. What's the hardest part so far?",
+    "Y": "I'm only a small program, so I can't promise expert tips on keeping them from chewing cables, but we can think it through. What's the hardest part so far?"
+   },
+   {
+    "user": "ok i'll get cable covers",
+    "X": "Okay, I'm listening. What would you like to happen?",
+    "Y": "The other job."
+   },
+   {
+    "user": "what should i feed them besides pellets",
+    "X": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?",
+    "Y": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?"
+   },
+   {
+    "user": "ok. quick, whats the rabbits names, my friend is asking",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "I can"
+   },
+   {
+    "user": "haha yes. bye!",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "Well, but then."
+   }
+  ]
+ },
+ {
+  "id": 22,
+  "turns": [
+   {
+    "user": "ugh monday",
+    "X": "rues but",
+    "Y": "Okay, I'm listening."
+   },
+   {
+    "user": "i hate mondays",
+    "X": "i guess i hope it is.",
+    "Y": "That sounds really frustrating. What's the worst part?"
+   },
+   {
+    "user": "i'm a barista at a cafe in Melbourne and it was packed",
+    "X": "Nice, a barista! How do you like it?",
+    "Y": "Nice, a barista! How do you like it?"
+   },
+   {
+    "user": "someone ordered a decaf oat flat white with 3 pumps vanilla at 7am",
+    "X": "That stinks?",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "wow",
+    "X": "I'm not it?",
+    "Y": "I'm here if you want to chat about anything."
+   },
+   {
+    "user": "anyway how are you",
+    "X": "I'm doing well, thanks for asking. How about you?",
+    "Y": "I'm doing well, thanks for asking. How about you?"
+   },
+   {
+    "user": "and you?",
+    "X": "I'm doing fine, thanks. I like chatting with people, so this is a good day.",
+    "Y": "I'm doing fine, thanks. I like chatting with people, so this is a good day."
+   },
+   {
+    "user": "lol fair",
+    "X": "I'm not sure, I hope you?",
+    "Y": "What else is on your mind?"
+   },
+   {
+    "user": "ok what should i listen to on the bus home",
+    "X": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?",
+    "Y": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?"
+   },
+   {
+    "user": "something chill",
+    "X": "That's it?",
+    "Y": "Go on, I'm listening."
+   },
+   {
+    "user": "thanks",
+    "X": "You're welcome!",
+    "Y": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 23,
+  "turns": [
+   {
+    "user": "hey i need some life advice",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "i always going fun"
+   },
+   {
+    "user": "i'm 34 and thinking of going back to school",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "I am so sorry to hear that."
+   },
+   {
+    "user": "i work in logistics in Houston",
+    "X": "logistics in Houston, nice! How is it working there?",
+    "Y": "logistics in Houston, nice! How is it working there?"
+   },
+   {
+    "user": "i want to be a nurse",
+    "X": "Tell me more about the nurse.",
+    "Y": "I'm glad they can do that?"
+   },
+   {
+    "user": "its a big change",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "That's tiring."
+   },
+   {
+    "user": "my wife Carla supports me",
+    "X": "What's on your mind about your carla?",
+    "Y": "I'm sorry."
+   },
+   {
+    "user": "but money is tight",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "That's it?"
+   },
+   {
+    "user": "what do you think?",
+    "X": "I'm only a tiny program, so it's hard for me to say. What are you leaning towards?",
+    "Y": "I'm only a tiny program, so it's hard for me to say. What are you leaning towards?"
+   },
+   {
+    "user": "hmm yeah",
+    "X": "What else is on your mind?",
+    "Y": "I'm sorry."
+   },
+   {
+    "user": "what's my wife's name, im gonna put it in an email",
+    "X": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "ok thanks. feeling a bit better",
+    "X": "You're welcome!",
+    "Y": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 24,
+  "turns": [
+   {
+    "user": "lol my cat just knocked my coffee over",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "her name is Biscuit",
+    "X": "Biscuit. I'll remember your cat's name.",
+    "Y": "Biscuit. I'll remember your cat's name."
+   },
+   {
+    "user": "she looked me dead in the eye while doing it",
+    "X": "That's see.",
+    "Y": "What's on your mind about the eye?"
+   },
+   {
+    "user": "cats are jerks",
+    "X": "I'm not the good.",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "love her tho",
+    "X": "That's it?",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "i'm a nurse practitioner in Halifax",
+    "X": "It's your favorite.",
+    "Y": "What's on your mind about the practitioner?"
+   },
+   {
+    "user": "its been a rough week",
+    "X": "I don't think you can.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "i'm so tired",
+    "X": "That's it?",
+    "Y": "That sounds draining. Have you been able to rest?"
+   },
+   {
+    "user": "same",
+    "X": "I'm not sure, you?",
+    "Y": "What else is on your mind?"
+   },
+   {
+    "user": "what do i do for a living again, lol im so tired i forgot",
+    "X": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "ok going to bed. night",
+    "X": "That's the way, you?",
+    "Y": "Sounds like you have a plan. How are you feeling about it?"
+   }
+  ]
+ },
+ {
+  "id": 25,
+  "turns": [
+   {
+    "user": "whats a good gift for a 10 year old boy",
+    "X": "I can't really say. What do you think?",
+    "Y": "s are they they other"
+   },
+   {
+    "user": "my nephew Ravi, he likes space",
+    "X": "How do you feel about your ravi?",
+    "Y": "yea that is a lot of movie."
+   },
+   {
+    "user": "i live in Mumbai but he's in Delhi",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "telescope seems expensive",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "That's all right."
+   },
+   {
+    "user": "ok what about a lego set",
+    "X": "I don't have a good answer to that one. What's your take on your ravi?",
+    "Y": "Oh, you don't have?"
+   },
+   {
+    "user": "how much is 3500 rupees in dollars roughly",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok about 42 i guess",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "Aball of the phone."
+   },
+   {
+    "user": "cool. who is the gift for again? i got distracted",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "I'm afraid of the Sato."
+   },
+   {
+    "user": "right ravi. thanks!",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "Oh, I can't have a new part of it."
+   }
+  ]
+ },
+ {
+  "id": 26,
+  "turns": [
+   {
+    "user": "hey. i did a thing today",
+    "X": "Where are you want to get?",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "i finally told my manager i want a raise",
+    "X": "Oh, I would be a good phone else.",
+    "Y": "How do you feel about the raise?"
+   },
+   {
+    "user": "i'm a graphic designer in Austin",
+    "X": "Nice, a graphic designer! How do you like it?",
+    "Y": "Nice, a graphic designer! How do you like it?"
+   },
+   {
+    "user": "she said she'd think about it",
+    "X": "I'm not have a good.",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "i'm sweating lol",
+    "X": "That's your favorite.",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "what if she says no",
+    "X": "That's a scary thought. What's the worst that could happen, and could you handle it?",
+    "Y": "That's a scary thought. What's the worst that could happen, and could you handle it?"
+   },
+   {
+    "user": "yeah ok",
+    "X": "That's it?",
+    "Y": "Is there something you'd like to talk about or learn?"
+   },
+   {
+    "user": "should i start looking elsewhere",
+    "X": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?",
+    "Y": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?"
+   },
+   {
+    "user": "idk",
+    "X": "I'm not do that?",
+    "Y": "What else is on your mind?"
+   },
+   {
+    "user": "thanks. what city am i in again, i have a recruiter message",
+    "X": "I'm sorry.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "ok bye",
+    "X": "See you later! Take care.",
+    "Y": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 27,
+  "turns": [
+   {
+    "user": "good evening",
+    "X": "Good evening! How are you?",
+    "Y": "Good evening! How are you?"
+   },
+   {
+    "user": "i'd like to talk about gardening",
+    "X": "Do you have any friends to do?",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "i grow tomatoes on my balcony in Seattle",
+    "X": "Yes, I don't know what you want to get my date.",
+    "Y": "What's on your mind about your balcony?"
+   },
+   {
+    "user": "they never ripen because of the clouds",
+    "X": "Yes, you need to get in coffee.",
+    "Y": "Tell me more about the clouds."
+   },
+   {
+    "user": "is there a trick",
+    "X": "That's better and helping.",
+    "Y": "I can't really say. What do you think?"
+   },
+   {
+    "user": "green tomatoes fried, ha",
+    "X": "I know how many people do you.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "my name is Margaret, 67 years old, retired teacher",
+    "X": "That's the afternoon.",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "my grandkids think its funny",
+    "X": "Well, but then.",
+    "Y": "How do you feel about your grandkids?"
+   },
+   {
+    "user": "anyway what did i tell you i used to do for work",
+    "X": "I can't say for sure, but we can work it out together. What matters most to you here?",
+    "Y": "I can't say for sure, but we can work it out together. What matters most to you here?"
+   },
+   {
+    "user": "very good. goodnight dear",
+    "X": "That's for a good",
+    "Y": "I see. How are you feeling about all that?"
+   }
+  ]
+ },
+ {
+  "id": 28,
+  "turns": [
+   {
+    "user": "wanna hear a joke",
+    "X": "Sure, go ahead, I'd love to hear it!",
+    "Y": "Sure, go ahead, I'd love to hear it!"
+   },
+   {
+    "user": "why did the scarecrow win an award",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "lol you knew it",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "I know it to be."
+   },
+   {
+    "user": "ok your turn",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "I know it"
+   },
+   {
+    "user": "haha not bad",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "That's fine."
+   },
+   {
+    "user": "im Jamal btw, live in Atlanta",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "That's Saturday."
+   },
+   {
+    "user": "i drive for a rideshare company",
+    "X": "Got it, you drive for a rideshare company.",
+    "Y": "Got it, you drive for a rideshare company."
+   },
+   {
+    "user": "passengers are weird",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "I'm sorry to you."
+   },
+   {
+    "user": "one guy wanted me to play baby shark for 30 mins",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "Maybe it?"
+   },
+   {
+    "user": "what city am i in again?",
+    "X": "You said one guy wanted you to Play baby shark for 30 mins.",
+    "Y": "You said one guy wanted you to Play baby shark for 30 mins."
+   },
+   {
+    "user": "nice. later",
+    "X": "See you later! Take care.",
+    "Y": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 29,
+  "turns": [
+   {
+    "user": "i'm so excited!!!",
+    "X": "i aming.",
+    "Y": "That's wonderful! What made it so good?"
+   },
+   {
+    "user": "taking my first trip abroad next month",
+    "X": "thats a long time.",
+    "Y": "Okay, I'm listening. What would you like to happen?"
+   },
+   {
+    "user": "going to Kyoto",
+    "X": "o, lol",
+    "Y": "Sounds like you have a plan. How are you feeling about it?"
+   },
+   {
+    "user": "i'm from Johannesburg and never left africa",
+    "X": "that's right for you",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "what should i pack",
+    "X": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?",
+    "Y": "That sounds like a real decision. I don't know the whole situation, so what feels right to you?"
+   },
+   {
+    "user": "its gonna be cold right",
+    "X": "I was over and I don't even working.",
+    "Y": "What's on your mind about its gonna?"
+   },
+   {
+    "user": "how many yen is 100 dollars about",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok. and what food should i try",
+    "X": "I like it",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "ramen obviously lol",
+    "X": "I want to have to be",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "i forgot, where am i flying from?",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "thanks! so nervous about the flight tho",
+    "X": "You're welcome!",
+    "Y": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 30,
+  "turns": [
+   {
+    "user": "can you remember stuff",
+    "X": "Yes, I remember what you tell me, like your name and what you like, and I can learn new facts if you teach me.",
+    "Y": "Yes, I remember what you tell me, like your name and what you like, and I can learn new facts if you teach me."
+   },
+   {
+    "user": "ok good. my favourite color is teal",
+    "X": "You should be so much.",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "my favourite food is tacos",
+    "X": "I'll remember that your favorite food is tacos.",
+    "Y": "I'll remember that your favorite food is tacos."
+   },
+   {
+    "user": "my birthday is march 9",
+    "X": "Got it, your birthday is march 9.",
+    "Y": "Got it, your birthday is march 9."
+   },
+   {
+    "user": "i have a lizard named Gecko Jr",
+    "X": "That's your favorite.",
+    "Y": "How do you feel about the lizard?"
+   },
+   {
+    "user": "ok now what's my favourite food",
+    "X": "I'm sorry.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "and when's my birthday",
+    "X": "You said your birthday is march 9.",
+    "Y": "You said your birthday is march 9."
+   },
+   {
+    "user": "what was the lizard called",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "wow nice",
+    "X": "That's the hear from you.",
+    "Y": "What else is on your mind?"
+   },
+   {
+    "user": "ok bye",
+    "X": "See you later! Take care.",
+    "Y": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 31,
+  "turns": [
+   {
+    "user": "hey",
+    "X": "Hello! I'm Ovi, a very small language model. How are you?",
+    "Y": "Hello! I'm Ovi, a very small language model. How are you?"
+   },
+   {
+    "user": "i'm in a weird mood",
+    "X": "How do you feel about the mood?",
+    "Y": "Aw, so I have been very much. I'm not sure it is just a long time."
+   },
+   {
+    "user": "not sad not happy just meh",
+    "X": "That does sound hard. What do you make of it?",
+    "Y": "I hope you do well!"
+   },
+   {
+    "user": "ya know",
+    "X": "Hm, interesting. Tell me more when you're ready.",
+    "Y": "I hope you are able to have a good time!"
+   },
+   {
+    "user": "i work in a call center in Manila",
+    "X": "a call center in Manila, nice! How is it working there?",
+    "Y": "a call center in Manila, nice! How is it working there?"
+   },
+   {
+    "user": "been there 3 years",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "I'm sorry?"
+   },
+   {
+    "user": "kinda want to learn coding",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "I'm not sure, right?"
+   },
+   {
+    "user": "where would i start",
+    "X": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "python? ok",
+    "X": "Thanks, I'll remember that.",
+    "Y": "Thanks, I'll remember that."
+   },
+   {
+    "user": "is it hard",
+    "X": "I can't really say. What do you think?",
+    "Y": "You haven't know if you."
+   },
+   {
+    "user": "ok i'll try. what's my job again, for my profile",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "Oh, you."
+   },
+   {
+    "user": "thanks",
+    "X": "You're welcome!",
+    "Y": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 32,
+  "turns": [
+   {
+    "user": "help i burned dinner",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "i they let us"
+   },
+   {
+    "user": "was making lasagna",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "my boyfriend Luca is coming over in an hour",
+    "X": "Thanks, I'll remember that.",
+    "Y": "Thanks, I'll remember that."
+   },
+   {
+    "user": "what can i make fast",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "hm eggs? lol",
+    "X": "Thanks, I'll remember that.",
+    "Y": "Thanks, I'll remember that."
+   },
+   {
+    "user": "omelette it is",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "Maybe the box."
+   },
+   {
+    "user": "how many eggs for two people",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok. he's italian so he'll judge me",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "The movie."
+   },
+   {
+    "user": "i live in Dublin, he's in Milan, he's visiting",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "I'm not"
+   },
+   {
+    "user": "what's his name, i wanna make a sign",
+    "X": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "aww thanks",
+    "X": "You're welcome!",
+    "Y": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 33,
+  "turns": [
+   {
+    "user": "i hate winter",
+    "X": "iiep you",
+    "Y": "That sounds really frustrating. What's the worst part?"
+   },
+   {
+    "user": "i live in Minneapolis and its like -10",
+    "X": "thats awesome!",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "i'm a mail carrier so i'm out in it all day",
+    "X": "i am sure",
+    "Y": "What's on your mind about the mail?"
+   },
+   {
+    "user": "my hands are numb",
+    "X": "Got it, your hands is numb.",
+    "Y": "Got it, your hands is numb."
+   },
+   {
+    "user": "gloves dont work",
+    "X": "I'm sorry.",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "really? thats a thing?",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "ok i'll try. thanks",
+    "X": "I'm not you?",
+    "Y": "Is there something you'd like to talk about or learn?"
+   },
+   {
+    "user": "what do i do for work, quick quiz",
+    "X": "I'm not sure, but the closest thing I remember is that you said gloves dont work.",
+    "Y": "I'm not sure, but the closest thing I remember is that you said gloves dont work."
+   },
+   {
+    "user": "lol correct",
+    "X": "That's your life?",
+    "Y": "Okay, I'm listening."
+   },
+   {
+    "user": "bye bye",
+    "X": "See you later! Take care.",
+    "Y": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 34,
+  "turns": [
+   {
+    "user": "do you have a favorite animal",
+    "X": "I'd say cats, they seem calm and curious.",
+    "Y": "I'd say cats, they seem calm and curious."
+   },
+   {
+    "user": "no way, an octopus?",
+    "X": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)",
+    "Y": "I'm not sure about that. What should I have said? (just tell me and I'll learn it)"
+   },
+   {
+    "user": "why?",
+    "X": "That is a good question. I am not sure, but you can teach me the answer.",
+    "Y": "That is a good question. I am not sure, but you can teach me the answer."
+   },
+   {
+    "user": "cool. mine is an otter",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "Shich the out."
+   },
+   {
+    "user": "i'm Hye-jin, i'm a vet tech in Busan",
+    "X": "How do you feel about the tech?",
+    "Y": "Oh, you're doing"
+   },
+   {
+    "user": "i get to hold puppies all day",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "That's the car."
+   },
+   {
+    "user": "best job honestly",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "That's 40:00 a bit."
+   },
+   {
+    "user": "tho sometimes sad stuff happens",
+    "X": "I hear you. What do you think is behind it?",
+    "Y": "That's the photosa."
+   },
+   {
+    "user": "yeah",
+    "X": "What else is on your mind?",
+    "Y": "That's a very good thing to work."
+   },
+   {
+    "user": "ok enough sad, tell me a joke",
+    "X": "That does sound hard. What do you make of it?",
+    "Y": "What did you know?"
+   },
+   {
+    "user": "haha. what animal did i say was my favorite",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "I feel like to do you."
+   },
+   {
+    "user": "right. night!",
+    "X": "Okay, I'm listening.",
+    "Y": "Abby is the same time."
+   }
+  ]
+ },
+ {
+  "id": 35,
+  "turns": [
+   {
+    "user": "what's the capital of Australia",
+    "X": "I'm not sure, I don't have the capital of Australia yet. If you tell me, I'll remember it.",
+    "Y": "I'm not sure, I don't have the capital of Australia yet. If you tell me, I'll remember it."
+   },
+   {
+    "user": "not sydney? really?",
+    "X": "I don't have a good answer to that one. What do you think?",
+    "Y": "I'd like to be able to make it."
+   },
+   {
+    "user": "lol i would've failed",
+    "X": "I'm sorry, that's rough. Do you want to talk about what happened?",
+    "Y": "I like to take it."
+   },
+   {
+    "user": "ok another, how many days till december 25",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "That's the Trard."
+   },
+   {
+    "user": "i'm in Wellington, so summer christmas",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "Oh, I don't like to go."
+   },
+   {
+    "user": "my partner Sam and I are hosting 8 people",
+    "X": "What's on your mind about your sam?",
+    "Y": "That's like."
+   },
+   {
+    "user": "what should we cook",
+    "X": "I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?",
+    "Y": "I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?"
+   },
+   {
+    "user": "bbq makes sense",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "I'm glad!"
+   },
+   {
+    "user": "ok. whats my partners name again",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "I will be able to get there."
+   },
+   {
+    "user": "and city?",
+    "X": "I don't have a good answer to that one. What's your take on your sam?",
+    "Y": "I've got in the parents."
+   },
+   {
+    "user": "thanks. gonna go shop",
+    "X": "You're welcome!",
+    "Y": "You're welcome!"
+   }
+  ]
+ },
+ {
+  "id": 36,
+  "turns": [
+   {
+    "user": "hi, im new to this",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "at are all is pob?"
+   },
+   {
+    "user": "i'm Elena, 29, a pastry chef in Vienna",
+    "X": "How do you feel about the chef?",
+    "Y": "that's awesome. I don't have a better time to get the police."
+   },
+   {
+    "user": "i have two sisters, Katja and Mira",
+    "X": "What's on your mind about the sisters?",
+    "Y": "What's on your mind about the sisters?"
+   },
+   {
+    "user": "katja is the oldest",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "You know what to do"
+   },
+   {
+    "user": "we're all very different lol",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "I have."
+   },
+   {
+    "user": "mira just got engaged",
+    "X": "Congratulations! That's great news. How are you feeling about it?",
+    "Y": "It's for it."
+   },
+   {
+    "user": "i'm happy but also kinda jealous",
+    "X": "That's wonderful! What made it so good?",
+    "Y": "I'll be happy for you."
+   },
+   {
+    "user": "is that bad",
+    "X": "I can't really say. What do you think?",
+    "Y": "I'm sure."
+   },
+   {
+    "user": "ok",
+    "X": "What else is on your mind?",
+    "Y": "I know how long as well."
+   },
+   {
+    "user": "so what's the name of my oldest sister",
+    "X": "I don't know that about you yet. Tell me, and I'll remember it.",
+    "Y": "I don't know that about you yet. Tell me, and I'll remember it."
+   },
+   {
+    "user": "ok good. and what do i do again",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "I like to go."
+   },
+   {
+    "user": "great memory. bye",
+    "X": "That's nice to hear. What's behind it?",
+    "Y": "You could go?"
+   }
+  ]
+ },
+ {
+  "id": 37,
+  "turns": [
+   {
+    "user": "idk what to do with my life",
+    "X": "where they are them",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "like at all",
+    "X": "how did you say?",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "i'm 22, studying economics in Nairobi",
+    "X": "o, or out of the mom.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "i don't even like it",
+    "X": "thats to make it",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "my dad wants me to be an accountant",
+    "X": "How do you feel about the accountant?",
+    "Y": "How do you feel about the accountant?"
+   },
+   {
+    "user": "i want to make music",
+    "X": "I amounts.",
+    "Y": "Thanks for telling me. Is there more to it?"
+   },
+   {
+    "user": "is that dumb",
+    "X": "It's on.",
+    "Y": "I can't really say. What do you think?"
+   },
+   {
+    "user": "really?",
+    "X": "As far as I know, yes, but I'm a small program, so I can be wrong.",
+    "Y": "As far as I know, yes, but I'm a small program, so I can be wrong."
+   },
+   {
+    "user": "ok. what should i do first",
+    "X": "What do you do?",
+    "Y": "I see. How are you feeling about all that?"
+   },
+   {
+    "user": "maybe a small gig",
+    "X": "The car, please.",
+    "Y": "Okay, I'm listening. Say more if you like."
+   },
+   {
+    "user": "thanks. what am i studying again lol",
+    "X": "Actually have you been?",
+    "Y": "That makes sense. What else is on your mind?"
+   },
+   {
+    "user": "ha ok. thanks man",
+    "X": "Abby in the same time.",
+    "Y": "I see. How are you feeling about all that?"
+   }
+  ]
+ },
+ {
+  "id": 38,
+  "turns": [
+   {
+    "user": "good morning!",
+    "X": "Good morning! How are you?",
+    "Y": "Good morning! How are you?"
+   },
+   {
+    "user": "i have a big presentation today",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "That's great. I'm not sure."
+   },
+   {
+    "user": "i'm an architect, first time pitching to a client in Dubai",
+    "X": "What's on your mind about the client?",
+    "Y": "Oh, and that's the water."
+   },
+   {
+    "user": "i live in London",
+    "X": "London! Tell me about it.",
+    "Y": "London! Tell me about it."
+   },
+   {
+    "user": "what if my slides break",
+    "X": "It's natural to worry about that. What do you think is the most likely outcome, and what would you do then?",
+    "Y": "It's natural to worry about that. What do you think is the most likely outcome, and what would you do then?"
+   },
+   {
+    "user": "ok backup on a usb",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "It's it?"
+   },
+   {
+    "user": "what should i eat for breakfast to feel calm",
+    "X": "I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?",
+    "Y": "I can't decide that for you, but I'm happy to think it through with you. What are the options you have in mind?"
+   },
+   {
+    "user": "eggs and toast, fine",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "You can you?"
+   },
+   {
+    "user": "thanks! wish me luck",
+    "X": "You're welcome!",
+    "Y": "You're welcome!"
+   },
+   {
+    "user": "btw what's my job? i wanna see if you got it",
+    "X": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y": "I'm not!"
+   },
+   {
+    "user": "love that. bye!",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "That's it?"
+   }
+  ]
+ },
+ {
+  "id": 39,
+  "turns": [
+   {
+    "user": "sooo i'm bored in class",
+    "X": "Sounds dull. What would make it more interesting?",
+    "Y": "i that"
+   },
+   {
+    "user": "lol dont tell my prof",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "oh wow that is good"
+   },
+   {
+    "user": "i'm Tyler, junior at Ohio State, studying nursing",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "I'm glad you will get it"
+   },
+   {
+    "user": "columbus is cold today",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "I amazing"
+   },
+   {
+    "user": "anyone fun to talk to? just you lol",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "That's not so much more."
+   },
+   {
+    "user": "haha ok",
+    "X": "What else is on your mind?",
+    "Y": "That's so sad."
+   },
+   {
+    "user": "what's 144 divided by 12",
+    "X": "144 divided by 12 is 12.",
+    "Y": "144 divided by 12 is 12."
+   },
+   {
+    "user": "12 yep",
+    "X": "Hm, interesting. Tell me more when you're ready.",
+    "Y": "How long as well."
+   },
+   {
+    "user": "do you know any trivia",
+    "X": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y": "Yes, that you can't have to get to start it."
+   },
+   {
+    "user": "wait really",
+    "X": "Okay, I'm listening.",
+    "Y": "Well, but they are you can go to your favorite enough?"
+   },
+   {
+    "user": "ok class is ending. where do i go to school again",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "I will get there."
+   },
+   {
+    "user": "bye",
+    "X": "See you later! Take care.",
+    "Y": "See you later! Take care."
+   }
+  ]
+ },
+ {
+  "id": 40,
+  "turns": [
+   {
+    "user": "hey it's me again",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "s alwaysobes"
+   },
+   {
+    "user": "remember me?",
+    "X": "I don't have a good answer to that one. What do you think?",
+    "Y": "how do you get it?"
+   },
+   {
+    "user": "what do you remember",
+    "X": "I'm not sure about that, I'm only a tiny program. What made you ask?",
+    "Y": "what are?"
+   },
+   {
+    "user": "ok so what's my name",
+    "X": "I don't know your name yet. What should I call you?",
+    "Y": "I don't know your name yet. What should I call you?"
+   },
+   {
+    "user": "cool. and my dog",
+    "X": "Thanks for telling me. Is there more to it?",
+    "Y": "I'm not to do it."
+   },
+   {
+    "user": "hm i don't think i told you about a dog",
+    "X": "Okay, I'm listening. Say more if you like.",
+    "Y": "That's good thing."
+   },
+   {
+    "user": "oh wait yes i did, ok lol",
+    "X": "That makes sense. What else is on your mind?",
+    "Y": "Oh, I know."
+   },
+   {
+    "user": "i'm having a good day. got a promotion",
+    "X": "Congratulations! That's great news. How are you feeling about it?",
+    "Y": "That was a birthday."
+   },
+   {
+    "user": "i'm a project manager at a shipping company in Rotterdam",
+    "X": "Nice, a project manager! How do you like it?",
+    "Y": "Nice, a project manager! How do you like it?"
+   },
+   {
+    "user": "what should i do to celebrate",
+    "X": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?",
+    "Y": "I'm not the best judge of that, but it's worth taking your time. What matters most to you here?"
+   },
+   {
+    "user": "a nice dinner. any cuisine suggestion",
+    "X": "I see. How are you feeling about all that?",
+    "Y": "I'm sorry?"
+   },
+   {
+    "user": "ok bye",
+    "X": "See you later! Take care.",
+    "Y": "See you later! Take care."
+   }
+  ]
+ }
+]
