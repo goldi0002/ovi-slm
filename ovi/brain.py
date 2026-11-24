@@ -120,8 +120,9 @@ class Answer:
 
 
 class Brain(ConvMemory, SlotMemory):
-    def __init__(self, log=LOG, builtin=True):
+    def __init__(self, log=LOG, builtin=True, gen=False):
         self.log = log
+        self._gen_on, self._gen = gen, None             # small generator for open chat (off unless asked; see ovi/gen.py)
         self._builtin, self._base = builtin, None      # tokenizer + story LM load lazily (only when needed)
         self.entries, self.index, self.exact = [], Index(), {}
         self.key = {}
@@ -781,12 +782,43 @@ class Brain(ConvMemory, SlotMemory):
                 self._write({"e": "set", "q": e.q, "a": e.a, "conf": e.conf})
         if a is None:
             a = self._multi(msg) or self._converse(msg)
+            a = self._generate(msg, a)
         if msg.endswith("?") or QWORD.match(msg):
             self.asked.append(msg)
         m_c = re.search(r" is (-?[\d.]+)\.$", a.text) if a.src == "calc" else None
         self.last_calc = m_c.group(1) if m_c else None
         self.history.append((msg, a.text)); self.history = self.history[-8:]
         self._conv_note(msg, a)
+        return a
+
+    GEN_WHY = ("no memory matched; conversational move", "question about Ovi/opinion/context: neutral reply, no teaching",
+               "short/vague question: neutral follow-up, no teaching")
+
+    def _generate(self, msg, a):
+        """Open chat only: replace a borrowed corpus line / generic fallback with a generated reply grounded in what Ovi remembers.
+        Facts, memory recall, arithmetic, rules and the teach flow are never touched. Any failed safety check keeps the old reply."""
+        if not self._gen_on or msg.startswith("/") or not (a.src in ("dlg", "cb", "movie") or (a.src == "chat" and a.why in self.GEN_WHY)):
+            return a
+        if self._gen is None:
+            from . import gen
+            path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "ovi_gen.pt")
+            import torch
+            torch.set_num_threads(2)
+            self._gen = gen.Gen(); self._gen.load_state_dict(torch.load(path)); self._gen.eval()
+        from .dialogue import claims_human
+        hist = []
+        for u, o in self.history[-3:]:
+            hist += [("u", u), ("o", o)]
+        hist.append(("u", msg))
+        words = set(norm(msg).split())
+        bits = self._fact_bits()
+        bits.sort(key=lambda b: -len(words & set(norm(b).split())))
+        prev = self.history[-1][1] if self.history else ""
+        for seed in range(4):
+            t = self._gen.reply(hist, bits[:5], temp=0.7, seed=seed).strip()
+            if 2 <= len(t.split()) <= 32 and t != prev and not claims_human(t) and t.lower() not in (m.lower() for m, _ in self.history) \
+                    and not re.search(r"http|www\.|\d{4,}|\bi am (?:a|an) (?:student|teacher|nurse|doctor)\b", t, re.I):
+                return Answer(t, max(a.conf, 0.5), "gen", f"generated (replaced {a.src})")
         return a
 
     CORR_STRONG = re.compile(r"(?:no|nope|nah|wrong|incorrect|not quite|that'?s (?:wrong|not (?:right|correct|true|it|what i said))|that is (?:wrong|not (?:right|correct|true))|you'?re wrong)\b[,.! ]*(.*)$", re.I)

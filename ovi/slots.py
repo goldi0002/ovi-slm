@@ -274,6 +274,13 @@ class SlotMemory(UserMemory):
         return None
 
     def _summary(self):
+        bits = self._fact_bits()
+        if not bits:
+            return "Not much yet. Tell me about yourself, like your name, where you live or what you like."
+        return "Here's what I remember: " + "; ".join(bits[:8]) + "."
+
+    def _fact_bits(self):
+        """What Ovi knows about the user as short second-person phrases ('your dog is called Max')."""
         bits = []
         nm = self._known_name()
         if nm:
@@ -296,9 +303,7 @@ class SlotMemory(UserMemory):
         for prefix in ("do ", "my ", "going", "rel "):
             for _, s in self._fget(prefix):
                 bits.append(s[0].lower() + s[1:-1])
-        if not bits:
-            return "Not much yet. Tell me about yourself, like your name, where you live or what you like."
-        return "Here's what I remember: " + "; ".join(bits[:8]) + "."
+        return bits
 
     def _fact_qs_for(self, t):
         """Slot questions to forget for 'my age' / 'what i play' / 'how old i am' / 'where i am going' (only those that exist)."""
